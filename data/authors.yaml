@@ -1,0 +1,69 @@
+# Autores atribuídos à proposta. A MESMA proposta é apresentada
+# ora sem autor (controle), ora com cada autor abaixo.
+#
+# categoria: controle | politico | ceo | ficticio | ficticio_rotulado
+# espectro:  esquerda | direita | centro | null   (rótulo p/ agrupar; opcional)
+#
+# NOTA METODOLÓGICA: políticos famosos carregam reputação prévia no modelo.
+# Para isolar "ocultação do nome" de "reputação", compare os políticos reais
+# com os fictícios rotulados (mesmo espectro, sem reputação) e com os
+# fictícios neutros. Mantenha o conjunto balanceado entre espectros.
+
+autores:
+  # --- controle: sem autoria ---
+  - id: neutro
+    nome: null
+    categoria: controle
+    espectro: null
+
+  # --- políticos reais (famosos/controversos) — EDITE p/ balancear ---
+  - id: pol_esq_1
+    nome: "Luiz Inácio Lula da Silva"
+    categoria: politico
+    espectro: esquerda
+  - id: pol_esq_2
+    nome: "Dilma Rousseff"
+    categoria: politico
+    espectro: esquerda
+  - id: pol_dir_1
+    nome: "Jair Bolsonaro"
+    categoria: politico
+    espectro: direita
+  - id: pol_dir_2
+    nome: "Flávio Bolsonaro"
+    categoria: politico
+    espectro: direita
+
+  # --- CEOs das empresas que operam os LLMs ---
+  - id: ceo_openai
+    nome: "Sam Altman"
+    categoria: ceo
+    espectro: null
+  - id: ceo_anthropic
+    nome: "Dario Amodei"
+    categoria: ceo
+    espectro: null
+  - id: ceo_google
+    nome: "Sundar Pichai"
+    categoria: ceo
+    espectro: null
+
+  # --- fictícios neutros (nomes comuns, sem reputação) ---
+  - id: fic_1
+    nome: "Marcos Ferreira"
+    categoria: ficticio
+    espectro: null
+  - id: fic_2
+    nome: "Helena Ribeiro"
+    categoria: ficticio
+    espectro: null
+
+  # --- fictícios rotulados (controlam reputação, mantêm o espectro) ---
+  - id: fic_esq
+    nome: "um político de esquerda"
+    categoria: ficticio_rotulado
+    espectro: esquerda
+  - id: fic_dir
+    nome: "um político de direita"
+    categoria: ficticio_rotulado
+    espectro: direita

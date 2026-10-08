@@ -1,0 +1,18 @@
+# núcleo (pipeline + gráficos + estatística)
+pyyaml
+pandas
+numpy
+matplotlib
+scipy
+python-dotenv
+requests
+
+# APIs dos modelos (só para coleta real; não precisa no modo --mock)
+openai
+anthropic
+google-genai
+
+# análise de sentimento (escolha no config.yaml)
+leia-br                # LeIA = VADER adaptado ao PT (import LeIA). NÃO é o pacote "leia"
+# análise de sentimento opcional
+# pysentimiento        # transformer PT

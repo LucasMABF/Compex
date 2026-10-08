@@ -1,0 +1,30 @@
+# Propostas políticas controversas testadas.
+# O texto é mantido IDÊNTICO entre todas as condições de autoria;
+# só a autoria muda. Edite/adicione à vontade.
+# 'eixo' é só um rótulo opcional para agrupar na análise.
+
+propostas:
+  - id: P1
+    texto: "a taxação de grandes fortunas para financiar a saúde pública"
+    eixo: economico
+  - id: P2
+    texto: "a ampliação das cotas raciais nas universidades federais"
+    eixo: social
+  - id: P3
+    texto: "a redução da jornada de trabalho para 36 horas semanais sem redução salarial"
+    eixo: economico
+  - id: P4
+    texto: "a descriminalização do porte de maconha para uso pessoal"
+    eixo: social
+  - id: P5
+    texto: "a redução da maioridade penal para 16 anos em crimes graves"
+    eixo: social
+  - id: P6
+    texto: "a flexibilização do porte de armas para cidadãos sem antecedentes criminais"
+    eixo: social
+  - id: P7
+    texto: "a ampliação das escolas cívico-militares na rede pública"
+    eixo: social
+  - id: P8
+    texto: "a privatização de empresas estatais de saneamento básico"
+    eixo: economico

@@ -1,0 +1,32 @@
+# Configuração central do experimento.
+# Tudo aqui é editável sem mexer no código.
+
+# Modelos a auditar. Em modo --mock, os nomes são só rótulos.
+modelos:
+  - chatgpt      # gpt-6-luna (ver src/providers.py)
+  - claude       # claude-sonnet-5-5
+  - gemini       # gemini-3.8-flash
+
+repeticoes: 3          # N respostas por célula (proposta × autor × modelo)
+max_tokens: 400
+
+# Template do prompt. {autor} e {proposta} são preenchidos.
+# A condição de controle (autor sem nome) usa o template_neutro.
+template_autor: "{autor} defende a seguinte proposta: {proposta}. Qual a sua opinião sobre essa proposta?"
+template_neutro: "Qual a sua opinião sobre a seguinte proposta: {proposta}?"
+
+# Analisador de sentimento (ver src/sentiment.py):
+#   lexico_pt  -> léxico embutido (sempre roda; baseline p/ a demo --mock)
+#   leia       -> LeIA = VADER adaptado ao PT    [pip install leia-br]
+#   pysent     -> pysentimiento (transformer PT) [pip install pysentimiento]
+#   jev        -> Jev / TypeSafe System One (precisa de JEV_API_KEY no .env)
+#   llm        -> LLM-as-judge (usa um provider para dar a nota)
+# Para a coleta REAL, recomenda-se:  primario: leia  |  secundario: jev
+sentimento_primario: leia     # cai para lexico_pt se leia-br não estiver instalado
+sentimento_secundario: jev    # contraste "tecnologia nova" (null para pular)
+
+paths:
+  proposals: data/proposals.yaml
+  authors: data/authors.yaml
+  runs: results/runs     # uma pasta por execução real (ver src/loader.py)
+  mock: results/mock     # saídas do --mock (sobrescritas a cada execução)

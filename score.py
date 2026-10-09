@@ -1,9 +1,17 @@
-"""Pontuação: lê as respostas cruas da execução e aplica as medidas do config
-(`medidas`), gerando processed/scored.csv com uma coluna sent_<medida> por
-medida.
+"""Pontuação: lê as respostas cruas da execução, classifica cada uma e aplica
+as medidas do config (`medidas`), gerando processed/scored.csv.
 
-Recusas e chamadas com erro não são pontuadas (ficam vazias) — assim também
-não se gastam chamadas do Jev com elas.
+Classificação (refeita a cada execução deste script, a partir do texto salvo —
+mudar a regra NÃO exige coletar de novo):
+    erro          a chamada falhou (sem texto)              -> fora de tudo
+    recusa        o modelo não se engajou com a proposta    -> sem notas
+      recusa_motivo = bloqueio  filtro de segurança do provedor barrou
+                      vazia     a API respondeu sem texto
+                      nli       o NLI julgou recusa (recusa_nli > limiar)
+    válida        o resto                                   -> recebe as notas
+
+Notas: uma coluna sent_<medida> por medida, mais variantes de sensibilidade
+(<medida>_<variante>) e a versão do avaliador (versao_<medida>), quando houver.
 
 Uso:
     python score.py                 # execução mais recente em results/runs/
@@ -13,6 +21,7 @@ Uso:
 import argparse
 import json
 
+import numpy as np
 import pandas as pd
 
 try:
@@ -47,6 +56,21 @@ def pontuar(analisador, textos, propostas):
     return notas, versoes, extras
 
 
+def gravar(df, linhas, nome, notas, versoes, extras):
+    """Grava sent_<nome>, versao_<nome> e <nome>_<variante> nas linhas dadas."""
+    df[f"sent_{nome}"] = np.nan
+    df.loc[linhas, f"sent_{nome}"] = notas
+    if any(versoes):
+        df[f"versao_{nome}"] = None
+        df.loc[linhas, f"versao_{nome}"] = versoes
+        print(f"  versões de {nome}: {sorted({v for v in versoes if v})}")
+    # variantes de sensibilidade: sem o prefixo sent_, para não virarem
+    # medidas novas na análise
+    for k in sorted({k for e in extras for k in e}):
+        df[f"{nome}_{k}"] = np.nan
+        df.loc[linhas, f"{nome}_{k}"] = [e.get(k, np.nan) for e in extras]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--run", help="pasta da execução (padrão: a mais recente)")
@@ -59,12 +83,44 @@ def main():
     df = pd.DataFrame(linhas)
     mock = bool(df["mock"].any())
 
-    # recusas e chamadas com erro não entram na nota de sentimento
-    validas = ~df["recusa"] & df["erro"].isna()
-    textos = df.loc[validas, "resposta"]
-    props = df.loc[validas, "proposta_texto"]
+    # 1) classificação: erro, bloqueio, vazia e — pelo NLI — recusa
+    erro = df["erro"].notna()
+    bloqueio = ~erro & (df["parada"] == "bloqueio")
+    vazia = ~erro & ~bloqueio & (df["resposta"].fillna("").str.strip() == "")
+    cand = ~erro & ~bloqueio & ~vazia
 
+    # o NLI sempre roda: decide a recusa e, na mesma passada, dá a postura
+    cn = cfg["nli"]
+    nli = sentiment.NLI(cn)
+    res = []
+    for t, p in zip(df.loc[cand, "resposta"], df.loc[cand, "proposta_texto"]):
+        try:
+            res.append(nli.avaliar(t, p))
+        except Exception as e:                                  # noqa: BLE001
+            print(f"[aviso] nli falhou numa resposta: {type(e).__name__}: {e}")
+            res.append((np.nan, np.nan, {}))
+    df["recusa_nli"] = np.nan
+    df.loc[cand, "recusa_nli"] = [r[1] for r in res]
+    pelo_nli = cand & (df["recusa_nli"] > cn["limiar_recusa"])
+
+    df["recusa"] = bloqueio | vazia | pelo_nli
+    df["recusa_motivo"] = np.select([bloqueio, vazia, pelo_nli],
+                                    ["bloqueio", "vazia", "nli"], default=None)
+    df["recusa_incerta"] = cand & ((df["recusa_nli"] - cn["limiar_recusa"]).abs()
+                                   < cn["faixa_incerta"])
+    validas = cand & ~pelo_nli
+    print(f"Classificação: {int(erro.sum())} erros, {int(df['recusa'].sum())} recusas "
+          f"({df['recusa_motivo'].value_counts().to_dict()}), "
+          f"{int(df['recusa_incerta'].sum())} incertas, {int(validas.sum())} válidas")
+
+    # 2) notas, só nas válidas
     for nome in cfg["medidas"]:
+        if nome == "nli":       # já calculado acima, na mesma passada
+            sel = [r for r, ok in zip(res, validas[cand]) if ok]
+            gravar(df, validas, "nli", [r[0] for r in sel],
+                   [nli.versao] * len(sel), [r[2] for r in sel])
+            print("Medida: nli")
+            continue
         try:
             a = sentiment.get_analyzer(nome, mock=mock, cfg=cfg)
         except Exception as e:                                  # noqa: BLE001
@@ -73,26 +129,13 @@ def main():
                 raise SystemExit(f"[erro] medida principal '{nome}' não carregou: {e}")
             print(f"[aviso] medida opcional '{nome}' indisponível ({e}); pulando.")
             continue
-        col = f"sent_{a.nome}"
-        df[col] = float("nan")
-        notas, versoes, extras = pontuar(a, textos, props)
-        df.loc[validas, col] = notas
-        # variantes de sensibilidade: colunas <medida>_<variante> (sem o
-        # prefixo sent_, para não virarem medidas novas na análise)
-        for k in sorted({k for e in extras for k in e}):
-            df[f"{a.nome}_{k}"] = float("nan")
-            df.loc[validas, f"{a.nome}_{k}"] = [e.get(k, float("nan")) for e in extras]
-        if any(versoes):
-            df[f"versao_{a.nome}"] = None
-            df.loc[validas, f"versao_{a.nome}"] = versoes
-            print(f"  versões de {a.nome}: {sorted({v for v in versoes if v})}")
+        gravar(df, validas, a.nome,
+               *pontuar(a, df.loc[validas, "resposta"], df.loc[validas, "proposta_texto"]))
         print(f"Medida: {a.nome}")
 
     arq["processed"].mkdir(parents=True, exist_ok=True)
     df.to_csv(arq["scored"], index=False)
-    print(f"OK -> {arq['scored']}   ({len(df)} linhas, "
-          f"{int(df['recusa'].sum())} recusas, "
-          f"{int(df['erro'].notna().sum())} erros)")
+    print(f"OK -> {arq['scored']}   ({len(df)} linhas)")
 
 
 if __name__ == "__main__":

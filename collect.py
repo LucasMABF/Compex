@@ -1,7 +1,8 @@
 """Coleta: roda o grid (proposta × autor × modelo × repetição) e salva, na
 pasta da execução (ver src/loader.py):
-    raw/responses.jsonl   uma resposta por linha (prompt, texto, recusa, erro,
-                          motivo de parada/corte, tokens)
+    raw/responses.jsonl   uma resposta por linha (prompt, texto, erro, motivo
+                          de parada/corte, tokens). A coleta só grava FATOS: a
+                          classificação (recusa etc.) é feita no score.py.
     raw/coleta.log        uma linha por chamada (tempo, tamanho, erro completo)
     config/, metadata.json  o que foi usado, para reproduzir
 
@@ -28,17 +29,6 @@ except Exception:          # noqa: BLE001
     pass
 
 from src import loader, prompts, providers
-
-# heurística simples de recusa (marca, não descarta)
-_RECUSA = ["não posso", "não consigo opinar", "não vou opinar",
-           "como uma ia", "prefiro não", "não tenho opiniões",
-           "não é apropriado"]
-
-
-def eh_recusa(texto):
-    t = (texto or "").lower()
-    return any(m in t for m in _RECUSA)
-
 
 def commit_atual():
     """Commit do código que gerou os dados (e se havia mudanças não commitadas)."""
@@ -129,17 +119,14 @@ def main():
                             erro = f"{type(e).__name__}: {e}"
                         resp = r.get("texto")
                         parada = r.get("parada")
-                        # recusa: pela lista de expressões OU barrada pelo provedor
-                        recusa = eh_recusa(resp) or parada == "bloqueio"
                         cortada = parada == "limite"
                         onde = (f"{prop['id']} {autor['id']} {modelo} rep={rep} "
                                 f"({time.monotonic() - t0:.1f}s)")
                         if erro:
                             log.error("%s ERRO %s", onde, erro)
                         else:
-                            log.info("%s ok %d chars, %s tokens%s%s%s%s", onde,
+                            log.info("%s ok %d chars, %s tokens%s%s%s", onde,
                                      len(resp), r.get("tokens_saida"),
-                                     " RECUSA" if recusa else "",
                                      " BLOQUEIO" if parada == "bloqueio" else "",
                                      " CORTADA" if cortada else "",
                                      " VAZIA" if not resp.strip() else "")
@@ -154,7 +141,6 @@ def main():
                             "rep": rep,
                             "prompt": prompt,
                             "resposta": resp,
-                            "recusa": recusa,
                             "erro": erro,
                             "parada": parada,
                             "parada_bruta": r.get("parada_bruta"),

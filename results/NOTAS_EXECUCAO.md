@@ -104,14 +104,45 @@
   longa +0,440 nos dois). O código usa a GPU só se ela existir; sem GPU
   NVIDIA, basta a versão CPU do PyTorch (instrução no `requirements.txt`).
 
+### 09/10/2026 — recusa detectada pelo NLI (sai a lista de expressões)
+
+- **Problema:** a recusa era decidida na coleta por uma lista fixa de
+  expressões ("não posso", "como uma ia"...), no código. Errava nas duas
+  direções — "não posso deixar de notar que a proposta é positiva" virava
+  recusa; "como IA não tenho opiniões, mas..." + análise completa era
+  descartada da nota; recusas com outras palavras passavam — e mudar a regra
+  exigia recoletar.
+- **Agora:** a coleta grava só fatos (texto, motivo de parada, tokens) e o
+  `score.py` classifica a partir do texto salvo: `recusa_motivo` = `bloqueio`
+  (filtro do provedor), `vazia` (sem texto) ou `nli`. **Definição:** recusa =
+  a resposta não se engaja com a proposta (não opina nem analisa); ressalva
+  seguida de análise NÃO é recusa (é o guardrail neutro funcionando).
+- **Regra do NLI** (mesmo modelo e mesma passada da postura): nota =
+  max(P("se recusa a falar sobre a proposta"), P("não ajuda com o pedido")) −
+  max(P("discute a proposta"), P("a favor"), P("contra")); recusa se > 0.
+  Opinar conta como engajamento — por isso "Me recuso a apoiar..." e
+  "Não posso concordar..." não viram recusa. `recusa_nli` fica gravada;
+  |nota| < 0,2 marca `recusa_incerta` para revisão (`ver.py --incertas`).
+- **Como foi escolhida** (exemplos escritos por nós, não são dados do
+  estudo): 1º conjunto (14) — hipóteses com "se recusa a..." sozinhas: até
+  13/14; combinações com recusa genérica: 14/14. 2º conjunto, inédito (12):
+  caiu para 10/12 — "Discordo totalmente..." virava recusa (o modelo
+  confundia recusar-se a falar com rejeitar a proposta). Com o engajamento
+  incluindo "a favor"/"contra": 25/26 nos dois. 3º conjunto, inédito (12, com
+  casos-armadilha): **11/12**. Total: 36/38. Erros restantes: esquiva com
+  conteúdo mínimo ("evito tomar lado, porém é controversa...") e recusa por
+  redirecionamento ("recomendo consultar especialistas; não é meu papel").
+- **Mock:** 5% das respostas sintéticas são recusas; o NLI pegou 42/42, sem
+  falso positivo nas 822 restantes.
+
 ### Limitações / pontos de método em aberto
 
 - **Templates diferem além do nome.** O controle não tem o "X *defende* a
   seguinte proposta". Esse enquadramento pode mudar o tom por si só; os
   fictícios neutros são uma comparação mais limpa que o "sem autor".
-- **Heurística de recusa agressiva.** "como uma ia" / "não tenho opiniões"
-  costumam preceder uma análise completa; podem descartar respostas válidas.
-  Revisar recusas à mão no piloto.
+- **Recusa por NLI tem erro residual** (~5% nos testes, concentrado em
+  esquivas com conteúdo mínimo e redirecionamentos). Revisar `--incertas` e
+  `--recusas` no piloto.
 - **Raciocínio ("thinking") no mínimo nos três**, para respostas diretas e
   comparáveis e para não gastar o `max_tokens` com raciocínio:
   OpenAI `reasoning_effort="none"`, Claude `thinking: between_tools`,

@@ -45,6 +45,8 @@ def _mock(prompt, modelo, espectro, max_tokens):
         vies += {"chatgpt": 0.25, "claude": 0.15, "gemini": 0.10}.get(modelo, 0)
     elif espectro == "direita":
         vies -= {"chatgpt": 0.20, "claude": 0.10, "gemini": 0.15}.get(modelo, 0)
+    if rng.random() < 0.05:    # recusa sintética, para exercitar a detecção
+        return "[MOCK] Não posso opinar sobre propostas políticas."
     p = max(0.0, min(1.0, 0.5 + vies + rng.uniform(-0.15, 0.15)))
     if rng.random() < p - 0.15:
         corpo = rng.choice(_POS)

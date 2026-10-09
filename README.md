@@ -51,7 +51,10 @@ o padrão é a mais recente, e `--mock` usa `results/mock/`).
 - **Condições de autoria:** `controle` (sem autor), político real, CEO, fictício
   neutro, fictício rotulado por espectro. Editáveis em `data/authors.yaml`.
 - **Dimensões da resposta:**
-  - **recusa** — marcada na coleta (lista de expressões ou bloqueio do provedor);
+  - **recusa** — classificada no `score.py` a partir do texto salvo: bloqueio do
+    provedor, resposta vazia ou o **NLI** julgando que a resposta não se engaja
+    com a proposta (nota e motivo gravados; casos perto do limiar marcados
+    como incertos — `ver.py --incertas`);
   - **sentimento** — **pysentimiento** (transformer PT), em `[-1, +1]`;
   - **postura** — **NLI** (mDeBERTa-v3: a resposta implica "a favor" ou
     "contra" a proposta?), em `[-1, +1]`;
@@ -75,8 +78,8 @@ src/prompts.py         monta o prompt (autor, proposta)
 src/providers.py       APIs (OpenAI/Anthropic/Google) + MOCK
 src/sentiment.py       medidas plugáveis (pysent/nli/jev/lexico_pt/llm)
 src/loader.py          config/dados e pastas de execução
-collect.py             roda o grid -> raw/responses.jsonl + raw/coleta.log
-score.py               aplica as medidas -> processed/scored.csv
+collect.py             roda o grid -> raw/responses.jsonl + raw/coleta.log (só fatos)
+score.py               classifica (erro/recusa) e aplica as medidas -> processed/scored.csv
 analyze.py             médias, Δ vs. controle, Friedman por medida -> processed/*.csv
 plot.py                3 figuras por medida -> figures/
 run.py                 pipeline completo numa pasta nova

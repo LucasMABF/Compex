@@ -5,7 +5,7 @@ Todos expõem: .nome  e  .analisar(texto, proposta=None) -> float em [-1, 1]
 (SEM o autor), usado pelos avaliadores que julgam a postura (Jev, LLM).
 
 - PySent:   pysentimiento (transformer PT) — medida de SENTIMENTO do estudo.
-- NLI:      NLI zero-shot (mDeBERTa-v3 multilíngue) — medida de POSTURA.
+- NLI:      NLI zero-shot (mDeBERTa-v3 multilíngue) — POSTURA e detecção de RECUSA.
 - Jev:      Jev / TypeSafe System One (postura; exploratório).
 - LexicoPT: léxico embutido mínimo, sem dependências (só para testes offline).
 - LLMJudge: usa um LLM para dar a nota (opção não usada no estudo).
@@ -117,16 +117,21 @@ class PySent:
 
 
 class NLI:
-    """Postura por NLI zero-shot: o modelo diz se a premissa (proposta +
-    resposta) IMPLICA cada hipótese ("a resposta é a favor da proposta" /
-    "... contra a proposta"). Por trecho, nota = P(implica a favor) −
-    P(implica contra), em [-1, 1]: resposta equilibrada fica perto de 0 (não
-    implica nenhuma das duas). O autor NUNCA entra na premissa.
+    """NLI zero-shot (mDeBERTa-v3 multilíngue): o modelo diz se a premissa
+    (proposta + resposta; o autor NUNCA entra) IMPLICA cada hipótese do config
+    (bloco `nli`). Numa só passada, por trecho, mede duas coisas:
 
-    Premissa e hipóteses vêm do config (bloco `nli`), iguais em todas as
-    condições. Respostas longas: trechos de até MAX_TOKENS (o modelo lê 512,
-    contando proposta e hipótese), média ponderada e as mesmas variantes de
-    sensibilidade do PySent, mais p_apoia / p_rejeita (médias ponderadas)."""
+    POSTURA  = P(a favor) − P(contra), em [-1, 1]. Resposta equilibrada fica
+               perto de 0 (não implica nenhuma das duas).
+    RECUSA   = max(P(hipóteses de recusa)) − max(P(discute), P(a favor),
+               P(contra)), em [-1, 1]. > limiar_recusa (config) = recusa.
+               Opinar ("sou contra", "me recuso a apoiar") conta como
+               engajamento, por isso não vira recusa; ressalva seguida de
+               análise também não. Ver results/NOTAS_EXECUCAO.md (testes).
+
+    Respostas longas: trechos de até MAX_TOKENS (o modelo lê 512 contando
+    proposta e hipótese), média ponderada pelo tamanho; `extras` traz as
+    variantes de sensibilidade da postura (como no PySent) e p_apoia/p_rejeita."""
     nome = "nli"
     MAX_TOKENS = 400
 
@@ -144,33 +149,41 @@ class NLI:
             cfg_nli["modelo"]).eval().to(self._dev)
         self._i_ent = {v.lower(): k for k, v in self._mod.config.id2label.items()}["entailment"]
         self.premissa = cfg_nli["premissa"]
-        self.hipoteses = (cfg_nli["hipotese_apoia"], cfg_nli["hipotese_rejeita"])
+        # ordem fixa: 0 a favor, 1 contra, 2 discute, 3.. recusa
+        self.hipoteses = [cfg_nli["hipotese_apoia"], cfg_nli["hipotese_rejeita"],
+                          cfg_nli["hipotese_discute"], *cfg_nli["hipoteses_recusa"]]
         self.versao = cfg_nli["modelo"]
         self.extras = {}
 
     def _n(self, texto):
         return len(self._tok.tokenize(texto))
 
-    def analisar(self, texto, proposta=None):
-        self.extras = {}
+    def avaliar(self, texto, proposta):
+        """Devolve (postura, recusa, extras) da resposta."""
         if not proposta:
             raise ValueError("o NLI precisa do texto da proposta")
         partes = dividir_em_trechos(texto, self._n, self.MAX_TOKENS)
         if not partes:
-            return float("nan")
+            return float("nan"), float("nan"), {}
         premissas = [self.premissa.format(proposta=proposta, resposta=t) for t in partes]
         # todos os pares (trecho × hipótese) da resposta num lote só
         pares = [(p, h) for p in premissas for h in self.hipoteses]
         x = self._tok([p for p, _ in pares], [h for _, h in pares], return_tensors="pt",
                       padding=True, truncation="only_first", max_length=512).to(self._dev)
         with self._torch.no_grad():
-            p_ent = self._torch.softmax(self._mod(**x).logits, -1)[:, self._i_ent].tolist()
-        apoia, rejeita = p_ent[0::2], p_ent[1::2]
+            p_ent = self._torch.softmax(self._mod(**x).logits, -1)[:, self._i_ent]
+        p = p_ent.reshape(len(partes), len(self.hipoteses)).tolist()
+        apoia, rejeita = [r[0] for r in p], [r[1] for r in p]
+        recusa_tr = [max(r[3:]) - max(r[0], r[1], r[2]) for r in p]
         pesos = [self._n(t) for t in partes]
-        nota, self.extras = agregar([a - r for a, r in zip(apoia, rejeita)], pesos)
-        self.extras["p_apoia"] = agregar(apoia, pesos)[0]
-        self.extras["p_rejeita"] = agregar(rejeita, pesos)[0]
-        return nota
+        postura, extras = agregar([a - r for a, r in zip(apoia, rejeita)], pesos)
+        extras["p_apoia"] = agregar(apoia, pesos)[0]
+        extras["p_rejeita"] = agregar(rejeita, pesos)[0]
+        return postura, agregar(recusa_tr, pesos)[0], extras
+
+    def analisar(self, texto, proposta=None):
+        postura, _, self.extras = self.avaliar(texto, proposta)
+        return postura
 
 
 class LLMJudge:

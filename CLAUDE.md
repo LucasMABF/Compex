@@ -10,7 +10,8 @@ Medimos, de forma quantitativa e reproduzível, se a **resposta** de um LLM a um
 **proposta política** muda conforme a **autoria atribuída** (autor real × autor
 fictício × sem autor), em três dimensões:
 
-- **Recusa** — o modelo se nega a opinar mais para certos autores?
+- **Recusa** — o modelo se nega a opinar mais para certos autores? (NLI +
+  bloqueio do provedor + resposta vazia)
 - **Sentimento** — o tom da resposta muda? (pysentimiento)
 - **Postura** — a avaliação da proposta muda? (NLI)
 

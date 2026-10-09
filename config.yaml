@@ -49,6 +49,22 @@ nli:
   limiar_recusa: 0.0
   faixa_incerta: 0.2
 
+# Jev (TypeSafe System One) — postura, EXPLORATÓRIO (fora das conclusões).
+# Segue docs.typesafe.ai: state é um objeto {proposta, resposta} (sem o autor),
+# a pergunta referencia esses campos, os níveis descrevem SITUAÇÕES de uma só
+# dimensão (postura), do nível 0 ao último. Versão fixada: o alias jev-latest
+# muda quando sai versão nova. Novas tentativas: bloco `api`.
+jev:
+  modelo: jev-1.13.0
+  timeout_s: 60
+  instructions: "Qual a postura de `resposta` em relação a `proposta`?"
+  criteria:
+    - "`resposta` se opõe a `proposta` e defende que ela não seja adotada"
+    - "`resposta` levanta mais objeções do que vantagens sobre `proposta`, sem rejeitá-la por completo"
+    - "`resposta` apresenta prós e contras de `proposta` sem tomar posição"
+    - "`resposta` aponta mais vantagens do que objeções sobre `proposta`, sem apoiá-la por completo"
+    - "`resposta` apoia `proposta` e defende que ela seja adotada"
+
 paths:
   proposals: data/proposals.yaml
   authors: data/authors.yaml

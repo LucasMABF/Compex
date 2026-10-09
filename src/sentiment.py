@@ -206,89 +206,78 @@ class LLMJudge:
         return max(-1.0, min(1.0, float(m.group().replace(",", ".")))) if m else 0.0
 
 
-def _buscar_num(obj, chaves):
-    """Procura recursivamente o primeiro número sob uma das chaves."""
-    if isinstance(obj, dict):
-        for k, v in obj.items():
-            if k in chaves and isinstance(v, (int, float)):
-                return float(v)
-        for v in obj.values():
-            r = _buscar_num(v, chaves)
-            if r is not None:
-                return r
-    elif isinstance(obj, list):
-        for v in obj:
-            r = _buscar_num(v, chaves)
-            if r is not None:
-                return r
-    return None
-
-
 class Jev:
-    """Jev / TypeSafe 'System One'. NÃO gera texto: devolve uma decisão
-    tipada e calibrada. Usamos uma pergunta Score com 5 níveis (rejeita ->
-    apoia); a resposta vem em answers['sentimento'].score (0..4), que
-    normalizamos para [-1, 1].
+    """Jev / TypeSafe System One — postura, EXPLORATÓRIO. Não gera texto:
+    responde uma pergunta tipada (Score) com níveis descritos, e devolve a
+    posição na escala (média ponderada dos níveis, pode ser fracionária), as
+    probabilidades de cada nível e a confiança. Normalizamos para [-1, 1].
 
-    Endpoint, header (Authorization: Bearer) e schema conferidos em
-    docs.typesafe.ai/primitives/score. O score vem como média ponderada
-    dos níveis (pode ser fracionário, ex.: 2.43).
-
-    `versao` guarda a versão do modelo que respondeu (ex.: "jev-1.13.0"):
-    "jev-latest" muda com o tempo, então a versão é gravada por resposta."""
+    Tudo vem do config (bloco `jev`), conforme docs.typesafe.ai:
+      - `state` é um OBJETO {proposta, resposta} (o autor NUNCA entra);
+      - pergunta e níveis referenciam esses campos; níveis descrevem
+        situações, uma só dimensão (postura);
+      - versão FIXADA (o alias jev-latest muda quando sai versão nova);
+        a versão que respondeu é gravada por resposta;
+      - limite de 32k tokens para state + pergunta: sem divisão em trechos;
+      - 429 (limite) e 529 (sobrecarga): novas tentativas com espera
+        crescente (config `api`); 401/422 etc. falham na hora.
+    `extras`: confianca e p0..pN (probabilidade de cada nível)."""
     nome = "jev"
     URL = "https://api.typesafe.ai/v1/systemone"
-    CRITERIOS = [
-        "Rejeita fortemente a proposta",
-        "Tende a rejeitar a proposta (tom negativo)",
-        "Neutro ou ambivalente em relação à proposta",
-        "Tende a apoiar a proposta (tom positivo)",
-        "Apoia fortemente a proposta",
-    ]
+    REPETIR = {429, 500, 502, 503, 504, 529}
 
-    def __init__(self, mock=False):
+    def __init__(self, cfg_jev, cfg_api, mock=False):
         self.mock = mock
-        self.versao = None
+        self.cfg = cfg_jev
+        self.timeout = cfg_jev["timeout_s"]
+        self.retentativas = cfg_api["retentativas"]
+        self.versao, self.extras = None, {}
         self.key = os.environ.get("JEV_API_KEY")
         if not mock and not self.key:
             raise RuntimeError("defina JEV_API_KEY no .env para usar o Jev")
 
     def _normalizar(self, score):
-        n = len(self.CRITERIOS) - 1            # 4 -> escala 0..4
+        n = len(self.cfg["criteria"]) - 1            # 5 níveis -> escala 0..4
         return max(-1.0, min(1.0, score / n * 2 - 1))
 
+    def _post(self, body):
+        """POST com novas tentativas (espera 1, 2, 4, 8... s) em erro passageiro."""
+        import random
+        import time
+        import requests
+        for tentativa in range(self.retentativas + 1):
+            try:
+                r = requests.post(self.URL, json=body, timeout=self.timeout,
+                                  headers={"Authorization": f"Bearer {self.key}"})
+                if r.status_code not in self.REPETIR:
+                    r.raise_for_status()          # 401, 422...: não adianta repetir
+                    return r.json()
+            except (requests.ConnectionError, requests.Timeout):
+                pass
+            if tentativa == self.retentativas:
+                raise RuntimeError(f"Jev falhou após {self.retentativas + 1} tentativas")
+            time.sleep(2 ** tentativa + random.random())
+
     def analisar(self, texto, proposta=None):
-        self.versao = None
+        self.versao, self.extras = None, {}
         if self.mock:                          # valor sintético estável p/ demo
             self.versao = "mock"
             h = int(hashlib.md5((texto or "").encode()).hexdigest(), 16)
             return round((h % 2000) / 1000 - 1, 3)
-        import requests
         body = {
-            "model": "jev-latest",
-            # a proposta vai junto (sem o autor, para não enviesar o avaliador)
-            "state": (f"Proposta: {proposta}\n\nResposta: {texto or ''}"
-                      if proposta else texto or ""),
-            "questions": {
-                "sentimento": {
-                    "type": "score",
-                    "instructions": "Qual a postura da resposta em relação "
-                                    "à proposta?",
-                    "criteria": self.CRITERIOS,
-                }
-            },
+            "model": self.cfg["modelo"],
+            "state": {"proposta": proposta, "resposta": texto or ""},
+            "questions": {"postura": {"type": "score",
+                                      "instructions": self.cfg["instructions"],
+                                      "criteria": self.cfg["criteria"]}},
         }
-        r = requests.post(self.URL, json=body, timeout=30,
-                          headers={"Authorization": f"Bearer {self.key}"})
-        r.raise_for_status()
-        data = r.json()
+        data = self._post(body)
+        # só o campo documentado; qualquer outro formato é falha (nota vazia)
+        resp = data["answers"]["postura"]
         self.versao = data.get("model")
-        try:
-            score = data["answers"]["sentimento"]["score"]
-        except (KeyError, TypeError):
-            score = _buscar_num(data, {"score"})   # fallback defensivo
-        # sem nota -> NaN (0.0 seria um "neutro" falso)
-        return self._normalizar(score) if score is not None else float("nan")
+        self.extras = {"confianca": resp.get("confidence"),
+                       **{f"p{k}": v for k, v in (resp.get("probabilities") or {}).items()}}
+        return self._normalizar(resp["score"])
 
 
 # Medidas que podem faltar sem invalidar a coleta (dependem de chave/crédito
@@ -304,7 +293,7 @@ def get_analyzer(nome, mock=False, cfg=None):
     if nome == "nli":
         return NLI(cfg["nli"])
     if nome == "jev":
-        return Jev(mock=mock)
+        return Jev(cfg["jev"], cfg["api"], mock=mock)
     if nome == "llm":
         return LLMJudge(mock=mock)
     raise ValueError(f"analisador desconhecido: {nome}")

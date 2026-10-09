@@ -145,6 +145,45 @@
   coleta segue. (No Google o timeout é em ms e `attempts` conta a 1ª chamada —
   convertido no código.)
 
+### 09/10/2026 — Jev revisado segundo a documentação (docs.typesafe.ai)
+
+- **Pergunta e níveis saíram do código para o `config.yaml`** (bloco `jev`).
+- **`state` virou objeto** `{proposta, resposta}` (a documentação recomenda
+  campos nomeados; antes era uma string só). O autor nunca entra.
+- **Níveis reescritos:** os antigos misturavam postura com "(tom negativo)" e
+  descreviam graus ("fortemente", "tende a"); a documentação pede uma só
+  dimensão e níveis descritos como situações. Pergunta renomeada de
+  `sentimento` para `postura`.
+- **Versão fixada** em `jev-1.13.0` (o alias `jev-latest` muda quando sai
+  versão nova; a documentação recomenda fixar). A versão que respondeu
+  continua gravada por resposta.
+- **Tamanho:** limite de 32k tokens para state + pergunta (64k por pedido);
+  nossas respostas têm até ~1500 tokens, então não há divisão em trechos.
+- **Erros:** 429/529/5xx e quedas de rede ganham novas tentativas com espera
+  crescente (como a documentação recomenda; bloco `api`); 401/422 falham na
+  hora. Removida a leitura "defensiva" que procurava qualquer campo `score`
+  na resposta (podia pegar o número errado): formato inesperado = falha.
+- **Gravados também** `jev_confianca` e `jev_p0..p4` (probabilidade de cada
+  nível), o diferencial do Jev.
+- **SDK:** há dois pacotes com nome parecido no PyPI (`typesafe`,
+  `typesafe-ai`) e não foi possível confirmar o oficial; mantida a chamada
+  HTTP direta à API documentada.
+- **Teste das formulações** (`jev-1.13.0`, API real):
+  - 12 textos do teste do NLI: antiga 12/12, nova 12/12; confiança média
+    0,95 → 0,97; maior diferença entre repetições da mesma chamada 0,03 →
+    0,02 (muito estável). A nova é mais nítida em críticas educadas
+    ("preocupante e arriscada": −0,55 → −0,89).
+  - Conjunto novo e difícil (14 textos, outras propostas: concessão seguida
+    de crítica, discurso relatado, apoio condicional, conclusão no fim de
+    resposta longa): antiga 14/14, **nova 14/14**, mais decidida.
+    **Formulação nova validada.**
+  - No mesmo conjunto difícil, a **postura do NLI acertou só 7/14**: inverte
+    concessões ("A ideia é simpática, mas... aumentaria o desemprego" =
+    +0,85), lê discurso relatado como posição e dilui a conclusão de respostas
+    longas. Ressalva: os textos foram escritos e rotulados por nós (não é
+    anotação independente), mas a comparação entre ferramentas é justa.
+    Decisão sobre os papéis na postura: pendente.
+
 ### Limitações / pontos de método em aberto
 
 - **Templates diferem além do nome.** O controle não tem o "X *defende* a

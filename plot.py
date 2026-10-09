@@ -1,5 +1,5 @@
 """Gráficos para a apresentação. Lê <execução>/processed/ e salva, para
-CADA medida (leia, jev, ...), 3 PNGs em <execução>/figures/:
+CADA medida (pysent, jev, ...), 3 PNGs em <execução>/figures/:
     barras_por_autor_<medida>.png, heatmap_proposta_autor_<medida>.png,
     delta_por_categoria_<medida>.png
 

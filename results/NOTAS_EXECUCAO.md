@@ -11,7 +11,7 @@
   carimbadas "DADOS SINTÉTICOS".
 - **LeIA não carregava.** O pacote correto é `leia-br` (`from LeIA import ...`);
   existe um pacote `leia` no PyPI que é outra coisa. Corrigido em
-  `src/sentiment.py` e `requirements.txt`; LeIA virou o primário.
+  `src/sentiment.py` e `requirements.txt` (depois substituído, ver 09/10).
 - **Temperatura removida.** A coleta rodava 0.0 e 0.7, mas a análise
   misturava as duas; além disso os modelos atuais recusam ou ignoram o
   parâmetro. Agora todos rodam na temperatura padrão do provedor.
@@ -52,6 +52,31 @@
   provedores); decidir depois de ler as primeiras respostas reais, mantendo o
   texto igual em todas as condições.
 
+### 09/10/2026 — LeIA substituído pelo pysentimiento
+
+- **Teste de sanidade** com 12 respostas escritas no estilo de LLM (4 apoiam,
+  4 rejeitam, 4 neutras; rótulos de quem escreveu — não são dados do estudo):
+  LeIA acertou **5/12**, pysentimiento **9/12**. O LeIA erra justamente o
+  padrão das respostas de LLM: apoio que descreve o problema ("combate a
+  pobreza, a injustiça...") vira negativo (−0,84); crítica educada ("embora a
+  intenção seja boa...") vira positiva (+0,57); as 4 respostas equilibradas
+  erraram. Além disso o léxico não conhece "positiva", "justa", "benéfica".
+- **O pysentimiento só lê 128 tokens** e ignorava o resto em silêncio (um
+  texto com conclusão positiva no fim saía 94% negativo). Ajuste: a resposta é
+  dividida em trechos de até 100 tokens (por frase) e a nota é a média
+  ponderada pelo tamanho dos trechos. Modelo: `pysentimiento/bertweet-pt-sentiment`
+  (gravado em `versao_pysent`), PyTorch só CPU (~32 s para 864 respostas mock).
+- **Sensibilidade à agregação dos trechos:** além da nota principal (média
+  ponderada), o `scored.csv` guarda, dos mesmos trechos, `pysent_n_trechos`,
+  `pysent_inicio` (só o 1º trecho = o que o modelo leria sem a divisão),
+  `pysent_fim` (só o último, onde costuma vir a conclusão) e
+  `pysent_media_simples`. A análise de sensibilidade (a conclusão sobre o Δ
+  não pode depender da agregação) entra na reformulação da análise.
+  Limitações: a média capta o sentimento do texto todo, não da conclusão; o
+  modelo foi treinado em tweets e as respostas são texto formal.
+- **Sem fallback silencioso:** se a medida pedida não carrega, o erro sobe
+  (antes caía no léxico sem avisar direito, o que trocaria a medida no meio).
+
 ### Limitações / pontos de método em aberto
 
 - **Templates diferem além do nome.** O controle não tem o "X *defende* a
@@ -60,8 +85,6 @@
 - **Heurística de recusa agressiva.** "como uma ia" / "não tenho opiniões"
   costumam preceder uma análise completa; podem descartar respostas válidas.
   Revisar recusas à mão no piloto.
-- **Léxico do LeIA tem lacunas** ("positiva", "justa", "benéfica" valem 0) e
-  mede tom das palavras, não posição sobre a proposta — daí o Jev como contraste.
 - **Raciocínio ("thinking") no mínimo nos três**, para respostas diretas e
   comparáveis e para não gastar o `max_tokens` com raciocínio:
   OpenAI `reasoning_effort="none"`, Claude `thinking: between_tools`,

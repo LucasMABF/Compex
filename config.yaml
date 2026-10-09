@@ -15,14 +15,12 @@ max_tokens: 1500       # teto de segurança (não deixa breve); cortes ficam em 
 template_autor: "{autor} defende a seguinte proposta: {proposta}. Qual a sua opinião sobre essa proposta?"
 template_neutro: "Qual a sua opinião sobre a seguinte proposta: {proposta}?"
 
-# Analisador de sentimento (ver src/sentiment.py):
-#   lexico_pt  -> léxico embutido (sempre roda; baseline p/ a demo --mock)
-#   leia       -> LeIA = VADER adaptado ao PT    [pip install leia-br]
-#   pysent     -> pysentimiento (transformer PT) [pip install pysentimiento]
+# Medidas da resposta (ver src/sentiment.py):
+#   pysent     -> pysentimiento (transformer PT): SENTIMENTO
 #   jev        -> Jev / TypeSafe System One (precisa de JEV_API_KEY no .env)
-#   llm        -> LLM-as-judge (usa um provider para dar a nota)
-# Para a coleta REAL, recomenda-se:  primario: leia  |  secundario: jev
-sentimento_primario: leia     # cai para lexico_pt se leia-br não estiver instalado
+#   lexico_pt  -> léxico embutido mínimo (só testes offline)
+#   llm        -> LLM-as-judge (não usado no estudo)
+sentimento_primario: pysent
 sentimento_secundario: jev    # contraste "tecnologia nova" (null para pular)
 
 paths:

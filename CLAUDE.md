@@ -22,7 +22,7 @@ dificuldades e ajustes.
 1. **Revisar o scaffold** (`config.yaml`, `data/`, `src/`, `collect.py`,
    `score.py`, `analyze.py`, `plot.py`, `run.py`) e garantir que roda ponta a
    ponta em modo mock: `python run.py --mock` deve gerar, em `results/mock/`,
-   os CSVs e as 3 figuras por medida (LeIA e Jev).
+   os CSVs e as 3 figuras por medida (pysentimiento e Jev).
 
 DEFERIR, EU QUERO FAZER EU MESMO. EU QUE MEXO COM API KEYS
 2. **Ligar as APIs reais** (`src/providers.py`): OpenAI, Anthropic e Google.
@@ -30,11 +30,11 @@ DEFERIR, EU QUERO FAZER EU MESMO. EU QUE MEXO COM API KEYS
    rede/rate-limit, e registro de erro por célula (nunca derrubar a coleta
    inteira). Confirmar os nomes de modelo em `MODELOS_REAIS`.
 
-3. **Análise de sentimento em português.** O baseline `lexico_pt` é fraco de
-   propósito. Integrar **LeIA** (VADER-PT, pacote `leia-br`) como primário e um
-   segundo analisador para contraste — **Jev** (TypeSafe System One, escolha do
-   grupo), **pysentimiento** ou **LLM-as-judge**. Deixar a
-   escolha no `config.yaml` (`sentimento_primario` / `sentimento_secundario`).
+3. **Análise de sentimento em português.** Medida de sentimento:
+   **pysentimiento** (transformer PT, local; substituiu o LeIA, que acertou
+   5/12 num teste de sanidade contra 9/12). Contraste: **Jev** (TypeSafe
+   System One, escolha do grupo). Escolha no `config.yaml`
+   (`sentimento_primario` / `sentimento_secundario`).
 
 4. **Rodar um piloto real pequeno** para a entrega: 2–3 propostas, todos os
    autores, 1 modelo, `N=3`. Salvar os dados crus e gerar os gráficos. Conferir
@@ -66,6 +66,6 @@ DEFERIR, EU QUERO FAZER EU MESMO. EU QUE MEXO COM API KEYS
 
 - [ ] `python run.py --mock` roda limpo e gera CSVs + 3 figuras por medida.
 - [ ] `python run.py` coleta de verdade com pelo menos 1 API, com retry/erros tratados.
-- [ ] LeIA integrado como sentimento primário (lexico_pt vira fallback).
+- [ ] pysentimiento integrado como medida de sentimento (sem fallback silencioso).
 - [ ] Piloto real rodado; recusas marcadas e excluídas da nota.
 - [ ] `results/RESULTADOS.md` e `results/NOTAS_EXECUCAO.md` escritos.

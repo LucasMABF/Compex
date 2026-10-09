@@ -4,10 +4,13 @@ Todos expõem: .nome  e  .analisar(texto, proposta=None) -> float em [-1, 1]
 (-1 = muito negativo, +1 = muito positivo). `proposta` é o texto da proposta
 (SEM o autor), usado pelos avaliadores que julgam a postura (Jev, LLM).
 
-- LexicoPT: léxico embutido, sem dependências. É o baseline que SEMPRE roda.
-- Leia:     LeIA (VADER adaptado ao PT).         [pip install leia]
-- PySent:   pysentimiento (transformer PT).      [pip install pysentimiento]
-- LLMJudge: usa um LLM para dar a nota (a "tecnologia nova" do contraste).
+- PySent:   pysentimiento (transformer PT) — medida de SENTIMENTO do estudo.
+- Jev:      Jev / TypeSafe System One (postura; exploratório).
+- LexicoPT: léxico embutido mínimo, sem dependências (só para testes offline).
+- LLMJudge: usa um LLM para dar a nota (opção não usada no estudo).
+
+Se a medida pedida não carregar, o erro sobe: trocar de medida em silêncio
+invalidaria a comparação.
 
 get_analyzer(nome) devolve a instância certa.
 """
@@ -16,7 +19,7 @@ import os
 import re
 import hashlib
 
-# --- léxico mínimo em PT (placeholder honesto; troque por LeIA/pysent p/ valer)
+# --- léxico mínimo em PT (placeholder honesto, só para testes offline)
 _LEX = {
     # positivos
     "positiva": 1, "positivo": 1, "importante": 1, "benéfica": 1, "benéfico": 1,
@@ -45,27 +48,59 @@ class LexicoPT:
         return 0.0 if hits == 0 else max(-1.0, min(1.0, s / hits))
 
 
-class Leia:
-    nome = "leia"
-
-    def __init__(self):
-        from LeIA import SentimentIntensityAnalyzer   # pacote: leia-br
-        self._a = SentimentIntensityAnalyzer()
-
-    def analisar(self, texto, proposta=None):
-        return self._a.polarity_scores(texto or "")["compound"]
-
-
 class PySent:
+    """pysentimiento (modelo bertweet-pt-sentiment). Por trecho, a nota é
+    P(positivo) − P(negativo), em [-1, 1].
+
+    O modelo só lê 128 tokens e IGNORA o resto em silêncio. Por isso a
+    resposta é dividida em trechos de até MAX_TOKENS (respeitando frases) e a
+    nota final é a média dos trechos ponderada pelo nº de tokens de cada um —
+    assim a resposta inteira conta, cada parte no seu peso.
+
+    Para análise de sensibilidade (a conclusão não pode depender da forma de
+    agregar), `extras` guarda, por resposta, variantes calculadas dos MESMOS
+    trechos: n_trechos, inicio (só o 1º trecho = o que o modelo leria sem a
+    divisão), fim (só o último, onde costuma estar a conclusão) e media_simples
+    (todos os trechos com o mesmo peso)."""
     nome = "pysent"
+    MAX_TOKENS = 100          # margem abaixo dos 128 do modelo
 
     def __init__(self):
         from pysentimiento import create_analyzer
         self._a = create_analyzer(task="sentiment", lang="pt")
+        self.versao = self._a.model.config.name_or_path
+        self.extras = {}
+
+    def _n(self, texto):
+        return len(self._a.tokenizer.tokenize(texto))
+
+    def trechos(self, texto):
+        """Agrupa frases (ou palavras, se a frase for longa) em trechos curtos."""
+        unidades = []
+        for frase in re.split(r"(?<=[.!?:;])\s+", texto.strip()):
+            unidades += [frase] if self._n(frase) <= self.MAX_TOKENS else frase.split()
+        trechos, atual = [], ""
+        for u in unidades:
+            junto = f"{atual} {u}".strip()
+            if atual and self._n(junto) > self.MAX_TOKENS:
+                trechos.append(atual)
+                junto = u
+            atual = junto
+        return trechos + [atual] if atual else trechos
 
     def analisar(self, texto, proposta=None):
-        p = self._a.predict(texto or "").probas
-        return p.get("POS", 0) - p.get("NEG", 0)   # [-1, 1]
+        self.extras = {}
+        partes = self.trechos(texto or "")
+        if not partes:
+            return float("nan")
+        # um trecho por vez: com lista, o pysentimiento monta um "dataset" a
+        # cada chamada e fica dezenas de vezes mais lento
+        res = [self._a.predict(t) for t in partes]
+        pesos = [self._n(t) for t in partes]
+        notas = [r.probas.get("POS", 0) - r.probas.get("NEG", 0) for r in res]
+        self.extras = {"n_trechos": len(notas), "inicio": notas[0],
+                       "fim": notas[-1], "media_simples": sum(notas) / len(notas)}
+        return sum(n * w for n, w in zip(notas, pesos)) / sum(pesos)
 
 
 class LLMJudge:
@@ -114,7 +149,10 @@ class Jev:
 
     Endpoint, header (Authorization: Bearer) e schema conferidos em
     docs.typesafe.ai/primitives/score. O score vem como média ponderada
-    dos níveis (pode ser fracionário, ex.: 2.43)."""
+    dos níveis (pode ser fracionário, ex.: 2.43).
+
+    `versao` guarda a versão do modelo que respondeu (ex.: "jev-1.13.0"):
+    "jev-latest" muda com o tempo, então a versão é gravada por resposta."""
     nome = "jev"
     URL = "https://api.typesafe.ai/v1/systemone"
     CRITERIOS = [
@@ -127,6 +165,7 @@ class Jev:
 
     def __init__(self, mock=False):
         self.mock = mock
+        self.versao = None
         self.key = os.environ.get("JEV_API_KEY")
         if not mock and not self.key:
             raise RuntimeError("defina JEV_API_KEY no .env para usar o Jev")
@@ -136,7 +175,9 @@ class Jev:
         return max(-1.0, min(1.0, score / n * 2 - 1))
 
     def analisar(self, texto, proposta=None):
+        self.versao = None
         if self.mock:                          # valor sintético estável p/ demo
+            self.versao = "mock"
             h = int(hashlib.md5((texto or "").encode()).hexdigest(), 16)
             return round((h % 2000) / 1000 - 1, 3)
         import requests
@@ -158,6 +199,7 @@ class Jev:
                           headers={"Authorization": f"Bearer {self.key}"})
         r.raise_for_status()
         data = r.json()
+        self.versao = data.get("model")
         try:
             score = data["answers"]["sentimento"]["score"]
         except (KeyError, TypeError):
@@ -167,21 +209,10 @@ class Jev:
 
 
 def get_analyzer(nome, mock=False):
-    if nome in (None, "", "lexico_pt"):
+    if nome == "lexico_pt":
         return LexicoPT()
-    if nome == "leia":
-        try:
-            return Leia()
-        except Exception as e:                                  # noqa: BLE001
-            print(f"[aviso] LeIA indisponível ({e}); usando lexico_pt. "
-                  "Instale com: pip install leia-br")
-            return LexicoPT()
     if nome == "pysent":
-        try:
-            return PySent()
-        except Exception as e:                                  # noqa: BLE001
-            print(f"[aviso] pysentimiento indisponível ({e}); usando lexico_pt.")
-            return LexicoPT()
+        return PySent()
     if nome == "jev":
         return Jev(mock=mock)
     if nome == "llm":

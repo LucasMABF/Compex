@@ -1,4 +1,4 @@
-"""Análise: para CADA medida (sent_leia, sent_jev, ...), calcula médias por
+"""Análise: para CADA medida (sent_pysent, sent_jev, ...), calcula médias por
 condição, o Δ em relação ao controle (autor neutro) e um teste
 não-paramétrico de invariância.
 

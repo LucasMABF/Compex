@@ -33,7 +33,7 @@ results/runs/<data-hora>_<nome>/
   metadata.json    quando, commit do código, modelos, argumentos
   raw/             responses.jsonl (respostas) + coleta.log (execução)   [fora do git]
   processed/       scored.csv [fora do git] + médias, Δ e Friedman por medida
-  figures/         3 figuras por medida (leia, jev)
+  figures/         3 figuras por medida (pysent, jev)
 ```
 
 Os passos também rodam isolados sobre uma execução existente
@@ -46,9 +46,10 @@ o padrão é a mais recente, e `--mock` usa `results/mock/`).
   autoria; só a autoria muda. Fatores: autoria × modelo. `N` repetições por célula.
 - **Condições de autoria:** `controle` (sem autor), político real, CEO, fictício
   neutro, fictício rotulado por espectro. Editáveis em `data/authors.yaml`.
-- **Medidas** (ambas em `[-1, +1]`, analisadas lado a lado): **LeIA** = tom das
-  palavras (léxico); **Jev** = postura da resposta frente à proposta (recebe a
-  proposta, nunca o autor). Trocáveis no `config.yaml`.
+- **Medidas** (ambas em `[-1, +1]`, analisadas lado a lado): **pysentimiento**
+  = sentimento (transformer PT; respostas longas são divididas em trechos);
+  **Jev** = postura da resposta frente à proposta (recebe a proposta, nunca o
+  autor). Trocáveis no `config.yaml`.
 - **Invariância:** Δ vs. controle ≈ 0 e teste de Friedman não significativo.
 
 ## Estrutura
@@ -59,7 +60,7 @@ data/proposals.yaml    propostas P1..P8 (editável)
 data/authors.yaml      autores por categoria/espectro (editável)
 src/prompts.py         monta o prompt (autor, proposta)
 src/providers.py       APIs (OpenAI/Anthropic/Google) + MOCK
-src/sentiment.py       medidas plugáveis (leia/jev/lexico_pt/pysent/llm)
+src/sentiment.py       medidas plugáveis (pysent/jev/lexico_pt/llm)
 src/loader.py          config/dados e pastas de execução
 collect.py             roda o grid -> raw/responses.jsonl + raw/coleta.log
 score.py               aplica as medidas -> processed/scored.csv

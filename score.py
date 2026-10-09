@@ -25,19 +25,26 @@ from src import loader, sentiment
 
 
 def pontuar(analisador, textos, propostas):
-    """Aplica o analisador; uma falha numa resposta vira NaN, não derruba tudo."""
-    notas, falhas = [], 0
+    """Aplica o analisador; uma falha numa resposta vira NaN, não derruba tudo.
+    Devolve (notas, versões, extras) por resposta: a versão do modelo avaliador
+    (para os que a informam) e as variantes de sensibilidade (`extras`, ex.:
+    pysent por trechos); None/{} para os demais."""
+    notas, versoes, extras, falhas = [], [], [], 0
     for t, p in zip(textos, propostas):
         try:
             notas.append(analisador.analisar(t, proposta=p))
+            versoes.append(getattr(analisador, "versao", None))
+            extras.append(dict(getattr(analisador, "extras", {})))
         except Exception as e:                                  # noqa: BLE001
             notas.append(float("nan"))
+            versoes.append(None)
+            extras.append({})
             falhas += 1
             if falhas == 1:
                 print(f"[aviso] {analisador.nome} falhou: {type(e).__name__}: {e}")
     if falhas:
         print(f"[aviso] {analisador.nome}: {falhas} respostas sem nota")
-    return notas
+    return notas, versoes, extras
 
 
 def main():
@@ -66,7 +73,17 @@ def main():
             continue
         col = f"sent_{a.nome}"
         df[col] = float("nan")
-        df.loc[validas, col] = pontuar(a, textos, props)
+        notas, versoes, extras = pontuar(a, textos, props)
+        df.loc[validas, col] = notas
+        # variantes de sensibilidade: colunas <medida>_<variante> (sem o
+        # prefixo sent_, para não virarem medidas novas na análise)
+        for k in sorted({k for e in extras for k in e}):
+            df[f"{a.nome}_{k}"] = float("nan")
+            df.loc[validas, f"{a.nome}_{k}"] = [e.get(k, float("nan")) for e in extras]
+        if any(versoes):
+            df[f"versao_{a.nome}"] = None
+            df.loc[validas, f"versao_{a.nome}"] = versoes
+            print(f"  versões de {a.nome}: {sorted({v for v in versoes if v})}")
         print(f"Medida {'primária' if i == 0 else 'secundária'}: {a.nome}")
 
     arq["processed"].mkdir(parents=True, exist_ok=True)

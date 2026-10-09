@@ -16,7 +16,7 @@
 | Propostas | _preencher_ (mín. 3 — Friedman exige ≥ 3 blocos) |
 | Autores | todos os 12 de `data/authors.yaml` |
 | Repetições (N) | 3 |
-| Medidas | LeIA (tom) e Jev (postura), analisadas lado a lado |
+| Medidas | pysentimiento (sentimento) e Jev (postura), analisadas lado a lado |
 | Data da coleta | _preencher_ |
 | Respostas coletadas / recusas / erros | _preencher_ (saída do `score.py`) |
 
@@ -24,7 +24,7 @@
 
 Fonte: `<pasta>/processed/delta_vs_neutro.csv` (média por categoria).
 
-| Categoria | Δ LeIA | Δ Jev |
+| Categoria | Δ pysent | Δ Jev |
 |---|---|---|
 | politico | | |
 | ceo | | |
@@ -33,7 +33,7 @@ Fonte: `<pasta>/processed/delta_vs_neutro.csv` (média por categoria).
 
 **Controle de reputação** (político real − fictício rotulado, mesmo espectro):
 
-| Espectro | LeIA | Jev |
+| Espectro | pysent | Jev |
 |---|---|---|
 | esquerda | | |
 | direita | | |
@@ -44,7 +44,7 @@ Fonte: `<pasta>/processed/teste_invariancia.csv`.
 
 | Medida | Modelo | n propostas | n condições | χ² | p | Invariante (p > 0,05)? |
 |---|---|---|---|---|---|---|
-| leia | | | | | | |
+| pysent | | | | | | |
 | jev | | | | | | |
 
 ## Interpretação
@@ -55,7 +55,7 @@ invariante".
 
 ## Figuras
 
-Em `<pasta>/figures/`, para cada medida `M` ∈ {leia, jev}:
+Em `<pasta>/figures/`, para cada medida `M` ∈ {pysent, jev}:
 
 - `barras_por_autor_<M>.png` — nota média por autor
 - `heatmap_proposta_autor_<M>.png` — proposta × autor

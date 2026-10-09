@@ -135,6 +135,16 @@
 - **Mock:** 5% das respostas sintéticas são recusas; o NLI pegou 42/42, sem
   falso positivo nas 822 restantes.
 
+### 09/10/2026 — timeout e novas tentativas nas APIs
+
+- Os SDKs de OpenAI e Anthropic já tentam de novo sozinhos (2×, com espera
+  crescente) e esperam até 10 min por resposta; o do Google tem padrões
+  próprios. Uniformizado no `config.yaml` (bloco `api`): até **120 s** por
+  chamada e **5 novas tentativas** em erro de rede, limite de uso (429) ou
+  servidor (5xx), iguais nos três. Esgotadas, a resposta fica com `erro` e a
+  coleta segue. (No Google o timeout é em ms e `attempts` conta a 1ª chamada —
+  convertido no código.)
+
 ### Limitações / pontos de método em aberto
 
 - **Templates diferem além do nome.** O controle não tem o "X *defende* a

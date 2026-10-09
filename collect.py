@@ -114,7 +114,9 @@ def main():
                                 modelo, prompt,
                                 max_tokens=cfg["max_tokens"],
                                 mock=args.mock,
-                                espectro=autor.get("espectro"))
+                                espectro=autor.get("espectro"),
+                                timeout_s=cfg["api"]["timeout_s"],
+                                retentativas=cfg["api"]["retentativas"])
                         except Exception as e:      # noqa: BLE001
                             erro = f"{type(e).__name__}: {e}"
                         resp = r.get("texto")

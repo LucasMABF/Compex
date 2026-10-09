@@ -88,9 +88,13 @@ def _resposta(texto, parada, tokens_entrada, tokens_saida):
             "tokens_saida": tokens_saida}
 
 
-def _openai(prompt, modelo, max_tokens):
+# Timeout e novas tentativas: OpenAI e Anthropic já esperam e tentam de novo
+# sozinhos (com espera crescente) em erro de rede, limite de uso (429) e
+# servidor (5xx); só ajustamos os valores, iguais para os três (config `api`).
+def _openai(prompt, modelo, max_tokens, timeout_s, retentativas):
     from openai import OpenAI
-    cli = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+    cli = OpenAI(api_key=os.environ["OPENAI_API_KEY"],
+                 timeout=timeout_s, max_retries=retentativas)
     # sem raciocínio: resposta direta; o max_tokens antigo dá 400 nos gpt-6
     r = cli.chat.completions.create(
         model=modelo, max_completion_tokens=max_tokens,
@@ -101,9 +105,10 @@ def _openai(prompt, modelo, max_tokens):
                      r.usage.prompt_tokens, r.usage.completion_tokens)
 
 
-def _anthropic(prompt, modelo, max_tokens):
+def _anthropic(prompt, modelo, max_tokens, timeout_s, retentativas):
     import anthropic
-    cli = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    cli = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"],
+                              timeout=timeout_s, max_retries=retentativas)
     # thinking não pode ser "disabled" no sonnet-5-5; "between_tools" o
     # desliga (sem ferramentas) e o max_tokens vai todo para a resposta
     r = cli.messages.create(
@@ -116,11 +121,15 @@ def _anthropic(prompt, modelo, max_tokens):
                      r.usage.input_tokens, r.usage.output_tokens)
 
 
-def _google(prompt, modelo, max_tokens):
+def _google(prompt, modelo, max_tokens, timeout_s, retentativas):
     # SDK novo (google-genai); o google-generativeai é legado
     from google import genai
     from google.genai import types
-    cli = genai.Client(api_key=os.environ["GOOGLE_API_KEY"])
+    # aqui o timeout é em milissegundos e `attempts` conta a 1ª chamada
+    cli = genai.Client(api_key=os.environ["GOOGLE_API_KEY"],
+                       http_options=types.HttpOptions(
+                           timeout=int(timeout_s * 1000),
+                           retry_options=types.HttpRetryOptions(attempts=retentativas + 1)))
     r = cli.models.generate_content(
         model=modelo, contents=prompt,
         config=types.GenerateContentConfig(
@@ -138,11 +147,13 @@ def _google(prompt, modelo, max_tokens):
 _REAIS = {"chatgpt": _openai, "claude": _anthropic, "gemini": _google}
 
 
-def chamar(modelo_rotulo, prompt, max_tokens=1500, mock=False, espectro=None):
-    """Ponto único de chamada. Retorna o dict descrito acima."""
+def chamar(modelo_rotulo, prompt, max_tokens=1500, mock=False, espectro=None,
+           timeout_s=120, retentativas=5):
+    """Ponto único de chamada. Retorna o dict descrito acima. Se todas as
+    tentativas falharem, a exceção sobe (o collect.py a registra como erro)."""
     if mock:
         return _resposta(_mock(prompt, modelo_rotulo, espectro, max_tokens),
                          "fim", None, None)
     fn = _REAIS[modelo_rotulo]
     modelo_real = MODELOS_REAIS[modelo_rotulo]
-    return fn(prompt, modelo_real, max_tokens)
+    return fn(prompt, modelo_real, max_tokens, timeout_s, retentativas)

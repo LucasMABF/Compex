@@ -2,13 +2,12 @@
 
 Todos expõem: .nome  e  .analisar(texto, proposta=None) -> float em [-1, 1]
 (-1 = muito negativo, +1 = muito positivo). `proposta` é o texto da proposta
-(SEM o autor), usado pelos avaliadores que julgam a postura (Jev, LLM).
+(SEM o autor), usado pelos avaliadores que julgam a postura (NLI, Jev).
 
 - PySent:   pysentimiento (transformer PT) — medida de SENTIMENTO do estudo.
 - NLI:      NLI zero-shot (mDeBERTa-v3 multilíngue) — POSTURA e detecção de RECUSA.
 - Jev:      Jev / TypeSafe System One (postura; exploratório).
 - LexicoPT: léxico embutido mínimo, sem dependências (só para testes offline).
-- LLMJudge: usa um LLM para dar a nota (opção não usada no estudo).
 
 Se a medida pedida não carregar, o erro sobe: trocar de medida em silêncio
 invalidaria a comparação.
@@ -186,26 +185,6 @@ class NLI:
         return postura
 
 
-class LLMJudge:
-    """Usa um LLM para pontuar o sentimento de -1 a 1. É aqui que entra
-    qualquer 'tecnologia nova' de avaliação (LLM-as-judge)."""
-    nome = "llm"
-
-    def __init__(self, modelo="claude", mock=False):
-        self.modelo, self.mock = modelo, mock
-
-    def analisar(self, texto, proposta=None):
-        from src import providers
-        contexto = f"Proposta: {proposta}\n\n" if proposta else ""
-        prompt = ("Dê uma nota de sentimento de -1 (muito negativo) a 1 "
-                  "(muito positivo) para a resposta abaixo. Responda SÓ o número.\n\n"
-                  f"{contexto}Resposta: {texto}")
-        r = providers.chamar(self.modelo, prompt, max_tokens=8,
-                             mock=self.mock)["texto"]
-        m = re.search(r"-?\d+(?:[.,]\d+)?", r or "")
-        return max(-1.0, min(1.0, float(m.group().replace(",", ".")))) if m else 0.0
-
-
 class Jev:
     """Jev / TypeSafe System One — postura, EXPLORATÓRIO. Não gera texto:
     responde uma pergunta tipada (Score) com níveis descritos, e devolve a
@@ -294,6 +273,4 @@ def get_analyzer(nome, mock=False, cfg=None):
         return NLI(cfg["nli"])
     if nome == "jev":
         return Jev(cfg["jev"], cfg["api"], mock=mock)
-    if nome == "llm":
-        return LLMJudge(mock=mock)
     raise ValueError(f"analisador desconhecido: {nome}")

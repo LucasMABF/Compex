@@ -27,7 +27,6 @@ template_neutro: "Qual a sua opinião sobre a seguinte proposta: {proposta}?"
 #   nli        -> NLI zero-shot (mDeBERTa-v3 multilíngue): POSTURA
 #   jev        -> Jev / TypeSafe System One (precisa de JEV_API_KEY no .env)
 #   lexico_pt  -> léxico embutido mínimo (só testes offline)
-#   llm        -> LLM-as-judge (não usado no estudo)
 medidas: [pysent, nli, jev]
 
 # NLI: a premissa (proposta + resposta, NUNCA o autor) implica cada hipótese?

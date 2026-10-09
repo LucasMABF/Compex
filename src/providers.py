@@ -1,6 +1,7 @@
 """Clientes de API unificados + um provider MOCK para rodar sem chaves.
 
-Interface: chamar(modelo, prompt, max_tokens) -> str (texto da resposta).
+Interface: chamar(modelo, prompt, max_tokens) -> dict com o texto da resposta,
+o motivo de parada (fim / limite / bloqueio) e os tokens usados.
 Temperatura não é enviada: todos usam o padrão do provedor.
 
 Os SDKs reais são importados de forma preguiçosa (lazy), então o modo
@@ -57,7 +58,34 @@ def _mock(prompt, modelo, espectro, max_tokens):
 
 # ----------------------------------------------------------------------
 # Providers reais (lazy)
+# Cada um devolve um dict:
+#   texto            texto da resposta
+#   parada           por que o modelo parou, normalizado:
+#                      "fim"      terminou normalmente
+#                      "limite"   cortado por max_tokens (resposta incompleta)
+#                      "bloqueio" barrado pelo filtro de segurança do provedor
+#                      outro      valor cru do provedor
+#   parada_bruta     valor original do provedor
+#   tokens_entrada / tokens_saida   uso, para custo
 # ----------------------------------------------------------------------
+_PARADAS = {
+    # OpenAI (finish_reason)
+    "stop": "fim", "length": "limite", "content_filter": "bloqueio",
+    # Anthropic (stop_reason)
+    "end_turn": "fim", "max_tokens": "limite", "refusal": "bloqueio",
+    # Google (finish_reason)
+    "STOP": "fim", "MAX_TOKENS": "limite", "SAFETY": "bloqueio",
+    "BLOCKLIST": "bloqueio", "PROHIBITED_CONTENT": "bloqueio",
+}
+
+
+def _resposta(texto, parada, tokens_entrada, tokens_saida):
+    parada = str(parada) if parada is not None else None
+    return {"texto": texto or "", "parada": _PARADAS.get(parada, parada),
+            "parada_bruta": parada, "tokens_entrada": tokens_entrada,
+            "tokens_saida": tokens_saida}
+
+
 def _openai(prompt, modelo, max_tokens):
     from openai import OpenAI
     cli = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
@@ -66,7 +94,9 @@ def _openai(prompt, modelo, max_tokens):
         model=modelo, max_completion_tokens=max_tokens,
         reasoning_effort="none",
         messages=[{"role": "user", "content": prompt}])
-    return r.choices[0].message.content
+    c = r.choices[0]
+    return _resposta(c.message.content, c.finish_reason,
+                     r.usage.prompt_tokens, r.usage.completion_tokens)
 
 
 def _anthropic(prompt, modelo, max_tokens):
@@ -79,7 +109,9 @@ def _anthropic(prompt, modelo, max_tokens):
         thinking={"type": "between_tools"},
         messages=[{"role": "user", "content": prompt}])
     # a resposta pode trazer blocos que não são texto: pega o 1º de texto
-    return next((b.text for b in r.content if b.type == "text"), "")
+    texto = next((b.text for b in r.content if b.type == "text"), "")
+    return _resposta(texto, r.stop_reason,
+                     r.usage.input_tokens, r.usage.output_tokens)
 
 
 def _google(prompt, modelo, max_tokens):
@@ -93,16 +125,22 @@ def _google(prompt, modelo, max_tokens):
             max_output_tokens=max_tokens,
             # menor nível aceito no 3.8-flash ("minimal" dá erro)
             thinking_config=types.ThinkingConfig(thinking_level="LOW")))
-    return r.text or ""
+    fim = r.candidates[0].finish_reason if r.candidates else None
+    u = r.usage_metadata
+    # o raciocínio (thoughts) também é cobrado como saída
+    saida = (u.candidates_token_count or 0) + (u.thoughts_token_count or 0) if u else None
+    return _resposta(r.text, getattr(fim, "name", fim),
+                     u.prompt_token_count if u else None, saida)
 
 
 _REAIS = {"chatgpt": _openai, "claude": _anthropic, "gemini": _google}
 
 
-def chamar(modelo_rotulo, prompt, max_tokens=400, mock=False, espectro=None):
-    """Ponto único de chamada. Retorna o texto da resposta."""
+def chamar(modelo_rotulo, prompt, max_tokens=1500, mock=False, espectro=None):
+    """Ponto único de chamada. Retorna o dict descrito acima."""
     if mock:
-        return _mock(prompt, modelo_rotulo, espectro, max_tokens)
+        return _resposta(_mock(prompt, modelo_rotulo, espectro, max_tokens),
+                         "fim", None, None)
     fn = _REAIS[modelo_rotulo]
     modelo_real = MODELOS_REAIS[modelo_rotulo]
     return fn(prompt, modelo_real, max_tokens)

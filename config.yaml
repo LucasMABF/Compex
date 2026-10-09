@@ -8,7 +8,7 @@ modelos:
   - gemini       # gemini-3.8-flash
 
 repeticoes: 3          # N respostas por célula (proposta × autor × modelo)
-max_tokens: 400
+max_tokens: 1500       # teto de segurança (não deixa breve); cortes ficam em "cortada"
 
 # Template do prompt. {autor} e {proposta} são preenchidos.
 # A condição de controle (autor sem nome) usa o template_neutro.

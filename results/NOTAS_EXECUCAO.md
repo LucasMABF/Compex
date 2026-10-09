@@ -36,6 +36,22 @@
 - **Faltavam `.gitignore` e `.env.example`** (citados no README/CLAUDE.md).
 - **Piloto pela linha de comando:** `run.py` agora aceita `--models` e `--props`.
 
+### 09/10/2026 — corte de respostas e custo
+
+- **`max_tokens: 400` cortava respostas no meio** sem que soubéssemos. O teto
+  virou 1500 (é só segurança — paga-se o que é gerado, não o teto) e cada
+  resposta agora registra `parada` (`fim` / `limite` / `bloqueio`), `cortada`
+  e os tokens de entrada/saída. Cortes aparecem no log (`CORTADA`) e em
+  `ver.py --cortadas`. Na análise: reportar a taxa de corte por condição e
+  refazer sem as cortadas (sensibilidade) — a implementar.
+- **Bloqueio do provedor conta como recusa.** Quando o filtro de segurança
+  da API barra a resposta (`refusal` / `content_filter` / `SAFETY`), a
+  resposta é marcada `recusa=True`, além da lista de expressões.
+- **Versões dos pacotes fixadas** em `requirements.txt` (reprodutibilidade).
+- **Brevidade** só é controlável pelo prompt (não há parâmetro comum aos três
+  provedores); decidir depois de ler as primeiras respostas reais, mantendo o
+  texto igual em todas as condições.
+
 ### Limitações / pontos de método em aberto
 
 - **Templates diferem além do nome.** O controle não tem o "X *defende* a

@@ -7,6 +7,7 @@ Uso:
     python ver.py --modelo claude --prop P1 --autor pol_dir_1
     python ver.py --erros                  # só chamadas com erro
     python ver.py --recusas                # só respostas marcadas como recusa
+    python ver.py --cortadas               # só respostas cortadas por max_tokens
 """
 import argparse
 import json
@@ -23,6 +24,7 @@ def main():
     ap.add_argument("--autor")
     ap.add_argument("--erros", action="store_true")
     ap.add_argument("--recusas", action="store_true")
+    ap.add_argument("--cortadas", action="store_true")
     args = ap.parse_args()
 
     cfg = loader.carregar_config()
@@ -31,14 +33,18 @@ def main():
               open(loader.arquivos(pasta)["raw"], encoding="utf-8")]
     print(f"[{pasta}]")
 
-    filtros = any([args.modelo, args.prop, args.autor, args.erros, args.recusas])
+    filtros = any([args.modelo, args.prop, args.autor, args.erros,
+                   args.recusas, args.cortadas])
     if not filtros:
         print(f"{len(linhas)} respostas")
         for m in sorted({l["modelo"] for l in linhas}):
             sub = [l for l in linhas if l["modelo"] == m]
             print(f"  {m}: {len(sub)} | erros {sum(bool(l.get('erro')) for l in sub)}"
-                  f" | recusas {sum(l['recusa'] for l in sub)}")
-        print("Use --modelo/--prop/--autor/--erros/--recusas para ver os textos.")
+                  f" | recusas {sum(l['recusa'] for l in sub)}"
+                  f" | cortadas {sum(bool(l.get('cortada')) for l in sub)}"
+                  f" | tokens saída {sum(l.get('tokens_saida') or 0 for l in sub)}")
+        print("Use --modelo/--prop/--autor/--erros/--recusas/--cortadas "
+              "para ver os textos.")
         return
 
     for l in linhas:
@@ -47,10 +53,13 @@ def main():
         if args.autor and l["autor_id"] != args.autor: continue
         if args.erros and not l.get("erro"): continue
         if args.recusas and not l["recusa"]: continue
+        if args.cortadas and not l.get("cortada"): continue
         print("=" * 78)
         print(f"{l['proposta_id']} | {l['autor_id']} | {l['modelo']} | "
               f"rep={l['rep']}"
-              + (" | RECUSA" if l["recusa"] else ""))
+              + (" | RECUSA" if l["recusa"] else "")
+              + (" | CORTADA" if l.get("cortada") else "")
+              + (f" | parada={l['parada_bruta']}" if l.get("parada_bruta") else ""))
         print(f"PROMPT: {l['prompt']}")
         print("-" * 78)
         print(f"ERRO: {l['erro']}" if l.get("erro") else l["resposta"])

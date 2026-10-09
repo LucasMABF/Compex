@@ -83,7 +83,7 @@ class LLMJudge:
                   "(muito positivo) para a resposta abaixo. Responda SÓ o número.\n\n"
                   f"{contexto}Resposta: {texto}")
         r = providers.chamar(self.modelo, prompt, max_tokens=8,
-                             mock=self.mock)
+                             mock=self.mock)["texto"]
         m = re.search(r"-?\d+(?:[.,]\d+)?", r or "")
         return max(-1.0, min(1.0, float(m.group().replace(",", ".")))) if m else 0.0
 

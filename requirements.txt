@@ -1,18 +1,19 @@
+# Versões fixadas para reprodutibilidade (as usadas no projeto).
+
 # núcleo (pipeline + gráficos + estatística)
-pyyaml
-pandas
-numpy
-matplotlib
-scipy
-python-dotenv
-requests
+PyYAML==6.0.3
+pandas==3.0.6
+numpy==2.5.3
+matplotlib==3.11.2
+scipy==1.18.1
+python-dotenv==1.2.4
+requests==2.34.2
 
-# APIs dos modelos (só para coleta real; não precisa no modo --mock)
-openai
-anthropic
-google-genai
+# APIs dos modelos (SDKs oficiais; só para coleta real)
+openai==3.26.1
+anthropic==1.12.1
+google-genai==2.29.0
 
-# análise de sentimento (escolha no config.yaml)
-leia-br                # LeIA = VADER adaptado ao PT (import LeIA). NÃO é o pacote "leia"
-# análise de sentimento opcional
-# pysentimiento        # transformer PT
+# medidas de sentimento (escolha no config.yaml)
+leia-br==0.0.1         # LeIA = VADER adaptado ao PT (import LeIA). NÃO é o pacote "leia"
+# pysentimiento        # transformer PT (opcional)

@@ -1,6 +1,7 @@
 """Coleta: roda o grid (proposta × autor × modelo × repetição) e salva, na
 pasta da execução (ver src/loader.py):
-    raw/responses.jsonl   uma resposta por linha (prompt, texto, recusa, erro)
+    raw/responses.jsonl   uma resposta por linha (prompt, texto, recusa, erro,
+                          motivo de parada/corte, tokens)
     raw/coleta.log        uma linha por chamada (tempo, tamanho, erro completo)
     config/, metadata.json  o que foi usado, para reproduzir
 
@@ -107,7 +108,7 @@ def main():
           f"{len(modelos)} modelos × {reps} reps)"
           f"{'  [MOCK]' if args.mock else ''} -> {pasta}")
 
-    n = n_erros = 0
+    n = n_erros = n_cortadas = tok_in = tok_out = 0
     with open(arq["raw"], "w", encoding="utf-8") as f:
         for prop in propostas:
             for autor in autores:
@@ -116,23 +117,31 @@ def main():
                     cfg["template_autor"], cfg["template_neutro"])
                 for modelo in modelos:
                     for rep in range(reps):
-                        erro = None
+                        erro, r = None, {}
                         t0 = time.monotonic()
                         try:
-                            resp = providers.chamar(
+                            r = providers.chamar(
                                 modelo, prompt,
                                 max_tokens=cfg["max_tokens"],
                                 mock=args.mock,
                                 espectro=autor.get("espectro"))
                         except Exception as e:      # noqa: BLE001
-                            resp, erro = None, f"{type(e).__name__}: {e}"
+                            erro = f"{type(e).__name__}: {e}"
+                        resp = r.get("texto")
+                        parada = r.get("parada")
+                        # recusa: pela lista de expressões OU barrada pelo provedor
+                        recusa = eh_recusa(resp) or parada == "bloqueio"
+                        cortada = parada == "limite"
                         onde = (f"{prop['id']} {autor['id']} {modelo} rep={rep} "
                                 f"({time.monotonic() - t0:.1f}s)")
                         if erro:
                             log.error("%s ERRO %s", onde, erro)
                         else:
-                            log.info("%s ok %d chars%s%s", onde, len(resp),
-                                     " RECUSA" if eh_recusa(resp) else "",
+                            log.info("%s ok %d chars, %s tokens%s%s%s%s", onde,
+                                     len(resp), r.get("tokens_saida"),
+                                     " RECUSA" if recusa else "",
+                                     " BLOQUEIO" if parada == "bloqueio" else "",
+                                     " CORTADA" if cortada else "",
                                      " VAZIA" if not resp.strip() else "")
                         linha = {
                             "proposta_id": prop["id"],
@@ -145,20 +154,33 @@ def main():
                             "rep": rep,
                             "prompt": prompt,
                             "resposta": resp,
-                            "recusa": eh_recusa(resp),
+                            "recusa": recusa,
                             "erro": erro,
+                            "parada": parada,
+                            "parada_bruta": r.get("parada_bruta"),
+                            "cortada": cortada,
+                            "tokens_entrada": r.get("tokens_entrada"),
+                            "tokens_saida": r.get("tokens_saida"),
                             "mock": args.mock,
                             "ts": datetime.now(timezone.utc).isoformat(),
                         }
                         f.write(json.dumps(linha, ensure_ascii=False) + "\n")
                         n += 1
                         n_erros += erro is not None
+                        n_cortadas += cortada
+                        tok_in += r.get("tokens_entrada") or 0
+                        tok_out += r.get("tokens_saida") or 0
                         if n % 50 == 0 or n == total:
                             print(f"  {n}/{total}")
                         if not args.mock:
                             time.sleep(0.2)   # educado com rate limits
-    log.info("fim: %d respostas, %d erros", n, n_erros)
+    log.info("fim: %d respostas, %d erros, %d cortadas, tokens entrada=%d saida=%d",
+             n, n_erros, n_cortadas, tok_in, tok_out)
     print(f"OK -> {arq['raw']}  (log: {arq['log']})")
+    print(f"tokens: entrada={tok_in} saída={tok_out}")
+    if n_cortadas:
+        print(f"[aviso] {n_cortadas} respostas cortadas por max_tokens "
+              f"({cfg['max_tokens']}) — campo 'cortada' no jsonl")
     if n_erros:
         print(f"[aviso] {n_erros} chamadas falharam — veja {arq['log']}")
 

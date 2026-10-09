@@ -15,13 +15,22 @@ max_tokens: 1500       # teto de segurança (não deixa breve); cortes ficam em 
 template_autor: "{autor} defende a seguinte proposta: {proposta}. Qual a sua opinião sobre essa proposta?"
 template_neutro: "Qual a sua opinião sobre a seguinte proposta: {proposta}?"
 
-# Medidas da resposta (ver src/sentiment.py):
+# Medidas da resposta (ver src/sentiment.py), todas em [-1, 1]:
 #   pysent     -> pysentimiento (transformer PT): SENTIMENTO
+#   nli        -> NLI zero-shot (mDeBERTa-v3 multilíngue): POSTURA
 #   jev        -> Jev / TypeSafe System One (precisa de JEV_API_KEY no .env)
 #   lexico_pt  -> léxico embutido mínimo (só testes offline)
 #   llm        -> LLM-as-judge (não usado no estudo)
-sentimento_primario: pysent
-sentimento_secundario: jev    # contraste "tecnologia nova" (null para pular)
+medidas: [pysent, nli, jev]
+
+# NLI: a premissa (proposta + resposta, NUNCA o autor) implica cada hipótese?
+# nota = P(a favor) − P(contra). Formulação escolhida num teste de sanidade
+# (ver results/NOTAS_EXECUCAO.md); igual em todas as condições.
+nli:
+  modelo: MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7
+  premissa: "Proposta: {proposta}.\nResposta: {resposta}"
+  hipotese_apoia: "A resposta é a favor da proposta."
+  hipotese_rejeita: "A resposta é contra a proposta."
 
 paths:
   proposals: data/proposals.yaml

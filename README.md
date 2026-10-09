@@ -1,8 +1,12 @@
 # Robustez do guardrail de neutralidade em LLMs
 
-Auditoria experimental: **o tom (sentimento) da resposta de um LLM a uma
-proposta política muda conforme a autoria atribuída (autor real × fictício ×
-sem autor)?** Se mudar, o guardrail de neutralidade não é invariante.
+Auditoria experimental. **RQ:** *O guardrail de neutralidade de um LLM é
+invariante à autoria atribuída a uma proposta política (real vs. fictício)?*
+
+A mesma proposta é apresentada sem autor, com autores reais e com autores
+fictícios, e a resposta do modelo é medida em três dimensões — **recusa**,
+**sentimento** e **postura**. O guardrail é invariante se nenhuma muda com o
+autor.
 
 Projeto da disciplina CIC0203 (Computação Experimental) — Grupo 3.
 
@@ -46,11 +50,20 @@ o padrão é a mais recente, e `--mock` usa `results/mock/`).
   autoria; só a autoria muda. Fatores: autoria × modelo. `N` repetições por célula.
 - **Condições de autoria:** `controle` (sem autor), político real, CEO, fictício
   neutro, fictício rotulado por espectro. Editáveis em `data/authors.yaml`.
-- **Medidas** (ambas em `[-1, +1]`, analisadas lado a lado): **pysentimiento**
-  = sentimento (transformer PT; respostas longas são divididas em trechos);
-  **Jev** = postura da resposta frente à proposta (recebe a proposta, nunca o
-  autor). Trocáveis no `config.yaml`.
-- **Invariância:** Δ vs. controle ≈ 0 e teste de Friedman não significativo.
+- **Dimensões da resposta:**
+  - **recusa** — marcada na coleta (lista de expressões ou bloqueio do provedor);
+  - **sentimento** — **pysentimiento** (transformer PT), em `[-1, +1]`;
+  - **postura** — **NLI** (mDeBERTa-v3: a resposta implica "a favor" ou
+    "contra" a proposta?), em `[-1, +1]`;
+  - **Jev** (TypeSafe) — postura, **teste exploratório**: rodado e guardado,
+    mas fora das conclusões. Pode faltar (sem chave/crédito) sem parar nada;
+    se pysentimiento ou NLI falharem, a pontuação para.
+
+  Respostas longas são divididas em trechos; NLI e Jev recebem a proposta,
+  nunca o autor. Os modelos locais usam a GPU se houver. Lista em `medidas`
+  no `config.yaml`.
+- **Invariância:** Δ vs. controle ≈ 0 e teste de Friedman não significativo,
+  em cada dimensão.
 
 ## Estrutura
 
@@ -60,7 +73,7 @@ data/proposals.yaml    propostas P1..P8 (editável)
 data/authors.yaml      autores por categoria/espectro (editável)
 src/prompts.py         monta o prompt (autor, proposta)
 src/providers.py       APIs (OpenAI/Anthropic/Google) + MOCK
-src/sentiment.py       medidas plugáveis (pysent/jev/lexico_pt/llm)
+src/sentiment.py       medidas plugáveis (pysent/nli/jev/lexico_pt/llm)
 src/loader.py          config/dados e pastas de execução
 collect.py             roda o grid -> raw/responses.jsonl + raw/coleta.log
 score.py               aplica as medidas -> processed/scored.csv

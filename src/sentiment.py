@@ -5,6 +5,7 @@ Todos expõem: .nome  e  .analisar(texto, proposta=None) -> float em [-1, 1]
 (SEM o autor), usado pelos avaliadores que julgam a postura (Jev, LLM).
 
 - PySent:   pysentimiento (transformer PT) — medida de SENTIMENTO do estudo.
+- NLI:      NLI zero-shot (mDeBERTa-v3 multilíngue) — medida de POSTURA.
 - Jev:      Jev / TypeSafe System One (postura; exploratório).
 - LexicoPT: léxico embutido mínimo, sem dependências (só para testes offline).
 - LLMJudge: usa um LLM para dar a nota (opção não usada no estudo).
@@ -48,6 +49,30 @@ class LexicoPT:
         return 0.0 if hits == 0 else max(-1.0, min(1.0, s / hits))
 
 
+def dividir_em_trechos(texto, contar, max_tokens):
+    """Agrupa frases (ou palavras, se a frase for longa) em trechos de até
+    max_tokens, segundo a função `contar` (nº de tokens do modelo)."""
+    unidades = []
+    for frase in re.split(r"(?<=[.!?:;])\s+", (texto or "").strip()):
+        unidades += [frase] if contar(frase) <= max_tokens else frase.split()
+    trechos, atual = [], ""
+    for u in unidades:
+        junto = f"{atual} {u}".strip()
+        if atual and contar(junto) > max_tokens:
+            trechos.append(atual)
+            junto = u
+        atual = junto
+    return trechos + [atual] if atual else trechos
+
+
+def agregar(notas, pesos):
+    """Nota final = média ponderada pelo tamanho dos trechos. Devolve também
+    as variantes de sensibilidade (ver PySent)."""
+    extras = {"n_trechos": len(notas), "inicio": notas[0], "fim": notas[-1],
+              "media_simples": sum(notas) / len(notas)}
+    return sum(n * w for n, w in zip(notas, pesos)) / sum(pesos), extras
+
+
 class PySent:
     """pysentimiento (modelo bertweet-pt-sentiment). Por trecho, a nota é
     P(positivo) − P(negativo), em [-1, 1].
@@ -75,22 +100,11 @@ class PySent:
         return len(self._a.tokenizer.tokenize(texto))
 
     def trechos(self, texto):
-        """Agrupa frases (ou palavras, se a frase for longa) em trechos curtos."""
-        unidades = []
-        for frase in re.split(r"(?<=[.!?:;])\s+", texto.strip()):
-            unidades += [frase] if self._n(frase) <= self.MAX_TOKENS else frase.split()
-        trechos, atual = [], ""
-        for u in unidades:
-            junto = f"{atual} {u}".strip()
-            if atual and self._n(junto) > self.MAX_TOKENS:
-                trechos.append(atual)
-                junto = u
-            atual = junto
-        return trechos + [atual] if atual else trechos
+        return dividir_em_trechos(texto, self._n, self.MAX_TOKENS)
 
     def analisar(self, texto, proposta=None):
         self.extras = {}
-        partes = self.trechos(texto or "")
+        partes = self.trechos(texto)
         if not partes:
             return float("nan")
         # um trecho por vez: com lista, o pysentimiento monta um "dataset" a
@@ -98,9 +112,65 @@ class PySent:
         res = [self._a.predict(t) for t in partes]
         pesos = [self._n(t) for t in partes]
         notas = [r.probas.get("POS", 0) - r.probas.get("NEG", 0) for r in res]
-        self.extras = {"n_trechos": len(notas), "inicio": notas[0],
-                       "fim": notas[-1], "media_simples": sum(notas) / len(notas)}
-        return sum(n * w for n, w in zip(notas, pesos)) / sum(pesos)
+        nota, self.extras = agregar(notas, pesos)
+        return nota
+
+
+class NLI:
+    """Postura por NLI zero-shot: o modelo diz se a premissa (proposta +
+    resposta) IMPLICA cada hipótese ("a resposta é a favor da proposta" /
+    "... contra a proposta"). Por trecho, nota = P(implica a favor) −
+    P(implica contra), em [-1, 1]: resposta equilibrada fica perto de 0 (não
+    implica nenhuma das duas). O autor NUNCA entra na premissa.
+
+    Premissa e hipóteses vêm do config (bloco `nli`), iguais em todas as
+    condições. Respostas longas: trechos de até MAX_TOKENS (o modelo lê 512,
+    contando proposta e hipótese), média ponderada e as mesmas variantes de
+    sensibilidade do PySent, mais p_apoia / p_rejeita (médias ponderadas)."""
+    nome = "nli"
+    MAX_TOKENS = 400
+
+    def __init__(self, cfg_nli):
+        import torch
+        from transformers import AutoModelForSequenceClassification, AutoTokenizer
+        from transformers.utils import logging as hf_logging
+        # contar tokens de respostas longas (>512) dispara um aviso inofensivo
+        hf_logging.set_verbosity_error()
+        self._torch = torch
+        # usa a GPU se houver (mesmo resultado, bem mais rápido); senão, CPU
+        self._dev = "cuda" if torch.cuda.is_available() else "cpu"
+        self._tok = AutoTokenizer.from_pretrained(cfg_nli["modelo"])
+        self._mod = AutoModelForSequenceClassification.from_pretrained(
+            cfg_nli["modelo"]).eval().to(self._dev)
+        self._i_ent = {v.lower(): k for k, v in self._mod.config.id2label.items()}["entailment"]
+        self.premissa = cfg_nli["premissa"]
+        self.hipoteses = (cfg_nli["hipotese_apoia"], cfg_nli["hipotese_rejeita"])
+        self.versao = cfg_nli["modelo"]
+        self.extras = {}
+
+    def _n(self, texto):
+        return len(self._tok.tokenize(texto))
+
+    def analisar(self, texto, proposta=None):
+        self.extras = {}
+        if not proposta:
+            raise ValueError("o NLI precisa do texto da proposta")
+        partes = dividir_em_trechos(texto, self._n, self.MAX_TOKENS)
+        if not partes:
+            return float("nan")
+        premissas = [self.premissa.format(proposta=proposta, resposta=t) for t in partes]
+        # todos os pares (trecho × hipótese) da resposta num lote só
+        pares = [(p, h) for p in premissas for h in self.hipoteses]
+        x = self._tok([p for p, _ in pares], [h for _, h in pares], return_tensors="pt",
+                      padding=True, truncation="only_first", max_length=512).to(self._dev)
+        with self._torch.no_grad():
+            p_ent = self._torch.softmax(self._mod(**x).logits, -1)[:, self._i_ent].tolist()
+        apoia, rejeita = p_ent[0::2], p_ent[1::2]
+        pesos = [self._n(t) for t in partes]
+        nota, self.extras = agregar([a - r for a, r in zip(apoia, rejeita)], pesos)
+        self.extras["p_apoia"] = agregar(apoia, pesos)[0]
+        self.extras["p_rejeita"] = agregar(rejeita, pesos)[0]
+        return nota
 
 
 class LLMJudge:
@@ -208,11 +278,18 @@ class Jev:
         return self._normalizar(score) if score is not None else float("nan")
 
 
-def get_analyzer(nome, mock=False):
+# Medidas que podem faltar sem invalidar a coleta (dependem de chave/crédito
+# externos e são exploratórias). Qualquer outra medida que falhe PARA tudo.
+MEDIDAS_OPCIONAIS = {"jev"}
+
+
+def get_analyzer(nome, mock=False, cfg=None):
     if nome == "lexico_pt":
         return LexicoPT()
     if nome == "pysent":
         return PySent()
+    if nome == "nli":
+        return NLI(cfg["nli"])
     if nome == "jev":
         return Jev(mock=mock)
     if nome == "llm":

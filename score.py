@@ -1,6 +1,6 @@
-"""Pontuação: lê as respostas cruas da execução e aplica as medidas de
-sentimento (primária e secundária do config), gerando processed/scored.csv
-com uma coluna sent_<medida> por medida.
+"""Pontuação: lê as respostas cruas da execução e aplica as medidas do config
+(`medidas`), gerando processed/scored.csv com uma coluna sent_<medida> por
+medida.
 
 Recusas e chamadas com erro não são pontuadas (ficam vazias) — assim também
 não se gastam chamadas do Jev com elas.
@@ -64,12 +64,14 @@ def main():
     textos = df.loc[validas, "resposta"]
     props = df.loc[validas, "proposta_texto"]
 
-    nomes = [cfg["sentimento_primario"], cfg.get("sentimento_secundario")]
-    for i, nome in enumerate(n for n in nomes if n):
+    for nome in cfg["medidas"]:
         try:
-            a = sentiment.get_analyzer(nome, mock=mock)
+            a = sentiment.get_analyzer(nome, mock=mock, cfg=cfg)
         except Exception as e:                                  # noqa: BLE001
-            print(f"[aviso] medida '{nome}' indisponível ({e}); pulando.")
+            if nome not in sentiment.MEDIDAS_OPCIONAIS:
+                # medida principal faltando = coleta sem uma dimensão: não seguir
+                raise SystemExit(f"[erro] medida principal '{nome}' não carregou: {e}")
+            print(f"[aviso] medida opcional '{nome}' indisponível ({e}); pulando.")
             continue
         col = f"sent_{a.nome}"
         df[col] = float("nan")
@@ -84,7 +86,7 @@ def main():
             df[f"versao_{a.nome}"] = None
             df.loc[validas, f"versao_{a.nome}"] = versoes
             print(f"  versões de {a.nome}: {sorted({v for v in versoes if v})}")
-        print(f"Medida {'primária' if i == 0 else 'secundária'}: {a.nome}")
+        print(f"Medida: {a.nome}")
 
     arq["processed"].mkdir(parents=True, exist_ok=True)
     df.to_csv(arq["scored"], index=False)

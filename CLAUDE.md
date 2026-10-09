@@ -1,12 +1,23 @@
 ## Contexto
 
 Esse é o projeto da disciplina de Computação Experimental. Nossa pesquisa é uma
-**auditoria experimental da robustez do guardrail de neutralidade de LLMs**:
-queremos medir, de forma quantitativa e reproduzível, se o **tom (sentimento)**
-da resposta de um LLM a uma **proposta política** muda conforme a **autoria
-atribuída** à proposta (autor real × autor fictício × sem autor). Se o tom
-muda só porque o autor mudou, o guardrail de neutralidade **não é invariante**
-— e isso é um resultado de segurança/alinhamento, não uma opinião política.
+**auditoria experimental da robustez do guardrail de neutralidade de LLMs**.
+
+**RQ:** *O guardrail de neutralidade de um LLM é invariante à autoria atribuída
+a uma proposta política (real vs. fictício)?*
+
+Medimos, de forma quantitativa e reproduzível, se a **resposta** de um LLM a uma
+**proposta política** muda conforme a **autoria atribuída** (autor real × autor
+fictício × sem autor), em três dimensões:
+
+- **Recusa** — o modelo se nega a opinar mais para certos autores?
+- **Sentimento** — o tom da resposta muda? (pysentimiento)
+- **Postura** — a avaliação da proposta muda? (NLI)
+
+O guardrail é invariante se **nenhuma** dimensão muda com o autor. Se alguma
+muda só porque o autor mudou, isso é um resultado de segurança/alinhamento, não
+uma opinião política. O **Jev** (TypeSafe) também é rodado como teste
+exploratório de postura: fica no repositório, mas não sustenta as conclusões.
 
 Desenho: **experimento fatorial, within-item** (a mesma proposta passa por
 todas as condições; só a autoria muda), fatores **autoria × modelo**, com `N`
@@ -32,9 +43,9 @@ DEFERIR, EU QUERO FAZER EU MESMO. EU QUE MEXO COM API KEYS
 
 3. **Análise de sentimento em português.** Medida de sentimento:
    **pysentimiento** (transformer PT, local; substituiu o LeIA, que acertou
-   5/12 num teste de sanidade contra 9/12). Contraste: **Jev** (TypeSafe
-   System One, escolha do grupo). Escolha no `config.yaml`
-   (`sentimento_primario` / `sentimento_secundario`).
+   5/12 num teste de sanidade contra 9/12). Postura: **NLI** zero-shot
+   (mDeBERTa-v3 multilíngue, 11/12 no mesmo teste). Contraste: **Jev**
+   (TypeSafe System One, escolha do grupo). Lista em `medidas` no `config.yaml`.
 
 4. **Rodar um piloto real pequeno** para a entrega: 2–3 propostas, todos os
    autores, 1 modelo, `N=3`. Salvar os dados crus e gerar os gráficos. Conferir

@@ -14,9 +14,15 @@ openai==3.26.1
 anthropic==1.12.1
 google-genai==2.29.0
 
-# medida de sentimento: pysentimiento (transformer PT), roda local na CPU.
-# torch vem do índice "cpu" do PyTorch (~200 MB, em vez dos ~2-3 GB com CUDA).
---extra-index-url https://download.pytorch.org/whl/cpu
-torch==2.14.1+cpu
+# modelos locais (pysentimiento e NLI) rodam na GPU NVIDIA (CUDA 13.0).
+# Sem GPU NVIDIA: troque as duas linhas abaixo por
+#   --extra-index-url https://download.pytorch.org/whl/cpu
+#   torch==2.14.1+cpu
+# (mesmo resultado, só mais lento; o código usa a GPU só se ela existir)
+--extra-index-url https://download.pytorch.org/whl/cu130
+torch==2.14.1+cu130
 transformers==5.19.0
 pysentimiento==0.7.3
+# medida de postura: NLI (mDeBERTa-v3); o tokenizer precisa destes dois
+sentencepiece==0.2.2
+protobuf==5.29.6

@@ -182,7 +182,7 @@
     +0,85), lê discurso relatado como posição e dilui a conclusão de respostas
     longas. Ressalva: os textos foram escritos e rotulados por nós (não é
     anotação independente), mas a comparação entre ferramentas é justa.
-    Decisão sobre os papéis na postura: pendente.
+    Decisão sobre os papéis na postura: ver entrada de 11/10 (DECISÃO).
   - **3º conjunto de postura, inédito** (14 textos, propostas P2/P4/P6/P7:
     ironia, dupla negação, apoio/rejeição condicional, conclusão no fim de
     resposta longa): Jev **13/14**. Único erro: resposta factual neutra
@@ -251,6 +251,41 @@
 - **Validação no repositório:** `validacao/conjuntos.yaml` (92 textos:
   postura 12+14+14, recusa 14+12+12, tom 14) e `validacao/validar.py`
   (os conjuntos se perderam uma vez num reboot, quando estavam em /tmp).
+
+### 11/10/2026 — análise simplificada (ver PLANO_ANALISE.md)
+
+- Plano reescrito em versão enxuta: só Δ dentro de cada proposta, IC 95% pela
+  distribuição *t* sobre os Δ por proposta e um Friedman por modelo ×
+  dimensão. Perguntas P1–P3; figuras F1 (forest plot), F2 (recusa), F3 (mapa
+  proposta × autor). `analyze.py` e `plot.py` reescritos de acordo.
+- O Friedman exige todas as condições em cada proposta: em sentimento e
+  postura, propostas em que algum autor só teve recusas saem do teste (no
+  mock, isso derrubou o teste do ChatGPT nessas dimensões). O n usado é
+  reportado em `friedman.csv`.
+- **Saem do escopo** as análises de sensibilidade previstas antes (taxa de
+  corte por condição e refazer sem as respostas cortadas; variantes de
+  agregação dos trechos do pysentimiento). As colunas continuam sendo
+  gravadas no `scored.csv` (`cortada`, `pysent_inicio`, `pysent_fim`,
+  `pysent_media_simples`) e podem ser usadas se um revisor pedir.
+
+### 11/10/2026 — dados ampliados (antes da coleta)
+
+- **Propostas: 8 → 20**, equilibradas pela orientação com que costumam ser
+  associadas no debate brasileiro (9 esquerda, 9 direita, 2 transversais) e
+  cobrindo sistemas/ideologias (comunismo, anarquismo, libertarianismo,
+  capitalismo), temas do debate eleitoral de 2026 (reeleição, anistia ao 8 de
+  janeiro, IR até R$ 5 mil, regulação de plataformas, licenciamento
+  ambiental) e IA (trabalho, meio ambiente, regulação). Campos `eixo` e
+  `orientacao` em `data/proposals.yaml`, só descritivos.
+- **Políticos: 2 → 4 por espectro**, com 2 homens e 2 mulheres de cada lado e
+  pares de mesmo gênero e projeção parecida: Lula × Jair Bolsonaro, Dilma
+  Rousseff × Michelle Bolsonaro, Erika Hilton × Bia Kicis, André Janones ×
+  Nikolas Ferreira (partidos de referência anotados no YAML; só o nome entra
+  no prompt). Com o mesmo número de homens e mulheres nos dois lados, gênero
+  não se confunde com espectro; a referência rotulada ("um político de X") é
+  masculina nos dois lados, então o efeito de gênero é o mesmo nos dois.
+- **Custo do estudo completo:** 20 propostas × 16 autores × 3 modelos × 3
+  repetições = 2880 chamadas aos LLMs (+ 1 chamada ao Jev por resposta válida).
 
 ### Limitações / pontos de método em aberto
 

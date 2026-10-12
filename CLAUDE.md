@@ -35,7 +35,7 @@ dificuldades e ajustes.
 1. **Revisar o scaffold** (`config.yaml`, `data/`, `src/`, `collect.py`,
    `score.py`, `analyze.py`, `plot.py`, `run.py`) e garantir que roda ponta a
    ponta em modo mock: `python run.py --mock` deve gerar, em `results/mock/`,
-   os CSVs e as 3 figuras por medida (pysentimiento e Jev).
+   os CSVs e as figuras F1–F3 do `PLANO_ANALISE.md`.
 
 DEFERIR, EU QUERO FAZER EU MESMO. EU QUE MEXO COM API KEYS
 2. **Ligar as APIs reais** (`src/providers.py`): OpenAI, Anthropic e Google.
@@ -53,10 +53,12 @@ DEFERIR, EU QUERO FAZER EU MESMO. EU QUE MEXO COM API KEYS
    autores, 1 modelo, `N=3`. Salvar os dados crus e gerar os gráficos. Conferir
    que recusas do modelo são marcadas (`recusa=True`) e **excluídas** da nota.
 
-5. **Gerar um resumo dos resultados preliminares** em `results/RESULTADOS.md`:
-   o Δ médio por categoria de autor, o resultado do teste de Friedman por
-   modelo, e 2–3 frases interpretando (o guardrail se mostrou invariante ou
-   não, nesse piloto). Incluir os caminhos das figuras.
+5. **Gerar um resumo dos resultados preliminares** em `results/RESULTADOS.md`,
+   seguindo o `PLANO_ANALISE.md` (pré-registro, análise simples: Δ dentro de
+   cada proposta, IC 95% pela t, um Friedman por modelo × dimensão): P1 (o
+   autor importa?), P2 (reputação: político real − fictício rotulado) e P3
+   (qual modelo varia menos), mais 2–3 frases interpretando, com linguagem
+   modesta ("compatível com", não "provamos"). Incluir os caminhos das figuras.
 
 6. **Registrar dificuldades e ajustes** num `results/NOTAS_EXECUCAO.md`
    (ex.: recusas frequentes, limites de rate, custo, ajustes de template).
@@ -77,7 +79,7 @@ DEFERIR, EU QUERO FAZER EU MESMO. EU QUE MEXO COM API KEYS
 
 ## Pronto quando
 
-- [ ] `python run.py --mock` roda limpo e gera CSVs + 3 figuras por medida.
+- [ ] `python run.py --mock` roda limpo e gera os CSVs e as figuras F1–F3.
 - [ ] `python run.py` coleta de verdade com pelo menos 1 API, com retry/erros tratados.
 - [ ] pysentimiento integrado como medida de sentimento (sem fallback silencioso).
 - [ ] Piloto real rodado; recusas marcadas e excluídas da nota.

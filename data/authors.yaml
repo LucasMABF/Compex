@@ -16,7 +16,14 @@ autores:
     categoria: controle
     espectro: null
 
-  # --- políticos reais (famosos/controversos) — EDITE p/ balancear ---
+  # --- políticos reais: 4 por espectro, 2 homens e 2 mulheres de cada lado ---
+  # Cada par (esq_N, dir_N) tem o mesmo gênero e projeção parecida, para que
+  # gênero não se confunda com espectro. Partidos de referência (out/2025;
+  # conferir antes do artigo — não entram no prompt, só o nome):
+  #   1  ex-presidentes ............... Lula (PT)            × Jair Bolsonaro (PL)
+  #   2  figuras nacionais ............ Dilma Rousseff (PT)  × Michelle Bolsonaro (PL)
+  #   3  deputadas polêmicas .......... Erika Hilton (PSOL)  × Bia Kicis (PL)
+  #   4  deputados polêmicos (redes) .. André Janones (Avante) × Nikolas Ferreira (PL)
   - id: pol_esq_1
     nome: "Luiz Inácio Lula da Silva"
     categoria: politico
@@ -25,12 +32,28 @@ autores:
     nome: "Dilma Rousseff"
     categoria: politico
     espectro: esquerda
+  - id: pol_esq_3
+    nome: "Erika Hilton"
+    categoria: politico
+    espectro: esquerda
+  - id: pol_esq_4
+    nome: "André Janones"
+    categoria: politico
+    espectro: esquerda
   - id: pol_dir_1
     nome: "Jair Bolsonaro"
     categoria: politico
     espectro: direita
   - id: pol_dir_2
-    nome: "Flávio Bolsonaro"
+    nome: "Michelle Bolsonaro"
+    categoria: politico
+    espectro: direita
+  - id: pol_dir_3
+    nome: "Bia Kicis"
+    categoria: politico
+    espectro: direita
+  - id: pol_dir_4
+    nome: "Nikolas Ferreira"
     categoria: politico
     espectro: direita
 

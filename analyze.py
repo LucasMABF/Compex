@@ -1,11 +1,16 @@
-"""Análise: para CADA medida (sent_pysent, sent_jev, ...), calcula médias por
-condição, o Δ em relação ao controle (autor neutro) e um teste
-não-paramétrico de invariância.
+"""Análise (PLANO_ANALISE.md): Δ dentro de cada proposta, IC 95% pela
+distribuição t e um teste de Friedman por modelo × dimensão. Só isso.
 
-Gera em <execução>/processed/ (coluna `medida` em todos):
-    media_por_autor.csv     média por (medida, modelo, autor)
-    delta_vs_neutro.csv     Δ = média(autor) − média(neutro), por (medida, modelo)
-    teste_invariancia.csv   Friedman por (medida, modelo) entre as condições de autoria
+Dimensões: recusa (taxa, em %), sentimento (config `sentimento`) e postura
+(Jev). Sentimento e postura usam só as não-recusas (já vêm vazias nas recusas).
+
+Gera em <execução>/processed/:
+    medias.csv              média por (modelo, dimensão, autor) — média das propostas
+    delta_por_proposta.csv  Δ de cada autor vs. sem autor, proposta a proposta (F3)
+    contrastes.csv          P1 (autor − sem autor) e P2 (político real − fictício
+                            rotulado do mesmo espectro): Δ, IC 95% (t), n de propostas
+    friedman.csv            P1: "o autor importa?" — um teste por modelo × dimensão
+    variacao_modelos.csv    P3: média de |Δ| da P1 por modelo × dimensão
 
 Uso:
     python analyze.py               # execução mais recente em results/runs/
@@ -14,64 +19,46 @@ Uso:
 """
 import argparse
 
+import numpy as np
 import pandas as pd
+from scipy import stats
 
 from src import loader
 
-try:
-    from scipy.stats import friedmanchisquare
-    TEM_SCIPY = True
-except Exception:          # noqa: BLE001
-    TEM_SCIPY = False
+CONTROLE = "neutro"     # autor_id da condição sem autor
 
 
-def colunas_sent(df):
-    return [c for c in df.columns if c.startswith("sent_")]
+def colunas_dimensoes(df, cfg):
+    """dimensão -> coluna do scored.csv (só as que existem)."""
+    df["recusa_pct"] = np.where(df["erro"].isna(), df["recusa"].astype(float) * 100, np.nan)
+    dims = {"recusa": "recusa_pct", "sentimento": f"sent_{cfg['sentimento']}",
+            "postura": "sent_jev"}
+    return {d: c for d, c in dims.items() if c in df}
 
 
-def analisar_medida(df, sc):
-    """Médias, Δ vs. neutro e Friedman para uma coluna de nota."""
-    medida = sc.removeprefix("sent_")
+def celulas(df, col):
+    """Média por proposta × autor (média das repetições), por modelo.
+    Devolve {modelo: tabela propostas × autores}."""
+    m = df.groupby(["modelo", "proposta_id", "autor_id"])[col].mean()
+    return {mod: g.droplevel(0).unstack("autor_id") for mod, g in m.groupby(level=0)}
 
-    # 1) média por (modelo, autor)
-    med = (df.groupby(["modelo", "autor_id", "categoria", "espectro"],
-                      dropna=False)[sc]
-             .agg(sent_medio="mean", n_validas="count").reset_index())
-    med.insert(0, "medida", medida)
 
-    # 2) Δ vs controle (autor neutro), por modelo
-    linhas = []
-    for modelo, g in med.groupby("modelo"):
-        neutro = g.loc[g["autor_id"] == "neutro", "sent_medio"]
-        base_val = float(neutro.iloc[0]) if len(neutro) else float("nan")
-        for _, r in g.iterrows():
-            if r["autor_id"] == "neutro":
-                continue
-            linhas.append({"medida": medida, "modelo": modelo,
-                           "autor_id": r["autor_id"],
-                           "categoria": r["categoria"],
-                           "espectro": r["espectro"],
-                           "sent_medio": r["sent_medio"],
-                           "delta_vs_neutro": r["sent_medio"] - base_val})
-    delta = pd.DataFrame(linhas)
+def delta_por_proposta(tab, grupo_a, grupo_b):
+    """Δ em cada proposta: média dos autores de A − média dos autores de B."""
+    if not set(grupo_a) <= set(tab) or not set(grupo_b) <= set(tab):
+        return pd.Series(dtype=float)
+    return (tab[grupo_a].mean(axis=1, skipna=False)
+            - tab[grupo_b].mean(axis=1, skipna=False)).dropna()
 
-    # 3) teste de invariância: as condições de autoria diferem entre si?
-    #    Friedman (medidas repetidas) por modelo, pareado por proposta.
-    testes = []
-    if TEM_SCIPY:
-        for modelo, g in df.groupby("modelo"):
-            piv = g.pivot_table(index="proposta_id", columns="autor_id",
-                                values=sc, aggfunc="mean")
-            piv = piv.dropna(axis=1)              # só autores completos
-            if piv.shape[1] >= 3 and piv.shape[0] >= 3:
-                stat, p = friedmanchisquare(*[piv[c] for c in piv.columns])
-                testes.append({"medida": medida, "modelo": modelo,
-                               "n_propostas": piv.shape[0],
-                               "n_condicoes": piv.shape[1],
-                               "friedman_stat": round(stat, 3),
-                               "p_valor": round(p, 4),
-                               "invariante_p>0.05": p > 0.05})
-    return med, delta, pd.DataFrame(testes)
+
+def resumo(deltas):
+    """Δ médio e IC 95% pela distribuição t (cada proposta = uma observação)."""
+    n = len(deltas)
+    media = deltas.mean() if n else np.nan
+    if n < 2:
+        return media, np.nan, np.nan, n
+    meia = stats.t.ppf(0.975, n - 1) * deltas.std(ddof=1) / np.sqrt(n)
+    return media, media - meia, media + meia, n
 
 
 def main():
@@ -83,29 +70,87 @@ def main():
     cfg = loader.carregar_config()
     arq = loader.arquivos(loader.pasta_run(cfg, args.run, args.mock))
     df = pd.read_csv(arq["scored"])
+    autores = {a["id"]: a for a in loader.carregar_autores(cfg)}
+    dims = colunas_dimensoes(df, cfg)
 
-    partes = [analisar_medida(df, sc) for sc in colunas_sent(df)]
-    if not partes:
-        raise SystemExit("scored.csv não tem nenhuma coluna sent_* — rode score.py")
-    med, delta, testes = (pd.concat([p[i] for p in partes], ignore_index=True)
-                          for i in range(3))
-    med.to_csv(arq["processed"] / "media_por_autor.csv", index=False)
-    delta.to_csv(arq["processed"] / "delta_vs_neutro.csv", index=False)
-    testes.to_csv(arq["processed"] / "teste_invariancia.csv", index=False)
+    medias, por_prop, contrastes, friedman = [], [], [], []
+    for dim, col in dims.items():
+        for modelo, tab in celulas(df, col).items():
+            # médias por autor (média das propostas)
+            for a, v in tab.mean().items():
+                medias.append({"modelo": modelo, "dimensao": dim, "autor_id": a,
+                               "categoria": autores[a]["categoria"],
+                               "espectro": autores[a].get("espectro"),
+                               "media": v, "n_propostas": int(tab[a].notna().sum())})
+
+            # P1: cada autor − sem autor
+            for a in tab.columns.drop(CONTROLE, errors="ignore"):
+                d = delta_por_proposta(tab, [a], [CONTROLE])
+                por_prop += [{"modelo": modelo, "dimensao": dim, "proposta_id": p,
+                              "autor_id": a, "delta": v} for p, v in d.items()]
+                contrastes.append(("P1", modelo, dim, f"{a} − sem autor", a,
+                                   autores[a]["categoria"], autores[a].get("espectro"), d))
+
+            # P2: político real − fictício rotulado do mesmo espectro
+            for esp in sorted({v.get("espectro") for v in autores.values()} - {None}):
+                pols = [a for a, v in autores.items()
+                        if v["categoria"] == "politico" and v.get("espectro") == esp]
+                rot = [a for a, v in autores.items()
+                       if v["categoria"] == "ficticio_rotulado" and v.get("espectro") == esp]
+                if not pols or not rot:
+                    continue
+                for a in pols:
+                    contrastes.append(("P2", modelo, dim, f"{a} − {rot[0]}", a,
+                                       "politico", esp, delta_por_proposta(tab, [a], rot)))
+                contrastes.append(("P2", modelo, dim, f"políticos de {esp} − {rot[0]}",
+                                   "(grupo)", "politico", esp,
+                                   delta_por_proposta(tab, pols, rot)))
+
+            # P1: Friedman — propostas como blocos, autores como grupos
+            completa = tab.dropna()           # Friedman exige blocos completos
+            if completa.shape[0] >= 3 and completa.shape[1] >= 3:
+                est, p = stats.friedmanchisquare(*[completa[c] for c in completa])
+                friedman.append({"modelo": modelo, "dimensao": dim,
+                                 "n_propostas": completa.shape[0],
+                                 "n_autores": completa.shape[1],
+                                 "estatistica": round(est, 3), "p_valor": round(p, 4)})
+
+    linhas = []
+    for perg, modelo, dim, nome, a, cat, esp, d in contrastes:
+        media, lo, hi, n = resumo(d)
+        linhas.append({"pergunta": perg, "modelo": modelo, "dimensao": dim,
+                       "contraste": nome, "autor_id": a, "categoria": cat,
+                       "espectro": esp, "delta": media, "ic95_inf": lo,
+                       "ic95_sup": hi, "n_propostas": n,
+                       "ic_cruza_zero": (lo <= 0 <= hi) if n >= 2 else None})
+    contr = pd.DataFrame(linhas)
+
+    # P3: quanto cada modelo varia — média de |Δ| da P1
+    var = (contr[contr["pergunta"] == "P1"].assign(abs_delta=lambda x: x["delta"].abs())
+           .groupby(["modelo", "dimensao"])["abs_delta"].mean().round(4)
+           .reset_index(name="media_abs_delta"))
+
+    out = arq["processed"]
+    pd.DataFrame(medias).to_csv(out / "medias.csv", index=False)
+    pd.DataFrame(por_prop).to_csv(out / "delta_por_proposta.csv", index=False)
+    contr.to_csv(out / "contrastes.csv", index=False)
+    pd.DataFrame(friedman).to_csv(out / "friedman.csv", index=False)
+    var.to_csv(out / "variacao_modelos.csv", index=False)
 
     # resumo no terminal
-    print("\n=== Δ médio por categoria (quanto o autor desloca a nota) ===")
-    if len(delta):
-        print(delta.pivot_table(index="categoria", columns="medida",
-                                values="delta_vs_neutro", aggfunc="mean")
-              .round(3).to_string())
-    if len(testes):
-        print("\n=== Teste de invariância (Friedman) por medida e modelo ===")
-        print(testes.to_string(index=False))
-    elif not TEM_SCIPY:
-        print("\n(scipy ausente — pulei o teste estatístico; "
-              "pip install scipy)")
-    print(f"\nOK -> {arq['processed']}/*.csv")
+    pd.set_option("display.width", 140)
+    print("\n=== P1: o autor importa? (Friedman por modelo × dimensão) ===")
+    print(pd.DataFrame(friedman).to_string(index=False) if friedman
+          else "(precisa de ≥ 3 propostas completas)")
+    print("\n=== P2: reputação (político real − fictício rotulado), Δ e IC 95% ===")
+    p2 = contr[(contr["pergunta"] == "P2") & (contr["autor_id"] == "(grupo)")]
+    print(p2[["modelo", "dimensao", "contraste", "delta", "ic95_inf", "ic95_sup",
+              "n_propostas"]].round(3).to_string(index=False))
+    print("\n=== P3: média de |Δ| (P1) por modelo ===")
+    print(var.pivot(index="modelo", columns="dimensao", values="media_abs_delta")
+          .to_string())
+    print("\n(recusa em pontos percentuais; sentimento e postura de −1 a +1)")
+    print(f"OK -> {out}/*.csv")
 
 
 if __name__ == "__main__":

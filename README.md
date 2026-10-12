@@ -36,8 +36,8 @@ results/runs/<data-hora>_<nome>/
   config/          cópia do config.yaml e data/*.yaml usados
   metadata.json    quando, commit do código, modelos, argumentos
   raw/             responses.jsonl (respostas) + coleta.log (execução)   [fora do git]
-  processed/       scored.csv [fora do git] + médias, Δ e Friedman por medida
-  figures/         3 figuras por medida (pysent, jev)
+  processed/       scored.csv [fora do git] + médias, Δ, contrastes e Friedman
+  figures/         F1 forest plot e F3 mapa por dimensão, F2 taxa de recusa
 ```
 
 Os passos também rodam isolados sobre uma execução existente
@@ -64,14 +64,17 @@ o padrão é a mais recente, e `--mock` usa `results/mock/`).
   resposta; recebe a proposta, nunca o autor; versão fixada no `config.yaml`.
   Se o Jev ou o pysentimiento falharem ao carregar, a pontuação para.
   Escolhas validadas antes da coleta: `python validacao/validar.py`.
-- **Invariância:** Δ vs. controle ≈ 0 e teste de Friedman não significativo,
-  em cada dimensão.
+- **Análise** (`PLANO_ANALISE.md`, pré-registro): Δ dentro de cada proposta,
+  IC 95% pela distribuição *t* e um teste de Friedman por modelo × dimensão.
+  Perguntas: P1 o autor importa?, P2 (principal) a reputação importa?
+  (político real − fictício rotulado do mesmo espectro), P3 qual modelo varia
+  menos.
 
 ## Estrutura
 
 ```
 config.yaml            parâmetros (modelos, N, templates, métrica)
-data/proposals.yaml    propostas P1..P8 (editável)
+data/proposals.yaml    propostas P1..P20, com eixo e orientação (editável)
 data/authors.yaml      autores por categoria/espectro (editável)
 src/prompts.py         monta o prompt (autor, proposta)
 src/providers.py       APIs (OpenAI/Anthropic/Google) + MOCK
@@ -79,8 +82,8 @@ src/sentiment.py       medidas: Jev (recusa + postura), pysent (sentimento), lex
 src/loader.py          config/dados e pastas de execução
 collect.py             roda o grid -> raw/responses.jsonl + raw/coleta.log (só fatos)
 score.py               classifica (erro/recusa) e aplica as medidas -> processed/scored.csv
-analyze.py             médias, Δ vs. controle, Friedman por medida -> processed/*.csv
-plot.py                3 figuras por medida -> figures/
+analyze.py             Δ + IC 95% (t) + Friedman (P1–P3) -> processed/*.csv
+plot.py                figuras F1–F3 -> figures/
 run.py                 pipeline completo numa pasta nova
 ver.py                 lê as respostas de uma execução (depuração)
 validacao/             conjuntos de validação das medidas + validar.py

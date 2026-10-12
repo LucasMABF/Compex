@@ -1,62 +1,66 @@
 # Resultados preliminares — piloto
 
-> **Status (08/10/2026): PENDENTE — piloto real ainda não rodado.**
-> As saídas em `results/mock/` são do modo `--mock`
-> (DADOS SINTÉTICOS, carimbados nas figuras) e **não** devem ser apresentados.
-> Preencher as seções abaixo só com números de `results/runs/<pasta>/processed/` após a
-> coleta real.
+> **Status: PENDENTE — piloto real ainda não rodado.**
+> As saídas em `results/mock/` são do modo `--mock` (DADOS SINTÉTICOS,
+> carimbados nas figuras) e **não** devem ser apresentadas. Preencher as seções
+> abaixo só com números de `results/runs/<pasta>/processed/` após a coleta real.
+> Análise conforme `PLANO_ANALISE.md`.
 
 ## Configuração do piloto
 
 | Item | Valor |
 |---|---|
-| Comando | `python run.py --nome piloto --models <modelo> --props P1 P2 P3 --reps 3` |
+| Comando | `python run.py --nome piloto --models <modelo> --props <ids> --reps 3` |
 | Pasta da execução | `results/runs/<data-hora>_piloto/` _(preencher)_ |
 | Modelo | _preencher_ (ex.: `claude` → `claude-sonnet-5-5`) |
-| Propostas | _preencher_ (mín. 3 — Friedman exige ≥ 3 blocos) |
-| Autores | todos os 12 de `data/authors.yaml` |
+| Propostas | _preencher_ (mín. 3 — o Friedman exige ≥ 3 propostas completas) |
+| Autores | todos os de `data/authors.yaml` |
 | Repetições (N) | 3 |
-| Medidas | pysentimiento (sentimento) e Jev (postura), analisadas lado a lado |
+| Medidas | recusa e postura: Jev; sentimento: pysentimiento |
 | Data da coleta | _preencher_ |
-| Respostas coletadas / recusas / erros | _preencher_ (saída do `score.py`) |
+| Respostas / recusas / erros | _preencher_ (saída do `score.py`) |
 
-## Δ médio por categoria de autor (vs. controle sem autor)
+## P1 — O autor importa?
 
-Fonte: `<pasta>/processed/delta_vs_neutro.csv` (média por categoria).
+Fonte: `friedman.csv` (um teste por modelo × dimensão) e `contrastes.csv`
+(pergunta P1: Δ de cada autor vs. sem autor, IC 95%).
 
-| Categoria | Δ pysent | Δ Jev |
-|---|---|---|
-| politico | | |
-| ceo | | |
-| ficticio | | |
-| ficticio_rotulado | | |
+| Modelo | Dimensão | n propostas | χ² | p |
+|---|---|---|---|---|
+| | recusa | | | |
+| | sentimento | | | |
+| | postura | | | |
 
-**Controle de reputação** (político real − fictício rotulado, mesmo espectro):
+Fictícios neutros vs. sem autor (efeito do template): _preencher_.
 
-| Espectro | pysent | Jev |
-|---|---|---|
-| esquerda | | |
-| direita | | |
+## P2 — A reputação importa? (principal)
 
-## Teste de invariância (Friedman) por modelo
+Fonte: `contrastes.csv` (pergunta P2, linhas "políticos de <espectro> − <rotulado>").
 
-Fonte: `<pasta>/processed/teste_invariancia.csv`.
+| Modelo | Dimensão | Contraste | Δ | IC 95% | IC cruza o zero? |
+|---|---|---|---|---|---|
+| | sentimento | políticos de esquerda − fic_esq | | | |
+| | sentimento | políticos de direita − fic_dir | | | |
+| | postura | políticos de esquerda − fic_esq | | | |
+| | postura | políticos de direita − fic_dir | | | |
+| | recusa (p.p.) | políticos de esquerda − fic_esq | | | |
+| | recusa (p.p.) | políticos de direita − fic_dir | | | |
 
-| Medida | Modelo | n propostas | n condições | χ² | p | Invariante (p > 0,05)? |
-|---|---|---|---|---|---|---|
-| pysent | | | | | | |
-| jev | | | | | | |
+## P3 — Qual modelo varia menos? (descritiva)
+
+Fonte: `variacao_modelos.csv` (média de |Δ| da P1). _Só com mais de um modelo._
 
 ## Interpretação
 
-_2–3 frases após os dados._ Lembrete: com 3 propostas o teste tem baixo poder;
-p > 0,05 significa "não detectamos efeito no piloto", não "o guardrail é
-invariante".
+_2–3 frases após os dados, com linguagem modesta:_ ex.: "os deslocamentos
+foram pequenos e os intervalos de confiança cruzam o zero, compatível com um
+guardrail robusto; não afirmamos equivalência estatística formal". Com poucas
+propostas, p > 0,05 significa "não detectado", não "invariante".
 
 ## Figuras
 
-Em `<pasta>/figures/`, para cada medida `M` ∈ {pysent, jev}:
+Em `<pasta>/figures/`:
 
-- `barras_por_autor_<M>.png` — nota média por autor
-- `heatmap_proposta_autor_<M>.png` — proposta × autor
-- `delta_por_categoria_<M>.png` — Δ vs. controle por categoria
+- **F1** `forest_<dimensao>.png` — Δ de cada autor vs. sem autor, com IC 95%
+- **F2** `recusa_por_autor.png` — taxa de recusa por autor
+- **F3** `mapa_<dimensao>.png` — Δ vs. sem autor, proposta a proposta

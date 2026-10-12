@@ -4,8 +4,8 @@ Cada coleta real vive em results/runs/<data-hora>_<nome>/ (o mock, em
 results/mock/), com sempre a mesma estrutura:
     config/       cópia do config.yaml e de data/*.yaml usados
     metadata.json quando, commit do código, modelos, argumentos
-    raw/          responses.jsonl + coleta.log  (fora do git)
-    processed/    scored.csv (fora do git) + CSVs resumidos
+    raw/          responses.jsonl + coleta.log
+    processed/    scored.csv + CSVs resumidos
     figures/      PNGs
 """
 import shutil

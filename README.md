@@ -35,10 +35,16 @@ Sem flags, `run.py` usa todas as propostas, os modelos e as repetições do
 results/runs/<data-hora>_<nome>/
   config/          cópia do config.yaml e data/*.yaml usados
   metadata.json    quando, commit do código, modelos, argumentos
-  raw/             responses.jsonl (respostas) + coleta.log (execução)   [fora do git]
-  processed/       scored.csv [fora do git] + médias, Δ, contrastes e Friedman
+  raw/             responses.jsonl (respostas) + coleta.log (execução)
+  processed/       scored.csv (notas por resposta) + médias, Δ, contrastes e Friedman
   figures/         F1 forest plot e F3 mapa por dimensão, F2 taxa de recusa
 ```
+
+**Complementar uma execução** (ex.: rodar um modelo de cada vez, ou o piloto
+virar o início do estudo completo): `run.py --run <pasta> --models gemini`
+coleta só o que falta, refaz o que deu erro e reanalisa tudo junto — depois de
+conferir que template, `max_tokens`, propostas, autores e modelos são os mesmos
+da coleta original (senão, recusa e pede uma execução nova).
 
 Os passos também rodam isolados sobre uma execução existente
 (`score.py`, `analyze.py`, `plot.py`, `ver.py` aceitam `--run <pasta>`;

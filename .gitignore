@@ -5,6 +5,3 @@ __pycache__/
 
 # saídas do --mock: sintéticas, nunca vão para o repositório
 results/mock/
-# dados crus das execuções (respostas completas dos modelos)
-results/runs/*/raw/
-results/runs/*/processed/scored.csv

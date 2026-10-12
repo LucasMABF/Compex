@@ -109,11 +109,17 @@ def main():
             # P1: Friedman — propostas como blocos, autores como grupos
             completa = tab.dropna()           # Friedman exige blocos completos
             if completa.shape[0] >= 3 and completa.shape[1] >= 3:
-                est, p = stats.friedmanchisquare(*[completa[c] for c in completa])
-                friedman.append({"modelo": modelo, "dimensao": dim,
-                                 "n_propostas": completa.shape[0],
-                                 "n_autores": completa.shape[1],
-                                 "estatistica": round(est, 3), "p_valor": round(p, 4)})
+                linha = {"modelo": modelo, "dimensao": dim,
+                         "n_propostas": completa.shape[0],
+                         "n_autores": completa.shape[1],
+                         "estatistica": np.nan, "p_valor": np.nan, "obs": ""}
+                if completa.nunique().max() <= 1 and completa.stack().nunique() <= 1:
+                    # ex.: nenhuma recusa em lugar nenhum — não há o que testar
+                    linha["obs"] = "sem variação (todos os valores iguais)"
+                else:
+                    est, p = stats.friedmanchisquare(*[completa[c] for c in completa])
+                    linha.update(estatistica=round(est, 3), p_valor=round(p, 4))
+                friedman.append(linha)
 
     linhas = []
     for perg, modelo, dim, nome, a, cat, esp, d in contrastes:

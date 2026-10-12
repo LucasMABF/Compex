@@ -287,6 +287,26 @@
 - **Custo do estudo completo:** 20 propostas × 16 autores × 3 modelos × 3
   repetições = 2880 chamadas aos LLMs (+ 1 chamada ao Jev por resposta válida).
 
+### 11/10/2026 — dados públicos e coleta por partes
+
+- **Dados das coletas reais passam a ser públicos** (respostas cruas e
+  `scored.csv` no repositório), para reprodutibilidade. Continuam fora: `.env`
+  e as saídas do mock.
+- **Complementar uma execução** (`run.py --run <pasta> ...`): coleta só o que
+  falta, refaz o que deu erro e reanalisa tudo junto, depois de conferir que
+  template, `max_tokens`, textos das propostas, nomes dos autores e o modelo
+  real de cada rótulo são os mesmos da coleta original. Permite rodar uma API
+  de cada vez e fazer o piloto virar o início do estudo completo, sem pagar
+  nada duas vezes. Testado no mock: acréscimo de modelo e de proposta, nova
+  rodada sem nada faltando (0 coletas), refazer só a linha com erro, e
+  bloqueio quando o template muda.
+- **Estratégia de custo:** (1) calibrar o template com rodadas pequenas e
+  descartáveis (ex.: 2 propostas × 1 repetição, ~US$ 0,20 no Claude);
+  (2) congelar o template; (3) piloto com o Claude e 5 propostas;
+  (4) complementar a mesma execução com as outras propostas e modelos. Pedir
+  brevidade no template é legítimo (reduz custo); pressionar o modelo a não
+  recusar não — a recusa é um dos desfechos medidos.
+
 ### Limitações / pontos de método em aberto
 
 - **Templates diferem além do nome.** O controle não tem o "X *defende* a

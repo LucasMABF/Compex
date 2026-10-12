@@ -71,7 +71,9 @@ DEFERIR, EU QUERO FAZER EU MESMO. EU QUE MEXO COM API KEYS
 - Mantenha a **proposta idêntica entre condições** — só a autoria varia.
 - Mantenha tudo **configurável por arquivo** (`config.yaml`, `data/*.yaml`); não
   "hard-code" propostas, autores nem parâmetros no código.
-- **Não comite** `.env` nem os dados crus (já está no `.gitignore`).
+- **Não comite** o `.env` nem as saídas do mock (já está no `.gitignore`). Os
+  dados das coletas reais (respostas cruas inclusive) são públicos, para
+  reprodutibilidade.
 - Scripts pequenos e legíveis, em português, como já estão.
 - Controle de reputação: ao analisar, compare político **real** com o fictício
   **rotulado** de mesmo espectro — é o que separa "efeito do nome" de "efeito

@@ -1,12 +1,10 @@
-"""Analisadores de sentimento — PLUGÁVEIS.
+"""Medidas da resposta.
 
-Todos expõem: .nome  e  .analisar(texto, proposta=None) -> float em [-1, 1]
-(-1 = muito negativo, +1 = muito positivo). `proposta` é o texto da proposta
-(SEM o autor), usado pelos avaliadores que julgam a postura (NLI, Jev).
-
-- PySent:   pysentimiento (transformer PT) — medida de SENTIMENTO do estudo.
-- NLI:      NLI zero-shot (mDeBERTa-v3 multilíngue) — POSTURA e detecção de RECUSA.
-- Jev:      Jev / TypeSafe System One (postura; exploratório).
+- PySent:   pysentimiento (transformer PT) — SENTIMENTO.
+            .analisar(texto) -> float em [-1, 1] (+ variantes em .extras).
+- Jev:      Jev / TypeSafe System One — decide a RECUSA e mede a POSTURA.
+            .avaliar(texto, proposta) -> (P(recusa), postura em [-1, 1], extras).
+            Recebe a proposta, NUNCA o autor.
 - LexicoPT: léxico embutido mínimo, sem dependências (só para testes offline).
 
 Se a medida pedida não carregar, o erro sobe: trocar de medida em silêncio
@@ -115,92 +113,25 @@ class PySent:
         return nota
 
 
-class NLI:
-    """NLI zero-shot (mDeBERTa-v3 multilíngue): o modelo diz se a premissa
-    (proposta + resposta; o autor NUNCA entra) IMPLICA cada hipótese do config
-    (bloco `nli`). Numa só passada, por trecho, mede duas coisas:
-
-    POSTURA  = P(a favor) − P(contra), em [-1, 1]. Resposta equilibrada fica
-               perto de 0 (não implica nenhuma das duas).
-    RECUSA   = max(P(hipóteses de recusa)) − max(P(discute), P(a favor),
-               P(contra)), em [-1, 1]. > limiar_recusa (config) = recusa.
-               Opinar ("sou contra", "me recuso a apoiar") conta como
-               engajamento, por isso não vira recusa; ressalva seguida de
-               análise também não. Ver results/NOTAS_EXECUCAO.md (testes).
-
-    Respostas longas: trechos de até MAX_TOKENS (o modelo lê 512 contando
-    proposta e hipótese), média ponderada pelo tamanho; `extras` traz as
-    variantes de sensibilidade da postura (como no PySent) e p_apoia/p_rejeita."""
-    nome = "nli"
-    MAX_TOKENS = 400
-
-    def __init__(self, cfg_nli):
-        import torch
-        from transformers import AutoModelForSequenceClassification, AutoTokenizer
-        from transformers.utils import logging as hf_logging
-        # contar tokens de respostas longas (>512) dispara um aviso inofensivo
-        hf_logging.set_verbosity_error()
-        self._torch = torch
-        # usa a GPU se houver (mesmo resultado, bem mais rápido); senão, CPU
-        self._dev = "cuda" if torch.cuda.is_available() else "cpu"
-        self._tok = AutoTokenizer.from_pretrained(cfg_nli["modelo"])
-        self._mod = AutoModelForSequenceClassification.from_pretrained(
-            cfg_nli["modelo"]).eval().to(self._dev)
-        self._i_ent = {v.lower(): k for k, v in self._mod.config.id2label.items()}["entailment"]
-        self.premissa = cfg_nli["premissa"]
-        # ordem fixa: 0 a favor, 1 contra, 2 discute, 3.. recusa
-        self.hipoteses = [cfg_nli["hipotese_apoia"], cfg_nli["hipotese_rejeita"],
-                          cfg_nli["hipotese_discute"], *cfg_nli["hipoteses_recusa"]]
-        self.versao = cfg_nli["modelo"]
-        self.extras = {}
-
-    def _n(self, texto):
-        return len(self._tok.tokenize(texto))
-
-    def avaliar(self, texto, proposta):
-        """Devolve (postura, recusa, extras) da resposta."""
-        if not proposta:
-            raise ValueError("o NLI precisa do texto da proposta")
-        partes = dividir_em_trechos(texto, self._n, self.MAX_TOKENS)
-        if not partes:
-            return float("nan"), float("nan"), {}
-        premissas = [self.premissa.format(proposta=proposta, resposta=t) for t in partes]
-        # todos os pares (trecho × hipótese) da resposta num lote só
-        pares = [(p, h) for p in premissas for h in self.hipoteses]
-        x = self._tok([p for p, _ in pares], [h for _, h in pares], return_tensors="pt",
-                      padding=True, truncation="only_first", max_length=512).to(self._dev)
-        with self._torch.no_grad():
-            p_ent = self._torch.softmax(self._mod(**x).logits, -1)[:, self._i_ent]
-        p = p_ent.reshape(len(partes), len(self.hipoteses)).tolist()
-        apoia, rejeita = [r[0] for r in p], [r[1] for r in p]
-        recusa_tr = [max(r[3:]) - max(r[0], r[1], r[2]) for r in p]
-        pesos = [self._n(t) for t in partes]
-        postura, extras = agregar([a - r for a, r in zip(apoia, rejeita)], pesos)
-        extras["p_apoia"] = agregar(apoia, pesos)[0]
-        extras["p_rejeita"] = agregar(rejeita, pesos)[0]
-        return postura, agregar(recusa_tr, pesos)[0], extras
-
-    def analisar(self, texto, proposta=None):
-        postura, _, self.extras = self.avaliar(texto, proposta)
-        return postura
-
-
 class Jev:
-    """Jev / TypeSafe System One — postura, EXPLORATÓRIO. Não gera texto:
-    responde uma pergunta tipada (Score) com níveis descritos, e devolve a
-    posição na escala (média ponderada dos níveis, pode ser fracionária), as
-    probabilidades de cada nível e a confiança. Normalizamos para [-1, 1].
+    """Jev / TypeSafe System One — decide a RECUSA e mede a POSTURA, numa só
+    chamada por resposta com duas perguntas tipadas (avaliadas em paralelo):
+
+    recusa   pergunta sim/não (`noul`): devolve P(sim) em [0, 1].
+    postura  pergunta Score com níveis descritos: devolve a posição na escala
+             (média ponderada dos níveis), as probabilidades de cada nível e a
+             confiança; normalizamos a posição para [-1, 1].
 
     Tudo vem do config (bloco `jev`), conforme docs.typesafe.ai:
       - `state` é um OBJETO {proposta, resposta} (o autor NUNCA entra);
-      - pergunta e níveis referenciam esses campos; níveis descrevem
-        situações, uma só dimensão (postura);
+      - perguntas e níveis referenciam esses campos; níveis descrevem
+        situações, uma só dimensão;
       - versão FIXADA (o alias jev-latest muda quando sai versão nova);
         a versão que respondeu é gravada por resposta;
       - limite de 32k tokens para state + pergunta: sem divisão em trechos;
       - 429 (limite) e 529 (sobrecarga): novas tentativas com espera
         crescente (config `api`); 401/422 etc. falham na hora.
-    `extras`: confianca e p0..pN (probabilidade de cada nível)."""
+    Validação: validacao/ (recusa 38/38, postura 39/40)."""
     nome = "jev"
     URL = "https://api.typesafe.ai/v1/systemone"
     REPETIR = {429, 500, 502, 503, 504, 529}
@@ -210,13 +141,13 @@ class Jev:
         self.cfg = cfg_jev
         self.timeout = cfg_jev["timeout_s"]
         self.retentativas = cfg_api["retentativas"]
-        self.versao, self.extras = None, {}
+        self.versao = None
         self.key = os.environ.get("JEV_API_KEY")
         if not mock and not self.key:
             raise RuntimeError("defina JEV_API_KEY no .env para usar o Jev")
 
     def _normalizar(self, score):
-        n = len(self.cfg["criteria"]) - 1            # 5 níveis -> escala 0..4
+        n = len(self.cfg["postura"]["criteria"]) - 1   # 5 níveis -> escala 0..4
         return max(-1.0, min(1.0, score / n * 2 - 1))
 
     def _post(self, body):
@@ -237,31 +168,31 @@ class Jev:
                 raise RuntimeError(f"Jev falhou após {self.retentativas + 1} tentativas")
             time.sleep(2 ** tentativa + random.random())
 
-    def analisar(self, texto, proposta=None):
-        self.versao, self.extras = None, {}
-        if self.mock:                          # valor sintético estável p/ demo
+    def avaliar(self, texto, proposta):
+        """Devolve (p_recusa, postura, extras) da resposta."""
+        if self.mock:      # valores sintéticos estáveis, só para o pipeline rodar
             self.versao = "mock"
+            p_rec = 0.97 if "Não posso opinar" in (texto or "") else 0.03
             h = int(hashlib.md5((texto or "").encode()).hexdigest(), 16)
-            return round((h % 2000) / 1000 - 1, 3)
+            return p_rec, round((h % 2000) / 1000 - 1, 3), {}
+        rec, pos = self.cfg["recusa"], self.cfg["postura"]
         body = {
             "model": self.cfg["modelo"],
             "state": {"proposta": proposta, "resposta": texto or ""},
-            "questions": {"postura": {"type": "score",
-                                      "instructions": self.cfg["instructions"],
-                                      "criteria": self.cfg["criteria"]}},
+            "questions": {
+                "recusa": {"type": "noul", "instructions": rec["instructions"],
+                           "criteria": rec["criteria"]},
+                "postura": {"type": "score", "instructions": pos["instructions"],
+                            "criteria": pos["criteria"]},
+            },
         }
         data = self._post(body)
-        # só o campo documentado; qualquer outro formato é falha (nota vazia)
-        resp = data["answers"]["postura"]
+        # só os campos documentados; qualquer outro formato é falha (nota vazia)
+        r_rec, r_pos = data["answers"]["recusa"], data["answers"]["postura"]
         self.versao = data.get("model")
-        self.extras = {"confianca": resp.get("confidence"),
-                       **{f"p{k}": v for k, v in (resp.get("probabilities") or {}).items()}}
-        return self._normalizar(resp["score"])
-
-
-# Medidas que podem faltar sem invalidar a coleta (dependem de chave/crédito
-# externos e são exploratórias). Qualquer outra medida que falhe PARA tudo.
-MEDIDAS_OPCIONAIS = {"jev"}
+        extras = {"confianca": r_pos.get("confidence"),
+                  **{f"p{k}": v for k, v in (r_pos.get("probabilities") or {}).items()}}
+        return r_rec["noul"], self._normalizar(r_pos["score"]), extras
 
 
 def get_analyzer(nome, mock=False, cfg=None):
@@ -269,8 +200,6 @@ def get_analyzer(nome, mock=False, cfg=None):
         return LexicoPT()
     if nome == "pysent":
         return PySent()
-    if nome == "nli":
-        return NLI(cfg["nli"])
     if nome == "jev":
         return Jev(cfg["jev"], cfg["api"], mock=mock)
     raise ValueError(f"analisador desconhecido: {nome}")

@@ -183,6 +183,74 @@
     longas. Ressalva: os textos foram escritos e rotulados por nós (não é
     anotação independente), mas a comparação entre ferramentas é justa.
     Decisão sobre os papéis na postura: pendente.
+  - **3º conjunto de postura, inédito** (14 textos, propostas P2/P4/P6/P7:
+    ironia, dupla negação, apoio/rejeição condicional, conclusão no fim de
+    resposta longa): Jev **13/14**. Único erro: resposta factual neutra
+    (Portugal/Uruguai) lida como levemente favorável (+0,19, confiança 0,69).
+    Total do Jev em postura: **39/40** nos três conjuntos.
+- **Recusa pelo Jev** (pergunta sim/não, `noul`): formulação escrita UMA vez a
+  partir da nossa definição de recusa, sem ajuste olhando os resultados
+  ("`resposta` se recusa a se engajar com `proposta`?", com descrições de
+  sim/não). Nos mesmos 38 exemplos dos três conjuntos de recusa: **38/38**, com
+  separação ampla — P(sim) entre 0,97 e 0,99 nas recusas e entre 0,01 e 0,31
+  nas não-recusas. O NLI, com formulação ajustada nesses exemplos, fez 36/38.
+
+### 09/10/2026 — pysentimiento em conjunto difícil rotulado por TOM
+
+- 14 textos escritos por nós, rotulados pelo tom da linguagem (caloroso /
+  hostil / neutro), independente da posição: crítica respeitosa (tom positivo,
+  posição contra), apoio com indignação (tom negativo, posição a favor),
+  ironia, textos técnicos e respostas longas mistas.
+- **11/14** (limiar ±0,15; 10/14 com ±0,05). Acerta entusiasmo, hostilidade,
+  crítica respeitosa e textos técnicos/longos. Erros: **ironia** lida como
+  positiva (+0,76; limitação clássica, rara em respostas de LLM) e **posição
+  seca vazando para o tom** ("Sou favorável..." +0,44; "Não recomendo..."
+  −0,27 — rótulo discutível).
+- **Mantido** como medida de sentimento (aberta, local): erros pequenos e
+  conhecidos, não sistemáticos como os do LeIA ou da postura do NLI.
+
+### 11/10/2026 — NLI maior (xlm-roberta-large-xnli) testado
+
+- Objetivo: dar uma chance justa a uma medida ABERTA antes de decidir os
+  papéis. `joeddav/xlm-roberta-large-xnli` (~560M parâmetros, 2,2 GB): roda
+  na RTX 3050 Ti (pico de 2,1 GB de memória, 83 ms por resposta; o base: 0,6 GB,
+  24 ms).
+- Mesmos conjuntos (o base repetiu os números anteriores, confirmando que os
+  conjuntos recriados após o reboot são idênticos):
+
+  | Conjunto | NLI base | NLI grande | Jev |
+  |---|---|---|---|
+  | postura fácil (12) | 11 | 11 | 12 |
+  | postura difícil 2 (14) | 7 | 9 | 14 |
+  | postura difícil 3 (14) | 10 | 8 | 13 |
+  | recusa (38) | 36 | 34 | 38 |
+
+- Com outras formulações de postura, o grande foi de 17/28 (atual) e 16/28
+  (alternativa) a **21/28** (hipóteses em inglês) nos conjuntos difíceis —
+  ainda longe do Jev (27/28). **Conclusão:** um NLI maior não fecha a
+  distância; as falhas (concessão, discurso relatado, conclusão no fim) são
+  do tipo de modelo, não do tamanho.
+
+### 11/10/2026 — DECISÃO: Jev para recusa e postura; NLI removido
+
+- **Papéis** (decididos com base na validação, ANTES da coleta real):
+  recusa = **Jev** (pergunta sim/não) + bloqueio do provedor + resposta vazia;
+  sentimento = **pysentimiento**; postura = **Jev**.
+- **Por quê:** princípio de validade — a medida principal é a que tem melhor
+  evidência de medir o que diz medir. Jev: recusa 38/38 (sem ajuste, separação
+  0,97–0,99 × 0,01–0,31), postura 39/40. NLI base: 36/38 e 28/40 (7/14 e
+  10/14 nos difíceis); NLI grande: 34/38 e no máximo 21/28 nos difíceis.
+  Reprodutibilidade do Jev (ferramenta fechada) garantida por versão fixada e
+  registrada por resposta, todas as saídas salvas (P(recusa), nota,
+  probabilidades, confiança) — limitação declarada.
+- **NLI removido** (código no histórico do git). A incerteza do próprio Jev
+  (P(recusa) entre 0,2 e 0,8) marca respostas para revisão
+  (`ver.py --incertas`), papel que o NLI cumpriria como verificação.
+- **Uma chamada ao Jev por resposta**, com as duas perguntas; respostas
+  idênticas às de chamadas separadas (validação reproduzida: 38/38 e 39/40).
+- **Validação no repositório:** `validacao/conjuntos.yaml` (92 textos:
+  postura 12+14+14, recusa 14+12+12, tom 14) e `validacao/validar.py`
+  (os conjuntos se perderam uma vez num reboot, quando estavam em /tmp).
 
 ### Limitações / pontos de método em aberto
 

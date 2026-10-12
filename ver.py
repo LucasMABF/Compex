@@ -79,8 +79,8 @@ def main():
         rec = ""
         if classificado and l["recusa"]:
             rec = f" | RECUSA ({l['recusa_motivo']})"
-        if classificado and l.get("recusa_nli") is not None:
-            rec += f" | recusa_nli={l['recusa_nli']:+.2f}" + (" INCERTA" if l["recusa_incerta"] else "")
+        if classificado and l.get("jev_p_recusa") is not None:
+            rec += f" | P(recusa)={l['jev_p_recusa']:.2f}" + (" INCERTA" if l["recusa_incerta"] else "")
         print("=" * 78)
         print(f"{l['proposta_id']} | {l['autor_id']} | {l['modelo']} | "
               f"rep={l['rep']}" + rec

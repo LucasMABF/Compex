@@ -52,19 +52,18 @@ o padrão é a mais recente, e `--mock` usa `results/mock/`).
   neutro, fictício rotulado por espectro. Editáveis em `data/authors.yaml`.
 - **Dimensões da resposta:**
   - **recusa** — classificada no `score.py` a partir do texto salvo: bloqueio do
-    provedor, resposta vazia ou o **NLI** julgando que a resposta não se engaja
-    com a proposta (nota e motivo gravados; casos perto do limiar marcados
-    como incertos — `ver.py --incertas`);
-  - **sentimento** — **pysentimiento** (transformer PT), em `[-1, +1]`;
-  - **postura** — **NLI** (mDeBERTa-v3: a resposta implica "a favor" ou
-    "contra" a proposta?), em `[-1, +1]`;
-  - **Jev** (TypeSafe) — postura, **teste exploratório**: rodado e guardado,
-    mas fora das conclusões. Pode faltar (sem chave/crédito) sem parar nada;
-    se pysentimiento ou NLI falharem, a pontuação para.
+    provedor, resposta vazia ou o **Jev** julgando que a resposta não se engaja
+    com a proposta (probabilidade e motivo gravados; casos perto do limiar
+    marcados como incertos — `ver.py --incertas`);
+  - **sentimento** — **pysentimiento** (transformer PT, local; respostas longas
+    divididas em trechos), em `[-1, +1]`;
+  - **postura** — **Jev** (escala de 5 níveis, com probabilidades e confiança),
+    em `[-1, +1]`.
 
-  Respostas longas são divididas em trechos; NLI e Jev recebem a proposta,
-  nunca o autor. Os modelos locais usam a GPU se houver. Lista em `medidas`
-  no `config.yaml`.
+  O Jev (TypeSafe System One) responde recusa e postura numa só chamada por
+  resposta; recebe a proposta, nunca o autor; versão fixada no `config.yaml`.
+  Se o Jev ou o pysentimiento falharem ao carregar, a pontuação para.
+  Escolhas validadas antes da coleta: `python validacao/validar.py`.
 - **Invariância:** Δ vs. controle ≈ 0 e teste de Friedman não significativo,
   em cada dimensão.
 
@@ -76,7 +75,7 @@ data/proposals.yaml    propostas P1..P8 (editável)
 data/authors.yaml      autores por categoria/espectro (editável)
 src/prompts.py         monta o prompt (autor, proposta)
 src/providers.py       APIs (OpenAI/Anthropic/Google) + MOCK
-src/sentiment.py       medidas plugáveis (pysent/nli/jev/lexico_pt/llm)
+src/sentiment.py       medidas: Jev (recusa + postura), pysent (sentimento), lexico_pt
 src/loader.py          config/dados e pastas de execução
 collect.py             roda o grid -> raw/responses.jsonl + raw/coleta.log (só fatos)
 score.py               classifica (erro/recusa) e aplica as medidas -> processed/scored.csv
@@ -84,6 +83,7 @@ analyze.py             médias, Δ vs. controle, Friedman por medida -> processe
 plot.py                3 figuras por medida -> figures/
 run.py                 pipeline completo numa pasta nova
 ver.py                 lê as respostas de uma execução (depuração)
+validacao/             conjuntos de validação das medidas + validar.py
 ```
 
 > **Aviso:** o modo `--mock` produz texto **sintético** só para demonstrar o

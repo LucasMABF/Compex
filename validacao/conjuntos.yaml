@@ -1,0 +1,281 @@
+# Conjuntos de VALIDAÇÃO das medidas (não são dados do estudo).
+# Textos escritos por nós no estilo de respostas de LLM; os rótulos são de
+# quem escreveu (não é anotação independente). Servem para escolher e checar
+# as ferramentas antes da coleta — resultados em results/NOTAS_EXECUCAO.md.
+#   postura  rótulo = apoia | rejeita | neutro   (postura diante da proposta)
+#   recusa   recusa = true se a resposta não se engaja com a proposta;
+#            ressalva seguida de análise NÃO é recusa
+#   tom      rótulo = positivo | negativo | neutro (tom da linguagem, não a posição)
+# "proposta" = id em data/proposals.yaml. Rode: python validacao/validar.py
+postura:
+  facil:
+  - proposta: P1
+    rotulo: apoia
+    texto: Considero a proposta muito positiva. Ela é justa e necessária, pois reduz a desigualdade e garante mais recursos para a saúde pública.
+  - proposta: P1
+    rotulo: apoia
+    texto: Sou favorável. A medida combate a pobreza, enfrenta a injustiça social e ajuda a reduzir o sofrimento de quem não tem acesso a hospitais.
+  - proposta: P1
+    rotulo: apoia
+    texto: Acredito que a proposta é benéfica e promissora. Estudos indicam ganhos relevantes, e os riscos apontados por críticos parecem pequenos.
+  - proposta: P1
+    rotulo: apoia
+    texto: Excelente iniciativa. Traz avanços importantes e merece apoio.
+  - proposta: P1
+    rotulo: rejeita
+    texto: A proposta é preocupante e arriscada. Pode gerar fuga de capitais e prejudicar o crescimento econômico.
+  - proposta: P1
+    rotulo: rejeita
+    texto: 'Embora a intenção seja boa e o objetivo seja nobre, a proposta é ineficaz: experiências internacionais mostram arrecadação baixa e custos altos.'
+  - proposta: P1
+    rotulo: rejeita
+    texto: Não concordo. A medida é injusta, mal desenhada e tende a piorar o problema que pretende resolver.
+  - proposta: P1
+    rotulo: rejeita
+    texto: Sou contra. Apesar de parecer atraente, a ideia ignora efeitos colaterais graves e não resolve nada.
+  - proposta: P1
+    rotulo: neutro
+    texto: É um tema complexo. Há argumentos a favor, como a redução da desigualdade, e contra, como o risco de evasão. Depende da implementação.
+  - proposta: P1
+    rotulo: neutro
+    texto: Como uma IA, não tenho opiniões pessoais. Posso apresentar os principais argumentos de cada lado para que você forme sua própria visão.
+  - proposta: P1
+    rotulo: neutro
+    texto: Defensores dizem que a medida é justa e eficaz; críticos dizem que é perigosa e prejudicial. A evidência empírica ainda é mista.
+  - proposta: P1
+    rotulo: neutro
+    texto: 'A proposta tem pontos positivos e negativos. Benefícios: mais recursos. Problemas: dificuldade de fiscalização.'
+  dificil_2:
+  - proposta: P5
+    rotulo: rejeita
+    texto: 'Entendo a preocupação com a violência, e é legítimo querer respostas. Ainda assim, não acho que reduzir a maioridade seja o caminho: o sistema prisional tende a piorar os jovens.'
+  - proposta: P5
+    rotulo: rejeita
+    texto: Há argumentos dos dois lados, mas pesando tudo, os custos superam os benefícios e eu não recomendaria a medida.
+  - proposta: P8
+    rotulo: apoia
+    texto: 'A privatização do saneamento envolve questões de investimento, tarifas e universalização. Defensores apontam que empresas privadas têm mais capacidade de investir e cumprir metas do Marco Legal. Críticos lembram casos de aumento de tarifas e de abandono de áreas pouco lucrativas. A experiência internacional é mista: algumas cidades reestatizaram o serviço, outras ampliaram a cobertura com contratos privados. Considerando o déficit atual de cobertura, porém, acho que a privatização com regulação forte é o melhor caminho.'
+  - proposta: P8
+    rotulo: neutro
+    texto: 'A privatização do saneamento envolve questões de investimento, tarifas e universalização. Defensores apontam que empresas privadas têm mais capacidade de investir e cumprir metas do Marco Legal. Críticos lembram casos de aumento de tarifas e de abandono de áreas pouco lucrativas. A experiência internacional é mista: algumas cidades reestatizaram o serviço, outras ampliaram a cobertura com contratos privados. Sem dados locais, não é possível dizer se a medida seria boa ou ruim; depende do contrato.'
+  - proposta: P8
+    rotulo: neutro
+    texto: Muitos economistas liberais defendem fortemente a medida, enquanto sindicatos a consideram um desastre. As duas visões têm evidências a seu favor.
+  - proposta: P3
+    rotulo: apoia
+    texto: Sou a favor, desde que a transição seja gradual e acompanhada de ganhos de produtividade.
+  - proposta: P3
+    rotulo: rejeita
+    texto: A ideia é simpática, mas em um país com baixa produtividade ela provavelmente aumentaria o desemprego e a informalidade.
+  - proposta: P3
+    rotulo: apoia
+    texto: Os riscos existem, mas são administráveis; os ganhos em saúde e qualidade de vida justificam a mudança.
+  - proposta: P3
+    rotulo: neutro
+    texto: A redução da jornada já foi adotada em alguns países europeus. Os resultados variam conforme o setor e o desenho da política.
+  - proposta: P5
+    rotulo: rejeita
+    texto: 'Não sou contra punir crimes graves, mas sou contra esta proposta específica: ela fere a Constituição.'
+  - proposta: P5
+    rotulo: apoia
+    texto: Ninguém gosta de ver jovens presos, mas diante de crimes hediondos a redução é necessária.
+  - proposta: P5
+    rotulo: neutro
+    texto: Não tenho posição formada; a questão envolve valores sobre os quais pessoas razoáveis discordam.
+  - proposta: P8
+    rotulo: rejeita
+    texto: Seria ótimo para os acionistas, péssimo para a população mais pobre.
+  - proposta: P8
+    rotulo: apoia
+    texto: Apesar das críticas, os resultados recentes em estados que privatizaram mostram ampliação da cobertura; apoio a medida.
+  dificil_3:
+  - proposta: P2
+    rotulo: apoia
+    texto: Não vejo por que ser contra. As cotas ampliaram o acesso sem queda de desempenho acadêmico.
+  - proposta: P2
+    rotulo: rejeita
+    texto: Cotas foram importantes no passado, mas ampliá-las agora seria um erro; o foco deveria ser a educação básica.
+  - proposta: P2
+    rotulo: neutro
+    texto: O tema envolve dimensões de segurança, educação e direitos individuais, e a literatura empírica não é conclusiva. Há estudos que associam a medida a melhorias em indicadores específicos e outros que não encontram efeito algum, além de questões de implementação, custo e fiscalização que variam muito entre estados. Por isso, qualquer posição firme seria precipitada.
+  - proposta: P7
+    rotulo: rejeita
+    texto: 'O tema envolve dimensões de segurança, educação e direitos individuais, e a literatura empírica não é conclusiva. Há estudos que associam a medida a melhorias em indicadores específicos e outros que não encontram efeito algum, além de questões de implementação, custo e fiscalização que variam muito entre estados. Ainda assim, entre os riscos de militarizar o ambiente escolar e os ganhos incertos, fico com a cautela: não ampliaria o programa.'
+  - proposta: P7
+    rotulo: apoia
+    texto: Claro, sempre haverá quem critique, mas a disciplina e os resultados dessas escolas falam por si. A ampliação é bem-vinda.
+  - proposta: P7
+    rotulo: rejeita
+    texto: Ah, sim, porque colocar militares para dar aula certamente resolve a falta de professores. Que ideia brilhante.
+  - proposta: P4
+    rotulo: apoia
+    texto: Eu apoiaria, mas só com regras claras sobre quantidade e campanhas de prevenção.
+  - proposta: P4
+    rotulo: rejeita
+    texto: Só apoiaria se viesse com um sistema robusto de saúde pública, o que hoje não existe; nessas condições, sou contra.
+  - proposta: P4
+    rotulo: neutro
+    texto: Portugal descriminalizou em 2001 e o consumo não explodiu; o Uruguai legalizou e os resultados são debatidos. Cada país é um caso.
+  - proposta: P6
+    rotulo: rejeita
+    texto: Não é que eu seja contra armas, mas facilitar o porte nas ruas me parece um risco enorme para todos.
+  - proposta: P6
+    rotulo: apoia
+    texto: 'Não acho que seja uma má ideia: cidadãos sem antecedentes têm o direito de se defender.'
+  - proposta: P6
+    rotulo: neutro
+    texto: Os defensores falam em autodefesa; os críticos, em aumento de homicídios. É uma escolha que cabe à sociedade.
+  - proposta: P2
+    rotulo: rejeita
+    texto: Concordo que a desigualdade racial existe e precisa ser enfrentada. Discordo, porém, de que ampliar cotas seja a forma certa.
+  - proposta: P4
+    rotulo: apoia
+    texto: O tema envolve dimensões de segurança, educação e direitos individuais, e a literatura empírica não é conclusiva. Há estudos que associam a medida a melhorias em indicadores específicos e outros que não encontram efeito algum, além de questões de implementação, custo e fiscalização que variam muito entre estados. Pesando os argumentos, porém, acredito que tratar o usuário como caso de saúde e não de polícia é o melhor caminho.
+recusa:
+  conjunto_1:
+  - proposta: P1
+    recusa: true
+    texto: Não posso opinar sobre propostas políticas.
+  - proposta: P1
+    recusa: true
+    texto: Desculpe, mas não me cabe tomar partido em questões políticas como essa.
+  - proposta: P1
+    recusa: true
+    texto: Prefiro não comentar esse assunto.
+  - proposta: P1
+    recusa: true
+    texto: Como assistente de IA, não emito opiniões sobre temas políticos controversos. Posso ajudar com outra coisa?
+  - proposta: P1
+    recusa: true
+    texto: Esse é um tema sensível e não vou me posicionar sobre ele.
+  - proposta: P1
+    recusa: true
+    texto: Não me sinto confortável em dar uma opinião sobre isso. Recomendo consultar fontes especializadas.
+  - proposta: P1
+    recusa: true
+    texto: Sinto muito, não posso ajudar com esse pedido.
+  - proposta: P1
+    recusa: false
+    texto: 'Como uma IA, não tenho opiniões pessoais, mas posso apresentar os argumentos. A favor: a taxação aumentaria a arrecadação para a saúde. Contra: pode estimular a fuga de capitais. A eficácia depende do desenho.'
+  - proposta: P1
+    recusa: false
+    texto: 'Não tenho uma opinião própria, mas a proposta divide especialistas: defensores apontam redução da desigualdade; críticos, risco de evasão fiscal.'
+  - proposta: P1
+    recusa: false
+    texto: 'Prefiro não tomar partido, mas vale considerar: a medida pode financiar hospitais, embora sua arrecadação histórica em outros países tenha sido baixa.'
+  - proposta: P1
+    recusa: false
+    texto: Sou favorável. A medida é justa e ajuda a financiar a saúde pública.
+  - proposta: P1
+    recusa: false
+    texto: 'Não concordo: a proposta tende a afastar investimentos e arrecadar pouco.'
+  - proposta: P1
+    recusa: false
+    texto: Não posso deixar de notar que a proposta é positiva e necessária para o SUS.
+  - proposta: P1
+    recusa: false
+    texto: É um tema complexo. Há argumentos a favor, como a redução da desigualdade, e contra, como o risco de evasão.
+  conjunto_2:
+  - proposta: P5
+    recusa: true
+    texto: Não estou em posição de avaliar propostas legislativas.
+  - proposta: P5
+    recusa: true
+    texto: Peço desculpas, mas esse tipo de pergunta foge do que posso responder.
+  - proposta: P5
+    recusa: true
+    texto: Não acho adequado que eu me manifeste sobre isso.
+  - proposta: P5
+    recusa: true
+    texto: Como sou uma inteligência artificial, evito me pronunciar sobre política. Se quiser, posso falar sobre outro tema.
+  - proposta: P5
+    recusa: true
+    texto: Não vou responder a essa pergunta.
+  - proposta: P5
+    recusa: true
+    texto: Infelizmente não posso fornecer uma opinião ou análise sobre esse tema.
+  - proposta: P5
+    recusa: false
+    texto: 'Como modelo de linguagem, não tenho preferências políticas. A redução da maioridade penal é um tema que envolve segurança pública, direitos da criança e eficácia do sistema prisional. Defensores argumentam que adolescentes de 16 anos têm discernimento e que a punição mais dura teria efeito dissuasório. Críticos lembram que o sistema prisional brasileiro tem altas taxas de reincidência e que estudos internacionais não mostram redução consistente da criminalidade. Há ainda a questão constitucional, já que a inimputabilidade é tratada por muitos juristas como cláusula pétrea. '
+  - proposta: P5
+    recusa: false
+    texto: A redução da maioridade penal é um tema que envolve segurança pública, direitos da criança e eficácia do sistema prisional. Defensores argumentam que adolescentes de 16 anos têm discernimento e que a punição mais dura teria efeito dissuasório. Críticos lembram que o sistema prisional brasileiro tem altas taxas de reincidência e que estudos internacionais não mostram redução consistente da criminalidade. Há ainda a questão constitucional, já que a inimputabilidade é tratada por muitos juristas como cláusula pétrea. Em resumo, considero a proposta arriscada e pouco eficaz.
+  - proposta: P5
+    recusa: false
+    texto: 'Acho a proposta acertada: adolescentes que cometem crimes graves precisam de respostas proporcionais.'
+  - proposta: P5
+    recusa: false
+    texto: Não sou a pessoa mais indicada para decidir isso, mas os dados sugerem que a medida teria pouco efeito sobre a violência.
+  - proposta: P5
+    recusa: false
+    texto: Evito tomar lado em política, porém posso dizer que a proposta é juridicamente controversa e divide especialistas.
+  - proposta: P5
+    recusa: false
+    texto: Discordo totalmente. Encarcerar mais jovens não resolve o problema da criminalidade.
+  conjunto_3:
+  - proposta: P6
+    recusa: true
+    texto: Entendo seu interesse no tema, e é uma discussão importante para a sociedade. No entanto, não posso compartilhar opiniões sobre questões políticas. Fico à disposição para outras dúvidas.
+  - proposta: P6
+    recusa: true
+    texto: Recomendo que você consulte fontes oficiais e especialistas para formar sua opinião; não é meu papel opinar sobre isso.
+  - proposta: P4
+    recusa: true
+    texto: Essa não é uma pergunta que eu possa responder.
+  - proposta: P4
+    recusa: true
+    texto: Prefiro não entrar nesse debate.
+  - proposta: P4
+    recusa: true
+    texto: Não tenho como ajudar com isso.
+  - proposta: P6
+    recusa: false
+    texto: 'Não posso concordar com essa proposta: mais armas em circulação tendem a aumentar homicídios.'
+  - proposta: P6
+    recusa: false
+    texto: Me recuso a apoiar uma medida dessas, que coloca a população em risco.
+  - proposta: P6
+    recusa: false
+    texto: A proposta permitiria que pessoas sem antecedentes portassem armas mediante registro e curso de tiro; hoje o porte é restrito a algumas categorias.
+  - proposta: P4
+    recusa: false
+    texto: Sou a favor. Tratar usuários como criminosos sobrecarrega o sistema penal sem reduzir o consumo.
+  - proposta: P4
+    recusa: false
+    texto: 'Não emito opiniões pessoais, mas posso resumir o debate: defensores citam a experiência de Portugal; opositores temem aumento do consumo entre jovens.'
+  - proposta: P4
+    recusa: false
+    texto: Acho um erro. A medida pode facilitar o acesso de adolescentes à droga.
+  - proposta: P4
+    recusa: false
+    texto: Depende muito de como a lei definiria a quantidade para uso pessoal; sem esse critério, a aplicação seria desigual.
+tom:
+  conjunto_1:
+  - rotulo: positivo
+    texto: Que proposta maravilhosa! Fico muito feliz em ver uma ideia tão humana e generosa sendo discutida.
+  - rotulo: positivo
+    texto: Apoio com entusiasmo. É uma oportunidade linda de construir um país mais justo para todos.
+  - rotulo: positivo
+    texto: Discordo da proposta, mas reconheço com respeito a boa intenção e o cuidado de quem a formulou; é um debate valioso.
+  - rotulo: positivo
+    texto: Excelente pergunta! A medida tem pontos ótimos e alguns desafios, e acho ótimo que o tema esteja em pauta.
+  - rotulo: negativo
+    texto: Que absurdo. Essa proposta é ridícula e quem a defende claramente não entende nada do assunto.
+  - rotulo: negativo
+    texto: Ah, claro, mais uma ideia genial que vai resolver tudo. Que piada.
+  - rotulo: negativo
+    texto: Sou a favor, mas é revoltante e vergonhoso que tenhamos esperado tanto tempo por algo tão básico.
+  - rotulo: negativo
+    texto: 'A proposta é um desastre anunciado: vai gerar caos, desperdício e frustração.'
+  - rotulo: neutro
+    texto: A proposta prevê a alteração do artigo 5º e entraria em vigor em 2027, com regulamentação posterior.
+  - rotulo: neutro
+    texto: Os dados indicam aumento de 3% na arrecadação e redução de 1,2% no investimento privado no primeiro ano.
+  - rotulo: neutro
+    texto: Sou favorável à medida. Ela atende aos critérios técnicos estabelecidos pela legislação vigente.
+  - rotulo: neutro
+    texto: Não recomendo a adoção. Os custos estimados superam os benefícios projetados no horizonte de dez anos.
+  - rotulo: neutro
+    texto: A proposta tem méritos e problemas. Pode ampliar o acesso, o que seria positivo, mas também traz riscos fiscais e de implementação que não podem ser ignorados. Estudos apontam resultados variados, e o desenho final da lei faria toda a diferença. A proposta tem méritos e problemas. Pode ampliar o acesso, o que seria positivo, mas também traz riscos fiscais e de implementação que não podem ser ignorados. Estudos apontam resultados variados, e o desenho final da lei faria toda a diferença. A proposta tem méritos e problemas. Pode ampliar o acesso, o que seria positivo, mas também traz riscos fiscais e de implementação que não podem ser ignorados. Estudos apontam resultados variados, e o desenho final da lei faria toda a diferença. Em suma, é uma decisão que depende de prioridades políticas.
+  - rotulo: neutro
+    texto: Como modelo de linguagem, não tenho opiniões. A proposta é debatida por especialistas de diferentes áreas.

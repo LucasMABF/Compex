@@ -10,15 +10,16 @@ Medimos, de forma quantitativa e reproduzível, se a **resposta** de um LLM a um
 **proposta política** muda conforme a **autoria atribuída** (autor real × autor
 fictício × sem autor), em três dimensões:
 
-- **Recusa** — o modelo se nega a opinar mais para certos autores? (NLI +
+- **Recusa** — o modelo se nega a opinar mais para certos autores? (**Jev** +
   bloqueio do provedor + resposta vazia)
-- **Sentimento** — o tom da resposta muda? (pysentimiento)
-- **Postura** — a avaliação da proposta muda? (NLI)
+- **Sentimento** — o tom da resposta muda? (**pysentimiento**)
+- **Postura** — a avaliação da proposta muda? (**Jev**)
 
 O guardrail é invariante se **nenhuma** dimensão muda com o autor. Se alguma
 muda só porque o autor mudou, isso é um resultado de segurança/alinhamento, não
-uma opinião política. O **Jev** (TypeSafe) também é rodado como teste
-exploratório de postura: fica no repositório, mas não sustenta as conclusões.
+uma opinião política. As ferramentas foram escolhidas por testes de validação
+antes da coleta (`validacao/`, `results/NOTAS_EXECUCAO.md`): NLI base e grande
+foram testados e descartados (falham em concessões e discurso relatado).
 
 Desenho: **experimento fatorial, within-item** (a mesma proposta passa por
 todas as condições; só a autoria muda), fatores **autoria × modelo**, com `N`
@@ -42,11 +43,11 @@ DEFERIR, EU QUERO FAZER EU MESMO. EU QUE MEXO COM API KEYS
    rede/rate-limit, e registro de erro por célula (nunca derrubar a coleta
    inteira). Confirmar os nomes de modelo em `MODELOS_REAIS`.
 
-3. **Análise de sentimento em português.** Medida de sentimento:
-   **pysentimiento** (transformer PT, local; substituiu o LeIA, que acertou
-   5/12 num teste de sanidade contra 9/12). Postura: **NLI** zero-shot
-   (mDeBERTa-v3 multilíngue, 11/12 no mesmo teste). Contraste: **Jev**
-   (TypeSafe System One, escolha do grupo). Lista em `medidas` no `config.yaml`.
+3. **Medidas em português.** Sentimento: **pysentimiento** (transformer PT,
+   local; substituiu o LeIA). Recusa e postura: **Jev** (TypeSafe System One;
+   recusa 38/38, postura 39/40 na validação). Configuração em `config.yaml`
+   (`sentimento`, bloco `jev`); validação reprodutível em
+   `python validacao/validar.py`.
 
 4. **Rodar um piloto real pequeno** para a entrega: 2–3 propostas, todos os
    autores, 1 modelo, `N=3`. Salvar os dados crus e gerar os gráficos. Conferir

@@ -84,6 +84,7 @@ plot.py                3 figuras por medida -> figures/
 run.py                 pipeline completo numa pasta nova
 ver.py                 lê as respostas de uma execução (depuração)
 validacao/             conjuntos de validação das medidas + validar.py
+PLANO_ANALISE.md       plano de análise pré-registrado (antes da coleta)
 ```
 
 > **Aviso:** o modo `--mock` produz texto **sintético** só para demonstrar o

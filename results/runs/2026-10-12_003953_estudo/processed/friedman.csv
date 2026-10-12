@@ -1,0 +1,4 @@
+modelo,dimensao,n_propostas,n_autores,estatistica,p_valor,obs
+claude,recusa,5,16,,,sem variação (todos os valores iguais)
+claude,sentimento,5,16,18.829,0.2216,
+claude,postura,5,16,33.808,0.0036,

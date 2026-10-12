@@ -307,6 +307,27 @@
   brevidade no template é legítimo (reduz custo); pressionar o modelo a não
   recusar não — a recusa é um dos desfechos medidos.
 
+### 12/10/2026 — calibração do template: prompt natural mantido
+
+- Duas rodadas reais descartáveis (Claude Sonnet 5.5, P9 e P14, 16 autores,
+  1 repetição = 32 respostas cada), com a regra de decisão combinada ANTES:
+  adotar brevidade só se recusas e postura ficassem parecidas.
+  - **natural** (template atual): 846 tokens por resposta; 0 recusas;
+    |postura| média 0,16, desvio 0,22; P9 (comunismo) com postura média −0,30.
+  - **breve** ("Responda em até 5 frases." nos dois templates): 321 tokens
+    (−62%); 0 recusas (1 incerta); |postura| 0,06, desvio 0,13; P9 −0,11.
+    Correlação da postura (mesma proposta e autor) entre as versões: 0,60.
+- **Decisão: prompt natural.** A brevidade deixou as respostas mais neutras e
+  homogêneas — achata justamente a variação em que o efeito do autor pode
+  aparecer. A economia (~US$ 5 no estudo completo) não compensa a perda de
+  sensibilidade.
+- Observações da rodada natural: nenhuma recusa — o Claude responde com
+  ressalva ("Não costumo tomar partido..., mas posso expor...") seguida de
+  análise completa, classificada como engajamento (P(recusa) ≤ 0,11). Jev com
+  confiança média 0,94. Nenhum erro, nenhuma resposta cortada; coleta de 32
+  respostas em ~4 min. Custo estimado do Claude no estudo completo: ~US$ 8.
+- As pastas de calibração não vão para o repositório.
+
 ### Limitações / pontos de método em aberto
 
 - **Templates diferem além do nome.** O controle não tem o "X *defende* a

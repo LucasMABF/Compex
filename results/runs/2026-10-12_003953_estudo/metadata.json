@@ -1,0 +1,38 @@
+{
+  "inicio": "2026-10-12T03:39:53.913246+00:00",
+  "modelos": {
+    "claude": "claude-sonnet-5-5"
+  },
+  "propostas": [
+    "P1",
+    "P6",
+    "P9",
+    "P14",
+    "P18"
+  ],
+  "repeticoes": 3,
+  "argumentos": {
+    "mock": false,
+    "nome": "estudo",
+    "run": "/home/lucas/Documents/UnB/2026.2/CE/compex/results/runs/2026-10-12_003953_estudo",
+    "reps": 3,
+    "models": [
+      "claude"
+    ],
+    "props": [
+      "P1",
+      "P6",
+      "P9",
+      "P14",
+      "P18"
+    ],
+    "complementar": false
+  },
+  "codigo": {
+    "commit": "e41c7712c1bb063e7aec9eee807afd4d191ae5b3",
+    "alteracoes_nao_commitadas": true
+  },
+  "mock": false,
+  "max_tokens": 1500,
+  "python": "3.14.8"
+}

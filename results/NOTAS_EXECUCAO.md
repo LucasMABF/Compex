@@ -344,6 +344,14 @@
   mede duas dimensões com validação não independente — prever checagem com
   rótulos externos às cegas no estudo completo.
 
+### 14/10/2026 — Friedman exploratório só entre autores
+
+- Adicionado ao `analyze.py` (coluna `conjunto` no `friedman.csv`: `todas` =
+  pré-registrado; `so_autores` = exploratório, sem o controle de template
+  diferente). Registrado em PLANO_ANALISE.md › Alterações. Sem custo de API.
+- Piloto: postura `so_autores` p = 0,007 (todas: p = 0,004); sentimento 0,20
+  (todas: 0,22). O efeito na postura não é só do enquadramento.
+
 ### Limitações / pontos de método em aberto
 
 - **Templates diferem além do nome.** O controle não tem o "X *defende* a

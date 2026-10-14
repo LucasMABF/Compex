@@ -25,11 +25,16 @@
 
 Fonte: `friedman.csv` e `contrastes.csv` (P1: Δ de cada autor vs. sem autor).
 
-| Dimensão | n propostas | χ² | p |
-|---|---|---|---|
-| Recusa | 5 | — | — (nenhuma recusa: sem variação) |
-| Sentimento | 5 | 18,83 | 0,22 |
-| **Postura** | 5 | **33,81** | **0,004** |
+| Dimensão | Conjunto | n propostas | n condições | χ² | p |
+|---|---|---|---|---|---|
+| Recusa | todas | 5 | 16 | — | — (nenhuma recusa: sem variação) |
+| Sentimento | todas | 5 | 16 | 18,83 | 0,22 |
+| **Postura** | **todas** (pré-registrado) | 5 | 16 | **33,81** | **0,004** |
+| Sentimento | só autores (exploratório) | 5 | 15 | 18,18 | 0,20 |
+| **Postura** | **só autores** (exploratório) | 5 | 15 | **30,23** | **0,007** |
+
+"Só autores" exclui o controle sem autor: as 15 condições usam o mesmo
+template ("X defende..."), então um efeito ali não vem do enquadramento.
 
 - **Postura:** todos os 15 autores deslocam a postura no mesmo sentido —
   **mais favorável** à proposta do que o controle sem autor (Δ de +0,02 a
@@ -42,10 +47,10 @@ Fonte: `friedman.csv` e `contrastes.csv` (P1: Δ de cada autor vs. sem autor).
 - **Sentimento:** deslocamentos mínimos (−0,06 a +0,04), todos com IC
   cruzando o zero.
 - **Controle do template:** os fictícios neutros (Marcos, Helena) deslocam
-  pouco (postura +0,05 e +0,06, ICs cruzando o zero), mas o Friedman inclui a
-  condição sem autor, que usa outro template ("Qual a sua opinião sobre..." vs.
-  "X defende..."). Parte do efeito detectado pode vir do enquadramento, não da
-  identidade do autor.
+  pouco (postura +0,05 e +0,06, ICs cruzando o zero). E o Friedman exploratório
+  **só entre autores** (mesmo template) segue significativo na postura
+  (p = 0,007): a diferença não é só do enquadramento "X defende..." — **quem**
+  é o autor também importa.
 
 ## P2 — A reputação muda a resposta? (principal)
 
@@ -77,7 +82,8 @@ de |Δ| da P1 no Claude = 0,12 (postura), 0,03 (sentimento), 0 (recusa).
 No piloto, a postura do Claude **não foi invariante à atribuição de autoria**:
 apresentar a proposta como defendida por alguém a tornou mais favorável, com
 deslocamentos maiores para figuras reais conhecidas (CEOs, ex-presidentes) do
-que para nomes fictícios. Os deslocamentos são modestos (até ~0,25 numa escala
+que para nomes fictícios — e a diferença entre autores persiste mesmo com o
+template fixo (Friedman exploratório só entre autores, p = 0,007). Os deslocamentos são modestos (até ~0,25 numa escala
 de −1 a +1) e **não há sinal de efeito da reputação** além do rótulo de
 espectro (P2 com ICs cruzando o zero), padrão compatível com um guardrail
 robusto à reputação, mas sensível ao enquadramento de autoria. Sentimento não
@@ -87,8 +93,9 @@ são indícios a confirmar, não conclusões.
 ## Ressalvas
 
 - **Tamanho:** 1 modelo, 5 propostas; ICs largos.
-- **Template:** o controle sem autor usa outro template; o Friedman da P1 mistura
-  efeito de atribuição e de enquadramento.
+- **Template:** o controle sem autor usa outro template; o Friedman
+  pré-registrado da P1 mistura atribuição e enquadramento. O Friedman só entre
+  autores (exploratório, definido após o piloto) separa os dois.
 - **Jev mede recusa e postura:** a validação (recusa 38/38, postura 39/40) usa
   rótulos escritos pelos autores do estudo, não independentes. Uma checagem
   com rótulos externos às cegas está prevista para o estudo completo.

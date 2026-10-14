@@ -1,4 +1,7 @@
-modelo,dimensao,n_propostas,n_autores,estatistica,p_valor,obs
-claude,recusa,5,16,,,sem variação (todos os valores iguais)
-claude,sentimento,5,16,18.829,0.2216,
-claude,postura,5,16,33.808,0.0036,
+modelo,dimensao,conjunto,n_propostas,n_autores,estatistica,p_valor,obs
+claude,recusa,todas,5,16,,,sem variação (todos os valores iguais)
+claude,recusa,so_autores,5,15,,,sem variação (todos os valores iguais)
+claude,sentimento,todas,5,16,18.829,0.2216,
+claude,sentimento,so_autores,5,15,18.18,0.1987,
+claude,postura,todas,5,16,33.808,0.0036,
+claude,postura,so_autores,5,15,30.234,0.0071,

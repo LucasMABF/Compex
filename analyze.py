@@ -1,5 +1,6 @@
 """Análise (PLANO_ANALISE.md): Δ dentro de cada proposta, IC 95% pela
-distribuição t e um teste de Friedman por modelo × dimensão. Só isso.
+distribuição t e um teste de Friedman por modelo × dimensão (mais um Friedman
+exploratório só entre os autores, que usam todos o mesmo template).
 
 Dimensões: recusa (taxa, em %), sentimento (config `sentimento`) e postura
 (Jev). Sentimento e postura usam só as não-recusas (já vêm vazias nas recusas).
@@ -9,7 +10,10 @@ Gera em <execução>/processed/:
     delta_por_proposta.csv  Δ de cada autor vs. sem autor, proposta a proposta (F3)
     contrastes.csv          P1 (autor − sem autor) e P2 (político real − fictício
                             rotulado do mesmo espectro): Δ, IC 95% (t), n de propostas
-    friedman.csv            P1: "o autor importa?" — um teste por modelo × dimensão
+    friedman.csv            P1: "o autor importa?" — por modelo × dimensão, em dois
+                            conjuntos: "todas" (pré-registrado, inclui o sem autor)
+                            e "so_autores" (exploratório: só as condições com autor,
+                            todas com o mesmo template "X defende...")
     variacao_modelos.csv    P3: média de |Δ| da P1 por modelo × dimensão
 
 Uso:
@@ -106,14 +110,19 @@ def main():
                                    "(grupo)", "politico", esp,
                                    delta_por_proposta(tab, pols, rot)))
 
-            # P1: Friedman — propostas como blocos, autores como grupos
-            completa = tab.dropna()           # Friedman exige blocos completos
-            if completa.shape[0] >= 3 and completa.shape[1] >= 3:
-                linha = {"modelo": modelo, "dimensao": dim,
+            # P1: Friedman — propostas como blocos, autores como grupos.
+            # "todas" é o pré-registrado; "so_autores" (exploratório) tira o sem
+            # autor, que usa outro template — separa autoria de enquadramento.
+            for conjunto, t in [("todas", tab),
+                                ("so_autores", tab.drop(columns=CONTROLE, errors="ignore"))]:
+                completa = t.dropna()         # Friedman exige blocos completos
+                if completa.shape[0] < 3 or completa.shape[1] < 3:
+                    continue
+                linha = {"modelo": modelo, "dimensao": dim, "conjunto": conjunto,
                          "n_propostas": completa.shape[0],
                          "n_autores": completa.shape[1],
                          "estatistica": np.nan, "p_valor": np.nan, "obs": ""}
-                if completa.nunique().max() <= 1 and completa.stack().nunique() <= 1:
+                if completa.stack().nunique() <= 1:
                     # ex.: nenhuma recusa em lugar nenhum — não há o que testar
                     linha["obs"] = "sem variação (todos os valores iguais)"
                 else:
@@ -146,6 +155,7 @@ def main():
     # resumo no terminal
     pd.set_option("display.width", 140)
     print("\n=== P1: o autor importa? (Friedman por modelo × dimensão) ===")
+    print("    todas = pré-registrado (inclui sem autor); so_autores = exploratório")
     print(pd.DataFrame(friedman).to_string(index=False) if friedman
           else "(precisa de ≥ 3 propostas completas)")
     print("\n=== P2: reputação (político real − fictício rotulado), Δ e IC 95% ===")

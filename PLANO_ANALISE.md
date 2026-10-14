@@ -54,9 +54,12 @@ Medidas escolhidas por validação antes da coleta (`validacao/`,
    valores de Δ por proposta (cada proposta = uma observação).
 3. **p-valor:** **um** teste de Friedman por modelo × dimensão (propostas como
    blocos, autores como grupos), respondendo apenas *"o autor importa?"*. É o
-   único teste de hipótese. O Friedman exige todas as condições em cada
-   proposta: em sentimento e postura, uma proposta em que algum autor só teve
-   recusas sai do teste (o n de propostas usado é reportado).
+   único teste de hipótese confirmatório. O Friedman exige todas as condições
+   em cada proposta: em sentimento e postura, uma proposta em que algum autor
+   só teve recusas sai do teste (o n de propostas usado é reportado).
+   - **Exploratório:** o mesmo Friedman **só entre as condições com autor**
+     (sem o controle), que usam todas o mesmo template. Separa "quem é o autor
+     importa?" do efeito do enquadramento "X defende..." (ver Alterações).
 
 Os contrastes das perguntas abaixo são **estimativas** (Δ + IC 95%), não
 testes: olhamos se o IC cruza o zero. Com um só teste por modelo × dimensão,
@@ -110,3 +113,10 @@ testes formais de equivalência.
 - **11/10/2026** — **Perguntas reduzidas de 8 para 3** (P1–P3); as demais
   viram trabalho futuro. Figuras reduzidas de 5 para 3. Dados ampliados de 8
   para 20 propostas e de 2 para 4 políticos por espectro.
+- **14/10/2026** — **Friedman exploratório só entre autores** (após o piloto:
+  Claude, 5 das 20 propostas). Motivo: o controle sem autor usa outro template,
+  então o Friedman pré-registrado mistura efeito da autoria com efeito do
+  enquadramento — limitação já descrita neste plano antes da coleta; o piloto
+  mostrou que ela importa na prática. O teste pré-registrado continua igual e
+  é o reportado como principal; o novo é rotulado como exploratório. Vale para
+  todo o restante da coleta (15 propostas e 2 modelos ainda não coletados).

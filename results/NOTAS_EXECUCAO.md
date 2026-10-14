@@ -328,6 +328,22 @@
   respostas em ~4 min. Custo estimado do Claude no estudo completo: ~US$ 8.
 - As pastas de calibração não vão para o repositório.
 
+### 12/10/2026 — piloto real (Claude, 5 propostas)
+
+- `run.py --nome estudo --models claude --props P1 P6 P9 P14 P18 --reps 3`:
+  240 respostas, **0 erros, 0 recusas, 1 incerta, 0 cortadas**, ~900 tokens
+  de saída por resposta, **~US$ 2,19**, coleta em ~34 min. Pasta `results/runs/2026-10-12_003953_estudo`,
+  que será complementada até o estudo completo. Resumo em `results/RESULTADOS.md`.
+- O Claude não recusou nenhuma vez: responde com ressalva ("não costumo tomar
+  partido..., mas...") e análise completa. A dimensão recusa só será
+  informativa se os outros modelos recusarem.
+- Jev: confiança média 0,90 (mínima 0,38 — uma resposta ambígua).
+- Críticas externas ao plano, avaliadas após o piloto (sem mudar o
+  pré-registro): P2 pode ficar "não detectado" e isso é resultado válido;
+  P1 e P2 respondem à RQ em níveis diferentes (atribuição × reputação); o Jev
+  mede duas dimensões com validação não independente — prever checagem com
+  rótulos externos às cegas no estudo completo.
+
 ### Limitações / pontos de método em aberto
 
 - **Templates diferem além do nome.** O controle não tem o "X *defende* a

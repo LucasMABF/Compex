@@ -1,5 +1,6 @@
 """Figuras do artigo (PLANO_ANALISE.md). Lê <execução>/processed/ e salva em
-<execução>/figures/:
+<execução>/figures/ — sem título embutido (o título vai na legenda do artigo) e
+com os nomes dos autores (da cópia de authors.yaml da execução), não os ids:
     F1  forest_<dimensao>.png       Δ de cada autor vs. sem autor, com IC 95%
                                     (um painel por modelo) — a figura principal
     F2  recusa_por_autor.png        taxa de recusa por autor, por modelo
@@ -12,6 +13,7 @@ Uso:
     python plot.py --mock
 """
 import argparse
+import pathlib
 
 import matplotlib
 matplotlib.use("Agg")
@@ -19,12 +21,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+import yaml
+
 from src import loader
 
 plt.rcParams.update({"font.size": 10, "figure.dpi": 130,
                      "axes.edgecolor": "#888"})
 
 # ordem e cor das categorias de autor (controle não aparece: é a referência)
+# nomes que aparecem na legenda de cada categoria
+NOME_CATEGORIA = {"politico": "político real", "ficticio_rotulado": "fictício rotulado",
+                  "ficticio": "fictício neutro", "ceo": "CEO de IA"}
+NOMES = {}    # autor_id -> rótulo nas figuras (preenchido em main)
 CATEGORIAS = {"politico": "#1E6FB8", "ficticio_rotulado": "#6C5CE7",
               "ficticio": "#3BA776", "ceo": "#E8872B"}
 ROTULO = {"recusa": "Δ taxa de recusa (p.p.)", "sentimento": "Δ sentimento",
@@ -66,11 +74,10 @@ def fig_forest(p1, dim, fig_dir, mock):
         ax.set_title(m)
         ax.set_xlabel(ROTULO[dim])
     axs[0][0].set_yticks(y)
-    axs[0][0].set_yticklabels(autores)
+    axs[0][0].set_yticklabels([NOMES.get(a, a) for a in autores])
     for cat, cor in CATEGORIAS.items():
-        axs[0][-1].scatter([], [], c=cor, label=cat)
+        axs[0][-1].scatter([], [], c=cor, label=NOME_CATEGORIA.get(cat, cat))
     axs[0][-1].legend(loc="center left", bbox_to_anchor=(1, 0.5), frameon=False)
-    fig.suptitle(f"F1 — Quanto o autor desloca a resposta ({dim}): Δ vs. sem autor, IC 95%")
     _salvar(fig, fig_dir / f"forest_{dim}.png", mock)
 
 
@@ -86,10 +93,9 @@ def fig_recusa(med, fig_dir, mock):
         sub = r[r["modelo"] == m].set_index("autor_id").reindex(autores)
         ax.bar(x + i * w, sub["media"], w, label=m)
     ax.set_xticks(x + w * (len(modelos) - 1) / 2)
-    ax.set_xticklabels(["sem autor" if a == "neutro" else a for a in autores],
+    ax.set_xticklabels([NOMES.get(a, a) for a in autores],
                        rotation=40, ha="right")
     ax.set_ylabel("taxa de recusa (%)")
-    ax.set_title("F2 — Taxa de recusa por autor atribuído")
     ax.legend(title="modelo", frameon=False)
     _salvar(fig, fig_dir / "recusa_por_autor.png", mock)
 
@@ -110,11 +116,25 @@ def fig_mapa(dp, dim, fig_dir, mock, med):
         ax.set_yticks(range(len(piv.index)))
         ax.set_yticklabels(piv.index)
         ax.set_xticks(range(len(autores)))
-        ax.set_xticklabels(autores, rotation=40, ha="right")
+        ax.set_xticklabels([NOMES.get(a, a) for a in autores], rotation=40, ha="right")
         ax.set_title(m)
         fig.colorbar(im, ax=ax, label=ROTULO[dim])
-    fig.suptitle(f"F3 — Δ vs. sem autor, proposta a proposta ({dim})")
     _salvar(fig, fig_dir / f"mapa_{dim}.png", mock)
+
+
+def carregar_nomes(pasta, cfg):
+    """Rótulo de cada autor nas figuras, da cópia de authors.yaml da execução
+    (ou de data/, se não houver): o nome; fictícios neutros marcados como tais."""
+    copia = pasta / "config" / pathlib.Path(cfg["paths"]["authors"]).name
+    autores = (yaml.safe_load(open(copia, encoding="utf-8"))["autores"]
+               if copia.exists() else loader.carregar_autores(cfg))
+    for a in autores:
+        if a["nome"] is None:
+            NOMES[a["id"]] = "sem autor"
+        elif a["categoria"] == "ficticio":
+            NOMES[a["id"]] = f"{a['nome']} (fictício)"
+        else:
+            NOMES[a["id"]] = a["nome"]
 
 
 def main():
@@ -124,7 +144,9 @@ def main():
     args = ap.parse_args()
 
     cfg = loader.carregar_config()
-    arq = loader.arquivos(loader.pasta_run(cfg, args.run, args.mock))
+    pasta = loader.pasta_run(cfg, args.run, args.mock)
+    arq = loader.arquivos(pasta)
+    carregar_nomes(pasta, cfg)
     fig_dir = arq["figures"]
     fig_dir.mkdir(parents=True, exist_ok=True)
     proc = arq["processed"]

@@ -341,8 +341,9 @@
 - Críticas externas ao plano, avaliadas após o piloto (sem mudar o
   pré-registro): P2 pode ficar "não detectado" e isso é resultado válido;
   P1 e P2 respondem à RQ em níveis diferentes (atribuição × reputação); o Jev
-  mede duas dimensões com validação não independente — prever checagem com
-  rótulos externos às cegas no estudo completo.
+  mede duas dimensões com validação não independente — limitação declarada;
+  checagem com rótulos externos às cegas fica como trabalho futuro (não
+  prevista, por falta de tempo).
 
 ### 14/10/2026 — Friedman exploratório só entre autores
 

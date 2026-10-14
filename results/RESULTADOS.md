@@ -98,7 +98,7 @@ são indícios a confirmar, não conclusões.
   autores (exploratório, definido após o piloto) separa os dois.
 - **Jev mede recusa e postura:** a validação (recusa 38/38, postura 39/40) usa
   rótulos escritos pelos autores do estudo, não independentes. Uma checagem
-  com rótulos externos às cegas está prevista para o estudo completo.
+  com rótulos externos às cegas fica como trabalho futuro.
 - **Recusas:** nenhuma no Claude — a dimensão recusa só será informativa se os
   outros modelos recusarem.
 

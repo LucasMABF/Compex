@@ -12,6 +12,10 @@ Uso:
     # os mesmos):
     python run.py --run results/runs/<pasta> --models gemini
     python run.py --run results/runs/<pasta>               # o resto do config
+
+Sem --run (e sem --mock), cria uma execução NOVA e pede confirmação antes de
+gastar chamadas — esquecer o --run não paga de novo o que já existe.
+--sim pula a confirmação (para scripts).
 """
 import argparse
 import subprocess
@@ -27,6 +31,22 @@ def passo(args_lista):
         sys.exit(r.returncode)
 
 
+def confirmar_nova(args):
+    """Execução nova = coleta do zero: mostra o tamanho e pede confirmação."""
+    cfg = loader.carregar_config()
+    props = [p for p in loader.carregar_propostas(cfg)
+             if not args.props or p["id"] in args.props]
+    n = (len(props) * len(loader.carregar_autores(cfg))
+         * len(args.models or cfg["modelos"]) * (args.reps or cfg["repeticoes"]))
+    existentes = sorted((loader.RAIZ / cfg["paths"]["runs"]).glob("*/"))
+    print(f"Isso cria uma execução NOVA (não complementa nenhuma) e faz {n} chamadas.")
+    if existentes:
+        print(f"Para complementar uma existente, use --run <pasta> "
+              f"(a mais recente: {existentes[-1].relative_to(loader.RAIZ)}).")
+    if input("Continuar? [s/N] ").strip().lower() not in ("s", "sim"):
+        sys.exit("Cancelado; nada foi coletado.")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--mock", action="store_true")
@@ -35,7 +55,11 @@ def main():
     ap.add_argument("--models", nargs="+")
     ap.add_argument("--props", nargs="+")
     ap.add_argument("--run", help="complementa esta execução em vez de criar uma nova")
+    ap.add_argument("--sim", action="store_true", help="não pede confirmação")
     args = ap.parse_args()
+
+    if not args.run and not args.mock and not args.sim:
+        confirmar_nova(args)
 
     if args.run:
         pasta = loader.pasta_run(loader.carregar_config(), args.run)

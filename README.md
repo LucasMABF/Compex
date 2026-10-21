@@ -40,6 +40,11 @@ results/runs/<data-hora>_<nome>/
   figures/         F1 forest plot e F3 mapa por dimensão, F2 taxa de recusa
 ```
 
+Sem `--run`, o `run.py` cria uma execução **nova** e pede confirmação antes de
+gastar chamadas (`--sim` pula a pergunta). A pontuação é **incremental**: só
+respostas ainda sem nota chamam o Jev e o pysentimiento; se a configuração das
+medidas mudar, o `score.py` para (use `--refazer` para repontuar tudo).
+
 **Complementar uma execução** (ex.: rodar um modelo de cada vez, ou o piloto
 virar o início do estudo completo): `run.py --run <pasta> --models gemini`
 coleta só o que falta, refaz o que deu erro e reanalisa tudo junto — depois de
@@ -87,7 +92,7 @@ src/providers.py       APIs (OpenAI/Anthropic/Google) + MOCK
 src/sentiment.py       medidas: Jev (recusa + postura), pysent (sentimento), lexico_pt
 src/loader.py          config/dados e pastas de execução
 collect.py             roda o grid -> raw/responses.jsonl + raw/coleta.log (só fatos)
-score.py               classifica (erro/recusa) e aplica as medidas -> processed/scored.csv
+score.py               classifica (erro/recusa) e aplica as medidas, incremental -> processed/scored.csv
 analyze.py             Δ + IC 95% (t) + Friedman (P1–P3) -> processed/*.csv
 plot.py                figuras F1–F3 -> figures/
 run.py                 pipeline completo numa pasta nova

@@ -5,6 +5,10 @@
   },
   "propostas": [
     "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
     "P6",
     "P9",
     "P14",
@@ -34,5 +38,27 @@
   },
   "mock": false,
   "max_tokens": 1500,
-  "python": "3.14.8"
+  "python": "3.14.8",
+  "complementos": [
+    {
+      "inicio": "2026-10-21T19:20:05.077467+00:00",
+      "importado_de": "2026-10-21_162005_estudo",
+      "importado_em": "2026-10-21T20:02:34.173300+00:00",
+      "modelos": {
+        "claude": "claude-sonnet-5-5"
+      },
+      "propostas": [
+        "P2",
+        "P3",
+        "P4",
+        "P5"
+      ],
+      "repeticoes": 3,
+      "descartadas": "48 respostas da P6 (já coletadas no piloto)",
+      "codigo": {
+        "commit": "73bf53ab2d4b23b5379351c7ef7623a464b7554d",
+        "alteracoes_nao_commitadas": true
+      }
+    }
+  ]
 }

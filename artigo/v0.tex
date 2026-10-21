@@ -3,10 +3,10 @@
 %  Template: IEEEtran (conferência, 2 colunas). Máx. 4 páginas.
 %
 %  Compilar: pdflatex v0.tex  (2x, por causa das referências)
-%  Requer: IEEEtran.cls (TeX Live / Overleaf) e a figura forest_postura.png.
-%          Localmente, o caminho aponta para a execução no repositório; no
-%          compilador online, suba a figura e troque o caminho no
-%          \includegraphics para só "forest_postura.png".
+%  Requer: IEEEtran.cls (TeX Live / Overleaf) e forest_postura_piloto.png
+%          (nesta pasta): a figura do piloto, congelada — a da execução do
+%          estudo muda conforme a coleta avança. No compilador online, suba
+%          este arquivo junto com o .tex.
 %
 %  Estrutura pensada para sobreviver ao estudo completo: ao fechar a
 %  coleta (3 modelos, 20 propostas), substituir apenas os resultados no
@@ -323,7 +323,7 @@ entra nas conclusões deste artigo.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\linewidth]{../results/runs/2026-10-12_003953_estudo/figures/forest_postura.png}
+\includegraphics[width=\linewidth]{forest_postura_piloto.png}
 \caption{P1 na dimensão postura: $\Delta$ de cada autor vs.\ sem autor, com IC
 95\% (piloto, Claude Sonnet~5.5). Barras que não cruzam o zero indicam
 deslocamento distinguível de zero.}

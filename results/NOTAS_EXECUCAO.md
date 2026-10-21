@@ -353,6 +353,32 @@
 - Piloto: postura `so_autores` p = 0,007 (todas: p = 0,004); sentimento 0,20
   (todas: 0,22). O efeito na postura não é só do enquadramento.
 
+### 21/10/2026 — execução criada por engano, junção e pontuação incremental
+
+- **Engano:** a coleta das propostas P2–P6 (Claude, 3 repetições) foi rodada
+  sem `--run`, criando uma execução nova (`2026-10-21_162005_estudo`) em vez de
+  complementar o estudo. Config, autores e propostas eram idênticos aos do
+  estudo (conferido).
+- **Junção:** as 192 respostas de P2–P5 foram acrescentadas ao
+  `responses.jsonl` do estudo, com o log (precedido de uma linha de origem) e
+  uma entrada `importado_de` no `metadata.json`. As 48 respostas da P6 foram
+  **descartadas**: a P6 já estava no piloto, e mantê-las mudaria o número de
+  repetições (3) dessa proposta. Resultado: 432 respostas, 9 propostas × 16
+  autores × 3 repetições, sem duplicatas. As notas já calculadas na execução
+  nova (mesma configuração das medidas) foram reaproveitadas — nenhuma chamada
+  ao Jev repetida.
+- **Pontuação incremental** (`score.py`): o `scored.csv` guarda as notas e só
+  respostas sem nota chamam o Jev/pysentimiento. A configuração das medidas
+  usada fica em `processed/medidas.json`; se mudar, o script para (`--refazer`
+  repontua tudo). Testado no mock: do zero, repetição (0 chamadas), complemento
+  (só as novas), bloqueio por mudança de config e `--refazer`; o resultado
+  incremental é idêntico ao recalculado do zero. Antes, cada complemento
+  repontuava a pasta inteira, pagando o Jev de novo.
+- **Confirmação no `run.py`:** sem `--run` (e sem `--mock`), mostra quantas
+  chamadas serão feitas e pede confirmação (`--sim` pula).
+- **Artigo:** a figura do piloto foi congelada em `artigo/forest_postura_piloto.png`,
+  porque a do estudo muda com a coleta.
+
 ### Limitações / pontos de método em aberto
 
 - **Templates diferem além do nome.** O controle não tem o "X *defende* a

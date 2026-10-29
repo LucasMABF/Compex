@@ -10,9 +10,20 @@
     "P4",
     "P5",
     "P6",
+    "P7",
+    "P8",
     "P9",
+    "P10",
+    "P11",
+    "P12",
+    "P13",
     "P14",
-    "P18"
+    "P15",
+    "P16",
+    "P17",
+    "P18",
+    "P19",
+    "P20"
   ],
   "repeticoes": 3,
   "argumentos": {
@@ -57,6 +68,112 @@
       "descartadas": "48 respostas da P6 (já coletadas no piloto)",
       "codigo": {
         "commit": "73bf53ab2d4b23b5379351c7ef7623a464b7554d",
+        "alteracoes_nao_commitadas": true
+      }
+    },
+    {
+      "inicio": "2026-10-21T20:33:38.396100+00:00",
+      "modelos": {
+        "claude": "claude-sonnet-5-5"
+      },
+      "propostas": [
+        "P2",
+        "P3",
+        "P4",
+        "P5",
+        "P6"
+      ],
+      "repeticoes": 3,
+      "argumentos": {
+        "mock": false,
+        "nome": "estudo",
+        "run": "/home/lucas/Documents/UnB/2026.2/CE/compex/results/runs/2026-10-12_003953_estudo",
+        "reps": 3,
+        "models": [
+          "claude"
+        ],
+        "props": [
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6"
+        ],
+        "complementar": true
+      },
+      "codigo": {
+        "commit": "0187532887d532d7b5d8e1d6540dee1ee0b9f2bc",
+        "alteracoes_nao_commitadas": false
+      }
+    },
+    {
+      "inicio": "2026-10-21T20:34:08.093243+00:00",
+      "modelos": {
+        "claude": "claude-sonnet-5-5"
+      },
+      "propostas": [
+        "P7"
+      ],
+      "repeticoes": 3,
+      "argumentos": {
+        "mock": false,
+        "nome": "estudo",
+        "run": "/home/lucas/Documents/UnB/2026.2/CE/compex/results/runs/2026-10-12_003953_estudo",
+        "reps": 3,
+        "models": [
+          "claude"
+        ],
+        "props": [
+          "P7"
+        ],
+        "complementar": true
+      },
+      "codigo": {
+        "commit": "0187532887d532d7b5d8e1d6540dee1ee0b9f2bc",
+        "alteracoes_nao_commitadas": true
+      }
+    },
+    {
+      "inicio": "2026-10-29T01:11:57.878961+00:00",
+      "modelos": {
+        "claude": "claude-sonnet-5-5"
+      },
+      "propostas": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5",
+        "P6",
+        "P7",
+        "P8",
+        "P9",
+        "P10",
+        "P11",
+        "P12",
+        "P13",
+        "P14",
+        "P15",
+        "P16",
+        "P17",
+        "P18",
+        "P19",
+        "P20"
+      ],
+      "repeticoes": 3,
+      "argumentos": {
+        "mock": false,
+        "nome": null,
+        "run": "/home/lucas/Documents/UnB/2026.2/CE/compex/results/runs/2026-10-12_003953_estudo",
+        "reps": 3,
+        "models": [
+          "claude"
+        ],
+        "props": null,
+        "complementar": true
+      },
+      "codigo": {
+        "commit": "a62e0366ce595b7d319f92b68ac80667f1faa802",
         "alteracoes_nao_commitadas": true
       }
     }

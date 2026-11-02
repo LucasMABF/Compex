@@ -1,4 +1,7 @@
 modelo,dimensao,media_abs_delta
+chatgpt,postura,0.0546
+chatgpt,recusa,0.0
+chatgpt,sentimento,0.0229
 claude,postura,0.0501
 claude,recusa,0.0
 claude,sentimento,0.0164

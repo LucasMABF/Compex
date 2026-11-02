@@ -1,7 +1,13 @@
 modelo,dimensao,conjunto,n_propostas,n_autores,estatistica,p_valor,obs
+chatgpt,recusa,todas,20,16,,,sem variação (todos os valores iguais)
+chatgpt,recusa,so_autores,20,15,,,sem variação (todos os valores iguais)
 claude,recusa,todas,20,16,,,sem variação (todos os valores iguais)
 claude,recusa,so_autores,20,15,,,sem variação (todos os valores iguais)
+chatgpt,sentimento,todas,20,16,12.031,0.6767,
+chatgpt,sentimento,so_autores,20,15,10.395,0.7328,
 claude,sentimento,todas,20,16,47.762,0.0,
 claude,sentimento,so_autores,20,15,46.215,0.0,
+chatgpt,postura,todas,20,16,24.437,0.058,
+chatgpt,postura,so_autores,20,15,22.1,0.0766,
 claude,postura,todas,20,16,14.492,0.4886,
 claude,postura,so_autores,20,15,14.551,0.4095,

@@ -3,7 +3,7 @@
 
 # Modelos a auditar. Em modo --mock, os nomes são só rótulos.
 modelos:
-  - chatgpt      # gpt-6-luna (ver src/providers.py)
+  - chatgpt      # gpt-6-sol (ver src/providers.py)
   - claude       # claude-sonnet-5-5
   - gemini       # gemini-3.8-flash
 

@@ -15,9 +15,9 @@ import hashlib
 # mapeia o rótulo do config -> modelo real de cada provedor
 # (conferido em out/2026 nas páginas de modelos de cada provedor)
 MODELOS_REAIS = {
-    "chatgpt": "gpt-6-luna",          # tier eficiente (sucessor do gpt-4o-mini)
+    "chatgpt": "gpt-6-sol",           # faixa intermediária, como Sonnet e Flash
     "claude": "claude-sonnet-5-5",
-    "gemini": "gemini-3.8-flash",     # gemini-1.5-flash foi desligado
+    "gemini": "gemini-3.8-flash",     # faixa intermediária (Pro > Flash > Flash-Lite)
 }
 
 

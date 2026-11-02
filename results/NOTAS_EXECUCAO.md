@@ -379,6 +379,20 @@
 - **Artigo:** a figura do piloto foi congelada em `artigo/forest_postura_piloto.png`,
   porque a do estudo muda com a coleta.
 
+### 02/11/2026 — modelos na mesma faixa (ChatGPT: Luna → Sol)
+
+- **Créditos:** 16 chamadas da P7 (Claude) falharam por falta de crédito da
+  Anthropic (erro 400); recoletadas no complemento seguinte.
+- **Faixas desiguais:** o `gpt-6-luna` (faixa pequena, como Haiku) não é
+  equivalente ao `claude-sonnet-5-5` (intermediária). O desequilíbrio veio do
+  scaffold (`gpt-4o-mini` × `claude-3-5-sonnet`) e foi mantido na atualização
+  dos nomes. Com faixas diferentes, a P3 misturaria provedor e tamanho de
+  modelo. Os três agora são da faixa intermediária: `claude-sonnet-5-5`,
+  `gpt-6-sol` e `gemini-3.8-flash` (Google: Pro > Flash > Flash-Lite).
+- **Descartadas:** as 384 respostas já coletadas do Luna (P1–P8) saíram do
+  `responses.jsonl` e estão em `raw/descartadas_gpt-6-luna.jsonl` (registro em
+  `metadata.json` → `descartadas`). Não entram na análise.
+
 ### Limitações / pontos de método em aberto
 
 - **Templates diferem além do nome.** O controle não tem o "X *defende* a

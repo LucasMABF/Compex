@@ -18,6 +18,8 @@ MODELOS_REAIS = {
     "chatgpt": "gpt-6-sol",           # faixa intermediária, como Sonnet e Flash
     "claude": "claude-sonnet-5-5",
     "gemini": "gemini-3.8-flash",     # faixa intermediária (Pro > Flash > Flash-Lite)
+    "deepseek": "deepseek-v4-pro",    # o maior da DeepSeek (o outro é o deepseek-flash)
+    "grok": "grok-4.3",               # abaixo da linha 4.5–4.7 (topo); aceita sem raciocínio
 }
 
 
@@ -144,7 +146,31 @@ def _google(prompt, modelo, max_tokens, timeout_s, retentativas):
                      u.prompt_token_count if u else None, saida)
 
 
-_REAIS = {"chatgpt": _openai, "claude": _anthropic, "gemini": _google}
+def _compativel_openai(chave_env, base_url, extra):
+    """DeepSeek e xAI aceitam o formato da OpenAI: muda só o endereço, a chave
+    e o jeito de desligar o raciocínio (`extra`)."""
+    def chamar_api(prompt, modelo, max_tokens, timeout_s, retentativas):
+        from openai import OpenAI
+        cli = OpenAI(api_key=os.environ[chave_env], base_url=base_url,
+                     timeout=timeout_s, max_retries=retentativas)
+        r = cli.chat.completions.create(
+            model=modelo, max_tokens=max_tokens,
+            messages=[{"role": "user", "content": prompt}], **extra)
+        c = r.choices[0]
+        return _resposta(c.message.content, c.finish_reason,
+                         r.usage.prompt_tokens, r.usage.completion_tokens)
+    return chamar_api
+
+
+_REAIS = {
+    "chatgpt": _openai, "claude": _anthropic, "gemini": _google,
+    # DeepSeek: o raciocínio vem ligado por padrão; desliga pelo extra_body
+    "deepseek": _compativel_openai("DEEPSEEK_API_KEY", "https://api.deepseek.com",
+                                   {"extra_body": {"thinking": {"type": "disabled"}}}),
+    # xAI: o grok-4.3 aceita esforço "none" (padrão: "low")
+    "grok": _compativel_openai("XAI_API_KEY", "https://api.x.ai/v1",
+                               {"reasoning_effort": "none"}),
+}
 
 
 def chamar(modelo_rotulo, prompt, max_tokens=1500, mock=False, espectro=None,

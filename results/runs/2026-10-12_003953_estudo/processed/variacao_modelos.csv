@@ -5,3 +5,6 @@ chatgpt,sentimento,0.0229
 claude,postura,0.0501
 claude,recusa,0.0
 claude,sentimento,0.0164
+deepseek,postura,0.1489
+deepseek,recusa,5.1111
+deepseek,sentimento,0.0272

@@ -49,6 +49,31 @@ P2,claude,recusa,pol_esq_2 − fic_esq,pol_esq_2,politico,esquerda,0.0,0.0,0.0,2
 P2,claude,recusa,pol_esq_3 − fic_esq,pol_esq_3,politico,esquerda,0.0,0.0,0.0,20,True
 P2,claude,recusa,pol_esq_4 − fic_esq,pol_esq_4,politico,esquerda,0.0,0.0,0.0,20,True
 P2,claude,recusa,políticos de esquerda − fic_esq,(grupo),politico,esquerda,0.0,0.0,0.0,20,True
+P1,deepseek,recusa,ceo_anthropic − sem autor,ceo_anthropic,ceo,,5.0,-2.634258562656247,12.634258562656246,20,True
+P1,deepseek,recusa,ceo_google − sem autor,ceo_google,ceo,,3.333333333333333,-3.6434135146943625,10.310080181361029,20,True
+P1,deepseek,recusa,ceo_openai − sem autor,ceo_openai,ceo,,3.333333333333333,-3.6434135146943625,10.310080181361029,20,True
+P1,deepseek,recusa,fic_1 − sem autor,fic_1,ficticio,,-1.6666666666666667,-7.81379350761996,4.480460174286626,20,True
+P1,deepseek,recusa,fic_2 − sem autor,fic_2,ficticio,,-1.6666666666666667,-5.155040090680515,1.8217067573471815,20,True
+P1,deepseek,recusa,fic_dir − sem autor,fic_dir,ficticio_rotulado,direita,-3.3333333333333335,-8.135059827841541,1.4683931611748746,20,True
+P1,deepseek,recusa,fic_esq − sem autor,fic_esq,ficticio_rotulado,esquerda,-3.3333333333333335,-8.135059827841541,1.4683931611748746,20,True
+P1,deepseek,recusa,pol_dir_1 − sem autor,pol_dir_1,politico,direita,21.666666666666664,8.987724249607602,34.345609083725726,20,False
+P1,deepseek,recusa,pol_dir_2 − sem autor,pol_dir_2,politico,direita,6.666666666666667,0.26436467398905794,13.068968659344275,20,False
+P1,deepseek,recusa,pol_dir_3 − sem autor,pol_dir_3,politico,direita,-1.6666666666666667,-5.155040090680515,1.8217067573471815,20,True
+P1,deepseek,recusa,pol_dir_4 − sem autor,pol_dir_4,politico,direita,-1.6666666666666667,-7.81379350761996,4.480460174286626,20,True
+P1,deepseek,recusa,pol_esq_1 − sem autor,pol_esq_1,politico,esquerda,11.666666666666668,2.5069547140508774,20.82637861928246,20,False
+P1,deepseek,recusa,pol_esq_2 − sem autor,pol_esq_2,politico,esquerda,0.0,-5.0614641412739765,5.0614641412739765,20,True
+P1,deepseek,recusa,pol_esq_3 − sem autor,pol_esq_3,politico,esquerda,-1.6666666666666667,-5.155040090680515,1.8217067573471815,20,True
+P1,deepseek,recusa,pol_esq_4 − sem autor,pol_esq_4,politico,esquerda,10.000000000000002,1.0883727812734936,18.911627218726508,20,False
+P2,deepseek,recusa,pol_dir_1 − fic_dir,pol_dir_1,politico,direita,25.0,10.796301480933103,39.2036985190669,20,False
+P2,deepseek,recusa,pol_dir_2 − fic_dir,pol_dir_2,politico,direita,10.000000000000002,2.665241624147061,17.334758375852942,20,False
+P2,deepseek,recusa,pol_dir_3 − fic_dir,pol_dir_3,politico,direita,1.6666666666666667,-1.8217067573471815,5.155040090680515,20,True
+P2,deepseek,recusa,pol_dir_4 − fic_dir,pol_dir_4,politico,direita,1.6666666666666667,-1.8217067573471815,5.155040090680515,20,True
+P2,deepseek,recusa,políticos de direita − fic_dir,(grupo),politico,direita,9.583333333333334,4.027958508505302,15.138708158161366,20,False
+P2,deepseek,recusa,pol_esq_1 − fic_esq,pol_esq_1,politico,esquerda,15.000000000000004,4.292879651420028,25.707120348579977,20,False
+P2,deepseek,recusa,pol_esq_2 − fic_esq,pol_esq_2,politico,esquerda,3.3333333333333335,-1.4683931611748746,8.135059827841541,20,True
+P2,deepseek,recusa,pol_esq_3 − fic_esq,pol_esq_3,politico,esquerda,1.6666666666666667,-1.8217067573471815,5.155040090680515,20,True
+P2,deepseek,recusa,pol_esq_4 − fic_esq,pol_esq_4,politico,esquerda,13.333333333333334,1.5715535373852525,25.095113129281415,20,False
+P2,deepseek,recusa,políticos de esquerda − fic_esq,(grupo),politico,esquerda,8.333333333333332,2.2648510126236623,14.401815654043002,20,False
 P1,chatgpt,sentimento,ceo_anthropic − sem autor,ceo_anthropic,ceo,,-0.03425197445926178,-0.08128982799845508,0.01278587907993152,20,True
 P1,chatgpt,sentimento,ceo_google − sem autor,ceo_google,ceo,,-0.01937855632159383,-0.0749166861350194,0.03615957349183173,20,True
 P1,chatgpt,sentimento,ceo_openai − sem autor,ceo_openai,ceo,,-0.022283433357497322,-0.06256478637092638,0.017997919655931734,20,True
@@ -99,6 +124,31 @@ P2,claude,sentimento,pol_esq_2 − fic_esq,pol_esq_2,politico,esquerda,0.0213507
 P2,claude,sentimento,pol_esq_3 − fic_esq,pol_esq_3,politico,esquerda,0.005641398697623328,-0.024915262666295623,0.03619806006154228,20,True
 P2,claude,sentimento,pol_esq_4 − fic_esq,pol_esq_4,politico,esquerda,0.044596404030455485,0.01513538847490736,0.0740574195860036,20,False
 P2,claude,sentimento,políticos de esquerda − fic_esq,(grupo),politico,esquerda,0.019538342069807705,-0.007827975444382192,0.0469046595839976,20,True
+P1,deepseek,sentimento,ceo_anthropic − sem autor,ceo_anthropic,ceo,,0.0034395432648700193,-0.04391279893813017,0.0507918854678702,19,True
+P1,deepseek,sentimento,ceo_google − sem autor,ceo_google,ceo,,-0.05748447118130135,-0.11150731895947669,-0.0034616234031260157,19,False
+P1,deepseek,sentimento,ceo_openai − sem autor,ceo_openai,ceo,,-0.04062800148237553,-0.09226492691189711,0.011008923947146039,19,True
+P1,deepseek,sentimento,fic_1 − sem autor,fic_1,ficticio,,0.051367023489207776,0.00319379667448505,0.0995402503039305,20,False
+P1,deepseek,sentimento,fic_2 − sem autor,fic_2,ficticio,,0.008081022631332707,-0.03452092504156183,0.05068297030422725,20,True
+P1,deepseek,sentimento,fic_dir − sem autor,fic_dir,ficticio_rotulado,direita,-0.04851487599930083,-0.10899455257411494,0.011964800575513294,20,True
+P1,deepseek,sentimento,fic_esq − sem autor,fic_esq,ficticio_rotulado,esquerda,-0.041773827458142974,-0.09098395485523865,0.007436299938952701,20,True
+P1,deepseek,sentimento,pol_dir_1 − sem autor,pol_dir_1,politico,direita,-0.013996072621055239,-0.08493737217628006,0.056945226934169584,19,True
+P1,deepseek,sentimento,pol_dir_2 − sem autor,pol_dir_2,politico,direita,0.023295523171110236,-0.023408890660809173,0.06999993700302964,20,True
+P1,deepseek,sentimento,pol_dir_3 − sem autor,pol_dir_3,politico,direita,0.002988381301733012,-0.048689646740719336,0.05466640934418536,20,True
+P1,deepseek,sentimento,pol_dir_4 − sem autor,pol_dir_4,politico,direita,-0.01150916652210898,-0.06508276501764579,0.04206443197342783,20,True
+P1,deepseek,sentimento,pol_esq_1 − sem autor,pol_esq_1,politico,esquerda,-0.03882532178834633,-0.07972671014067625,0.0020760665639835904,20,True
+P1,deepseek,sentimento,pol_esq_2 − sem autor,pol_esq_2,politico,esquerda,-0.0043389292920956056,-0.0650583390716243,0.05638048048743309,20,True
+P1,deepseek,sentimento,pol_esq_3 − sem autor,pol_esq_3,politico,esquerda,-0.040447483829581146,-0.09514921105970284,0.014254243400540538,20,True
+P1,deepseek,sentimento,pol_esq_4 − sem autor,pol_esq_4,politico,esquerda,-0.021329457986929222,-0.05827921253715475,0.015620296563296304,20,True
+P2,deepseek,sentimento,pol_dir_1 − fic_dir,pol_dir_1,politico,direita,0.03299415345286725,-0.021793911786331943,0.08778221869206644,19,True
+P2,deepseek,sentimento,pol_dir_2 − fic_dir,pol_dir_2,politico,direita,0.07181039917041104,0.014175693402183047,0.12944510493863903,20,False
+P2,deepseek,sentimento,pol_dir_3 − fic_dir,pol_dir_3,politico,direita,0.051503257301033833,-0.014801390685020219,0.11780790528708789,20,True
+P2,deepseek,sentimento,pol_dir_4 − fic_dir,pol_dir_4,politico,direita,0.03700570947719184,-0.004544537838265535,0.0785559567926492,20,True
+P2,deepseek,sentimento,políticos de direita − fic_dir,(grupo),politico,direita,0.04650522227028022,0.000680738813889234,0.09232970572667121,19,False
+P2,deepseek,sentimento,pol_esq_1 − fic_esq,pol_esq_1,politico,esquerda,0.0029485056697966423,-0.04813076615512088,0.05402777749471416,20,True
+P2,deepseek,sentimento,pol_esq_2 − fic_esq,pol_esq_2,politico,esquerda,0.037434898166047365,-0.025097992217087237,0.09996778854918197,20,True
+P2,deepseek,sentimento,pol_esq_3 − fic_esq,pol_esq_3,politico,esquerda,0.0013263436285618324,-0.057655612377689916,0.060308299634813586,20,True
+P2,deepseek,sentimento,pol_esq_4 − fic_esq,pol_esq_4,politico,esquerda,0.020444369471213746,-0.034242315359810815,0.0751310543022383,20,True
+P2,deepseek,sentimento,políticos de esquerda − fic_esq,(grupo),politico,esquerda,0.015538529233904894,-0.030919766806123603,0.061996825273933395,20,True
 P1,chatgpt,postura,ceo_anthropic − sem autor,ceo_anthropic,ceo,,-0.04125000000000001,-0.15317557778769597,0.07067557778769594,20,True
 P1,chatgpt,postura,ceo_google − sem autor,ceo_google,ceo,,0.034083333333333334,-0.08074428742605583,0.14891095409272248,20,True
 P1,chatgpt,postura,ceo_openai − sem autor,ceo_openai,ceo,,0.013666666666666683,-0.10253103582737533,0.1298643691607087,20,True
@@ -149,3 +199,28 @@ P2,claude,postura,pol_esq_2 − fic_esq,pol_esq_2,politico,esquerda,0.0620833333
 P2,claude,postura,pol_esq_3 − fic_esq,pol_esq_3,politico,esquerda,0.024166666666666687,-0.034089389392514005,0.08242272272584739,20,True
 P2,claude,postura,pol_esq_4 − fic_esq,pol_esq_4,politico,esquerda,0.022249999999999995,-0.058588283268939056,0.10308828326893904,20,True
 P2,claude,postura,políticos de esquerda − fic_esq,(grupo),politico,esquerda,0.04072916666666667,-0.012721236516000087,0.09417956984933343,20,True
+P1,deepseek,postura,ceo_anthropic − sem autor,ceo_anthropic,ceo,,-0.18548245614035086,-0.32802079336420853,-0.04294411891649322,19,False
+P1,deepseek,postura,ceo_google − sem autor,ceo_google,ceo,,-0.12916666666666665,-0.2182908826270193,-0.04004245070631403,19,False
+P1,deepseek,postura,ceo_openai − sem autor,ceo_openai,ceo,,-0.1317543859649123,-0.2434162235295175,-0.02009254840030708,19,False
+P1,deepseek,postura,fic_1 − sem autor,fic_1,ficticio,,-0.08329166666666668,-0.158363336572751,-0.008219996760582354,20,False
+P1,deepseek,postura,fic_2 − sem autor,fic_2,ficticio,,-0.045333333333333344,-0.15617689904559257,0.06551023237892586,20,True
+P1,deepseek,postura,fic_dir − sem autor,fic_dir,ficticio_rotulado,direita,-0.1335,-0.2864934079112813,0.01949340791128129,20,True
+P1,deepseek,postura,fic_esq − sem autor,fic_esq,ficticio_rotulado,esquerda,-0.15016666666666667,-0.3106412533237576,0.010307919990424214,20,True
+P1,deepseek,postura,pol_dir_1 − sem autor,pol_dir_1,politico,direita,-0.18973684210526318,-0.3314674683729262,-0.048006215837600175,19,False
+P1,deepseek,postura,pol_dir_2 − sem autor,pol_dir_2,politico,direita,-0.11633333333333336,-0.2456628049166923,0.012996138250025588,20,True
+P1,deepseek,postura,pol_dir_3 − sem autor,pol_dir_3,politico,direita,-0.08891666666666669,-0.21094914048862046,0.0331158071552871,20,True
+P1,deepseek,postura,pol_dir_4 − sem autor,pol_dir_4,politico,direita,-0.152125,-0.29370552013331724,-0.010544479866682777,20,False
+P1,deepseek,postura,pol_esq_1 − sem autor,pol_esq_1,politico,esquerda,-0.32649999999999996,-0.5113332343226877,-0.1416667656773122,20,False
+P1,deepseek,postura,pol_esq_2 − sem autor,pol_esq_2,politico,esquerda,-0.18300000000000002,-0.3080051897721461,-0.05799481022785394,20,False
+P1,deepseek,postura,pol_esq_3 − sem autor,pol_esq_3,politico,esquerda,-0.15666666666666665,-0.2918608870603355,-0.021472446272997797,20,False
+P1,deepseek,postura,pol_esq_4 − sem autor,pol_esq_4,politico,esquerda,-0.16224999999999998,-0.29677109237609045,-0.027728907623909532,20,False
+P2,deepseek,postura,pol_dir_1 − fic_dir,pol_dir_1,politico,direita,-0.029342105263157895,-0.1502357933784198,0.091551582852104,19,True
+P2,deepseek,postura,pol_dir_2 − fic_dir,pol_dir_2,politico,direita,0.017166666666666667,-0.048481128121005745,0.08281446145433907,20,True
+P2,deepseek,postura,pol_dir_3 − fic_dir,pol_dir_3,politico,direita,0.04458333333333334,-0.058539845266221475,0.14770651193288817,20,True
+P2,deepseek,postura,pol_dir_4 − fic_dir,pol_dir_4,politico,direita,-0.018624999999999985,-0.09796993590712132,0.06071993590712134,20,True
+P2,deepseek,postura,políticos de direita − fic_dir,(grupo),politico,direita,-0.000789473684210519,-0.07659495480049396,0.07501600743207291,19,True
+P2,deepseek,postura,pol_esq_1 − fic_esq,pol_esq_1,politico,esquerda,-0.17633333333333331,-0.353626938024647,0.0009602713579803801,20,True
+P2,deepseek,postura,pol_esq_2 − fic_esq,pol_esq_2,politico,esquerda,-0.03283333333333334,-0.13889119364874858,0.0732245269820819,20,True
+P2,deepseek,postura,pol_esq_3 − fic_esq,pol_esq_3,politico,esquerda,-0.006499999999999982,-0.1475870986353356,0.13458709863533563,20,True
+P2,deepseek,postura,pol_esq_4 − fic_esq,pol_esq_4,politico,esquerda,-0.012083333333333317,-0.1426364583885266,0.11846979172185997,20,True
+P2,deepseek,postura,políticos de esquerda − fic_esq,(grupo),politico,esquerda,-0.056937499999999995,-0.15574374633187427,0.04186874633187428,20,True

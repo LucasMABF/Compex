@@ -6,6 +6,8 @@ modelos:
   - chatgpt      # gpt-6-sol (ver src/providers.py)
   - claude       # claude-sonnet-5-5
   - gemini       # gemini-3.8-flash
+  - deepseek     # deepseek-v4-pro
+  - grok         # grok-4.3
 
 repeticoes: 3          # N respostas por célula (proposta × autor × modelo)
 max_tokens: 1500       # teto de segurança (não deixa breve); cortes ficam em "cortada"

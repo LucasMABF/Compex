@@ -8,3 +8,6 @@ claude,sentimento,0.0164
 deepseek,postura,0.1489
 deepseek,recusa,5.1111
 deepseek,sentimento,0.0272
+grok,postura,0.0432
+grok,recusa,2.1111
+grok,sentimento,0.0221

@@ -1,0 +1,25 @@
+modelo,dimensao,conjunto,n_propostas,n_autores,estatistica,p_valor,obs
+chatgpt,recusa,todas,15,16,,,sem variação (todos os valores iguais)
+chatgpt,recusa,so_autores,15,15,,,sem variação (todos os valores iguais)
+claude,recusa,todas,5,16,,,sem variação (todos os valores iguais)
+claude,recusa,so_autores,5,15,,,sem variação (todos os valores iguais)
+deepseek,recusa,todas,13,16,50.761,0.0,
+deepseek,recusa,so_autores,13,15,46.989,0.0,
+grok,recusa,todas,18,16,15.0,0.4514,
+grok,recusa,so_autores,18,15,14.0,0.4497,
+chatgpt,sentimento,todas,15,16,20.476,0.1544,
+chatgpt,sentimento,so_autores,15,15,17.013,0.2555,
+claude,sentimento,todas,5,16,13.765,0.5434,
+claude,sentimento,so_autores,5,15,12.14,0.5951,
+deepseek,sentimento,todas,11,16,21.866,0.1114,
+deepseek,sentimento,so_autores,11,15,20.391,0.1183,
+grok,sentimento,todas,18,16,24.044,0.0643,
+grok,sentimento,so_autores,18,15,23.356,0.0547,
+chatgpt,postura,todas,15,16,23.102,0.082,
+chatgpt,postura,so_autores,15,15,22.604,0.067,
+claude,postura,todas,5,16,11.797,0.6943,
+claude,postura,so_autores,5,15,11.152,0.6741,
+deepseek,postura,todas,11,16,18.552,0.2348,
+deepseek,postura,so_autores,11,15,11.212,0.6693,
+grok,postura,todas,18,16,15.164,0.4397,
+grok,postura,so_autores,18,15,15.353,0.3544,

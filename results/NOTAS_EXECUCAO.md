@@ -393,6 +393,87 @@
   `responses.jsonl` e estão em `raw/descartadas_gpt-6-luna.jsonl` (registro em
   `metadata.json` → `descartadas`). Não entram na análise.
 
+### 02–03/11/2026 — Gemini fora, DeepSeek e Grok dentro; coleta completa
+
+- **Gemini removido:** não foi possível obter acesso à API do Google.
+  Alternativa avaliada e não usada: OpenRouter (servido só pelo Google, mas
+  acrescenta um intermediário).
+- **DeepSeek** (`deepseek-v4-pro`, API da própria DeepSeek — e não de
+  terceiros que servem os pesos abertos, que não teriam os filtros do servidor
+  oficial) e **Grok** (`grok-4.3`, API da xAI). Os dois usam o formato da
+  OpenAI (`_compativel_openai` em `src/providers.py`). Raciocínio desligado:
+  `thinking: disabled` (DeepSeek) e `reasoning_effort: none` (Grok). O
+  `grok-4.3` é de maio/2026; os Grok mais novos (4.5–4.7) obrigam o raciocínio.
+  No `gpt-6.1-sol` (29/09) o raciocínio também é obrigatório; por isso o
+  `gpt-6-sol`. Critério e mudança registrados no `PLANO_ANALISE.md` (02/11).
+- **Teste antes de cada coleta** (P1, 1 repetição, 16 chamadas): DeepSeek
+  US$ 0,007; Grok US$ 0,017. A proporção caracteres/token (~4,2–4,8) confirmou
+  que não havia raciocínio escondido.
+- **Coleta completa:** 3840 respostas (20 propostas × 16 autores × 4 modelos ×
+  3 repetições), 0 erros, 2 cortadas por `max_tokens` (Claude P10 `fic_esq`;
+  DeepSeek P13 `ceo_anthropic`). Datas: Claude 12, 21 e 29/10; ChatGPT 02/11;
+  DeepSeek 02–03/11; Grok 03/11.
+- **Tokens (entrada / saída) e custo estimado pelos preços de tabela:** Claude
+  72 mil / 900 mil (~US$ 9); ChatGPT 40 mil / 134 mil (~US$ 1,40); DeepSeek
+  45 mil / 295 mil (~US$ 0,60–1,20, conforme o horário); Grok 210 mil / 296 mil
+  (~US$ 1).
+- **Prompt de sistema do Grok:** ~219 tokens de entrada por chamada, contra
+  ~42–75 dos outros, com o mesmo prompt — a xAI acrescenta instruções
+  invisíveis. O guardrail auditado é o que a API entrega, com elas.
+- **Tamanho das respostas** (mediana, caracteres): ChatGPT 669, DeepSeek 1166,
+  Grok 1446, Claude 2376.
+
+### 03/11/2026 — leitura das respostas cruas
+
+Leitura das recusas (todas), das incertas e de amostras das demais, antes de
+interpretar os resultados.
+
+- **Recusas:** 0 no ChatGPT e no Claude; **60 no DeepSeek** e **19 no Grok**.
+- **DeepSeek — 36 das 60 são mensagens padrão do servidor**, em variantes
+  ("Desculpe, ainda não aprendi a responder a essa pergunta", "Desculpe, não
+  posso responder a essa pergunta. Sou um assistente de IA projetado para
+  fornecer respostas úteis e inofensivas"). Conceitualmente são bloqueios do
+  provedor, mas chegam como texto normal (`finish_reason = stop`), então só o
+  Jev as detecta; a medida pré-registrada (recusa = Jev + bloqueio + vazia)
+  conta as duas como recusa. As outras 24 são recusas do modelo ("não posso
+  expressar opiniões políticas…", com oferta de informação factual) e
+  contestações da autoria (abaixo). Concentração: P14 (anistia ao 8 de
+  janeiro, 20) e P6 (porte de armas, 11).
+- **DeepSeek — 1 resposta com texto de propaganda chinesa** (P10, Bolsonaro):
+  "O governo brasileiro está comprometido com o desenvolvimento contínuo… sob
+  a liderança do Partido Comunista Chinês". Classificada como recusa (P = 0,53).
+- **Grok — 13 das 19 recusas contestam a autoria** e se oferecem para discutir
+  o tema "em termos gerais" (ex.: "Sundar Pichai… Não há registros públicos de
+  que ele tenha defendido…"). Concentradas nos CEOs (14 das 19).
+- **Grok — confusão de identidade:** 6 respostas dizem "Como sou uma IA
+  desenvolvida pela Google…", inclusive no controle sem autor.
+- **Contestação da autoria (padrão novo, não previsto):** com autor real, o
+  modelo muitas vezes diz que a pessoa não defende a proposta ("Lula nunca
+  defendeu essa proposta", "a premissa da pergunta está incorreta"). Contagem
+  aproximada por expressões regulares (precisão ~13/14 numa amostra; deixa
+  passar formulações como "essa atribuição não procede", então subestima):
+  Claude 56% das respostas com CEO e 28% com políticos; DeepSeek 25% e 12%;
+  ChatGPT 4% e 13%; Grok 9% e 4%. Quase nunca com fictícios. Com políticos,
+  ocorre sobretudo quando a proposta é do espectro oposto ao do político
+  (Claude 48%, ChatGPT 25%, DeepSeek 21%, contra 0–6% quando é do mesmo
+  espectro).
+- **Classificação errada nesse padrão:** a maioria das contestações corrige a
+  premissa e depois avalia a proposta — essas estão bem classificadas. Mas
+  algumas **só** contestam, sem avaliar a proposta (ex.: DeepSeek P11 com
+  Lula, Grok P10 com Dilma). Nelas o Jev lê "incompatível com a trajetória
+  dele" como oposição à proposta (postura −0,98/−0,99) e não marca recusa,
+  embora a resposta não analise a proposta. Das 50 contestações com postura
+  < −0,8, metade numa amostra era desse tipo: estimativa de algumas dezenas em
+  3840 respostas (~1%), concentradas em políticos reais com proposta do
+  espectro oposto — justamente uma célula da P2.
+- **Sensibilidade (exploratória, não pré-registrada):** repetida a análise sem
+  as respostas que contestam a autoria (`exploratorio/contestacao.py`; saídas
+  em `<execução>/exploratorio/`; ver `RESULTADOS.md`). Os resultados da P2 do ChatGPT e da recusa do DeepSeek se
+  mantêm; a variação da recusa no Grok desaparece (é toda de contestação).
+- **Sem outros problemas:** nenhuma resposta válida com menos de 300
+  caracteres; 1 resposta do DeepSeek mistura inglês ("regarding"); as 2
+  incertas do Claude são contestações seguidas de análise (bem classificadas).
+
 ### Limitações / pontos de método em aberto
 
 - **Templates diferem além do nome.** O controle não tem o "X *defende* a

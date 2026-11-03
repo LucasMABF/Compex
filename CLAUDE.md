@@ -38,7 +38,8 @@ dificuldades e ajustes.
    os CSVs e as figuras F1–F3 do `PLANO_ANALISE.md`.
 
 DEFERIR, EU QUERO FAZER EU MESMO. EU QUE MEXO COM API KEYS
-2. **Ligar as APIs reais** (`src/providers.py`): OpenAI, Anthropic e Google.
+2. **Ligar as APIs reais** (`src/providers.py`): OpenAI, Anthropic, DeepSeek e
+   xAI (Grok). O Google (Gemini) tem código, mas ficou fora por falta de acesso.
    Ler chaves do `.env`. Implementar: timeout, *retry* com *backoff* em erro de
    rede/rate-limit, e registro de erro por célula (nunca derrubar a coleta
    inteira). Confirmar os nomes de modelo em `MODELOS_REAIS`.

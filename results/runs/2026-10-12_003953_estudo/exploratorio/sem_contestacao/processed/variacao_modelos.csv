@@ -1,0 +1,13 @@
+modelo,dimensao,media_abs_delta
+chatgpt,postura,0.0529
+chatgpt,recusa,0.0
+chatgpt,sentimento,0.024
+claude,postura,0.053
+claude,recusa,0.0
+claude,sentimento,0.0167
+deepseek,postura,0.1318
+deepseek,recusa,6.3021
+deepseek,sentimento,0.0241
+grok,postura,0.0394
+grok,recusa,1.0614
+grok,sentimento,0.0215

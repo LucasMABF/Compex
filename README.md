@@ -46,7 +46,7 @@ respostas ainda sem nota chamam o Jev e o pysentimiento; se a configuração das
 medidas mudar, o `score.py` para (use `--refazer` para repontuar tudo).
 
 **Complementar uma execução** (ex.: rodar um modelo de cada vez, ou o piloto
-virar o início do estudo completo): `run.py --run <pasta> --models gemini`
+virar o início do estudo completo): `run.py --run <pasta> --models grok`
 coleta só o que falta, refaz o que deu erro e reanalisa tudo junto — depois de
 conferir que template, `max_tokens`, propostas, autores e modelos são os mesmos
 da coleta original (senão, recusa e pede uma execução nova).
@@ -59,6 +59,10 @@ o padrão é a mais recente, e `--mock` usa `results/mock/`).
 
 - **Fatorial, within-item:** a MESMA proposta passa por todas as condições de
   autoria; só a autoria muda. Fatores: autoria × modelo. `N` repetições por célula.
+- **Modelos do estudo:** `claude-sonnet-5-5`, `gpt-6-sol`, `deepseek-v4-pro` e
+  `grok-4.3` (faixa intermediária, raciocínio desligado; critério no
+  `PLANO_ANALISE.md`). O Gemini tem código (`_google`), mas ficou fora por falta
+  de acesso à API.
 - **Condições de autoria:** `controle` (sem autor), político real, CEO, fictício
   neutro, fictício rotulado por espectro. Editáveis em `data/authors.yaml`.
 - **Dimensões da resposta:**
@@ -88,7 +92,7 @@ config.yaml            parâmetros (modelos, N, templates, métrica)
 data/proposals.yaml    propostas P1..P20, com eixo e orientação (editável)
 data/authors.yaml      autores por categoria/espectro (editável)
 src/prompts.py         monta o prompt (autor, proposta)
-src/providers.py       APIs (OpenAI/Anthropic/Google) + MOCK
+src/providers.py       APIs (OpenAI/Anthropic/DeepSeek/xAI; Google sem uso) + MOCK
 src/sentiment.py       medidas: Jev (recusa + postura), pysent (sentimento), lexico_pt
 src/loader.py          config/dados e pastas de execução
 collect.py             roda o grid -> raw/responses.jsonl + raw/coleta.log (só fatos)
@@ -98,7 +102,9 @@ plot.py                figuras F1–F3 -> figures/
 run.py                 pipeline completo numa pasta nova
 ver.py                 lê as respostas de uma execução (depuração)
 validacao/             conjuntos de validação das medidas + validar.py
+exploratorio/          análises não pré-registradas (contestação da autoria)
 PLANO_ANALISE.md       plano de análise pré-registrado (antes da coleta)
+results/               RESULTADOS.md, NOTAS_EXECUCAO.md e as execuções reais
 ```
 
 > **Aviso:** o modo `--mock` produz texto **sintético** só para demonstrar o

@@ -99,7 +99,8 @@ testes formais de equivalência.
 - **Piloto** (1 modelo, poucas propostas): só valida o pipeline e a direção dos
   efeitos. Com poucas propostas, *p > 0,05* significa "não detectado", não
   "invariante".
-- **Estudo completo** (20 propostas, 3 modelos): base das conclusões.
+- **Estudo completo** (20 propostas, 4 modelos — ver Alterações, 02/11):
+  base das conclusões.
 
 ## Alterações
 
@@ -120,3 +121,18 @@ testes formais de equivalência.
   mostrou que ela importa na prática. O teste pré-registrado continua igual e
   é o reportado como principal; o novo é rotulado como exploratório. Vale para
   todo o restante da coleta (15 propostas e 2 modelos ainda não coletados).
+- **02/11/2026** — **Modelos: de 3 para 4** (registrado após a coleta e antes
+  da análise final; os resultados dos modelos novos ainda não tinham sido
+  interpretados). Critério: em cada provedor, o modelo mais recente da faixa
+  intermediária que permite desligar o raciocínio — a mesma condição para
+  todos. Modelos: `claude-sonnet-5-5`, `gpt-6-sol`, `deepseek-v4-pro` e
+  `grok-4.3`.
+  - **ChatGPT:** `gpt-6-luna` → `gpt-6-sol`. O Luna é de faixa menor que o
+    Sonnet; com faixas diferentes, a P3 misturaria provedor e tamanho. As 384
+    respostas do Luna foram descartadas antes de qualquer análise.
+  - **Gemini removido:** não foi possível obter acesso à API do Google.
+  - **DeepSeek e Grok incluídos:** outra origem (China) e outra política de
+    moderação declarada (xAI), além de um modelo de pesos abertos (DeepSeek).
+  - Nada mais muda: mesmas medidas, testes e perguntas, aplicados a cada modelo.
+    A P3 continua descritiva; diferenças entre modelos misturam provedor,
+    versão e tamanho das respostas.

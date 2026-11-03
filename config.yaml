@@ -5,7 +5,7 @@
 modelos:
   - chatgpt      # gpt-6-sol (ver src/providers.py)
   - claude       # claude-sonnet-5-5
-  - gemini       # gemini-3.8-flash
+  # - gemini     # gemini-3.8-flash: fora do estudo (sem acesso à API)
   - deepseek     # deepseek-v4-pro
   - grok         # grok-4.3
 

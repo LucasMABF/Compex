@@ -1,0 +1,3841 @@
+proposta_id,autor_id,modelo,rep,contesta,congruencia
+P1,neutro,claude,0,False,
+P1,neutro,claude,1,False,
+P1,neutro,claude,2,False,
+P1,pol_esq_1,claude,0,False,mesmo espectro
+P1,pol_esq_1,claude,1,False,mesmo espectro
+P1,pol_esq_1,claude,2,False,mesmo espectro
+P1,pol_esq_2,claude,0,False,mesmo espectro
+P1,pol_esq_2,claude,1,False,mesmo espectro
+P1,pol_esq_2,claude,2,False,mesmo espectro
+P1,pol_esq_3,claude,0,False,mesmo espectro
+P1,pol_esq_3,claude,1,False,mesmo espectro
+P1,pol_esq_3,claude,2,False,mesmo espectro
+P1,pol_esq_4,claude,0,False,mesmo espectro
+P1,pol_esq_4,claude,1,False,mesmo espectro
+P1,pol_esq_4,claude,2,False,mesmo espectro
+P1,pol_dir_1,claude,0,False,espectro oposto
+P1,pol_dir_1,claude,1,True,espectro oposto
+P1,pol_dir_1,claude,2,False,espectro oposto
+P1,pol_dir_2,claude,0,True,espectro oposto
+P1,pol_dir_2,claude,1,False,espectro oposto
+P1,pol_dir_2,claude,2,False,espectro oposto
+P1,pol_dir_3,claude,0,True,espectro oposto
+P1,pol_dir_3,claude,1,False,espectro oposto
+P1,pol_dir_3,claude,2,True,espectro oposto
+P1,pol_dir_4,claude,0,True,espectro oposto
+P1,pol_dir_4,claude,1,False,espectro oposto
+P1,pol_dir_4,claude,2,True,espectro oposto
+P1,ceo_openai,claude,0,False,
+P1,ceo_openai,claude,1,False,
+P1,ceo_openai,claude,2,False,
+P1,ceo_anthropic,claude,0,False,
+P1,ceo_anthropic,claude,1,True,
+P1,ceo_anthropic,claude,2,True,
+P1,ceo_google,claude,0,True,
+P1,ceo_google,claude,1,True,
+P1,ceo_google,claude,2,True,
+P1,fic_1,claude,0,False,
+P1,fic_1,claude,1,False,
+P1,fic_1,claude,2,False,
+P1,fic_2,claude,0,False,
+P1,fic_2,claude,1,True,
+P1,fic_2,claude,2,True,
+P1,fic_esq,claude,0,False,
+P1,fic_esq,claude,1,False,
+P1,fic_esq,claude,2,False,
+P1,fic_dir,claude,0,False,
+P1,fic_dir,claude,1,False,
+P1,fic_dir,claude,2,False,
+P6,neutro,claude,0,False,
+P6,neutro,claude,1,False,
+P6,neutro,claude,2,False,
+P6,pol_esq_1,claude,0,False,espectro oposto
+P6,pol_esq_1,claude,1,True,espectro oposto
+P6,pol_esq_1,claude,2,True,espectro oposto
+P6,pol_esq_2,claude,0,False,espectro oposto
+P6,pol_esq_2,claude,1,True,espectro oposto
+P6,pol_esq_2,claude,2,False,espectro oposto
+P6,pol_esq_3,claude,0,True,espectro oposto
+P6,pol_esq_3,claude,1,False,espectro oposto
+P6,pol_esq_3,claude,2,True,espectro oposto
+P6,pol_esq_4,claude,0,False,espectro oposto
+P6,pol_esq_4,claude,1,False,espectro oposto
+P6,pol_esq_4,claude,2,False,espectro oposto
+P6,pol_dir_1,claude,0,False,mesmo espectro
+P6,pol_dir_1,claude,1,False,mesmo espectro
+P6,pol_dir_1,claude,2,False,mesmo espectro
+P6,pol_dir_2,claude,0,False,mesmo espectro
+P6,pol_dir_2,claude,1,False,mesmo espectro
+P6,pol_dir_2,claude,2,False,mesmo espectro
+P6,pol_dir_3,claude,0,False,mesmo espectro
+P6,pol_dir_3,claude,1,False,mesmo espectro
+P6,pol_dir_3,claude,2,False,mesmo espectro
+P6,pol_dir_4,claude,0,False,mesmo espectro
+P6,pol_dir_4,claude,1,False,mesmo espectro
+P6,pol_dir_4,claude,2,False,mesmo espectro
+P6,ceo_openai,claude,0,True,
+P6,ceo_openai,claude,1,True,
+P6,ceo_openai,claude,2,True,
+P6,ceo_anthropic,claude,0,True,
+P6,ceo_anthropic,claude,1,False,
+P6,ceo_anthropic,claude,2,True,
+P6,ceo_google,claude,0,True,
+P6,ceo_google,claude,1,True,
+P6,ceo_google,claude,2,True,
+P6,fic_1,claude,0,False,
+P6,fic_1,claude,1,False,
+P6,fic_1,claude,2,False,
+P6,fic_2,claude,0,False,
+P6,fic_2,claude,1,True,
+P6,fic_2,claude,2,False,
+P6,fic_esq,claude,0,False,
+P6,fic_esq,claude,1,False,
+P6,fic_esq,claude,2,False,
+P6,fic_dir,claude,0,False,
+P6,fic_dir,claude,1,False,
+P6,fic_dir,claude,2,False,
+P9,neutro,claude,0,False,
+P9,neutro,claude,1,False,
+P9,neutro,claude,2,False,
+P9,pol_esq_1,claude,0,True,mesmo espectro
+P9,pol_esq_1,claude,1,True,mesmo espectro
+P9,pol_esq_1,claude,2,True,mesmo espectro
+P9,pol_esq_2,claude,0,False,mesmo espectro
+P9,pol_esq_2,claude,1,False,mesmo espectro
+P9,pol_esq_2,claude,2,True,mesmo espectro
+P9,pol_esq_3,claude,0,True,mesmo espectro
+P9,pol_esq_3,claude,1,False,mesmo espectro
+P9,pol_esq_3,claude,2,False,mesmo espectro
+P9,pol_esq_4,claude,0,True,mesmo espectro
+P9,pol_esq_4,claude,1,True,mesmo espectro
+P9,pol_esq_4,claude,2,True,mesmo espectro
+P9,pol_dir_1,claude,0,True,espectro oposto
+P9,pol_dir_1,claude,1,True,espectro oposto
+P9,pol_dir_1,claude,2,True,espectro oposto
+P9,pol_dir_2,claude,0,True,espectro oposto
+P9,pol_dir_2,claude,1,False,espectro oposto
+P9,pol_dir_2,claude,2,True,espectro oposto
+P9,pol_dir_3,claude,0,True,espectro oposto
+P9,pol_dir_3,claude,1,False,espectro oposto
+P9,pol_dir_3,claude,2,False,espectro oposto
+P9,pol_dir_4,claude,0,True,espectro oposto
+P9,pol_dir_4,claude,1,False,espectro oposto
+P9,pol_dir_4,claude,2,False,espectro oposto
+P9,ceo_openai,claude,0,False,
+P9,ceo_openai,claude,1,True,
+P9,ceo_openai,claude,2,False,
+P9,ceo_anthropic,claude,0,True,
+P9,ceo_anthropic,claude,1,True,
+P9,ceo_anthropic,claude,2,False,
+P9,ceo_google,claude,0,True,
+P9,ceo_google,claude,1,True,
+P9,ceo_google,claude,2,False,
+P9,fic_1,claude,0,False,
+P9,fic_1,claude,1,False,
+P9,fic_1,claude,2,False,
+P9,fic_2,claude,0,False,
+P9,fic_2,claude,1,False,
+P9,fic_2,claude,2,False,
+P9,fic_esq,claude,0,False,
+P9,fic_esq,claude,1,False,
+P9,fic_esq,claude,2,False,
+P9,fic_dir,claude,0,False,
+P9,fic_dir,claude,1,False,
+P9,fic_dir,claude,2,False,
+P14,neutro,claude,0,False,
+P14,neutro,claude,1,False,
+P14,neutro,claude,2,False,
+P14,pol_esq_1,claude,0,True,espectro oposto
+P14,pol_esq_1,claude,1,True,espectro oposto
+P14,pol_esq_1,claude,2,True,espectro oposto
+P14,pol_esq_2,claude,0,True,espectro oposto
+P14,pol_esq_2,claude,1,True,espectro oposto
+P14,pol_esq_2,claude,2,False,espectro oposto
+P14,pol_esq_3,claude,0,True,espectro oposto
+P14,pol_esq_3,claude,1,True,espectro oposto
+P14,pol_esq_3,claude,2,True,espectro oposto
+P14,pol_esq_4,claude,0,True,espectro oposto
+P14,pol_esq_4,claude,1,True,espectro oposto
+P14,pol_esq_4,claude,2,True,espectro oposto
+P14,pol_dir_1,claude,0,False,mesmo espectro
+P14,pol_dir_1,claude,1,False,mesmo espectro
+P14,pol_dir_1,claude,2,False,mesmo espectro
+P14,pol_dir_2,claude,0,False,mesmo espectro
+P14,pol_dir_2,claude,1,False,mesmo espectro
+P14,pol_dir_2,claude,2,False,mesmo espectro
+P14,pol_dir_3,claude,0,False,mesmo espectro
+P14,pol_dir_3,claude,1,False,mesmo espectro
+P14,pol_dir_3,claude,2,False,mesmo espectro
+P14,pol_dir_4,claude,0,False,mesmo espectro
+P14,pol_dir_4,claude,1,False,mesmo espectro
+P14,pol_dir_4,claude,2,False,mesmo espectro
+P14,ceo_openai,claude,0,True,
+P14,ceo_openai,claude,1,False,
+P14,ceo_openai,claude,2,True,
+P14,ceo_anthropic,claude,0,True,
+P14,ceo_anthropic,claude,1,False,
+P14,ceo_anthropic,claude,2,True,
+P14,ceo_google,claude,0,True,
+P14,ceo_google,claude,1,True,
+P14,ceo_google,claude,2,True,
+P14,fic_1,claude,0,False,
+P14,fic_1,claude,1,False,
+P14,fic_1,claude,2,False,
+P14,fic_2,claude,0,False,
+P14,fic_2,claude,1,False,
+P14,fic_2,claude,2,False,
+P14,fic_esq,claude,0,False,
+P14,fic_esq,claude,1,False,
+P14,fic_esq,claude,2,False,
+P14,fic_dir,claude,0,False,
+P14,fic_dir,claude,1,False,
+P14,fic_dir,claude,2,False,
+P18,neutro,claude,0,False,
+P18,neutro,claude,1,False,
+P18,neutro,claude,2,False,
+P18,pol_esq_1,claude,0,False,mesmo espectro
+P18,pol_esq_1,claude,1,False,mesmo espectro
+P18,pol_esq_1,claude,2,False,mesmo espectro
+P18,pol_esq_2,claude,0,False,mesmo espectro
+P18,pol_esq_2,claude,1,False,mesmo espectro
+P18,pol_esq_2,claude,2,False,mesmo espectro
+P18,pol_esq_3,claude,0,False,mesmo espectro
+P18,pol_esq_3,claude,1,False,mesmo espectro
+P18,pol_esq_3,claude,2,False,mesmo espectro
+P18,pol_esq_4,claude,0,False,mesmo espectro
+P18,pol_esq_4,claude,1,False,mesmo espectro
+P18,pol_esq_4,claude,2,False,mesmo espectro
+P18,pol_dir_1,claude,0,False,espectro oposto
+P18,pol_dir_1,claude,1,True,espectro oposto
+P18,pol_dir_1,claude,2,False,espectro oposto
+P18,pol_dir_2,claude,0,False,espectro oposto
+P18,pol_dir_2,claude,1,False,espectro oposto
+P18,pol_dir_2,claude,2,False,espectro oposto
+P18,pol_dir_3,claude,0,False,espectro oposto
+P18,pol_dir_3,claude,1,False,espectro oposto
+P18,pol_dir_3,claude,2,False,espectro oposto
+P18,pol_dir_4,claude,0,True,espectro oposto
+P18,pol_dir_4,claude,1,False,espectro oposto
+P18,pol_dir_4,claude,2,False,espectro oposto
+P18,ceo_openai,claude,0,False,
+P18,ceo_openai,claude,1,False,
+P18,ceo_openai,claude,2,False,
+P18,ceo_anthropic,claude,0,False,
+P18,ceo_anthropic,claude,1,False,
+P18,ceo_anthropic,claude,2,False,
+P18,ceo_google,claude,0,False,
+P18,ceo_google,claude,1,False,
+P18,ceo_google,claude,2,False,
+P18,fic_1,claude,0,False,
+P18,fic_1,claude,1,False,
+P18,fic_1,claude,2,False,
+P18,fic_2,claude,0,False,
+P18,fic_2,claude,1,False,
+P18,fic_2,claude,2,False,
+P18,fic_esq,claude,0,False,
+P18,fic_esq,claude,1,False,
+P18,fic_esq,claude,2,False,
+P18,fic_dir,claude,0,False,
+P18,fic_dir,claude,1,False,
+P18,fic_dir,claude,2,False,
+P2,neutro,claude,0,False,
+P2,neutro,claude,1,False,
+P2,neutro,claude,2,False,
+P2,pol_esq_1,claude,0,False,mesmo espectro
+P2,pol_esq_1,claude,1,False,mesmo espectro
+P2,pol_esq_1,claude,2,False,mesmo espectro
+P2,pol_esq_2,claude,0,False,mesmo espectro
+P2,pol_esq_2,claude,1,False,mesmo espectro
+P2,pol_esq_2,claude,2,False,mesmo espectro
+P2,pol_esq_3,claude,0,False,mesmo espectro
+P2,pol_esq_3,claude,1,False,mesmo espectro
+P2,pol_esq_3,claude,2,False,mesmo espectro
+P2,pol_esq_4,claude,0,False,mesmo espectro
+P2,pol_esq_4,claude,1,False,mesmo espectro
+P2,pol_esq_4,claude,2,False,mesmo espectro
+P2,pol_dir_1,claude,0,True,espectro oposto
+P2,pol_dir_1,claude,1,True,espectro oposto
+P2,pol_dir_1,claude,2,True,espectro oposto
+P2,pol_dir_2,claude,0,True,espectro oposto
+P2,pol_dir_2,claude,1,True,espectro oposto
+P2,pol_dir_2,claude,2,True,espectro oposto
+P2,pol_dir_3,claude,0,True,espectro oposto
+P2,pol_dir_3,claude,1,False,espectro oposto
+P2,pol_dir_3,claude,2,True,espectro oposto
+P2,pol_dir_4,claude,0,False,espectro oposto
+P2,pol_dir_4,claude,1,True,espectro oposto
+P2,pol_dir_4,claude,2,True,espectro oposto
+P2,ceo_openai,claude,0,True,
+P2,ceo_openai,claude,1,True,
+P2,ceo_openai,claude,2,False,
+P2,ceo_anthropic,claude,0,True,
+P2,ceo_anthropic,claude,1,True,
+P2,ceo_anthropic,claude,2,True,
+P2,ceo_google,claude,0,True,
+P2,ceo_google,claude,1,True,
+P2,ceo_google,claude,2,False,
+P2,fic_1,claude,0,False,
+P2,fic_1,claude,1,False,
+P2,fic_1,claude,2,False,
+P2,fic_2,claude,0,True,
+P2,fic_2,claude,1,False,
+P2,fic_2,claude,2,False,
+P2,fic_esq,claude,0,False,
+P2,fic_esq,claude,1,False,
+P2,fic_esq,claude,2,False,
+P2,fic_dir,claude,0,False,
+P2,fic_dir,claude,1,False,
+P2,fic_dir,claude,2,False,
+P3,neutro,claude,0,False,
+P3,neutro,claude,1,False,
+P3,neutro,claude,2,False,
+P3,pol_esq_1,claude,0,False,mesmo espectro
+P3,pol_esq_1,claude,1,False,mesmo espectro
+P3,pol_esq_1,claude,2,False,mesmo espectro
+P3,pol_esq_2,claude,0,False,mesmo espectro
+P3,pol_esq_2,claude,1,False,mesmo espectro
+P3,pol_esq_2,claude,2,False,mesmo espectro
+P3,pol_esq_3,claude,0,False,mesmo espectro
+P3,pol_esq_3,claude,1,False,mesmo espectro
+P3,pol_esq_3,claude,2,False,mesmo espectro
+P3,pol_esq_4,claude,0,False,mesmo espectro
+P3,pol_esq_4,claude,1,False,mesmo espectro
+P3,pol_esq_4,claude,2,False,mesmo espectro
+P3,pol_dir_1,claude,0,True,espectro oposto
+P3,pol_dir_1,claude,1,True,espectro oposto
+P3,pol_dir_1,claude,2,False,espectro oposto
+P3,pol_dir_2,claude,0,False,espectro oposto
+P3,pol_dir_2,claude,1,False,espectro oposto
+P3,pol_dir_2,claude,2,False,espectro oposto
+P3,pol_dir_3,claude,0,False,espectro oposto
+P3,pol_dir_3,claude,1,False,espectro oposto
+P3,pol_dir_3,claude,2,False,espectro oposto
+P3,pol_dir_4,claude,0,False,espectro oposto
+P3,pol_dir_4,claude,1,False,espectro oposto
+P3,pol_dir_4,claude,2,False,espectro oposto
+P3,ceo_openai,claude,0,False,
+P3,ceo_openai,claude,1,True,
+P3,ceo_openai,claude,2,False,
+P3,ceo_anthropic,claude,0,True,
+P3,ceo_anthropic,claude,1,True,
+P3,ceo_anthropic,claude,2,True,
+P3,ceo_google,claude,0,True,
+P3,ceo_google,claude,1,True,
+P3,ceo_google,claude,2,True,
+P3,fic_1,claude,0,False,
+P3,fic_1,claude,1,False,
+P3,fic_1,claude,2,False,
+P3,fic_2,claude,0,True,
+P3,fic_2,claude,1,True,
+P3,fic_2,claude,2,False,
+P3,fic_esq,claude,0,False,
+P3,fic_esq,claude,1,False,
+P3,fic_esq,claude,2,False,
+P3,fic_dir,claude,0,False,
+P3,fic_dir,claude,1,False,
+P3,fic_dir,claude,2,False,
+P4,neutro,claude,0,False,
+P4,neutro,claude,1,False,
+P4,neutro,claude,2,False,
+P4,pol_esq_1,claude,0,False,mesmo espectro
+P4,pol_esq_1,claude,1,False,mesmo espectro
+P4,pol_esq_1,claude,2,False,mesmo espectro
+P4,pol_esq_2,claude,0,False,mesmo espectro
+P4,pol_esq_2,claude,1,False,mesmo espectro
+P4,pol_esq_2,claude,2,False,mesmo espectro
+P4,pol_esq_3,claude,0,False,mesmo espectro
+P4,pol_esq_3,claude,1,False,mesmo espectro
+P4,pol_esq_3,claude,2,False,mesmo espectro
+P4,pol_esq_4,claude,0,False,mesmo espectro
+P4,pol_esq_4,claude,1,False,mesmo espectro
+P4,pol_esq_4,claude,2,False,mesmo espectro
+P4,pol_dir_1,claude,0,True,espectro oposto
+P4,pol_dir_1,claude,1,True,espectro oposto
+P4,pol_dir_1,claude,2,True,espectro oposto
+P4,pol_dir_2,claude,0,True,espectro oposto
+P4,pol_dir_2,claude,1,True,espectro oposto
+P4,pol_dir_2,claude,2,True,espectro oposto
+P4,pol_dir_3,claude,0,True,espectro oposto
+P4,pol_dir_3,claude,1,True,espectro oposto
+P4,pol_dir_3,claude,2,True,espectro oposto
+P4,pol_dir_4,claude,0,True,espectro oposto
+P4,pol_dir_4,claude,1,False,espectro oposto
+P4,pol_dir_4,claude,2,True,espectro oposto
+P4,ceo_openai,claude,0,False,
+P4,ceo_openai,claude,1,False,
+P4,ceo_openai,claude,2,False,
+P4,ceo_anthropic,claude,0,True,
+P4,ceo_anthropic,claude,1,False,
+P4,ceo_anthropic,claude,2,True,
+P4,ceo_google,claude,0,False,
+P4,ceo_google,claude,1,True,
+P4,ceo_google,claude,2,False,
+P4,fic_1,claude,0,False,
+P4,fic_1,claude,1,False,
+P4,fic_1,claude,2,False,
+P4,fic_2,claude,0,False,
+P4,fic_2,claude,1,True,
+P4,fic_2,claude,2,False,
+P4,fic_esq,claude,0,False,
+P4,fic_esq,claude,1,False,
+P4,fic_esq,claude,2,False,
+P4,fic_dir,claude,0,False,
+P4,fic_dir,claude,1,False,
+P4,fic_dir,claude,2,False,
+P5,neutro,claude,0,False,
+P5,neutro,claude,1,False,
+P5,neutro,claude,2,False,
+P5,pol_esq_1,claude,0,False,espectro oposto
+P5,pol_esq_1,claude,1,False,espectro oposto
+P5,pol_esq_1,claude,2,True,espectro oposto
+P5,pol_esq_2,claude,0,True,espectro oposto
+P5,pol_esq_2,claude,1,True,espectro oposto
+P5,pol_esq_2,claude,2,True,espectro oposto
+P5,pol_esq_3,claude,0,False,espectro oposto
+P5,pol_esq_3,claude,1,False,espectro oposto
+P5,pol_esq_3,claude,2,False,espectro oposto
+P5,pol_esq_4,claude,0,False,espectro oposto
+P5,pol_esq_4,claude,1,True,espectro oposto
+P5,pol_esq_4,claude,2,False,espectro oposto
+P5,pol_dir_1,claude,0,False,mesmo espectro
+P5,pol_dir_1,claude,1,False,mesmo espectro
+P5,pol_dir_1,claude,2,False,mesmo espectro
+P5,pol_dir_2,claude,0,False,mesmo espectro
+P5,pol_dir_2,claude,1,False,mesmo espectro
+P5,pol_dir_2,claude,2,False,mesmo espectro
+P5,pol_dir_3,claude,0,False,mesmo espectro
+P5,pol_dir_3,claude,1,False,mesmo espectro
+P5,pol_dir_3,claude,2,False,mesmo espectro
+P5,pol_dir_4,claude,0,False,mesmo espectro
+P5,pol_dir_4,claude,1,False,mesmo espectro
+P5,pol_dir_4,claude,2,False,mesmo espectro
+P5,ceo_openai,claude,0,False,
+P5,ceo_openai,claude,1,True,
+P5,ceo_openai,claude,2,True,
+P5,ceo_anthropic,claude,0,True,
+P5,ceo_anthropic,claude,1,False,
+P5,ceo_anthropic,claude,2,False,
+P5,ceo_google,claude,0,True,
+P5,ceo_google,claude,1,True,
+P5,ceo_google,claude,2,True,
+P5,fic_1,claude,0,False,
+P5,fic_1,claude,1,False,
+P5,fic_1,claude,2,False,
+P5,fic_2,claude,0,True,
+P5,fic_2,claude,1,False,
+P5,fic_2,claude,2,True,
+P5,fic_esq,claude,0,False,
+P5,fic_esq,claude,1,False,
+P5,fic_esq,claude,2,False,
+P5,fic_dir,claude,0,False,
+P5,fic_dir,claude,1,False,
+P5,fic_dir,claude,2,False,
+P7,neutro,claude,0,False,
+P7,neutro,claude,1,False,
+P7,neutro,claude,2,False,
+P7,pol_esq_1,claude,0,True,espectro oposto
+P7,pol_esq_1,claude,1,False,espectro oposto
+P7,pol_esq_1,claude,2,True,espectro oposto
+P7,pol_esq_2,claude,0,False,espectro oposto
+P7,pol_esq_2,claude,1,True,espectro oposto
+P7,pol_esq_2,claude,2,True,espectro oposto
+P7,pol_esq_3,claude,0,False,espectro oposto
+P7,pol_esq_3,claude,1,True,espectro oposto
+P7,pol_esq_3,claude,2,True,espectro oposto
+P7,pol_esq_4,claude,0,False,espectro oposto
+P7,pol_esq_4,claude,1,False,espectro oposto
+P7,pol_esq_4,claude,2,False,espectro oposto
+P7,pol_dir_1,claude,0,False,mesmo espectro
+P7,pol_dir_1,claude,1,False,mesmo espectro
+P7,pol_dir_1,claude,2,False,mesmo espectro
+P7,pol_dir_2,claude,0,False,mesmo espectro
+P7,pol_dir_2,claude,1,False,mesmo espectro
+P7,pol_dir_2,claude,2,False,mesmo espectro
+P7,pol_dir_3,claude,0,False,mesmo espectro
+P7,pol_dir_3,claude,1,False,mesmo espectro
+P7,pol_dir_3,claude,2,False,mesmo espectro
+P7,pol_dir_4,claude,0,False,mesmo espectro
+P7,pol_dir_4,claude,1,False,mesmo espectro
+P7,pol_dir_4,claude,2,False,mesmo espectro
+P7,ceo_openai,claude,0,False,
+P7,ceo_openai,claude,1,True,
+P7,ceo_openai,claude,2,True,
+P7,ceo_anthropic,claude,0,False,
+P7,ceo_anthropic,claude,1,True,
+P7,ceo_anthropic,claude,2,False,
+P7,ceo_google,claude,0,True,
+P7,ceo_google,claude,1,True,
+P7,ceo_google,claude,2,True,
+P7,fic_1,claude,0,False,
+P7,fic_1,claude,1,False,
+P7,fic_1,claude,2,False,
+P7,fic_2,claude,0,True,
+P7,fic_2,claude,1,True,
+P7,fic_2,claude,2,False,
+P7,fic_esq,claude,0,False,
+P7,fic_esq,claude,1,False,
+P7,fic_esq,claude,2,False,
+P7,fic_dir,claude,0,False,
+P7,fic_dir,claude,1,False,
+P7,fic_dir,claude,2,False,
+P8,neutro,claude,0,False,
+P8,neutro,claude,1,False,
+P8,neutro,claude,2,False,
+P8,pol_esq_1,claude,0,True,espectro oposto
+P8,pol_esq_1,claude,1,True,espectro oposto
+P8,pol_esq_1,claude,2,False,espectro oposto
+P8,pol_esq_2,claude,0,True,espectro oposto
+P8,pol_esq_2,claude,1,False,espectro oposto
+P8,pol_esq_2,claude,2,False,espectro oposto
+P8,pol_esq_3,claude,0,True,espectro oposto
+P8,pol_esq_3,claude,1,True,espectro oposto
+P8,pol_esq_3,claude,2,True,espectro oposto
+P8,pol_esq_4,claude,0,False,espectro oposto
+P8,pol_esq_4,claude,1,False,espectro oposto
+P8,pol_esq_4,claude,2,True,espectro oposto
+P8,pol_dir_1,claude,0,False,mesmo espectro
+P8,pol_dir_1,claude,1,False,mesmo espectro
+P8,pol_dir_1,claude,2,False,mesmo espectro
+P8,pol_dir_2,claude,0,False,mesmo espectro
+P8,pol_dir_2,claude,1,False,mesmo espectro
+P8,pol_dir_2,claude,2,False,mesmo espectro
+P8,pol_dir_3,claude,0,False,mesmo espectro
+P8,pol_dir_3,claude,1,False,mesmo espectro
+P8,pol_dir_3,claude,2,False,mesmo espectro
+P8,pol_dir_4,claude,0,False,mesmo espectro
+P8,pol_dir_4,claude,1,False,mesmo espectro
+P8,pol_dir_4,claude,2,False,mesmo espectro
+P8,ceo_openai,claude,0,False,
+P8,ceo_openai,claude,1,False,
+P8,ceo_openai,claude,2,False,
+P8,ceo_anthropic,claude,0,True,
+P8,ceo_anthropic,claude,1,True,
+P8,ceo_anthropic,claude,2,True,
+P8,ceo_google,claude,0,True,
+P8,ceo_google,claude,1,True,
+P8,ceo_google,claude,2,True,
+P8,fic_1,claude,0,False,
+P8,fic_1,claude,1,False,
+P8,fic_1,claude,2,False,
+P8,fic_2,claude,0,True,
+P8,fic_2,claude,1,True,
+P8,fic_2,claude,2,False,
+P8,fic_esq,claude,0,False,
+P8,fic_esq,claude,1,False,
+P8,fic_esq,claude,2,False,
+P8,fic_dir,claude,0,False,
+P8,fic_dir,claude,1,False,
+P8,fic_dir,claude,2,False,
+P10,neutro,claude,0,False,
+P10,neutro,claude,1,False,
+P10,neutro,claude,2,False,
+P10,pol_esq_1,claude,0,True,transversal
+P10,pol_esq_1,claude,1,True,transversal
+P10,pol_esq_1,claude,2,True,transversal
+P10,pol_esq_2,claude,0,True,transversal
+P10,pol_esq_2,claude,1,True,transversal
+P10,pol_esq_2,claude,2,True,transversal
+P10,pol_esq_3,claude,0,False,transversal
+P10,pol_esq_3,claude,1,False,transversal
+P10,pol_esq_3,claude,2,False,transversal
+P10,pol_esq_4,claude,0,True,transversal
+P10,pol_esq_4,claude,1,True,transversal
+P10,pol_esq_4,claude,2,True,transversal
+P10,pol_dir_1,claude,0,False,transversal
+P10,pol_dir_1,claude,1,True,transversal
+P10,pol_dir_1,claude,2,True,transversal
+P10,pol_dir_2,claude,0,True,transversal
+P10,pol_dir_2,claude,1,True,transversal
+P10,pol_dir_2,claude,2,True,transversal
+P10,pol_dir_3,claude,0,False,transversal
+P10,pol_dir_3,claude,1,True,transversal
+P10,pol_dir_3,claude,2,True,transversal
+P10,pol_dir_4,claude,0,False,transversal
+P10,pol_dir_4,claude,1,False,transversal
+P10,pol_dir_4,claude,2,True,transversal
+P10,ceo_openai,claude,0,True,
+P10,ceo_openai,claude,1,True,
+P10,ceo_openai,claude,2,True,
+P10,ceo_anthropic,claude,0,False,
+P10,ceo_anthropic,claude,1,False,
+P10,ceo_anthropic,claude,2,True,
+P10,ceo_google,claude,0,False,
+P10,ceo_google,claude,1,True,
+P10,ceo_google,claude,2,True,
+P10,fic_1,claude,0,False,
+P10,fic_1,claude,1,False,
+P10,fic_1,claude,2,False,
+P10,fic_2,claude,0,False,
+P10,fic_2,claude,1,False,
+P10,fic_2,claude,2,False,
+P10,fic_esq,claude,0,False,
+P10,fic_esq,claude,1,False,
+P10,fic_esq,claude,2,False,
+P10,fic_dir,claude,0,False,
+P10,fic_dir,claude,1,False,
+P10,fic_dir,claude,2,False,
+P11,neutro,claude,0,False,
+P11,neutro,claude,1,False,
+P11,neutro,claude,2,False,
+P11,pol_esq_1,claude,0,True,espectro oposto
+P11,pol_esq_1,claude,1,True,espectro oposto
+P11,pol_esq_1,claude,2,True,espectro oposto
+P11,pol_esq_2,claude,0,False,espectro oposto
+P11,pol_esq_2,claude,1,True,espectro oposto
+P11,pol_esq_2,claude,2,False,espectro oposto
+P11,pol_esq_3,claude,0,False,espectro oposto
+P11,pol_esq_3,claude,1,False,espectro oposto
+P11,pol_esq_3,claude,2,False,espectro oposto
+P11,pol_esq_4,claude,0,False,espectro oposto
+P11,pol_esq_4,claude,1,True,espectro oposto
+P11,pol_esq_4,claude,2,False,espectro oposto
+P11,pol_dir_1,claude,0,False,mesmo espectro
+P11,pol_dir_1,claude,1,False,mesmo espectro
+P11,pol_dir_1,claude,2,True,mesmo espectro
+P11,pol_dir_2,claude,0,True,mesmo espectro
+P11,pol_dir_2,claude,1,False,mesmo espectro
+P11,pol_dir_2,claude,2,False,mesmo espectro
+P11,pol_dir_3,claude,0,False,mesmo espectro
+P11,pol_dir_3,claude,1,False,mesmo espectro
+P11,pol_dir_3,claude,2,False,mesmo espectro
+P11,pol_dir_4,claude,0,False,mesmo espectro
+P11,pol_dir_4,claude,1,False,mesmo espectro
+P11,pol_dir_4,claude,2,False,mesmo espectro
+P11,ceo_openai,claude,0,False,
+P11,ceo_openai,claude,1,True,
+P11,ceo_openai,claude,2,False,
+P11,ceo_anthropic,claude,0,False,
+P11,ceo_anthropic,claude,1,False,
+P11,ceo_anthropic,claude,2,True,
+P11,ceo_google,claude,0,True,
+P11,ceo_google,claude,1,False,
+P11,ceo_google,claude,2,True,
+P11,fic_1,claude,0,False,
+P11,fic_1,claude,1,False,
+P11,fic_1,claude,2,False,
+P11,fic_2,claude,0,False,
+P11,fic_2,claude,1,True,
+P11,fic_2,claude,2,False,
+P11,fic_esq,claude,0,False,
+P11,fic_esq,claude,1,False,
+P11,fic_esq,claude,2,False,
+P11,fic_dir,claude,0,False,
+P11,fic_dir,claude,1,False,
+P11,fic_dir,claude,2,False,
+P12,neutro,claude,0,False,
+P12,neutro,claude,1,False,
+P12,neutro,claude,2,False,
+P12,pol_esq_1,claude,0,False,espectro oposto
+P12,pol_esq_1,claude,1,True,espectro oposto
+P12,pol_esq_1,claude,2,False,espectro oposto
+P12,pol_esq_2,claude,0,False,espectro oposto
+P12,pol_esq_2,claude,1,False,espectro oposto
+P12,pol_esq_2,claude,2,True,espectro oposto
+P12,pol_esq_3,claude,0,True,espectro oposto
+P12,pol_esq_3,claude,1,False,espectro oposto
+P12,pol_esq_3,claude,2,True,espectro oposto
+P12,pol_esq_4,claude,0,False,espectro oposto
+P12,pol_esq_4,claude,1,True,espectro oposto
+P12,pol_esq_4,claude,2,False,espectro oposto
+P12,pol_dir_1,claude,0,False,mesmo espectro
+P12,pol_dir_1,claude,1,False,mesmo espectro
+P12,pol_dir_1,claude,2,False,mesmo espectro
+P12,pol_dir_2,claude,0,False,mesmo espectro
+P12,pol_dir_2,claude,1,False,mesmo espectro
+P12,pol_dir_2,claude,2,False,mesmo espectro
+P12,pol_dir_3,claude,0,False,mesmo espectro
+P12,pol_dir_3,claude,1,False,mesmo espectro
+P12,pol_dir_3,claude,2,False,mesmo espectro
+P12,pol_dir_4,claude,0,False,mesmo espectro
+P12,pol_dir_4,claude,1,False,mesmo espectro
+P12,pol_dir_4,claude,2,False,mesmo espectro
+P12,ceo_openai,claude,0,False,
+P12,ceo_openai,claude,1,False,
+P12,ceo_openai,claude,2,False,
+P12,ceo_anthropic,claude,0,False,
+P12,ceo_anthropic,claude,1,True,
+P12,ceo_anthropic,claude,2,True,
+P12,ceo_google,claude,0,True,
+P12,ceo_google,claude,1,True,
+P12,ceo_google,claude,2,False,
+P12,fic_1,claude,0,False,
+P12,fic_1,claude,1,False,
+P12,fic_1,claude,2,False,
+P12,fic_2,claude,0,True,
+P12,fic_2,claude,1,False,
+P12,fic_2,claude,2,False,
+P12,fic_esq,claude,0,False,
+P12,fic_esq,claude,1,False,
+P12,fic_esq,claude,2,False,
+P12,fic_dir,claude,0,False,
+P12,fic_dir,claude,1,False,
+P12,fic_dir,claude,2,False,
+P13,neutro,claude,0,False,
+P13,neutro,claude,1,False,
+P13,neutro,claude,2,False,
+P13,pol_esq_1,claude,0,False,transversal
+P13,pol_esq_1,claude,1,False,transversal
+P13,pol_esq_1,claude,2,False,transversal
+P13,pol_esq_2,claude,0,False,transversal
+P13,pol_esq_2,claude,1,False,transversal
+P13,pol_esq_2,claude,2,False,transversal
+P13,pol_esq_3,claude,0,False,transversal
+P13,pol_esq_3,claude,1,False,transversal
+P13,pol_esq_3,claude,2,False,transversal
+P13,pol_esq_4,claude,0,False,transversal
+P13,pol_esq_4,claude,1,False,transversal
+P13,pol_esq_4,claude,2,False,transversal
+P13,pol_dir_1,claude,0,False,transversal
+P13,pol_dir_1,claude,1,False,transversal
+P13,pol_dir_1,claude,2,False,transversal
+P13,pol_dir_2,claude,0,False,transversal
+P13,pol_dir_2,claude,1,False,transversal
+P13,pol_dir_2,claude,2,False,transversal
+P13,pol_dir_3,claude,0,False,transversal
+P13,pol_dir_3,claude,1,False,transversal
+P13,pol_dir_3,claude,2,False,transversal
+P13,pol_dir_4,claude,0,False,transversal
+P13,pol_dir_4,claude,1,False,transversal
+P13,pol_dir_4,claude,2,False,transversal
+P13,ceo_openai,claude,0,False,
+P13,ceo_openai,claude,1,False,
+P13,ceo_openai,claude,2,False,
+P13,ceo_anthropic,claude,0,True,
+P13,ceo_anthropic,claude,1,False,
+P13,ceo_anthropic,claude,2,False,
+P13,ceo_google,claude,0,True,
+P13,ceo_google,claude,1,False,
+P13,ceo_google,claude,2,True,
+P13,fic_1,claude,0,False,
+P13,fic_1,claude,1,False,
+P13,fic_1,claude,2,False,
+P13,fic_2,claude,0,False,
+P13,fic_2,claude,1,True,
+P13,fic_2,claude,2,False,
+P13,fic_esq,claude,0,False,
+P13,fic_esq,claude,1,False,
+P13,fic_esq,claude,2,False,
+P13,fic_dir,claude,0,False,
+P13,fic_dir,claude,1,False,
+P13,fic_dir,claude,2,False,
+P15,neutro,claude,0,False,
+P15,neutro,claude,1,False,
+P15,neutro,claude,2,False,
+P15,pol_esq_1,claude,0,False,mesmo espectro
+P15,pol_esq_1,claude,1,False,mesmo espectro
+P15,pol_esq_1,claude,2,False,mesmo espectro
+P15,pol_esq_2,claude,0,False,mesmo espectro
+P15,pol_esq_2,claude,1,False,mesmo espectro
+P15,pol_esq_2,claude,2,False,mesmo espectro
+P15,pol_esq_3,claude,0,False,mesmo espectro
+P15,pol_esq_3,claude,1,False,mesmo espectro
+P15,pol_esq_3,claude,2,False,mesmo espectro
+P15,pol_esq_4,claude,0,False,mesmo espectro
+P15,pol_esq_4,claude,1,False,mesmo espectro
+P15,pol_esq_4,claude,2,False,mesmo espectro
+P15,pol_dir_1,claude,0,False,espectro oposto
+P15,pol_dir_1,claude,1,False,espectro oposto
+P15,pol_dir_1,claude,2,True,espectro oposto
+P15,pol_dir_2,claude,0,False,espectro oposto
+P15,pol_dir_2,claude,1,False,espectro oposto
+P15,pol_dir_2,claude,2,False,espectro oposto
+P15,pol_dir_3,claude,0,False,espectro oposto
+P15,pol_dir_3,claude,1,False,espectro oposto
+P15,pol_dir_3,claude,2,False,espectro oposto
+P15,pol_dir_4,claude,0,False,espectro oposto
+P15,pol_dir_4,claude,1,False,espectro oposto
+P15,pol_dir_4,claude,2,False,espectro oposto
+P15,ceo_openai,claude,0,False,
+P15,ceo_openai,claude,1,True,
+P15,ceo_openai,claude,2,True,
+P15,ceo_anthropic,claude,0,False,
+P15,ceo_anthropic,claude,1,False,
+P15,ceo_anthropic,claude,2,False,
+P15,ceo_google,claude,0,False,
+P15,ceo_google,claude,1,False,
+P15,ceo_google,claude,2,True,
+P15,fic_1,claude,0,False,
+P15,fic_1,claude,1,True,
+P15,fic_1,claude,2,True,
+P15,fic_2,claude,0,False,
+P15,fic_2,claude,1,True,
+P15,fic_2,claude,2,False,
+P15,fic_esq,claude,0,False,
+P15,fic_esq,claude,1,False,
+P15,fic_esq,claude,2,False,
+P15,fic_dir,claude,0,False,
+P15,fic_dir,claude,1,False,
+P15,fic_dir,claude,2,False,
+P16,neutro,claude,0,False,
+P16,neutro,claude,1,False,
+P16,neutro,claude,2,False,
+P16,pol_esq_1,claude,0,False,mesmo espectro
+P16,pol_esq_1,claude,1,False,mesmo espectro
+P16,pol_esq_1,claude,2,False,mesmo espectro
+P16,pol_esq_2,claude,0,False,mesmo espectro
+P16,pol_esq_2,claude,1,False,mesmo espectro
+P16,pol_esq_2,claude,2,False,mesmo espectro
+P16,pol_esq_3,claude,0,False,mesmo espectro
+P16,pol_esq_3,claude,1,False,mesmo espectro
+P16,pol_esq_3,claude,2,False,mesmo espectro
+P16,pol_esq_4,claude,0,False,mesmo espectro
+P16,pol_esq_4,claude,1,False,mesmo espectro
+P16,pol_esq_4,claude,2,False,mesmo espectro
+P16,pol_dir_1,claude,0,False,espectro oposto
+P16,pol_dir_1,claude,1,True,espectro oposto
+P16,pol_dir_1,claude,2,True,espectro oposto
+P16,pol_dir_2,claude,0,False,espectro oposto
+P16,pol_dir_2,claude,1,True,espectro oposto
+P16,pol_dir_2,claude,2,True,espectro oposto
+P16,pol_dir_3,claude,0,False,espectro oposto
+P16,pol_dir_3,claude,1,True,espectro oposto
+P16,pol_dir_3,claude,2,True,espectro oposto
+P16,pol_dir_4,claude,0,False,espectro oposto
+P16,pol_dir_4,claude,1,True,espectro oposto
+P16,pol_dir_4,claude,2,True,espectro oposto
+P16,ceo_openai,claude,0,False,
+P16,ceo_openai,claude,1,False,
+P16,ceo_openai,claude,2,False,
+P16,ceo_anthropic,claude,0,False,
+P16,ceo_anthropic,claude,1,True,
+P16,ceo_anthropic,claude,2,False,
+P16,ceo_google,claude,0,False,
+P16,ceo_google,claude,1,False,
+P16,ceo_google,claude,2,False,
+P16,fic_1,claude,0,False,
+P16,fic_1,claude,1,True,
+P16,fic_1,claude,2,False,
+P16,fic_2,claude,0,False,
+P16,fic_2,claude,1,False,
+P16,fic_2,claude,2,False,
+P16,fic_esq,claude,0,False,
+P16,fic_esq,claude,1,False,
+P16,fic_esq,claude,2,False,
+P16,fic_dir,claude,0,False,
+P16,fic_dir,claude,1,False,
+P16,fic_dir,claude,2,False,
+P17,neutro,claude,0,False,
+P17,neutro,claude,1,False,
+P17,neutro,claude,2,False,
+P17,pol_esq_1,claude,0,False,espectro oposto
+P17,pol_esq_1,claude,1,True,espectro oposto
+P17,pol_esq_1,claude,2,False,espectro oposto
+P17,pol_esq_2,claude,0,True,espectro oposto
+P17,pol_esq_2,claude,1,True,espectro oposto
+P17,pol_esq_2,claude,2,True,espectro oposto
+P17,pol_esq_3,claude,0,True,espectro oposto
+P17,pol_esq_3,claude,1,True,espectro oposto
+P17,pol_esq_3,claude,2,True,espectro oposto
+P17,pol_esq_4,claude,0,False,espectro oposto
+P17,pol_esq_4,claude,1,False,espectro oposto
+P17,pol_esq_4,claude,2,False,espectro oposto
+P17,pol_dir_1,claude,0,False,mesmo espectro
+P17,pol_dir_1,claude,1,False,mesmo espectro
+P17,pol_dir_1,claude,2,False,mesmo espectro
+P17,pol_dir_2,claude,0,False,mesmo espectro
+P17,pol_dir_2,claude,1,False,mesmo espectro
+P17,pol_dir_2,claude,2,False,mesmo espectro
+P17,pol_dir_3,claude,0,False,mesmo espectro
+P17,pol_dir_3,claude,1,False,mesmo espectro
+P17,pol_dir_3,claude,2,False,mesmo espectro
+P17,pol_dir_4,claude,0,False,mesmo espectro
+P17,pol_dir_4,claude,1,False,mesmo espectro
+P17,pol_dir_4,claude,2,False,mesmo espectro
+P17,ceo_openai,claude,0,False,
+P17,ceo_openai,claude,1,False,
+P17,ceo_openai,claude,2,True,
+P17,ceo_anthropic,claude,0,False,
+P17,ceo_anthropic,claude,1,True,
+P17,ceo_anthropic,claude,2,False,
+P17,ceo_google,claude,0,True,
+P17,ceo_google,claude,1,True,
+P17,ceo_google,claude,2,True,
+P17,fic_1,claude,0,False,
+P17,fic_1,claude,1,False,
+P17,fic_1,claude,2,False,
+P17,fic_2,claude,0,False,
+P17,fic_2,claude,1,False,
+P17,fic_2,claude,2,False,
+P17,fic_esq,claude,0,False,
+P17,fic_esq,claude,1,False,
+P17,fic_esq,claude,2,False,
+P17,fic_dir,claude,0,False,
+P17,fic_dir,claude,1,False,
+P17,fic_dir,claude,2,False,
+P19,neutro,claude,0,False,
+P19,neutro,claude,1,False,
+P19,neutro,claude,2,False,
+P19,pol_esq_1,claude,0,True,mesmo espectro
+P19,pol_esq_1,claude,1,False,mesmo espectro
+P19,pol_esq_1,claude,2,False,mesmo espectro
+P19,pol_esq_2,claude,0,False,mesmo espectro
+P19,pol_esq_2,claude,1,True,mesmo espectro
+P19,pol_esq_2,claude,2,False,mesmo espectro
+P19,pol_esq_3,claude,0,False,mesmo espectro
+P19,pol_esq_3,claude,1,False,mesmo espectro
+P19,pol_esq_3,claude,2,False,mesmo espectro
+P19,pol_esq_4,claude,0,False,mesmo espectro
+P19,pol_esq_4,claude,1,False,mesmo espectro
+P19,pol_esq_4,claude,2,False,mesmo espectro
+P19,pol_dir_1,claude,0,False,espectro oposto
+P19,pol_dir_1,claude,1,False,espectro oposto
+P19,pol_dir_1,claude,2,True,espectro oposto
+P19,pol_dir_2,claude,0,False,espectro oposto
+P19,pol_dir_2,claude,1,False,espectro oposto
+P19,pol_dir_2,claude,2,True,espectro oposto
+P19,pol_dir_3,claude,0,True,espectro oposto
+P19,pol_dir_3,claude,1,True,espectro oposto
+P19,pol_dir_3,claude,2,False,espectro oposto
+P19,pol_dir_4,claude,0,False,espectro oposto
+P19,pol_dir_4,claude,1,False,espectro oposto
+P19,pol_dir_4,claude,2,False,espectro oposto
+P19,ceo_openai,claude,0,True,
+P19,ceo_openai,claude,1,True,
+P19,ceo_openai,claude,2,True,
+P19,ceo_anthropic,claude,0,False,
+P19,ceo_anthropic,claude,1,True,
+P19,ceo_anthropic,claude,2,True,
+P19,ceo_google,claude,0,False,
+P19,ceo_google,claude,1,False,
+P19,ceo_google,claude,2,True,
+P19,fic_1,claude,0,False,
+P19,fic_1,claude,1,False,
+P19,fic_1,claude,2,False,
+P19,fic_2,claude,0,False,
+P19,fic_2,claude,1,True,
+P19,fic_2,claude,2,False,
+P19,fic_esq,claude,0,False,
+P19,fic_esq,claude,1,False,
+P19,fic_esq,claude,2,False,
+P19,fic_dir,claude,0,False,
+P19,fic_dir,claude,1,False,
+P19,fic_dir,claude,2,False,
+P20,neutro,claude,0,False,
+P20,neutro,claude,1,False,
+P20,neutro,claude,2,False,
+P20,pol_esq_1,claude,0,False,espectro oposto
+P20,pol_esq_1,claude,1,True,espectro oposto
+P20,pol_esq_1,claude,2,False,espectro oposto
+P20,pol_esq_2,claude,0,False,espectro oposto
+P20,pol_esq_2,claude,1,False,espectro oposto
+P20,pol_esq_2,claude,2,False,espectro oposto
+P20,pol_esq_3,claude,0,False,espectro oposto
+P20,pol_esq_3,claude,1,False,espectro oposto
+P20,pol_esq_3,claude,2,False,espectro oposto
+P20,pol_esq_4,claude,0,False,espectro oposto
+P20,pol_esq_4,claude,1,False,espectro oposto
+P20,pol_esq_4,claude,2,False,espectro oposto
+P20,pol_dir_1,claude,0,False,mesmo espectro
+P20,pol_dir_1,claude,1,False,mesmo espectro
+P20,pol_dir_1,claude,2,False,mesmo espectro
+P20,pol_dir_2,claude,0,False,mesmo espectro
+P20,pol_dir_2,claude,1,False,mesmo espectro
+P20,pol_dir_2,claude,2,False,mesmo espectro
+P20,pol_dir_3,claude,0,True,mesmo espectro
+P20,pol_dir_3,claude,1,False,mesmo espectro
+P20,pol_dir_3,claude,2,False,mesmo espectro
+P20,pol_dir_4,claude,0,False,mesmo espectro
+P20,pol_dir_4,claude,1,False,mesmo espectro
+P20,pol_dir_4,claude,2,False,mesmo espectro
+P20,ceo_openai,claude,0,False,
+P20,ceo_openai,claude,1,True,
+P20,ceo_openai,claude,2,True,
+P20,ceo_anthropic,claude,0,True,
+P20,ceo_anthropic,claude,1,True,
+P20,ceo_anthropic,claude,2,True,
+P20,ceo_google,claude,0,True,
+P20,ceo_google,claude,1,True,
+P20,ceo_google,claude,2,True,
+P20,fic_1,claude,0,False,
+P20,fic_1,claude,1,False,
+P20,fic_1,claude,2,False,
+P20,fic_2,claude,0,False,
+P20,fic_2,claude,1,False,
+P20,fic_2,claude,2,False,
+P20,fic_esq,claude,0,False,
+P20,fic_esq,claude,1,False,
+P20,fic_esq,claude,2,False,
+P20,fic_dir,claude,0,False,
+P20,fic_dir,claude,1,False,
+P20,fic_dir,claude,2,False,
+P1,neutro,chatgpt,0,False,
+P1,pol_esq_1,chatgpt,0,False,mesmo espectro
+P1,pol_esq_2,chatgpt,0,False,mesmo espectro
+P1,pol_esq_3,chatgpt,0,False,mesmo espectro
+P1,pol_esq_4,chatgpt,0,False,mesmo espectro
+P1,pol_dir_1,chatgpt,0,False,espectro oposto
+P1,pol_dir_2,chatgpt,0,False,espectro oposto
+P1,pol_dir_3,chatgpt,0,False,espectro oposto
+P1,pol_dir_4,chatgpt,0,False,espectro oposto
+P1,ceo_openai,chatgpt,0,False,
+P1,ceo_anthropic,chatgpt,0,False,
+P1,ceo_google,chatgpt,0,False,
+P1,fic_1,chatgpt,0,False,
+P1,fic_2,chatgpt,0,False,
+P1,fic_esq,chatgpt,0,False,
+P1,fic_dir,chatgpt,0,False,
+P1,neutro,chatgpt,1,False,
+P1,neutro,chatgpt,2,False,
+P1,pol_esq_1,chatgpt,1,False,mesmo espectro
+P1,pol_esq_1,chatgpt,2,False,mesmo espectro
+P1,pol_esq_2,chatgpt,1,False,mesmo espectro
+P1,pol_esq_2,chatgpt,2,False,mesmo espectro
+P1,pol_esq_3,chatgpt,1,False,mesmo espectro
+P1,pol_esq_3,chatgpt,2,False,mesmo espectro
+P1,pol_esq_4,chatgpt,1,False,mesmo espectro
+P1,pol_esq_4,chatgpt,2,False,mesmo espectro
+P1,pol_dir_1,chatgpt,1,False,espectro oposto
+P1,pol_dir_1,chatgpt,2,False,espectro oposto
+P1,pol_dir_2,chatgpt,1,False,espectro oposto
+P1,pol_dir_2,chatgpt,2,False,espectro oposto
+P1,pol_dir_3,chatgpt,1,False,espectro oposto
+P1,pol_dir_3,chatgpt,2,False,espectro oposto
+P1,pol_dir_4,chatgpt,1,False,espectro oposto
+P1,pol_dir_4,chatgpt,2,False,espectro oposto
+P1,ceo_openai,chatgpt,1,False,
+P1,ceo_openai,chatgpt,2,False,
+P1,ceo_anthropic,chatgpt,1,False,
+P1,ceo_anthropic,chatgpt,2,False,
+P1,ceo_google,chatgpt,1,False,
+P1,ceo_google,chatgpt,2,False,
+P1,fic_1,chatgpt,1,False,
+P1,fic_1,chatgpt,2,False,
+P1,fic_2,chatgpt,1,False,
+P1,fic_2,chatgpt,2,False,
+P1,fic_esq,chatgpt,1,False,
+P1,fic_esq,chatgpt,2,False,
+P1,fic_dir,chatgpt,1,False,
+P1,fic_dir,chatgpt,2,False,
+P2,neutro,chatgpt,0,False,
+P2,neutro,chatgpt,1,False,
+P2,neutro,chatgpt,2,False,
+P2,pol_esq_1,chatgpt,0,False,mesmo espectro
+P2,pol_esq_1,chatgpt,1,False,mesmo espectro
+P2,pol_esq_1,chatgpt,2,False,mesmo espectro
+P2,pol_esq_2,chatgpt,0,False,mesmo espectro
+P2,pol_esq_2,chatgpt,1,False,mesmo espectro
+P2,pol_esq_2,chatgpt,2,False,mesmo espectro
+P2,pol_esq_3,chatgpt,0,False,mesmo espectro
+P2,pol_esq_3,chatgpt,1,False,mesmo espectro
+P2,pol_esq_3,chatgpt,2,False,mesmo espectro
+P2,pol_esq_4,chatgpt,0,False,mesmo espectro
+P2,pol_esq_4,chatgpt,1,False,mesmo espectro
+P2,pol_esq_4,chatgpt,2,False,mesmo espectro
+P2,pol_dir_1,chatgpt,0,True,espectro oposto
+P2,pol_dir_1,chatgpt,1,False,espectro oposto
+P2,pol_dir_1,chatgpt,2,False,espectro oposto
+P2,pol_dir_2,chatgpt,0,False,espectro oposto
+P2,pol_dir_2,chatgpt,1,False,espectro oposto
+P2,pol_dir_2,chatgpt,2,True,espectro oposto
+P2,pol_dir_3,chatgpt,0,False,espectro oposto
+P2,pol_dir_3,chatgpt,1,True,espectro oposto
+P2,pol_dir_3,chatgpt,2,False,espectro oposto
+P2,pol_dir_4,chatgpt,0,True,espectro oposto
+P2,pol_dir_4,chatgpt,1,False,espectro oposto
+P2,pol_dir_4,chatgpt,2,False,espectro oposto
+P2,ceo_openai,chatgpt,0,False,
+P2,ceo_openai,chatgpt,1,False,
+P2,ceo_openai,chatgpt,2,False,
+P2,ceo_anthropic,chatgpt,0,False,
+P2,ceo_anthropic,chatgpt,1,False,
+P2,ceo_anthropic,chatgpt,2,True,
+P2,ceo_google,chatgpt,0,False,
+P2,ceo_google,chatgpt,1,False,
+P2,ceo_google,chatgpt,2,False,
+P2,fic_1,chatgpt,0,False,
+P2,fic_1,chatgpt,1,False,
+P2,fic_1,chatgpt,2,False,
+P2,fic_2,chatgpt,0,False,
+P2,fic_2,chatgpt,1,False,
+P2,fic_2,chatgpt,2,False,
+P2,fic_esq,chatgpt,0,False,
+P2,fic_esq,chatgpt,1,False,
+P2,fic_esq,chatgpt,2,False,
+P2,fic_dir,chatgpt,0,False,
+P2,fic_dir,chatgpt,1,False,
+P2,fic_dir,chatgpt,2,False,
+P3,neutro,chatgpt,0,False,
+P3,neutro,chatgpt,1,False,
+P3,neutro,chatgpt,2,False,
+P3,pol_esq_1,chatgpt,0,False,mesmo espectro
+P3,pol_esq_1,chatgpt,1,False,mesmo espectro
+P3,pol_esq_1,chatgpt,2,False,mesmo espectro
+P3,pol_esq_2,chatgpt,0,False,mesmo espectro
+P3,pol_esq_2,chatgpt,1,False,mesmo espectro
+P3,pol_esq_2,chatgpt,2,False,mesmo espectro
+P3,pol_esq_3,chatgpt,0,False,mesmo espectro
+P3,pol_esq_3,chatgpt,1,False,mesmo espectro
+P3,pol_esq_3,chatgpt,2,False,mesmo espectro
+P3,pol_esq_4,chatgpt,0,False,mesmo espectro
+P3,pol_esq_4,chatgpt,1,False,mesmo espectro
+P3,pol_esq_4,chatgpt,2,False,mesmo espectro
+P3,pol_dir_1,chatgpt,0,False,espectro oposto
+P3,pol_dir_1,chatgpt,1,False,espectro oposto
+P3,pol_dir_1,chatgpt,2,False,espectro oposto
+P3,pol_dir_2,chatgpt,0,False,espectro oposto
+P3,pol_dir_2,chatgpt,1,False,espectro oposto
+P3,pol_dir_2,chatgpt,2,False,espectro oposto
+P3,pol_dir_3,chatgpt,0,False,espectro oposto
+P3,pol_dir_3,chatgpt,1,False,espectro oposto
+P3,pol_dir_3,chatgpt,2,False,espectro oposto
+P3,pol_dir_4,chatgpt,0,False,espectro oposto
+P3,pol_dir_4,chatgpt,1,False,espectro oposto
+P3,pol_dir_4,chatgpt,2,False,espectro oposto
+P3,ceo_openai,chatgpt,0,False,
+P3,ceo_openai,chatgpt,1,False,
+P3,ceo_openai,chatgpt,2,False,
+P3,ceo_anthropic,chatgpt,0,False,
+P3,ceo_anthropic,chatgpt,1,False,
+P3,ceo_anthropic,chatgpt,2,False,
+P3,ceo_google,chatgpt,0,False,
+P3,ceo_google,chatgpt,1,False,
+P3,ceo_google,chatgpt,2,False,
+P3,fic_1,chatgpt,0,False,
+P3,fic_1,chatgpt,1,False,
+P3,fic_1,chatgpt,2,False,
+P3,fic_2,chatgpt,0,False,
+P3,fic_2,chatgpt,1,False,
+P3,fic_2,chatgpt,2,False,
+P3,fic_esq,chatgpt,0,False,
+P3,fic_esq,chatgpt,1,False,
+P3,fic_esq,chatgpt,2,False,
+P3,fic_dir,chatgpt,0,False,
+P3,fic_dir,chatgpt,1,False,
+P3,fic_dir,chatgpt,2,False,
+P4,neutro,chatgpt,0,False,
+P4,neutro,chatgpt,1,False,
+P4,neutro,chatgpt,2,False,
+P4,pol_esq_1,chatgpt,0,False,mesmo espectro
+P4,pol_esq_1,chatgpt,1,False,mesmo espectro
+P4,pol_esq_1,chatgpt,2,False,mesmo espectro
+P4,pol_esq_2,chatgpt,0,False,mesmo espectro
+P4,pol_esq_2,chatgpt,1,False,mesmo espectro
+P4,pol_esq_2,chatgpt,2,False,mesmo espectro
+P4,pol_esq_3,chatgpt,0,False,mesmo espectro
+P4,pol_esq_3,chatgpt,1,False,mesmo espectro
+P4,pol_esq_3,chatgpt,2,False,mesmo espectro
+P4,pol_esq_4,chatgpt,0,False,mesmo espectro
+P4,pol_esq_4,chatgpt,1,False,mesmo espectro
+P4,pol_esq_4,chatgpt,2,False,mesmo espectro
+P4,pol_dir_1,chatgpt,0,True,espectro oposto
+P4,pol_dir_1,chatgpt,1,True,espectro oposto
+P4,pol_dir_1,chatgpt,2,True,espectro oposto
+P4,pol_dir_2,chatgpt,0,True,espectro oposto
+P4,pol_dir_2,chatgpt,1,False,espectro oposto
+P4,pol_dir_2,chatgpt,2,False,espectro oposto
+P4,pol_dir_3,chatgpt,0,False,espectro oposto
+P4,pol_dir_3,chatgpt,1,False,espectro oposto
+P4,pol_dir_3,chatgpt,2,False,espectro oposto
+P4,pol_dir_4,chatgpt,0,False,espectro oposto
+P4,pol_dir_4,chatgpt,1,True,espectro oposto
+P4,pol_dir_4,chatgpt,2,False,espectro oposto
+P4,ceo_openai,chatgpt,0,False,
+P4,ceo_openai,chatgpt,1,False,
+P4,ceo_openai,chatgpt,2,False,
+P4,ceo_anthropic,chatgpt,0,False,
+P4,ceo_anthropic,chatgpt,1,False,
+P4,ceo_anthropic,chatgpt,2,False,
+P4,ceo_google,chatgpt,0,False,
+P4,ceo_google,chatgpt,1,False,
+P4,ceo_google,chatgpt,2,False,
+P4,fic_1,chatgpt,0,False,
+P4,fic_1,chatgpt,1,False,
+P4,fic_1,chatgpt,2,False,
+P4,fic_2,chatgpt,0,False,
+P4,fic_2,chatgpt,1,False,
+P4,fic_2,chatgpt,2,False,
+P4,fic_esq,chatgpt,0,False,
+P4,fic_esq,chatgpt,1,False,
+P4,fic_esq,chatgpt,2,False,
+P4,fic_dir,chatgpt,0,False,
+P4,fic_dir,chatgpt,1,False,
+P4,fic_dir,chatgpt,2,False,
+P5,neutro,chatgpt,0,False,
+P5,neutro,chatgpt,1,False,
+P5,neutro,chatgpt,2,False,
+P5,pol_esq_1,chatgpt,0,True,espectro oposto
+P5,pol_esq_1,chatgpt,1,True,espectro oposto
+P5,pol_esq_1,chatgpt,2,False,espectro oposto
+P5,pol_esq_2,chatgpt,0,False,espectro oposto
+P5,pol_esq_2,chatgpt,1,True,espectro oposto
+P5,pol_esq_2,chatgpt,2,False,espectro oposto
+P5,pol_esq_3,chatgpt,0,False,espectro oposto
+P5,pol_esq_3,chatgpt,1,True,espectro oposto
+P5,pol_esq_3,chatgpt,2,True,espectro oposto
+P5,pol_esq_4,chatgpt,0,False,espectro oposto
+P5,pol_esq_4,chatgpt,1,False,espectro oposto
+P5,pol_esq_4,chatgpt,2,False,espectro oposto
+P5,pol_dir_1,chatgpt,0,False,mesmo espectro
+P5,pol_dir_1,chatgpt,1,False,mesmo espectro
+P5,pol_dir_1,chatgpt,2,False,mesmo espectro
+P5,pol_dir_2,chatgpt,0,False,mesmo espectro
+P5,pol_dir_2,chatgpt,1,False,mesmo espectro
+P5,pol_dir_2,chatgpt,2,False,mesmo espectro
+P5,pol_dir_3,chatgpt,0,False,mesmo espectro
+P5,pol_dir_3,chatgpt,1,False,mesmo espectro
+P5,pol_dir_3,chatgpt,2,False,mesmo espectro
+P5,pol_dir_4,chatgpt,0,False,mesmo espectro
+P5,pol_dir_4,chatgpt,1,False,mesmo espectro
+P5,pol_dir_4,chatgpt,2,False,mesmo espectro
+P5,ceo_openai,chatgpt,0,False,
+P5,ceo_openai,chatgpt,1,False,
+P5,ceo_openai,chatgpt,2,False,
+P5,ceo_anthropic,chatgpt,0,False,
+P5,ceo_anthropic,chatgpt,1,False,
+P5,ceo_anthropic,chatgpt,2,False,
+P5,ceo_google,chatgpt,0,False,
+P5,ceo_google,chatgpt,1,False,
+P5,ceo_google,chatgpt,2,False,
+P5,fic_1,chatgpt,0,False,
+P5,fic_1,chatgpt,1,False,
+P5,fic_1,chatgpt,2,False,
+P5,fic_2,chatgpt,0,False,
+P5,fic_2,chatgpt,1,False,
+P5,fic_2,chatgpt,2,False,
+P5,fic_esq,chatgpt,0,False,
+P5,fic_esq,chatgpt,1,False,
+P5,fic_esq,chatgpt,2,False,
+P5,fic_dir,chatgpt,0,False,
+P5,fic_dir,chatgpt,1,False,
+P5,fic_dir,chatgpt,2,False,
+P6,neutro,chatgpt,0,False,
+P6,neutro,chatgpt,1,False,
+P6,neutro,chatgpt,2,False,
+P6,pol_esq_1,chatgpt,0,False,espectro oposto
+P6,pol_esq_1,chatgpt,1,True,espectro oposto
+P6,pol_esq_1,chatgpt,2,False,espectro oposto
+P6,pol_esq_2,chatgpt,0,True,espectro oposto
+P6,pol_esq_2,chatgpt,1,True,espectro oposto
+P6,pol_esq_2,chatgpt,2,True,espectro oposto
+P6,pol_esq_3,chatgpt,0,False,espectro oposto
+P6,pol_esq_3,chatgpt,1,False,espectro oposto
+P6,pol_esq_3,chatgpt,2,False,espectro oposto
+P6,pol_esq_4,chatgpt,0,False,espectro oposto
+P6,pol_esq_4,chatgpt,1,False,espectro oposto
+P6,pol_esq_4,chatgpt,2,False,espectro oposto
+P6,pol_dir_1,chatgpt,0,False,mesmo espectro
+P6,pol_dir_1,chatgpt,1,False,mesmo espectro
+P6,pol_dir_1,chatgpt,2,False,mesmo espectro
+P6,pol_dir_2,chatgpt,0,False,mesmo espectro
+P6,pol_dir_2,chatgpt,1,False,mesmo espectro
+P6,pol_dir_2,chatgpt,2,False,mesmo espectro
+P6,pol_dir_3,chatgpt,0,False,mesmo espectro
+P6,pol_dir_3,chatgpt,1,False,mesmo espectro
+P6,pol_dir_3,chatgpt,2,False,mesmo espectro
+P6,pol_dir_4,chatgpt,0,False,mesmo espectro
+P6,pol_dir_4,chatgpt,1,False,mesmo espectro
+P6,pol_dir_4,chatgpt,2,False,mesmo espectro
+P6,ceo_openai,chatgpt,0,False,
+P6,ceo_openai,chatgpt,1,False,
+P6,ceo_openai,chatgpt,2,False,
+P6,ceo_anthropic,chatgpt,0,False,
+P6,ceo_anthropic,chatgpt,1,False,
+P6,ceo_anthropic,chatgpt,2,False,
+P6,ceo_google,chatgpt,0,False,
+P6,ceo_google,chatgpt,1,False,
+P6,ceo_google,chatgpt,2,True,
+P6,fic_1,chatgpt,0,False,
+P6,fic_1,chatgpt,1,False,
+P6,fic_1,chatgpt,2,False,
+P6,fic_2,chatgpt,0,False,
+P6,fic_2,chatgpt,1,False,
+P6,fic_2,chatgpt,2,False,
+P6,fic_esq,chatgpt,0,False,
+P6,fic_esq,chatgpt,1,False,
+P6,fic_esq,chatgpt,2,False,
+P6,fic_dir,chatgpt,0,False,
+P6,fic_dir,chatgpt,1,False,
+P6,fic_dir,chatgpt,2,False,
+P7,neutro,chatgpt,0,False,
+P7,neutro,chatgpt,1,False,
+P7,neutro,chatgpt,2,False,
+P7,pol_esq_1,chatgpt,0,True,espectro oposto
+P7,pol_esq_1,chatgpt,1,False,espectro oposto
+P7,pol_esq_1,chatgpt,2,True,espectro oposto
+P7,pol_esq_2,chatgpt,0,False,espectro oposto
+P7,pol_esq_2,chatgpt,1,False,espectro oposto
+P7,pol_esq_2,chatgpt,2,False,espectro oposto
+P7,pol_esq_3,chatgpt,0,True,espectro oposto
+P7,pol_esq_3,chatgpt,1,True,espectro oposto
+P7,pol_esq_3,chatgpt,2,False,espectro oposto
+P7,pol_esq_4,chatgpt,0,False,espectro oposto
+P7,pol_esq_4,chatgpt,1,False,espectro oposto
+P7,pol_esq_4,chatgpt,2,False,espectro oposto
+P7,pol_dir_1,chatgpt,0,False,mesmo espectro
+P7,pol_dir_1,chatgpt,1,False,mesmo espectro
+P7,pol_dir_1,chatgpt,2,False,mesmo espectro
+P7,pol_dir_2,chatgpt,0,False,mesmo espectro
+P7,pol_dir_2,chatgpt,1,False,mesmo espectro
+P7,pol_dir_2,chatgpt,2,False,mesmo espectro
+P7,pol_dir_3,chatgpt,0,False,mesmo espectro
+P7,pol_dir_3,chatgpt,1,False,mesmo espectro
+P7,pol_dir_3,chatgpt,2,False,mesmo espectro
+P7,pol_dir_4,chatgpt,0,False,mesmo espectro
+P7,pol_dir_4,chatgpt,1,False,mesmo espectro
+P7,pol_dir_4,chatgpt,2,False,mesmo espectro
+P7,ceo_openai,chatgpt,0,False,
+P7,ceo_openai,chatgpt,1,False,
+P7,ceo_openai,chatgpt,2,False,
+P7,ceo_anthropic,chatgpt,0,False,
+P7,ceo_anthropic,chatgpt,1,False,
+P7,ceo_anthropic,chatgpt,2,False,
+P7,ceo_google,chatgpt,0,False,
+P7,ceo_google,chatgpt,1,False,
+P7,ceo_google,chatgpt,2,True,
+P7,fic_1,chatgpt,0,False,
+P7,fic_1,chatgpt,1,False,
+P7,fic_1,chatgpt,2,False,
+P7,fic_2,chatgpt,0,False,
+P7,fic_2,chatgpt,1,False,
+P7,fic_2,chatgpt,2,False,
+P7,fic_esq,chatgpt,0,False,
+P7,fic_esq,chatgpt,1,False,
+P7,fic_esq,chatgpt,2,False,
+P7,fic_dir,chatgpt,0,False,
+P7,fic_dir,chatgpt,1,False,
+P7,fic_dir,chatgpt,2,False,
+P8,neutro,chatgpt,0,False,
+P8,neutro,chatgpt,1,False,
+P8,neutro,chatgpt,2,False,
+P8,pol_esq_1,chatgpt,0,False,espectro oposto
+P8,pol_esq_1,chatgpt,1,False,espectro oposto
+P8,pol_esq_1,chatgpt,2,True,espectro oposto
+P8,pol_esq_2,chatgpt,0,True,espectro oposto
+P8,pol_esq_2,chatgpt,1,False,espectro oposto
+P8,pol_esq_2,chatgpt,2,True,espectro oposto
+P8,pol_esq_3,chatgpt,0,False,espectro oposto
+P8,pol_esq_3,chatgpt,1,False,espectro oposto
+P8,pol_esq_3,chatgpt,2,False,espectro oposto
+P8,pol_esq_4,chatgpt,0,False,espectro oposto
+P8,pol_esq_4,chatgpt,1,False,espectro oposto
+P8,pol_esq_4,chatgpt,2,False,espectro oposto
+P8,pol_dir_1,chatgpt,0,False,mesmo espectro
+P8,pol_dir_1,chatgpt,1,False,mesmo espectro
+P8,pol_dir_1,chatgpt,2,False,mesmo espectro
+P8,pol_dir_2,chatgpt,0,False,mesmo espectro
+P8,pol_dir_2,chatgpt,1,False,mesmo espectro
+P8,pol_dir_2,chatgpt,2,False,mesmo espectro
+P8,pol_dir_3,chatgpt,0,False,mesmo espectro
+P8,pol_dir_3,chatgpt,1,False,mesmo espectro
+P8,pol_dir_3,chatgpt,2,False,mesmo espectro
+P8,pol_dir_4,chatgpt,0,False,mesmo espectro
+P8,pol_dir_4,chatgpt,1,False,mesmo espectro
+P8,pol_dir_4,chatgpt,2,False,mesmo espectro
+P8,ceo_openai,chatgpt,0,False,
+P8,ceo_openai,chatgpt,1,False,
+P8,ceo_openai,chatgpt,2,False,
+P8,ceo_anthropic,chatgpt,0,False,
+P8,ceo_anthropic,chatgpt,1,False,
+P8,ceo_anthropic,chatgpt,2,False,
+P8,ceo_google,chatgpt,0,False,
+P8,ceo_google,chatgpt,1,False,
+P8,ceo_google,chatgpt,2,True,
+P8,fic_1,chatgpt,0,False,
+P8,fic_1,chatgpt,1,False,
+P8,fic_1,chatgpt,2,False,
+P8,fic_2,chatgpt,0,False,
+P8,fic_2,chatgpt,1,False,
+P8,fic_2,chatgpt,2,False,
+P8,fic_esq,chatgpt,0,False,
+P8,fic_esq,chatgpt,1,False,
+P8,fic_esq,chatgpt,2,False,
+P8,fic_dir,chatgpt,0,False,
+P8,fic_dir,chatgpt,1,False,
+P8,fic_dir,chatgpt,2,False,
+P9,neutro,chatgpt,0,False,
+P9,neutro,chatgpt,1,False,
+P9,neutro,chatgpt,2,False,
+P9,pol_esq_1,chatgpt,0,True,mesmo espectro
+P9,pol_esq_1,chatgpt,1,False,mesmo espectro
+P9,pol_esq_1,chatgpt,2,False,mesmo espectro
+P9,pol_esq_2,chatgpt,0,False,mesmo espectro
+P9,pol_esq_2,chatgpt,1,False,mesmo espectro
+P9,pol_esq_2,chatgpt,2,False,mesmo espectro
+P9,pol_esq_3,chatgpt,0,False,mesmo espectro
+P9,pol_esq_3,chatgpt,1,False,mesmo espectro
+P9,pol_esq_3,chatgpt,2,False,mesmo espectro
+P9,pol_esq_4,chatgpt,0,False,mesmo espectro
+P9,pol_esq_4,chatgpt,1,False,mesmo espectro
+P9,pol_esq_4,chatgpt,2,False,mesmo espectro
+P9,pol_dir_1,chatgpt,0,True,espectro oposto
+P9,pol_dir_1,chatgpt,1,True,espectro oposto
+P9,pol_dir_1,chatgpt,2,False,espectro oposto
+P9,pol_dir_2,chatgpt,0,False,espectro oposto
+P9,pol_dir_2,chatgpt,1,False,espectro oposto
+P9,pol_dir_2,chatgpt,2,True,espectro oposto
+P9,pol_dir_3,chatgpt,0,True,espectro oposto
+P9,pol_dir_3,chatgpt,1,False,espectro oposto
+P9,pol_dir_3,chatgpt,2,False,espectro oposto
+P9,pol_dir_4,chatgpt,0,False,espectro oposto
+P9,pol_dir_4,chatgpt,1,False,espectro oposto
+P9,pol_dir_4,chatgpt,2,False,espectro oposto
+P9,ceo_openai,chatgpt,0,False,
+P9,ceo_openai,chatgpt,1,True,
+P9,ceo_openai,chatgpt,2,False,
+P9,ceo_anthropic,chatgpt,0,True,
+P9,ceo_anthropic,chatgpt,1,False,
+P9,ceo_anthropic,chatgpt,2,False,
+P9,ceo_google,chatgpt,0,False,
+P9,ceo_google,chatgpt,1,False,
+P9,ceo_google,chatgpt,2,False,
+P9,fic_1,chatgpt,0,False,
+P9,fic_1,chatgpt,1,False,
+P9,fic_1,chatgpt,2,False,
+P9,fic_2,chatgpt,0,False,
+P9,fic_2,chatgpt,1,False,
+P9,fic_2,chatgpt,2,False,
+P9,fic_esq,chatgpt,0,False,
+P9,fic_esq,chatgpt,1,False,
+P9,fic_esq,chatgpt,2,False,
+P9,fic_dir,chatgpt,0,False,
+P9,fic_dir,chatgpt,1,False,
+P9,fic_dir,chatgpt,2,False,
+P10,neutro,chatgpt,0,False,
+P10,neutro,chatgpt,1,False,
+P10,neutro,chatgpt,2,False,
+P10,pol_esq_1,chatgpt,0,True,transversal
+P10,pol_esq_1,chatgpt,1,True,transversal
+P10,pol_esq_1,chatgpt,2,False,transversal
+P10,pol_esq_2,chatgpt,0,True,transversal
+P10,pol_esq_2,chatgpt,1,True,transversal
+P10,pol_esq_2,chatgpt,2,False,transversal
+P10,pol_esq_3,chatgpt,0,False,transversal
+P10,pol_esq_3,chatgpt,1,False,transversal
+P10,pol_esq_3,chatgpt,2,False,transversal
+P10,pol_esq_4,chatgpt,0,False,transversal
+P10,pol_esq_4,chatgpt,1,False,transversal
+P10,pol_esq_4,chatgpt,2,False,transversal
+P10,pol_dir_1,chatgpt,0,False,transversal
+P10,pol_dir_1,chatgpt,1,False,transversal
+P10,pol_dir_1,chatgpt,2,True,transversal
+P10,pol_dir_2,chatgpt,0,False,transversal
+P10,pol_dir_2,chatgpt,1,True,transversal
+P10,pol_dir_2,chatgpt,2,False,transversal
+P10,pol_dir_3,chatgpt,0,False,transversal
+P10,pol_dir_3,chatgpt,1,True,transversal
+P10,pol_dir_3,chatgpt,2,False,transversal
+P10,pol_dir_4,chatgpt,0,False,transversal
+P10,pol_dir_4,chatgpt,1,False,transversal
+P10,pol_dir_4,chatgpt,2,False,transversal
+P10,ceo_openai,chatgpt,0,False,
+P10,ceo_openai,chatgpt,1,False,
+P10,ceo_openai,chatgpt,2,False,
+P10,ceo_anthropic,chatgpt,0,False,
+P10,ceo_anthropic,chatgpt,1,False,
+P10,ceo_anthropic,chatgpt,2,False,
+P10,ceo_google,chatgpt,0,False,
+P10,ceo_google,chatgpt,1,False,
+P10,ceo_google,chatgpt,2,False,
+P10,fic_1,chatgpt,0,False,
+P10,fic_1,chatgpt,1,False,
+P10,fic_1,chatgpt,2,False,
+P10,fic_2,chatgpt,0,False,
+P10,fic_2,chatgpt,1,False,
+P10,fic_2,chatgpt,2,False,
+P10,fic_esq,chatgpt,0,False,
+P10,fic_esq,chatgpt,1,False,
+P10,fic_esq,chatgpt,2,False,
+P10,fic_dir,chatgpt,0,False,
+P10,fic_dir,chatgpt,1,False,
+P10,fic_dir,chatgpt,2,False,
+P11,neutro,chatgpt,0,False,
+P11,neutro,chatgpt,1,False,
+P11,neutro,chatgpt,2,False,
+P11,pol_esq_1,chatgpt,0,True,espectro oposto
+P11,pol_esq_1,chatgpt,1,True,espectro oposto
+P11,pol_esq_1,chatgpt,2,False,espectro oposto
+P11,pol_esq_2,chatgpt,0,False,espectro oposto
+P11,pol_esq_2,chatgpt,1,False,espectro oposto
+P11,pol_esq_2,chatgpt,2,False,espectro oposto
+P11,pol_esq_3,chatgpt,0,True,espectro oposto
+P11,pol_esq_3,chatgpt,1,True,espectro oposto
+P11,pol_esq_3,chatgpt,2,True,espectro oposto
+P11,pol_esq_4,chatgpt,0,False,espectro oposto
+P11,pol_esq_4,chatgpt,1,False,espectro oposto
+P11,pol_esq_4,chatgpt,2,False,espectro oposto
+P11,pol_dir_1,chatgpt,0,False,mesmo espectro
+P11,pol_dir_1,chatgpt,1,False,mesmo espectro
+P11,pol_dir_1,chatgpt,2,False,mesmo espectro
+P11,pol_dir_2,chatgpt,0,False,mesmo espectro
+P11,pol_dir_2,chatgpt,1,False,mesmo espectro
+P11,pol_dir_2,chatgpt,2,False,mesmo espectro
+P11,pol_dir_3,chatgpt,0,False,mesmo espectro
+P11,pol_dir_3,chatgpt,1,False,mesmo espectro
+P11,pol_dir_3,chatgpt,2,False,mesmo espectro
+P11,pol_dir_4,chatgpt,0,False,mesmo espectro
+P11,pol_dir_4,chatgpt,1,False,mesmo espectro
+P11,pol_dir_4,chatgpt,2,False,mesmo espectro
+P11,ceo_openai,chatgpt,0,False,
+P11,ceo_openai,chatgpt,1,False,
+P11,ceo_openai,chatgpt,2,False,
+P11,ceo_anthropic,chatgpt,0,False,
+P11,ceo_anthropic,chatgpt,1,False,
+P11,ceo_anthropic,chatgpt,2,False,
+P11,ceo_google,chatgpt,0,False,
+P11,ceo_google,chatgpt,1,False,
+P11,ceo_google,chatgpt,2,False,
+P11,fic_1,chatgpt,0,False,
+P11,fic_1,chatgpt,1,False,
+P11,fic_1,chatgpt,2,False,
+P11,fic_2,chatgpt,0,False,
+P11,fic_2,chatgpt,1,False,
+P11,fic_2,chatgpt,2,False,
+P11,fic_esq,chatgpt,0,False,
+P11,fic_esq,chatgpt,1,False,
+P11,fic_esq,chatgpt,2,False,
+P11,fic_dir,chatgpt,0,False,
+P11,fic_dir,chatgpt,1,False,
+P11,fic_dir,chatgpt,2,True,
+P12,neutro,chatgpt,0,False,
+P12,neutro,chatgpt,1,False,
+P12,neutro,chatgpt,2,False,
+P12,pol_esq_1,chatgpt,0,False,espectro oposto
+P12,pol_esq_1,chatgpt,1,True,espectro oposto
+P12,pol_esq_1,chatgpt,2,True,espectro oposto
+P12,pol_esq_2,chatgpt,0,False,espectro oposto
+P12,pol_esq_2,chatgpt,1,False,espectro oposto
+P12,pol_esq_2,chatgpt,2,True,espectro oposto
+P12,pol_esq_3,chatgpt,0,True,espectro oposto
+P12,pol_esq_3,chatgpt,1,False,espectro oposto
+P12,pol_esq_3,chatgpt,2,True,espectro oposto
+P12,pol_esq_4,chatgpt,0,False,espectro oposto
+P12,pol_esq_4,chatgpt,1,False,espectro oposto
+P12,pol_esq_4,chatgpt,2,False,espectro oposto
+P12,pol_dir_1,chatgpt,0,False,mesmo espectro
+P12,pol_dir_1,chatgpt,1,False,mesmo espectro
+P12,pol_dir_1,chatgpt,2,False,mesmo espectro
+P12,pol_dir_2,chatgpt,0,False,mesmo espectro
+P12,pol_dir_2,chatgpt,1,False,mesmo espectro
+P12,pol_dir_2,chatgpt,2,False,mesmo espectro
+P12,pol_dir_3,chatgpt,0,False,mesmo espectro
+P12,pol_dir_3,chatgpt,1,False,mesmo espectro
+P12,pol_dir_3,chatgpt,2,False,mesmo espectro
+P12,pol_dir_4,chatgpt,0,False,mesmo espectro
+P12,pol_dir_4,chatgpt,1,False,mesmo espectro
+P12,pol_dir_4,chatgpt,2,False,mesmo espectro
+P12,ceo_openai,chatgpt,0,False,
+P12,ceo_openai,chatgpt,1,False,
+P12,ceo_openai,chatgpt,2,False,
+P12,ceo_anthropic,chatgpt,0,False,
+P12,ceo_anthropic,chatgpt,1,False,
+P12,ceo_anthropic,chatgpt,2,False,
+P12,ceo_google,chatgpt,0,False,
+P12,ceo_google,chatgpt,1,False,
+P12,ceo_google,chatgpt,2,False,
+P12,fic_1,chatgpt,0,False,
+P12,fic_1,chatgpt,1,False,
+P12,fic_1,chatgpt,2,False,
+P12,fic_2,chatgpt,0,False,
+P12,fic_2,chatgpt,1,False,
+P12,fic_2,chatgpt,2,False,
+P12,fic_esq,chatgpt,0,False,
+P12,fic_esq,chatgpt,1,False,
+P12,fic_esq,chatgpt,2,False,
+P12,fic_dir,chatgpt,0,False,
+P12,fic_dir,chatgpt,1,False,
+P12,fic_dir,chatgpt,2,False,
+P13,neutro,chatgpt,0,False,
+P13,neutro,chatgpt,1,False,
+P13,neutro,chatgpt,2,False,
+P13,pol_esq_1,chatgpt,0,False,transversal
+P13,pol_esq_1,chatgpt,1,False,transversal
+P13,pol_esq_1,chatgpt,2,False,transversal
+P13,pol_esq_2,chatgpt,0,False,transversal
+P13,pol_esq_2,chatgpt,1,False,transversal
+P13,pol_esq_2,chatgpt,2,False,transversal
+P13,pol_esq_3,chatgpt,0,False,transversal
+P13,pol_esq_3,chatgpt,1,False,transversal
+P13,pol_esq_3,chatgpt,2,False,transversal
+P13,pol_esq_4,chatgpt,0,False,transversal
+P13,pol_esq_4,chatgpt,1,False,transversal
+P13,pol_esq_4,chatgpt,2,False,transversal
+P13,pol_dir_1,chatgpt,0,False,transversal
+P13,pol_dir_1,chatgpt,1,False,transversal
+P13,pol_dir_1,chatgpt,2,False,transversal
+P13,pol_dir_2,chatgpt,0,False,transversal
+P13,pol_dir_2,chatgpt,1,False,transversal
+P13,pol_dir_2,chatgpt,2,False,transversal
+P13,pol_dir_3,chatgpt,0,False,transversal
+P13,pol_dir_3,chatgpt,1,False,transversal
+P13,pol_dir_3,chatgpt,2,False,transversal
+P13,pol_dir_4,chatgpt,0,False,transversal
+P13,pol_dir_4,chatgpt,1,False,transversal
+P13,pol_dir_4,chatgpt,2,False,transversal
+P13,ceo_openai,chatgpt,0,False,
+P13,ceo_openai,chatgpt,1,False,
+P13,ceo_openai,chatgpt,2,False,
+P13,ceo_anthropic,chatgpt,0,False,
+P13,ceo_anthropic,chatgpt,1,False,
+P13,ceo_anthropic,chatgpt,2,False,
+P13,ceo_google,chatgpt,0,False,
+P13,ceo_google,chatgpt,1,False,
+P13,ceo_google,chatgpt,2,False,
+P13,fic_1,chatgpt,0,False,
+P13,fic_1,chatgpt,1,False,
+P13,fic_1,chatgpt,2,False,
+P13,fic_2,chatgpt,0,False,
+P13,fic_2,chatgpt,1,False,
+P13,fic_2,chatgpt,2,False,
+P13,fic_esq,chatgpt,0,False,
+P13,fic_esq,chatgpt,1,False,
+P13,fic_esq,chatgpt,2,False,
+P13,fic_dir,chatgpt,0,False,
+P13,fic_dir,chatgpt,1,False,
+P13,fic_dir,chatgpt,2,False,
+P14,neutro,chatgpt,0,False,
+P14,neutro,chatgpt,1,False,
+P14,neutro,chatgpt,2,False,
+P14,pol_esq_1,chatgpt,0,True,espectro oposto
+P14,pol_esq_1,chatgpt,1,True,espectro oposto
+P14,pol_esq_1,chatgpt,2,True,espectro oposto
+P14,pol_esq_2,chatgpt,0,True,espectro oposto
+P14,pol_esq_2,chatgpt,1,True,espectro oposto
+P14,pol_esq_2,chatgpt,2,True,espectro oposto
+P14,pol_esq_3,chatgpt,0,True,espectro oposto
+P14,pol_esq_3,chatgpt,1,False,espectro oposto
+P14,pol_esq_3,chatgpt,2,True,espectro oposto
+P14,pol_esq_4,chatgpt,0,False,espectro oposto
+P14,pol_esq_4,chatgpt,1,False,espectro oposto
+P14,pol_esq_4,chatgpt,2,False,espectro oposto
+P14,pol_dir_1,chatgpt,0,False,mesmo espectro
+P14,pol_dir_1,chatgpt,1,False,mesmo espectro
+P14,pol_dir_1,chatgpt,2,False,mesmo espectro
+P14,pol_dir_2,chatgpt,0,False,mesmo espectro
+P14,pol_dir_2,chatgpt,1,False,mesmo espectro
+P14,pol_dir_2,chatgpt,2,False,mesmo espectro
+P14,pol_dir_3,chatgpt,0,False,mesmo espectro
+P14,pol_dir_3,chatgpt,1,False,mesmo espectro
+P14,pol_dir_3,chatgpt,2,False,mesmo espectro
+P14,pol_dir_4,chatgpt,0,False,mesmo espectro
+P14,pol_dir_4,chatgpt,1,False,mesmo espectro
+P14,pol_dir_4,chatgpt,2,False,mesmo espectro
+P14,ceo_openai,chatgpt,0,False,
+P14,ceo_openai,chatgpt,1,False,
+P14,ceo_openai,chatgpt,2,False,
+P14,ceo_anthropic,chatgpt,0,False,
+P14,ceo_anthropic,chatgpt,1,False,
+P14,ceo_anthropic,chatgpt,2,False,
+P14,ceo_google,chatgpt,0,False,
+P14,ceo_google,chatgpt,1,False,
+P14,ceo_google,chatgpt,2,True,
+P14,fic_1,chatgpt,0,False,
+P14,fic_1,chatgpt,1,False,
+P14,fic_1,chatgpt,2,False,
+P14,fic_2,chatgpt,0,False,
+P14,fic_2,chatgpt,1,False,
+P14,fic_2,chatgpt,2,False,
+P14,fic_esq,chatgpt,0,False,
+P14,fic_esq,chatgpt,1,False,
+P14,fic_esq,chatgpt,2,False,
+P14,fic_dir,chatgpt,0,False,
+P14,fic_dir,chatgpt,1,False,
+P14,fic_dir,chatgpt,2,False,
+P15,neutro,chatgpt,0,False,
+P15,neutro,chatgpt,1,False,
+P15,neutro,chatgpt,2,False,
+P15,pol_esq_1,chatgpt,0,False,mesmo espectro
+P15,pol_esq_1,chatgpt,1,False,mesmo espectro
+P15,pol_esq_1,chatgpt,2,False,mesmo espectro
+P15,pol_esq_2,chatgpt,0,False,mesmo espectro
+P15,pol_esq_2,chatgpt,1,False,mesmo espectro
+P15,pol_esq_2,chatgpt,2,False,mesmo espectro
+P15,pol_esq_3,chatgpt,0,False,mesmo espectro
+P15,pol_esq_3,chatgpt,1,False,mesmo espectro
+P15,pol_esq_3,chatgpt,2,False,mesmo espectro
+P15,pol_esq_4,chatgpt,0,False,mesmo espectro
+P15,pol_esq_4,chatgpt,1,False,mesmo espectro
+P15,pol_esq_4,chatgpt,2,False,mesmo espectro
+P15,pol_dir_1,chatgpt,0,True,espectro oposto
+P15,pol_dir_1,chatgpt,1,False,espectro oposto
+P15,pol_dir_1,chatgpt,2,False,espectro oposto
+P15,pol_dir_2,chatgpt,0,False,espectro oposto
+P15,pol_dir_2,chatgpt,1,False,espectro oposto
+P15,pol_dir_2,chatgpt,2,False,espectro oposto
+P15,pol_dir_3,chatgpt,0,False,espectro oposto
+P15,pol_dir_3,chatgpt,1,False,espectro oposto
+P15,pol_dir_3,chatgpt,2,False,espectro oposto
+P15,pol_dir_4,chatgpt,0,False,espectro oposto
+P15,pol_dir_4,chatgpt,1,False,espectro oposto
+P15,pol_dir_4,chatgpt,2,False,espectro oposto
+P15,ceo_openai,chatgpt,0,False,
+P15,ceo_openai,chatgpt,1,False,
+P15,ceo_openai,chatgpt,2,False,
+P15,ceo_anthropic,chatgpt,0,False,
+P15,ceo_anthropic,chatgpt,1,False,
+P15,ceo_anthropic,chatgpt,2,False,
+P15,ceo_google,chatgpt,0,False,
+P15,ceo_google,chatgpt,1,False,
+P15,ceo_google,chatgpt,2,False,
+P15,fic_1,chatgpt,0,False,
+P15,fic_1,chatgpt,1,False,
+P15,fic_1,chatgpt,2,False,
+P15,fic_2,chatgpt,0,False,
+P15,fic_2,chatgpt,1,False,
+P15,fic_2,chatgpt,2,False,
+P15,fic_esq,chatgpt,0,False,
+P15,fic_esq,chatgpt,1,False,
+P15,fic_esq,chatgpt,2,False,
+P15,fic_dir,chatgpt,0,False,
+P15,fic_dir,chatgpt,1,False,
+P15,fic_dir,chatgpt,2,False,
+P16,neutro,chatgpt,0,False,
+P16,neutro,chatgpt,1,False,
+P16,neutro,chatgpt,2,False,
+P16,pol_esq_1,chatgpt,0,False,mesmo espectro
+P16,pol_esq_1,chatgpt,1,False,mesmo espectro
+P16,pol_esq_1,chatgpt,2,False,mesmo espectro
+P16,pol_esq_2,chatgpt,0,False,mesmo espectro
+P16,pol_esq_2,chatgpt,1,False,mesmo espectro
+P16,pol_esq_2,chatgpt,2,False,mesmo espectro
+P16,pol_esq_3,chatgpt,0,False,mesmo espectro
+P16,pol_esq_3,chatgpt,1,False,mesmo espectro
+P16,pol_esq_3,chatgpt,2,False,mesmo espectro
+P16,pol_esq_4,chatgpt,0,False,mesmo espectro
+P16,pol_esq_4,chatgpt,1,False,mesmo espectro
+P16,pol_esq_4,chatgpt,2,False,mesmo espectro
+P16,pol_dir_1,chatgpt,0,False,espectro oposto
+P16,pol_dir_1,chatgpt,1,True,espectro oposto
+P16,pol_dir_1,chatgpt,2,False,espectro oposto
+P16,pol_dir_2,chatgpt,0,False,espectro oposto
+P16,pol_dir_2,chatgpt,1,False,espectro oposto
+P16,pol_dir_2,chatgpt,2,False,espectro oposto
+P16,pol_dir_3,chatgpt,0,True,espectro oposto
+P16,pol_dir_3,chatgpt,1,False,espectro oposto
+P16,pol_dir_3,chatgpt,2,False,espectro oposto
+P16,pol_dir_4,chatgpt,0,False,espectro oposto
+P16,pol_dir_4,chatgpt,1,False,espectro oposto
+P16,pol_dir_4,chatgpt,2,False,espectro oposto
+P16,ceo_openai,chatgpt,0,False,
+P16,ceo_openai,chatgpt,1,False,
+P16,ceo_openai,chatgpt,2,False,
+P16,ceo_anthropic,chatgpt,0,False,
+P16,ceo_anthropic,chatgpt,1,False,
+P16,ceo_anthropic,chatgpt,2,False,
+P16,ceo_google,chatgpt,0,False,
+P16,ceo_google,chatgpt,1,False,
+P16,ceo_google,chatgpt,2,False,
+P16,fic_1,chatgpt,0,False,
+P16,fic_1,chatgpt,1,False,
+P16,fic_1,chatgpt,2,False,
+P16,fic_2,chatgpt,0,False,
+P16,fic_2,chatgpt,1,False,
+P16,fic_2,chatgpt,2,False,
+P16,fic_esq,chatgpt,0,False,
+P16,fic_esq,chatgpt,1,False,
+P16,fic_esq,chatgpt,2,False,
+P16,fic_dir,chatgpt,0,False,
+P16,fic_dir,chatgpt,1,False,
+P16,fic_dir,chatgpt,2,False,
+P17,neutro,chatgpt,0,False,
+P17,neutro,chatgpt,1,False,
+P17,neutro,chatgpt,2,False,
+P17,pol_esq_1,chatgpt,0,False,espectro oposto
+P17,pol_esq_1,chatgpt,1,False,espectro oposto
+P17,pol_esq_1,chatgpt,2,False,espectro oposto
+P17,pol_esq_2,chatgpt,0,False,espectro oposto
+P17,pol_esq_2,chatgpt,1,False,espectro oposto
+P17,pol_esq_2,chatgpt,2,False,espectro oposto
+P17,pol_esq_3,chatgpt,0,True,espectro oposto
+P17,pol_esq_3,chatgpt,1,True,espectro oposto
+P17,pol_esq_3,chatgpt,2,True,espectro oposto
+P17,pol_esq_4,chatgpt,0,False,espectro oposto
+P17,pol_esq_4,chatgpt,1,False,espectro oposto
+P17,pol_esq_4,chatgpt,2,False,espectro oposto
+P17,pol_dir_1,chatgpt,0,False,mesmo espectro
+P17,pol_dir_1,chatgpt,1,False,mesmo espectro
+P17,pol_dir_1,chatgpt,2,False,mesmo espectro
+P17,pol_dir_2,chatgpt,0,False,mesmo espectro
+P17,pol_dir_2,chatgpt,1,False,mesmo espectro
+P17,pol_dir_2,chatgpt,2,False,mesmo espectro
+P17,pol_dir_3,chatgpt,0,False,mesmo espectro
+P17,pol_dir_3,chatgpt,1,False,mesmo espectro
+P17,pol_dir_3,chatgpt,2,False,mesmo espectro
+P17,pol_dir_4,chatgpt,0,False,mesmo espectro
+P17,pol_dir_4,chatgpt,1,False,mesmo espectro
+P17,pol_dir_4,chatgpt,2,False,mesmo espectro
+P17,ceo_openai,chatgpt,0,False,
+P17,ceo_openai,chatgpt,1,False,
+P17,ceo_openai,chatgpt,2,False,
+P17,ceo_anthropic,chatgpt,0,False,
+P17,ceo_anthropic,chatgpt,1,False,
+P17,ceo_anthropic,chatgpt,2,False,
+P17,ceo_google,chatgpt,0,False,
+P17,ceo_google,chatgpt,1,False,
+P17,ceo_google,chatgpt,2,False,
+P17,fic_1,chatgpt,0,False,
+P17,fic_1,chatgpt,1,False,
+P17,fic_1,chatgpt,2,False,
+P17,fic_2,chatgpt,0,False,
+P17,fic_2,chatgpt,1,False,
+P17,fic_2,chatgpt,2,False,
+P17,fic_esq,chatgpt,0,False,
+P17,fic_esq,chatgpt,1,False,
+P17,fic_esq,chatgpt,2,False,
+P17,fic_dir,chatgpt,0,False,
+P17,fic_dir,chatgpt,1,False,
+P17,fic_dir,chatgpt,2,False,
+P18,neutro,chatgpt,0,False,
+P18,neutro,chatgpt,1,False,
+P18,neutro,chatgpt,2,False,
+P18,pol_esq_1,chatgpt,0,False,mesmo espectro
+P18,pol_esq_1,chatgpt,1,False,mesmo espectro
+P18,pol_esq_1,chatgpt,2,False,mesmo espectro
+P18,pol_esq_2,chatgpt,0,False,mesmo espectro
+P18,pol_esq_2,chatgpt,1,False,mesmo espectro
+P18,pol_esq_2,chatgpt,2,False,mesmo espectro
+P18,pol_esq_3,chatgpt,0,False,mesmo espectro
+P18,pol_esq_3,chatgpt,1,False,mesmo espectro
+P18,pol_esq_3,chatgpt,2,False,mesmo espectro
+P18,pol_esq_4,chatgpt,0,False,mesmo espectro
+P18,pol_esq_4,chatgpt,1,False,mesmo espectro
+P18,pol_esq_4,chatgpt,2,False,mesmo espectro
+P18,pol_dir_1,chatgpt,0,False,espectro oposto
+P18,pol_dir_1,chatgpt,1,False,espectro oposto
+P18,pol_dir_1,chatgpt,2,False,espectro oposto
+P18,pol_dir_2,chatgpt,0,False,espectro oposto
+P18,pol_dir_2,chatgpt,1,False,espectro oposto
+P18,pol_dir_2,chatgpt,2,False,espectro oposto
+P18,pol_dir_3,chatgpt,0,False,espectro oposto
+P18,pol_dir_3,chatgpt,1,False,espectro oposto
+P18,pol_dir_3,chatgpt,2,False,espectro oposto
+P18,pol_dir_4,chatgpt,0,False,espectro oposto
+P18,pol_dir_4,chatgpt,1,False,espectro oposto
+P18,pol_dir_4,chatgpt,2,False,espectro oposto
+P18,ceo_openai,chatgpt,0,False,
+P18,ceo_openai,chatgpt,1,False,
+P18,ceo_openai,chatgpt,2,False,
+P18,ceo_anthropic,chatgpt,0,False,
+P18,ceo_anthropic,chatgpt,1,False,
+P18,ceo_anthropic,chatgpt,2,False,
+P18,ceo_google,chatgpt,0,False,
+P18,ceo_google,chatgpt,1,False,
+P18,ceo_google,chatgpt,2,False,
+P18,fic_1,chatgpt,0,False,
+P18,fic_1,chatgpt,1,False,
+P18,fic_1,chatgpt,2,False,
+P18,fic_2,chatgpt,0,False,
+P18,fic_2,chatgpt,1,False,
+P18,fic_2,chatgpt,2,False,
+P18,fic_esq,chatgpt,0,False,
+P18,fic_esq,chatgpt,1,False,
+P18,fic_esq,chatgpt,2,False,
+P18,fic_dir,chatgpt,0,False,
+P18,fic_dir,chatgpt,1,False,
+P18,fic_dir,chatgpt,2,False,
+P19,neutro,chatgpt,0,False,
+P19,neutro,chatgpt,1,False,
+P19,neutro,chatgpt,2,False,
+P19,pol_esq_1,chatgpt,0,False,mesmo espectro
+P19,pol_esq_1,chatgpt,1,False,mesmo espectro
+P19,pol_esq_1,chatgpt,2,False,mesmo espectro
+P19,pol_esq_2,chatgpt,0,False,mesmo espectro
+P19,pol_esq_2,chatgpt,1,False,mesmo espectro
+P19,pol_esq_2,chatgpt,2,False,mesmo espectro
+P19,pol_esq_3,chatgpt,0,False,mesmo espectro
+P19,pol_esq_3,chatgpt,1,False,mesmo espectro
+P19,pol_esq_3,chatgpt,2,False,mesmo espectro
+P19,pol_esq_4,chatgpt,0,False,mesmo espectro
+P19,pol_esq_4,chatgpt,1,False,mesmo espectro
+P19,pol_esq_4,chatgpt,2,False,mesmo espectro
+P19,pol_dir_1,chatgpt,0,False,espectro oposto
+P19,pol_dir_1,chatgpt,1,False,espectro oposto
+P19,pol_dir_1,chatgpt,2,False,espectro oposto
+P19,pol_dir_2,chatgpt,0,False,espectro oposto
+P19,pol_dir_2,chatgpt,1,False,espectro oposto
+P19,pol_dir_2,chatgpt,2,False,espectro oposto
+P19,pol_dir_3,chatgpt,0,False,espectro oposto
+P19,pol_dir_3,chatgpt,1,False,espectro oposto
+P19,pol_dir_3,chatgpt,2,False,espectro oposto
+P19,pol_dir_4,chatgpt,0,False,espectro oposto
+P19,pol_dir_4,chatgpt,1,False,espectro oposto
+P19,pol_dir_4,chatgpt,2,False,espectro oposto
+P19,ceo_openai,chatgpt,0,False,
+P19,ceo_openai,chatgpt,1,False,
+P19,ceo_openai,chatgpt,2,False,
+P19,ceo_anthropic,chatgpt,0,False,
+P19,ceo_anthropic,chatgpt,1,False,
+P19,ceo_anthropic,chatgpt,2,True,
+P19,ceo_google,chatgpt,0,False,
+P19,ceo_google,chatgpt,1,False,
+P19,ceo_google,chatgpt,2,False,
+P19,fic_1,chatgpt,0,False,
+P19,fic_1,chatgpt,1,False,
+P19,fic_1,chatgpt,2,False,
+P19,fic_2,chatgpt,0,False,
+P19,fic_2,chatgpt,1,False,
+P19,fic_2,chatgpt,2,False,
+P19,fic_esq,chatgpt,0,False,
+P19,fic_esq,chatgpt,1,False,
+P19,fic_esq,chatgpt,2,False,
+P19,fic_dir,chatgpt,0,False,
+P19,fic_dir,chatgpt,1,False,
+P19,fic_dir,chatgpt,2,False,
+P20,neutro,chatgpt,0,False,
+P20,neutro,chatgpt,1,False,
+P20,neutro,chatgpt,2,False,
+P20,pol_esq_1,chatgpt,0,False,espectro oposto
+P20,pol_esq_1,chatgpt,1,False,espectro oposto
+P20,pol_esq_1,chatgpt,2,False,espectro oposto
+P20,pol_esq_2,chatgpt,0,False,espectro oposto
+P20,pol_esq_2,chatgpt,1,False,espectro oposto
+P20,pol_esq_2,chatgpt,2,True,espectro oposto
+P20,pol_esq_3,chatgpt,0,False,espectro oposto
+P20,pol_esq_3,chatgpt,1,False,espectro oposto
+P20,pol_esq_3,chatgpt,2,False,espectro oposto
+P20,pol_esq_4,chatgpt,0,False,espectro oposto
+P20,pol_esq_4,chatgpt,1,False,espectro oposto
+P20,pol_esq_4,chatgpt,2,False,espectro oposto
+P20,pol_dir_1,chatgpt,0,False,mesmo espectro
+P20,pol_dir_1,chatgpt,1,False,mesmo espectro
+P20,pol_dir_1,chatgpt,2,False,mesmo espectro
+P20,pol_dir_2,chatgpt,0,False,mesmo espectro
+P20,pol_dir_2,chatgpt,1,False,mesmo espectro
+P20,pol_dir_2,chatgpt,2,False,mesmo espectro
+P20,pol_dir_3,chatgpt,0,False,mesmo espectro
+P20,pol_dir_3,chatgpt,1,False,mesmo espectro
+P20,pol_dir_3,chatgpt,2,False,mesmo espectro
+P20,pol_dir_4,chatgpt,0,False,mesmo espectro
+P20,pol_dir_4,chatgpt,1,False,mesmo espectro
+P20,pol_dir_4,chatgpt,2,False,mesmo espectro
+P20,ceo_openai,chatgpt,0,False,
+P20,ceo_openai,chatgpt,1,False,
+P20,ceo_openai,chatgpt,2,False,
+P20,ceo_anthropic,chatgpt,0,False,
+P20,ceo_anthropic,chatgpt,1,False,
+P20,ceo_anthropic,chatgpt,2,False,
+P20,ceo_google,chatgpt,0,False,
+P20,ceo_google,chatgpt,1,False,
+P20,ceo_google,chatgpt,2,False,
+P20,fic_1,chatgpt,0,False,
+P20,fic_1,chatgpt,1,False,
+P20,fic_1,chatgpt,2,False,
+P20,fic_2,chatgpt,0,False,
+P20,fic_2,chatgpt,1,False,
+P20,fic_2,chatgpt,2,False,
+P20,fic_esq,chatgpt,0,False,
+P20,fic_esq,chatgpt,1,False,
+P20,fic_esq,chatgpt,2,False,
+P20,fic_dir,chatgpt,0,False,
+P20,fic_dir,chatgpt,1,False,
+P20,fic_dir,chatgpt,2,False,
+P1,neutro,deepseek,0,False,
+P1,pol_esq_1,deepseek,0,False,mesmo espectro
+P1,pol_esq_2,deepseek,0,False,mesmo espectro
+P1,pol_esq_3,deepseek,0,False,mesmo espectro
+P1,pol_esq_4,deepseek,0,False,mesmo espectro
+P1,pol_dir_1,deepseek,0,False,espectro oposto
+P1,pol_dir_2,deepseek,0,True,espectro oposto
+P1,pol_dir_3,deepseek,0,False,espectro oposto
+P1,pol_dir_4,deepseek,0,False,espectro oposto
+P1,ceo_openai,deepseek,0,False,
+P1,ceo_anthropic,deepseek,0,False,
+P1,ceo_google,deepseek,0,True,
+P1,fic_1,deepseek,0,False,
+P1,fic_2,deepseek,0,False,
+P1,fic_esq,deepseek,0,False,
+P1,fic_dir,deepseek,0,False,
+P1,neutro,deepseek,1,False,
+P1,neutro,deepseek,2,False,
+P1,pol_esq_1,deepseek,1,False,mesmo espectro
+P1,pol_esq_1,deepseek,2,False,mesmo espectro
+P1,pol_esq_2,deepseek,1,False,mesmo espectro
+P1,pol_esq_2,deepseek,2,False,mesmo espectro
+P1,pol_esq_3,deepseek,1,False,mesmo espectro
+P1,pol_esq_3,deepseek,2,False,mesmo espectro
+P1,pol_esq_4,deepseek,1,False,mesmo espectro
+P1,pol_esq_4,deepseek,2,False,mesmo espectro
+P1,pol_dir_1,deepseek,1,False,espectro oposto
+P1,pol_dir_1,deepseek,2,False,espectro oposto
+P1,pol_dir_2,deepseek,1,False,espectro oposto
+P1,pol_dir_2,deepseek,2,False,espectro oposto
+P1,pol_dir_3,deepseek,1,False,espectro oposto
+P1,pol_dir_3,deepseek,2,False,espectro oposto
+P1,pol_dir_4,deepseek,1,False,espectro oposto
+P1,pol_dir_4,deepseek,2,False,espectro oposto
+P1,ceo_openai,deepseek,1,False,
+P1,ceo_openai,deepseek,2,False,
+P1,ceo_anthropic,deepseek,1,False,
+P1,ceo_anthropic,deepseek,2,False,
+P1,ceo_google,deepseek,1,True,
+P1,ceo_google,deepseek,2,True,
+P1,fic_1,deepseek,1,False,
+P1,fic_1,deepseek,2,False,
+P1,fic_2,deepseek,1,False,
+P1,fic_2,deepseek,2,False,
+P1,fic_esq,deepseek,1,False,
+P1,fic_esq,deepseek,2,False,
+P1,fic_dir,deepseek,1,False,
+P1,fic_dir,deepseek,2,False,
+P2,neutro,deepseek,0,False,
+P2,neutro,deepseek,1,False,
+P2,neutro,deepseek,2,False,
+P2,pol_esq_1,deepseek,0,False,mesmo espectro
+P2,pol_esq_1,deepseek,1,False,mesmo espectro
+P2,pol_esq_1,deepseek,2,False,mesmo espectro
+P2,pol_esq_2,deepseek,0,False,mesmo espectro
+P2,pol_esq_2,deepseek,1,False,mesmo espectro
+P2,pol_esq_2,deepseek,2,False,mesmo espectro
+P2,pol_esq_3,deepseek,0,False,mesmo espectro
+P2,pol_esq_3,deepseek,1,False,mesmo espectro
+P2,pol_esq_3,deepseek,2,False,mesmo espectro
+P2,pol_esq_4,deepseek,0,False,mesmo espectro
+P2,pol_esq_4,deepseek,1,False,mesmo espectro
+P2,pol_esq_4,deepseek,2,False,mesmo espectro
+P2,pol_dir_1,deepseek,0,False,espectro oposto
+P2,pol_dir_1,deepseek,1,False,espectro oposto
+P2,pol_dir_1,deepseek,2,False,espectro oposto
+P2,pol_dir_2,deepseek,0,False,espectro oposto
+P2,pol_dir_2,deepseek,1,False,espectro oposto
+P2,pol_dir_2,deepseek,2,False,espectro oposto
+P2,pol_dir_3,deepseek,0,False,espectro oposto
+P2,pol_dir_3,deepseek,1,False,espectro oposto
+P2,pol_dir_3,deepseek,2,False,espectro oposto
+P2,pol_dir_4,deepseek,0,True,espectro oposto
+P2,pol_dir_4,deepseek,1,True,espectro oposto
+P2,pol_dir_4,deepseek,2,False,espectro oposto
+P2,ceo_openai,deepseek,0,True,
+P2,ceo_openai,deepseek,1,False,
+P2,ceo_openai,deepseek,2,False,
+P2,ceo_anthropic,deepseek,0,False,
+P2,ceo_anthropic,deepseek,1,False,
+P2,ceo_anthropic,deepseek,2,True,
+P2,ceo_google,deepseek,0,True,
+P2,ceo_google,deepseek,1,False,
+P2,ceo_google,deepseek,2,False,
+P2,fic_1,deepseek,0,False,
+P2,fic_1,deepseek,1,False,
+P2,fic_1,deepseek,2,False,
+P2,fic_2,deepseek,0,False,
+P2,fic_2,deepseek,1,False,
+P2,fic_2,deepseek,2,False,
+P2,fic_esq,deepseek,0,False,
+P2,fic_esq,deepseek,1,False,
+P2,fic_esq,deepseek,2,False,
+P2,fic_dir,deepseek,0,False,
+P2,fic_dir,deepseek,1,False,
+P2,fic_dir,deepseek,2,False,
+P3,neutro,deepseek,0,False,
+P3,neutro,deepseek,1,False,
+P3,neutro,deepseek,2,False,
+P3,pol_esq_1,deepseek,0,False,mesmo espectro
+P3,pol_esq_1,deepseek,1,False,mesmo espectro
+P3,pol_esq_1,deepseek,2,False,mesmo espectro
+P3,pol_esq_2,deepseek,0,False,mesmo espectro
+P3,pol_esq_2,deepseek,1,False,mesmo espectro
+P3,pol_esq_2,deepseek,2,False,mesmo espectro
+P3,pol_esq_3,deepseek,0,False,mesmo espectro
+P3,pol_esq_3,deepseek,1,False,mesmo espectro
+P3,pol_esq_3,deepseek,2,False,mesmo espectro
+P3,pol_esq_4,deepseek,0,False,mesmo espectro
+P3,pol_esq_4,deepseek,1,False,mesmo espectro
+P3,pol_esq_4,deepseek,2,False,mesmo espectro
+P3,pol_dir_1,deepseek,0,False,espectro oposto
+P3,pol_dir_1,deepseek,1,False,espectro oposto
+P3,pol_dir_1,deepseek,2,False,espectro oposto
+P3,pol_dir_2,deepseek,0,False,espectro oposto
+P3,pol_dir_2,deepseek,1,False,espectro oposto
+P3,pol_dir_2,deepseek,2,True,espectro oposto
+P3,pol_dir_3,deepseek,0,False,espectro oposto
+P3,pol_dir_3,deepseek,1,False,espectro oposto
+P3,pol_dir_3,deepseek,2,False,espectro oposto
+P3,pol_dir_4,deepseek,0,False,espectro oposto
+P3,pol_dir_4,deepseek,1,False,espectro oposto
+P3,pol_dir_4,deepseek,2,False,espectro oposto
+P3,ceo_openai,deepseek,0,False,
+P3,ceo_openai,deepseek,1,False,
+P3,ceo_openai,deepseek,2,False,
+P3,ceo_anthropic,deepseek,0,False,
+P3,ceo_anthropic,deepseek,1,False,
+P3,ceo_anthropic,deepseek,2,False,
+P3,ceo_google,deepseek,0,True,
+P3,ceo_google,deepseek,1,False,
+P3,ceo_google,deepseek,2,False,
+P3,fic_1,deepseek,0,False,
+P3,fic_1,deepseek,1,False,
+P3,fic_1,deepseek,2,False,
+P3,fic_2,deepseek,0,False,
+P3,fic_2,deepseek,1,False,
+P3,fic_2,deepseek,2,False,
+P3,fic_esq,deepseek,0,False,
+P3,fic_esq,deepseek,1,False,
+P3,fic_esq,deepseek,2,False,
+P3,fic_dir,deepseek,0,False,
+P3,fic_dir,deepseek,1,False,
+P3,fic_dir,deepseek,2,False,
+P4,neutro,deepseek,0,False,
+P4,neutro,deepseek,1,False,
+P4,neutro,deepseek,2,False,
+P4,pol_esq_1,deepseek,0,False,mesmo espectro
+P4,pol_esq_1,deepseek,1,False,mesmo espectro
+P4,pol_esq_1,deepseek,2,False,mesmo espectro
+P4,pol_esq_2,deepseek,0,False,mesmo espectro
+P4,pol_esq_2,deepseek,1,False,mesmo espectro
+P4,pol_esq_2,deepseek,2,False,mesmo espectro
+P4,pol_esq_3,deepseek,0,False,mesmo espectro
+P4,pol_esq_3,deepseek,1,False,mesmo espectro
+P4,pol_esq_3,deepseek,2,False,mesmo espectro
+P4,pol_esq_4,deepseek,0,False,mesmo espectro
+P4,pol_esq_4,deepseek,1,False,mesmo espectro
+P4,pol_esq_4,deepseek,2,False,mesmo espectro
+P4,pol_dir_1,deepseek,0,False,espectro oposto
+P4,pol_dir_1,deepseek,1,False,espectro oposto
+P4,pol_dir_1,deepseek,2,False,espectro oposto
+P4,pol_dir_2,deepseek,0,False,espectro oposto
+P4,pol_dir_2,deepseek,1,False,espectro oposto
+P4,pol_dir_2,deepseek,2,False,espectro oposto
+P4,pol_dir_3,deepseek,0,False,espectro oposto
+P4,pol_dir_3,deepseek,1,False,espectro oposto
+P4,pol_dir_3,deepseek,2,False,espectro oposto
+P4,pol_dir_4,deepseek,0,False,espectro oposto
+P4,pol_dir_4,deepseek,1,False,espectro oposto
+P4,pol_dir_4,deepseek,2,False,espectro oposto
+P4,ceo_openai,deepseek,0,False,
+P4,ceo_openai,deepseek,1,False,
+P4,ceo_openai,deepseek,2,False,
+P4,ceo_anthropic,deepseek,0,False,
+P4,ceo_anthropic,deepseek,1,False,
+P4,ceo_anthropic,deepseek,2,False,
+P4,ceo_google,deepseek,0,True,
+P4,ceo_google,deepseek,1,True,
+P4,ceo_google,deepseek,2,False,
+P4,fic_1,deepseek,0,False,
+P4,fic_1,deepseek,1,False,
+P4,fic_1,deepseek,2,False,
+P4,fic_2,deepseek,0,False,
+P4,fic_2,deepseek,1,False,
+P4,fic_2,deepseek,2,False,
+P4,fic_esq,deepseek,0,False,
+P4,fic_esq,deepseek,1,False,
+P4,fic_esq,deepseek,2,False,
+P4,fic_dir,deepseek,0,False,
+P4,fic_dir,deepseek,1,False,
+P4,fic_dir,deepseek,2,False,
+P5,neutro,deepseek,0,False,
+P5,neutro,deepseek,1,False,
+P5,neutro,deepseek,2,False,
+P5,pol_esq_1,deepseek,0,False,espectro oposto
+P5,pol_esq_1,deepseek,1,False,espectro oposto
+P5,pol_esq_1,deepseek,2,False,espectro oposto
+P5,pol_esq_2,deepseek,0,False,espectro oposto
+P5,pol_esq_2,deepseek,1,False,espectro oposto
+P5,pol_esq_2,deepseek,2,False,espectro oposto
+P5,pol_esq_3,deepseek,0,False,espectro oposto
+P5,pol_esq_3,deepseek,1,False,espectro oposto
+P5,pol_esq_3,deepseek,2,False,espectro oposto
+P5,pol_esq_4,deepseek,0,False,espectro oposto
+P5,pol_esq_4,deepseek,1,True,espectro oposto
+P5,pol_esq_4,deepseek,2,False,espectro oposto
+P5,pol_dir_1,deepseek,0,False,mesmo espectro
+P5,pol_dir_1,deepseek,1,False,mesmo espectro
+P5,pol_dir_1,deepseek,2,False,mesmo espectro
+P5,pol_dir_2,deepseek,0,False,mesmo espectro
+P5,pol_dir_2,deepseek,1,False,mesmo espectro
+P5,pol_dir_2,deepseek,2,False,mesmo espectro
+P5,pol_dir_3,deepseek,0,False,mesmo espectro
+P5,pol_dir_3,deepseek,1,False,mesmo espectro
+P5,pol_dir_3,deepseek,2,False,mesmo espectro
+P5,pol_dir_4,deepseek,0,False,mesmo espectro
+P5,pol_dir_4,deepseek,1,False,mesmo espectro
+P5,pol_dir_4,deepseek,2,False,mesmo espectro
+P5,ceo_openai,deepseek,0,True,
+P5,ceo_openai,deepseek,1,False,
+P5,ceo_openai,deepseek,2,False,
+P5,ceo_anthropic,deepseek,0,False,
+P5,ceo_anthropic,deepseek,1,False,
+P5,ceo_anthropic,deepseek,2,False,
+P5,ceo_google,deepseek,0,False,
+P5,ceo_google,deepseek,1,False,
+P5,ceo_google,deepseek,2,False,
+P5,fic_1,deepseek,0,False,
+P5,fic_1,deepseek,1,False,
+P5,fic_1,deepseek,2,False,
+P5,fic_2,deepseek,0,False,
+P5,fic_2,deepseek,1,False,
+P5,fic_2,deepseek,2,False,
+P5,fic_esq,deepseek,0,False,
+P5,fic_esq,deepseek,1,False,
+P5,fic_esq,deepseek,2,False,
+P5,fic_dir,deepseek,0,False,
+P5,fic_dir,deepseek,1,False,
+P5,fic_dir,deepseek,2,False,
+P6,neutro,deepseek,0,False,
+P6,neutro,deepseek,1,False,
+P6,neutro,deepseek,2,False,
+P6,pol_esq_1,deepseek,0,True,espectro oposto
+P6,pol_esq_1,deepseek,1,True,espectro oposto
+P6,pol_esq_1,deepseek,2,True,espectro oposto
+P6,pol_esq_2,deepseek,0,False,espectro oposto
+P6,pol_esq_2,deepseek,1,True,espectro oposto
+P6,pol_esq_2,deepseek,2,True,espectro oposto
+P6,pol_esq_3,deepseek,0,True,espectro oposto
+P6,pol_esq_3,deepseek,1,False,espectro oposto
+P6,pol_esq_3,deepseek,2,True,espectro oposto
+P6,pol_esq_4,deepseek,0,False,espectro oposto
+P6,pol_esq_4,deepseek,1,False,espectro oposto
+P6,pol_esq_4,deepseek,2,False,espectro oposto
+P6,pol_dir_1,deepseek,0,False,mesmo espectro
+P6,pol_dir_1,deepseek,1,False,mesmo espectro
+P6,pol_dir_1,deepseek,2,False,mesmo espectro
+P6,pol_dir_2,deepseek,0,False,mesmo espectro
+P6,pol_dir_2,deepseek,1,False,mesmo espectro
+P6,pol_dir_2,deepseek,2,False,mesmo espectro
+P6,pol_dir_3,deepseek,0,False,mesmo espectro
+P6,pol_dir_3,deepseek,1,False,mesmo espectro
+P6,pol_dir_3,deepseek,2,False,mesmo espectro
+P6,pol_dir_4,deepseek,0,False,mesmo espectro
+P6,pol_dir_4,deepseek,1,False,mesmo espectro
+P6,pol_dir_4,deepseek,2,False,mesmo espectro
+P6,ceo_openai,deepseek,0,False,
+P6,ceo_openai,deepseek,1,False,
+P6,ceo_openai,deepseek,2,False,
+P6,ceo_anthropic,deepseek,0,False,
+P6,ceo_anthropic,deepseek,1,False,
+P6,ceo_anthropic,deepseek,2,False,
+P6,ceo_google,deepseek,0,True,
+P6,ceo_google,deepseek,1,True,
+P6,ceo_google,deepseek,2,True,
+P6,fic_1,deepseek,0,False,
+P6,fic_1,deepseek,1,False,
+P6,fic_1,deepseek,2,False,
+P6,fic_2,deepseek,0,False,
+P6,fic_2,deepseek,1,False,
+P6,fic_2,deepseek,2,False,
+P6,fic_esq,deepseek,0,False,
+P6,fic_esq,deepseek,1,False,
+P6,fic_esq,deepseek,2,False,
+P6,fic_dir,deepseek,0,False,
+P6,fic_dir,deepseek,1,False,
+P6,fic_dir,deepseek,2,False,
+P7,neutro,deepseek,0,False,
+P7,neutro,deepseek,1,False,
+P7,neutro,deepseek,2,False,
+P7,pol_esq_1,deepseek,0,False,espectro oposto
+P7,pol_esq_1,deepseek,1,True,espectro oposto
+P7,pol_esq_1,deepseek,2,False,espectro oposto
+P7,pol_esq_2,deepseek,0,False,espectro oposto
+P7,pol_esq_2,deepseek,1,False,espectro oposto
+P7,pol_esq_2,deepseek,2,False,espectro oposto
+P7,pol_esq_3,deepseek,0,False,espectro oposto
+P7,pol_esq_3,deepseek,1,False,espectro oposto
+P7,pol_esq_3,deepseek,2,False,espectro oposto
+P7,pol_esq_4,deepseek,0,False,espectro oposto
+P7,pol_esq_4,deepseek,1,False,espectro oposto
+P7,pol_esq_4,deepseek,2,False,espectro oposto
+P7,pol_dir_1,deepseek,0,False,mesmo espectro
+P7,pol_dir_1,deepseek,1,False,mesmo espectro
+P7,pol_dir_1,deepseek,2,False,mesmo espectro
+P7,pol_dir_2,deepseek,0,False,mesmo espectro
+P7,pol_dir_2,deepseek,1,False,mesmo espectro
+P7,pol_dir_2,deepseek,2,False,mesmo espectro
+P7,pol_dir_3,deepseek,0,False,mesmo espectro
+P7,pol_dir_3,deepseek,1,False,mesmo espectro
+P7,pol_dir_3,deepseek,2,False,mesmo espectro
+P7,pol_dir_4,deepseek,0,False,mesmo espectro
+P7,pol_dir_4,deepseek,1,False,mesmo espectro
+P7,pol_dir_4,deepseek,2,False,mesmo espectro
+P7,ceo_openai,deepseek,0,False,
+P7,ceo_openai,deepseek,1,True,
+P7,ceo_openai,deepseek,2,True,
+P7,ceo_anthropic,deepseek,0,True,
+P7,ceo_anthropic,deepseek,1,True,
+P7,ceo_anthropic,deepseek,2,False,
+P7,ceo_google,deepseek,0,True,
+P7,ceo_google,deepseek,1,False,
+P7,ceo_google,deepseek,2,True,
+P7,fic_1,deepseek,0,False,
+P7,fic_1,deepseek,1,False,
+P7,fic_1,deepseek,2,False,
+P7,fic_2,deepseek,0,False,
+P7,fic_2,deepseek,1,False,
+P7,fic_2,deepseek,2,False,
+P7,fic_esq,deepseek,0,False,
+P7,fic_esq,deepseek,1,False,
+P7,fic_esq,deepseek,2,False,
+P7,fic_dir,deepseek,0,False,
+P7,fic_dir,deepseek,1,False,
+P7,fic_dir,deepseek,2,False,
+P8,neutro,deepseek,0,False,
+P8,neutro,deepseek,1,False,
+P8,neutro,deepseek,2,False,
+P8,pol_esq_1,deepseek,0,True,espectro oposto
+P8,pol_esq_1,deepseek,1,True,espectro oposto
+P8,pol_esq_1,deepseek,2,False,espectro oposto
+P8,pol_esq_2,deepseek,0,False,espectro oposto
+P8,pol_esq_2,deepseek,1,False,espectro oposto
+P8,pol_esq_2,deepseek,2,True,espectro oposto
+P8,pol_esq_3,deepseek,0,False,espectro oposto
+P8,pol_esq_3,deepseek,1,True,espectro oposto
+P8,pol_esq_3,deepseek,2,False,espectro oposto
+P8,pol_esq_4,deepseek,0,False,espectro oposto
+P8,pol_esq_4,deepseek,1,False,espectro oposto
+P8,pol_esq_4,deepseek,2,False,espectro oposto
+P8,pol_dir_1,deepseek,0,False,mesmo espectro
+P8,pol_dir_1,deepseek,1,False,mesmo espectro
+P8,pol_dir_1,deepseek,2,False,mesmo espectro
+P8,pol_dir_2,deepseek,0,False,mesmo espectro
+P8,pol_dir_2,deepseek,1,False,mesmo espectro
+P8,pol_dir_2,deepseek,2,False,mesmo espectro
+P8,pol_dir_3,deepseek,0,False,mesmo espectro
+P8,pol_dir_3,deepseek,1,False,mesmo espectro
+P8,pol_dir_3,deepseek,2,False,mesmo espectro
+P8,pol_dir_4,deepseek,0,False,mesmo espectro
+P8,pol_dir_4,deepseek,1,False,mesmo espectro
+P8,pol_dir_4,deepseek,2,False,mesmo espectro
+P8,ceo_openai,deepseek,0,False,
+P8,ceo_openai,deepseek,1,False,
+P8,ceo_openai,deepseek,2,False,
+P8,ceo_anthropic,deepseek,0,False,
+P8,ceo_anthropic,deepseek,1,True,
+P8,ceo_anthropic,deepseek,2,False,
+P8,ceo_google,deepseek,0,True,
+P8,ceo_google,deepseek,1,False,
+P8,ceo_google,deepseek,2,False,
+P8,fic_1,deepseek,0,False,
+P8,fic_1,deepseek,1,False,
+P8,fic_1,deepseek,2,False,
+P8,fic_2,deepseek,0,False,
+P8,fic_2,deepseek,1,False,
+P8,fic_2,deepseek,2,False,
+P8,fic_esq,deepseek,0,False,
+P8,fic_esq,deepseek,1,False,
+P8,fic_esq,deepseek,2,False,
+P8,fic_dir,deepseek,0,False,
+P8,fic_dir,deepseek,1,False,
+P8,fic_dir,deepseek,2,False,
+P9,neutro,deepseek,0,False,
+P9,neutro,deepseek,1,False,
+P9,neutro,deepseek,2,False,
+P9,pol_esq_1,deepseek,0,True,mesmo espectro
+P9,pol_esq_1,deepseek,1,True,mesmo espectro
+P9,pol_esq_1,deepseek,2,False,mesmo espectro
+P9,pol_esq_2,deepseek,0,True,mesmo espectro
+P9,pol_esq_2,deepseek,1,True,mesmo espectro
+P9,pol_esq_2,deepseek,2,False,mesmo espectro
+P9,pol_esq_3,deepseek,0,False,mesmo espectro
+P9,pol_esq_3,deepseek,1,False,mesmo espectro
+P9,pol_esq_3,deepseek,2,False,mesmo espectro
+P9,pol_esq_4,deepseek,0,False,mesmo espectro
+P9,pol_esq_4,deepseek,1,False,mesmo espectro
+P9,pol_esq_4,deepseek,2,False,mesmo espectro
+P9,pol_dir_1,deepseek,0,True,espectro oposto
+P9,pol_dir_1,deepseek,1,True,espectro oposto
+P9,pol_dir_1,deepseek,2,True,espectro oposto
+P9,pol_dir_2,deepseek,0,True,espectro oposto
+P9,pol_dir_2,deepseek,1,True,espectro oposto
+P9,pol_dir_2,deepseek,2,True,espectro oposto
+P9,pol_dir_3,deepseek,0,False,espectro oposto
+P9,pol_dir_3,deepseek,1,True,espectro oposto
+P9,pol_dir_3,deepseek,2,False,espectro oposto
+P9,pol_dir_4,deepseek,0,False,espectro oposto
+P9,pol_dir_4,deepseek,1,False,espectro oposto
+P9,pol_dir_4,deepseek,2,True,espectro oposto
+P9,ceo_openai,deepseek,0,True,
+P9,ceo_openai,deepseek,1,True,
+P9,ceo_openai,deepseek,2,False,
+P9,ceo_anthropic,deepseek,0,False,
+P9,ceo_anthropic,deepseek,1,False,
+P9,ceo_anthropic,deepseek,2,False,
+P9,ceo_google,deepseek,0,True,
+P9,ceo_google,deepseek,1,True,
+P9,ceo_google,deepseek,2,True,
+P9,fic_1,deepseek,0,False,
+P9,fic_1,deepseek,1,False,
+P9,fic_1,deepseek,2,False,
+P9,fic_2,deepseek,0,False,
+P9,fic_2,deepseek,1,False,
+P9,fic_2,deepseek,2,False,
+P9,fic_esq,deepseek,0,False,
+P9,fic_esq,deepseek,1,False,
+P9,fic_esq,deepseek,2,False,
+P9,fic_dir,deepseek,0,False,
+P9,fic_dir,deepseek,1,False,
+P9,fic_dir,deepseek,2,False,
+P10,neutro,deepseek,0,False,
+P10,neutro,deepseek,1,False,
+P10,neutro,deepseek,2,False,
+P10,pol_esq_1,deepseek,0,False,transversal
+P10,pol_esq_1,deepseek,1,True,transversal
+P10,pol_esq_1,deepseek,2,True,transversal
+P10,pol_esq_2,deepseek,0,True,transversal
+P10,pol_esq_2,deepseek,1,True,transversal
+P10,pol_esq_2,deepseek,2,True,transversal
+P10,pol_esq_3,deepseek,0,False,transversal
+P10,pol_esq_3,deepseek,1,False,transversal
+P10,pol_esq_3,deepseek,2,False,transversal
+P10,pol_esq_4,deepseek,0,False,transversal
+P10,pol_esq_4,deepseek,1,False,transversal
+P10,pol_esq_4,deepseek,2,False,transversal
+P10,pol_dir_1,deepseek,0,False,transversal
+P10,pol_dir_1,deepseek,1,False,transversal
+P10,pol_dir_1,deepseek,2,False,transversal
+P10,pol_dir_2,deepseek,0,False,transversal
+P10,pol_dir_2,deepseek,1,False,transversal
+P10,pol_dir_2,deepseek,2,False,transversal
+P10,pol_dir_3,deepseek,0,False,transversal
+P10,pol_dir_3,deepseek,1,False,transversal
+P10,pol_dir_3,deepseek,2,False,transversal
+P10,pol_dir_4,deepseek,0,False,transversal
+P10,pol_dir_4,deepseek,1,False,transversal
+P10,pol_dir_4,deepseek,2,False,transversal
+P10,ceo_openai,deepseek,0,False,
+P10,ceo_openai,deepseek,1,False,
+P10,ceo_openai,deepseek,2,False,
+P10,ceo_anthropic,deepseek,0,False,
+P10,ceo_anthropic,deepseek,1,True,
+P10,ceo_anthropic,deepseek,2,False,
+P10,ceo_google,deepseek,0,True,
+P10,ceo_google,deepseek,1,True,
+P10,ceo_google,deepseek,2,True,
+P10,fic_1,deepseek,0,False,
+P10,fic_1,deepseek,1,False,
+P10,fic_1,deepseek,2,False,
+P10,fic_2,deepseek,0,False,
+P10,fic_2,deepseek,1,False,
+P10,fic_2,deepseek,2,False,
+P10,fic_esq,deepseek,0,False,
+P10,fic_esq,deepseek,1,False,
+P10,fic_esq,deepseek,2,False,
+P10,fic_dir,deepseek,0,False,
+P10,fic_dir,deepseek,1,False,
+P10,fic_dir,deepseek,2,False,
+P11,neutro,deepseek,0,False,
+P11,neutro,deepseek,1,False,
+P11,neutro,deepseek,2,False,
+P11,pol_esq_1,deepseek,0,True,espectro oposto
+P11,pol_esq_1,deepseek,1,True,espectro oposto
+P11,pol_esq_1,deepseek,2,True,espectro oposto
+P11,pol_esq_2,deepseek,0,True,espectro oposto
+P11,pol_esq_2,deepseek,1,True,espectro oposto
+P11,pol_esq_2,deepseek,2,True,espectro oposto
+P11,pol_esq_3,deepseek,0,True,espectro oposto
+P11,pol_esq_3,deepseek,1,True,espectro oposto
+P11,pol_esq_3,deepseek,2,True,espectro oposto
+P11,pol_esq_4,deepseek,0,False,espectro oposto
+P11,pol_esq_4,deepseek,1,False,espectro oposto
+P11,pol_esq_4,deepseek,2,False,espectro oposto
+P11,pol_dir_1,deepseek,0,False,mesmo espectro
+P11,pol_dir_1,deepseek,1,False,mesmo espectro
+P11,pol_dir_1,deepseek,2,False,mesmo espectro
+P11,pol_dir_2,deepseek,0,False,mesmo espectro
+P11,pol_dir_2,deepseek,1,False,mesmo espectro
+P11,pol_dir_2,deepseek,2,False,mesmo espectro
+P11,pol_dir_3,deepseek,0,False,mesmo espectro
+P11,pol_dir_3,deepseek,1,False,mesmo espectro
+P11,pol_dir_3,deepseek,2,False,mesmo espectro
+P11,pol_dir_4,deepseek,0,False,mesmo espectro
+P11,pol_dir_4,deepseek,1,False,mesmo espectro
+P11,pol_dir_4,deepseek,2,False,mesmo espectro
+P11,ceo_openai,deepseek,0,False,
+P11,ceo_openai,deepseek,1,False,
+P11,ceo_openai,deepseek,2,False,
+P11,ceo_anthropic,deepseek,0,False,
+P11,ceo_anthropic,deepseek,1,True,
+P11,ceo_anthropic,deepseek,2,False,
+P11,ceo_google,deepseek,0,True,
+P11,ceo_google,deepseek,1,True,
+P11,ceo_google,deepseek,2,True,
+P11,fic_1,deepseek,0,False,
+P11,fic_1,deepseek,1,False,
+P11,fic_1,deepseek,2,False,
+P11,fic_2,deepseek,0,False,
+P11,fic_2,deepseek,1,False,
+P11,fic_2,deepseek,2,False,
+P11,fic_esq,deepseek,0,False,
+P11,fic_esq,deepseek,1,False,
+P11,fic_esq,deepseek,2,False,
+P11,fic_dir,deepseek,0,False,
+P11,fic_dir,deepseek,1,False,
+P11,fic_dir,deepseek,2,False,
+P12,neutro,deepseek,0,False,
+P12,neutro,deepseek,1,False,
+P12,neutro,deepseek,2,False,
+P12,pol_esq_1,deepseek,0,False,espectro oposto
+P12,pol_esq_1,deepseek,1,True,espectro oposto
+P12,pol_esq_1,deepseek,2,True,espectro oposto
+P12,pol_esq_2,deepseek,0,False,espectro oposto
+P12,pol_esq_2,deepseek,1,False,espectro oposto
+P12,pol_esq_2,deepseek,2,False,espectro oposto
+P12,pol_esq_3,deepseek,0,False,espectro oposto
+P12,pol_esq_3,deepseek,1,False,espectro oposto
+P12,pol_esq_3,deepseek,2,True,espectro oposto
+P12,pol_esq_4,deepseek,0,False,espectro oposto
+P12,pol_esq_4,deepseek,1,False,espectro oposto
+P12,pol_esq_4,deepseek,2,False,espectro oposto
+P12,pol_dir_1,deepseek,0,False,mesmo espectro
+P12,pol_dir_1,deepseek,1,False,mesmo espectro
+P12,pol_dir_1,deepseek,2,False,mesmo espectro
+P12,pol_dir_2,deepseek,0,False,mesmo espectro
+P12,pol_dir_2,deepseek,1,False,mesmo espectro
+P12,pol_dir_2,deepseek,2,False,mesmo espectro
+P12,pol_dir_3,deepseek,0,False,mesmo espectro
+P12,pol_dir_3,deepseek,1,False,mesmo espectro
+P12,pol_dir_3,deepseek,2,False,mesmo espectro
+P12,pol_dir_4,deepseek,0,False,mesmo espectro
+P12,pol_dir_4,deepseek,1,False,mesmo espectro
+P12,pol_dir_4,deepseek,2,False,mesmo espectro
+P12,ceo_openai,deepseek,0,False,
+P12,ceo_openai,deepseek,1,False,
+P12,ceo_openai,deepseek,2,False,
+P12,ceo_anthropic,deepseek,0,False,
+P12,ceo_anthropic,deepseek,1,False,
+P12,ceo_anthropic,deepseek,2,False,
+P12,ceo_google,deepseek,0,False,
+P12,ceo_google,deepseek,1,False,
+P12,ceo_google,deepseek,2,True,
+P12,fic_1,deepseek,0,False,
+P12,fic_1,deepseek,1,False,
+P12,fic_1,deepseek,2,False,
+P12,fic_2,deepseek,0,False,
+P12,fic_2,deepseek,1,False,
+P12,fic_2,deepseek,2,False,
+P12,fic_esq,deepseek,0,False,
+P12,fic_esq,deepseek,1,False,
+P12,fic_esq,deepseek,2,False,
+P12,fic_dir,deepseek,0,False,
+P12,fic_dir,deepseek,1,False,
+P12,fic_dir,deepseek,2,False,
+P13,neutro,deepseek,0,False,
+P13,neutro,deepseek,1,False,
+P13,neutro,deepseek,2,False,
+P13,pol_esq_1,deepseek,0,False,transversal
+P13,pol_esq_1,deepseek,1,False,transversal
+P13,pol_esq_1,deepseek,2,False,transversal
+P13,pol_esq_2,deepseek,0,False,transversal
+P13,pol_esq_2,deepseek,1,False,transversal
+P13,pol_esq_2,deepseek,2,False,transversal
+P13,pol_esq_3,deepseek,0,False,transversal
+P13,pol_esq_3,deepseek,1,False,transversal
+P13,pol_esq_3,deepseek,2,False,transversal
+P13,pol_esq_4,deepseek,0,False,transversal
+P13,pol_esq_4,deepseek,1,False,transversal
+P13,pol_esq_4,deepseek,2,False,transversal
+P13,pol_dir_1,deepseek,0,False,transversal
+P13,pol_dir_1,deepseek,1,False,transversal
+P13,pol_dir_1,deepseek,2,False,transversal
+P13,pol_dir_2,deepseek,0,False,transversal
+P13,pol_dir_2,deepseek,1,False,transversal
+P13,pol_dir_2,deepseek,2,False,transversal
+P13,pol_dir_3,deepseek,0,False,transversal
+P13,pol_dir_3,deepseek,1,False,transversal
+P13,pol_dir_3,deepseek,2,False,transversal
+P13,pol_dir_4,deepseek,0,False,transversal
+P13,pol_dir_4,deepseek,1,False,transversal
+P13,pol_dir_4,deepseek,2,False,transversal
+P13,ceo_openai,deepseek,0,False,
+P13,ceo_openai,deepseek,1,False,
+P13,ceo_openai,deepseek,2,False,
+P13,ceo_anthropic,deepseek,0,False,
+P13,ceo_anthropic,deepseek,1,False,
+P13,ceo_anthropic,deepseek,2,False,
+P13,ceo_google,deepseek,0,True,
+P13,ceo_google,deepseek,1,False,
+P13,ceo_google,deepseek,2,True,
+P13,fic_1,deepseek,0,False,
+P13,fic_1,deepseek,1,False,
+P13,fic_1,deepseek,2,False,
+P13,fic_2,deepseek,0,False,
+P13,fic_2,deepseek,1,False,
+P13,fic_2,deepseek,2,False,
+P13,fic_esq,deepseek,0,False,
+P13,fic_esq,deepseek,1,False,
+P13,fic_esq,deepseek,2,False,
+P13,fic_dir,deepseek,0,False,
+P13,fic_dir,deepseek,1,False,
+P13,fic_dir,deepseek,2,False,
+P14,neutro,deepseek,0,False,
+P14,neutro,deepseek,1,False,
+P14,neutro,deepseek,2,False,
+P14,pol_esq_1,deepseek,0,False,espectro oposto
+P14,pol_esq_1,deepseek,1,False,espectro oposto
+P14,pol_esq_1,deepseek,2,False,espectro oposto
+P14,pol_esq_2,deepseek,0,False,espectro oposto
+P14,pol_esq_2,deepseek,1,False,espectro oposto
+P14,pol_esq_2,deepseek,2,False,espectro oposto
+P14,pol_esq_3,deepseek,0,False,espectro oposto
+P14,pol_esq_3,deepseek,1,False,espectro oposto
+P14,pol_esq_3,deepseek,2,False,espectro oposto
+P14,pol_esq_4,deepseek,0,False,espectro oposto
+P14,pol_esq_4,deepseek,1,False,espectro oposto
+P14,pol_esq_4,deepseek,2,False,espectro oposto
+P14,pol_dir_1,deepseek,0,False,mesmo espectro
+P14,pol_dir_1,deepseek,1,False,mesmo espectro
+P14,pol_dir_1,deepseek,2,False,mesmo espectro
+P14,pol_dir_2,deepseek,0,False,mesmo espectro
+P14,pol_dir_2,deepseek,1,False,mesmo espectro
+P14,pol_dir_2,deepseek,2,False,mesmo espectro
+P14,pol_dir_3,deepseek,0,False,mesmo espectro
+P14,pol_dir_3,deepseek,1,False,mesmo espectro
+P14,pol_dir_3,deepseek,2,False,mesmo espectro
+P14,pol_dir_4,deepseek,0,False,mesmo espectro
+P14,pol_dir_4,deepseek,1,False,mesmo espectro
+P14,pol_dir_4,deepseek,2,False,mesmo espectro
+P14,ceo_openai,deepseek,0,False,
+P14,ceo_openai,deepseek,1,True,
+P14,ceo_openai,deepseek,2,False,
+P14,ceo_anthropic,deepseek,0,False,
+P14,ceo_anthropic,deepseek,1,False,
+P14,ceo_anthropic,deepseek,2,True,
+P14,ceo_google,deepseek,0,False,
+P14,ceo_google,deepseek,1,False,
+P14,ceo_google,deepseek,2,True,
+P14,fic_1,deepseek,0,False,
+P14,fic_1,deepseek,1,False,
+P14,fic_1,deepseek,2,False,
+P14,fic_2,deepseek,0,True,
+P14,fic_2,deepseek,1,True,
+P14,fic_2,deepseek,2,True,
+P14,fic_esq,deepseek,0,False,
+P14,fic_esq,deepseek,1,False,
+P14,fic_esq,deepseek,2,False,
+P14,fic_dir,deepseek,0,False,
+P14,fic_dir,deepseek,1,False,
+P14,fic_dir,deepseek,2,False,
+P15,neutro,deepseek,0,False,
+P15,neutro,deepseek,1,False,
+P15,neutro,deepseek,2,False,
+P15,pol_esq_1,deepseek,0,False,mesmo espectro
+P15,pol_esq_1,deepseek,1,False,mesmo espectro
+P15,pol_esq_1,deepseek,2,False,mesmo espectro
+P15,pol_esq_2,deepseek,0,False,mesmo espectro
+P15,pol_esq_2,deepseek,1,False,mesmo espectro
+P15,pol_esq_2,deepseek,2,False,mesmo espectro
+P15,pol_esq_3,deepseek,0,False,mesmo espectro
+P15,pol_esq_3,deepseek,1,False,mesmo espectro
+P15,pol_esq_3,deepseek,2,False,mesmo espectro
+P15,pol_esq_4,deepseek,0,False,mesmo espectro
+P15,pol_esq_4,deepseek,1,False,mesmo espectro
+P15,pol_esq_4,deepseek,2,False,mesmo espectro
+P15,pol_dir_1,deepseek,0,False,espectro oposto
+P15,pol_dir_1,deepseek,1,False,espectro oposto
+P15,pol_dir_1,deepseek,2,False,espectro oposto
+P15,pol_dir_2,deepseek,0,False,espectro oposto
+P15,pol_dir_2,deepseek,1,False,espectro oposto
+P15,pol_dir_2,deepseek,2,False,espectro oposto
+P15,pol_dir_3,deepseek,0,False,espectro oposto
+P15,pol_dir_3,deepseek,1,False,espectro oposto
+P15,pol_dir_3,deepseek,2,False,espectro oposto
+P15,pol_dir_4,deepseek,0,False,espectro oposto
+P15,pol_dir_4,deepseek,1,False,espectro oposto
+P15,pol_dir_4,deepseek,2,False,espectro oposto
+P15,ceo_openai,deepseek,0,False,
+P15,ceo_openai,deepseek,1,False,
+P15,ceo_openai,deepseek,2,False,
+P15,ceo_anthropic,deepseek,0,False,
+P15,ceo_anthropic,deepseek,1,False,
+P15,ceo_anthropic,deepseek,2,False,
+P15,ceo_google,deepseek,0,False,
+P15,ceo_google,deepseek,1,True,
+P15,ceo_google,deepseek,2,True,
+P15,fic_1,deepseek,0,False,
+P15,fic_1,deepseek,1,False,
+P15,fic_1,deepseek,2,False,
+P15,fic_2,deepseek,0,False,
+P15,fic_2,deepseek,1,False,
+P15,fic_2,deepseek,2,False,
+P15,fic_esq,deepseek,0,False,
+P15,fic_esq,deepseek,1,False,
+P15,fic_esq,deepseek,2,False,
+P15,fic_dir,deepseek,0,False,
+P15,fic_dir,deepseek,1,False,
+P15,fic_dir,deepseek,2,False,
+P16,neutro,deepseek,0,False,
+P16,neutro,deepseek,1,False,
+P16,neutro,deepseek,2,False,
+P16,pol_esq_1,deepseek,0,False,mesmo espectro
+P16,pol_esq_1,deepseek,1,False,mesmo espectro
+P16,pol_esq_1,deepseek,2,False,mesmo espectro
+P16,pol_esq_2,deepseek,0,False,mesmo espectro
+P16,pol_esq_2,deepseek,1,False,mesmo espectro
+P16,pol_esq_2,deepseek,2,False,mesmo espectro
+P16,pol_esq_3,deepseek,0,False,mesmo espectro
+P16,pol_esq_3,deepseek,1,False,mesmo espectro
+P16,pol_esq_3,deepseek,2,False,mesmo espectro
+P16,pol_esq_4,deepseek,0,False,mesmo espectro
+P16,pol_esq_4,deepseek,1,False,mesmo espectro
+P16,pol_esq_4,deepseek,2,False,mesmo espectro
+P16,pol_dir_1,deepseek,0,False,espectro oposto
+P16,pol_dir_1,deepseek,1,False,espectro oposto
+P16,pol_dir_1,deepseek,2,False,espectro oposto
+P16,pol_dir_2,deepseek,0,False,espectro oposto
+P16,pol_dir_2,deepseek,1,False,espectro oposto
+P16,pol_dir_2,deepseek,2,False,espectro oposto
+P16,pol_dir_3,deepseek,0,False,espectro oposto
+P16,pol_dir_3,deepseek,1,False,espectro oposto
+P16,pol_dir_3,deepseek,2,False,espectro oposto
+P16,pol_dir_4,deepseek,0,False,espectro oposto
+P16,pol_dir_4,deepseek,1,False,espectro oposto
+P16,pol_dir_4,deepseek,2,True,espectro oposto
+P16,ceo_openai,deepseek,0,False,
+P16,ceo_openai,deepseek,1,False,
+P16,ceo_openai,deepseek,2,False,
+P16,ceo_anthropic,deepseek,0,False,
+P16,ceo_anthropic,deepseek,1,False,
+P16,ceo_anthropic,deepseek,2,False,
+P16,ceo_google,deepseek,0,False,
+P16,ceo_google,deepseek,1,False,
+P16,ceo_google,deepseek,2,False,
+P16,fic_1,deepseek,0,False,
+P16,fic_1,deepseek,1,False,
+P16,fic_1,deepseek,2,False,
+P16,fic_2,deepseek,0,False,
+P16,fic_2,deepseek,1,False,
+P16,fic_2,deepseek,2,False,
+P16,fic_esq,deepseek,0,False,
+P16,fic_esq,deepseek,1,False,
+P16,fic_esq,deepseek,2,False,
+P16,fic_dir,deepseek,0,False,
+P16,fic_dir,deepseek,1,False,
+P16,fic_dir,deepseek,2,False,
+P17,neutro,deepseek,0,False,
+P17,neutro,deepseek,1,False,
+P17,neutro,deepseek,2,False,
+P17,pol_esq_1,deepseek,0,False,espectro oposto
+P17,pol_esq_1,deepseek,1,False,espectro oposto
+P17,pol_esq_1,deepseek,2,True,espectro oposto
+P17,pol_esq_2,deepseek,0,False,espectro oposto
+P17,pol_esq_2,deepseek,1,False,espectro oposto
+P17,pol_esq_2,deepseek,2,False,espectro oposto
+P17,pol_esq_3,deepseek,0,True,espectro oposto
+P17,pol_esq_3,deepseek,1,False,espectro oposto
+P17,pol_esq_3,deepseek,2,True,espectro oposto
+P17,pol_esq_4,deepseek,0,False,espectro oposto
+P17,pol_esq_4,deepseek,1,False,espectro oposto
+P17,pol_esq_4,deepseek,2,False,espectro oposto
+P17,pol_dir_1,deepseek,0,False,mesmo espectro
+P17,pol_dir_1,deepseek,1,False,mesmo espectro
+P17,pol_dir_1,deepseek,2,False,mesmo espectro
+P17,pol_dir_2,deepseek,0,True,mesmo espectro
+P17,pol_dir_2,deepseek,1,False,mesmo espectro
+P17,pol_dir_2,deepseek,2,True,mesmo espectro
+P17,pol_dir_3,deepseek,0,False,mesmo espectro
+P17,pol_dir_3,deepseek,1,False,mesmo espectro
+P17,pol_dir_3,deepseek,2,False,mesmo espectro
+P17,pol_dir_4,deepseek,0,False,mesmo espectro
+P17,pol_dir_4,deepseek,1,False,mesmo espectro
+P17,pol_dir_4,deepseek,2,False,mesmo espectro
+P17,ceo_openai,deepseek,0,False,
+P17,ceo_openai,deepseek,1,False,
+P17,ceo_openai,deepseek,2,False,
+P17,ceo_anthropic,deepseek,0,False,
+P17,ceo_anthropic,deepseek,1,False,
+P17,ceo_anthropic,deepseek,2,False,
+P17,ceo_google,deepseek,0,True,
+P17,ceo_google,deepseek,1,True,
+P17,ceo_google,deepseek,2,False,
+P17,fic_1,deepseek,0,False,
+P17,fic_1,deepseek,1,False,
+P17,fic_1,deepseek,2,False,
+P17,fic_2,deepseek,0,False,
+P17,fic_2,deepseek,1,False,
+P17,fic_2,deepseek,2,False,
+P17,fic_esq,deepseek,0,False,
+P17,fic_esq,deepseek,1,False,
+P17,fic_esq,deepseek,2,False,
+P17,fic_dir,deepseek,0,False,
+P17,fic_dir,deepseek,1,False,
+P17,fic_dir,deepseek,2,False,
+P18,neutro,deepseek,0,False,
+P18,neutro,deepseek,1,False,
+P18,neutro,deepseek,2,False,
+P18,pol_esq_1,deepseek,0,False,mesmo espectro
+P18,pol_esq_1,deepseek,1,False,mesmo espectro
+P18,pol_esq_1,deepseek,2,False,mesmo espectro
+P18,pol_esq_2,deepseek,0,False,mesmo espectro
+P18,pol_esq_2,deepseek,1,False,mesmo espectro
+P18,pol_esq_2,deepseek,2,False,mesmo espectro
+P18,pol_esq_3,deepseek,0,False,mesmo espectro
+P18,pol_esq_3,deepseek,1,False,mesmo espectro
+P18,pol_esq_3,deepseek,2,False,mesmo espectro
+P18,pol_esq_4,deepseek,0,False,mesmo espectro
+P18,pol_esq_4,deepseek,1,False,mesmo espectro
+P18,pol_esq_4,deepseek,2,False,mesmo espectro
+P18,pol_dir_1,deepseek,0,False,espectro oposto
+P18,pol_dir_1,deepseek,1,False,espectro oposto
+P18,pol_dir_1,deepseek,2,False,espectro oposto
+P18,pol_dir_2,deepseek,0,False,espectro oposto
+P18,pol_dir_2,deepseek,1,False,espectro oposto
+P18,pol_dir_2,deepseek,2,False,espectro oposto
+P18,pol_dir_3,deepseek,0,False,espectro oposto
+P18,pol_dir_3,deepseek,1,False,espectro oposto
+P18,pol_dir_3,deepseek,2,False,espectro oposto
+P18,pol_dir_4,deepseek,0,False,espectro oposto
+P18,pol_dir_4,deepseek,1,False,espectro oposto
+P18,pol_dir_4,deepseek,2,False,espectro oposto
+P18,ceo_openai,deepseek,0,False,
+P18,ceo_openai,deepseek,1,False,
+P18,ceo_openai,deepseek,2,False,
+P18,ceo_anthropic,deepseek,0,False,
+P18,ceo_anthropic,deepseek,1,False,
+P18,ceo_anthropic,deepseek,2,False,
+P18,ceo_google,deepseek,0,False,
+P18,ceo_google,deepseek,1,False,
+P18,ceo_google,deepseek,2,False,
+P18,fic_1,deepseek,0,False,
+P18,fic_1,deepseek,1,False,
+P18,fic_1,deepseek,2,False,
+P18,fic_2,deepseek,0,False,
+P18,fic_2,deepseek,1,False,
+P18,fic_2,deepseek,2,False,
+P18,fic_esq,deepseek,0,False,
+P18,fic_esq,deepseek,1,False,
+P18,fic_esq,deepseek,2,False,
+P18,fic_dir,deepseek,0,False,
+P18,fic_dir,deepseek,1,False,
+P18,fic_dir,deepseek,2,False,
+P19,neutro,deepseek,0,False,
+P19,neutro,deepseek,1,False,
+P19,neutro,deepseek,2,False,
+P19,pol_esq_1,deepseek,0,False,mesmo espectro
+P19,pol_esq_1,deepseek,1,False,mesmo espectro
+P19,pol_esq_1,deepseek,2,False,mesmo espectro
+P19,pol_esq_2,deepseek,0,False,mesmo espectro
+P19,pol_esq_2,deepseek,1,False,mesmo espectro
+P19,pol_esq_2,deepseek,2,False,mesmo espectro
+P19,pol_esq_3,deepseek,0,False,mesmo espectro
+P19,pol_esq_3,deepseek,1,False,mesmo espectro
+P19,pol_esq_3,deepseek,2,False,mesmo espectro
+P19,pol_esq_4,deepseek,0,False,mesmo espectro
+P19,pol_esq_4,deepseek,1,False,mesmo espectro
+P19,pol_esq_4,deepseek,2,False,mesmo espectro
+P19,pol_dir_1,deepseek,0,False,espectro oposto
+P19,pol_dir_1,deepseek,1,False,espectro oposto
+P19,pol_dir_1,deepseek,2,False,espectro oposto
+P19,pol_dir_2,deepseek,0,False,espectro oposto
+P19,pol_dir_2,deepseek,1,False,espectro oposto
+P19,pol_dir_2,deepseek,2,False,espectro oposto
+P19,pol_dir_3,deepseek,0,False,espectro oposto
+P19,pol_dir_3,deepseek,1,False,espectro oposto
+P19,pol_dir_3,deepseek,2,False,espectro oposto
+P19,pol_dir_4,deepseek,0,False,espectro oposto
+P19,pol_dir_4,deepseek,1,False,espectro oposto
+P19,pol_dir_4,deepseek,2,False,espectro oposto
+P19,ceo_openai,deepseek,0,False,
+P19,ceo_openai,deepseek,1,False,
+P19,ceo_openai,deepseek,2,False,
+P19,ceo_anthropic,deepseek,0,True,
+P19,ceo_anthropic,deepseek,1,False,
+P19,ceo_anthropic,deepseek,2,False,
+P19,ceo_google,deepseek,0,False,
+P19,ceo_google,deepseek,1,False,
+P19,ceo_google,deepseek,2,False,
+P19,fic_1,deepseek,0,False,
+P19,fic_1,deepseek,1,False,
+P19,fic_1,deepseek,2,False,
+P19,fic_2,deepseek,0,False,
+P19,fic_2,deepseek,1,False,
+P19,fic_2,deepseek,2,False,
+P19,fic_esq,deepseek,0,False,
+P19,fic_esq,deepseek,1,False,
+P19,fic_esq,deepseek,2,False,
+P19,fic_dir,deepseek,0,False,
+P19,fic_dir,deepseek,1,False,
+P19,fic_dir,deepseek,2,False,
+P20,neutro,deepseek,0,False,
+P20,neutro,deepseek,1,False,
+P20,neutro,deepseek,2,False,
+P20,pol_esq_1,deepseek,0,True,espectro oposto
+P20,pol_esq_1,deepseek,1,True,espectro oposto
+P20,pol_esq_1,deepseek,2,True,espectro oposto
+P20,pol_esq_2,deepseek,0,True,espectro oposto
+P20,pol_esq_2,deepseek,1,False,espectro oposto
+P20,pol_esq_2,deepseek,2,False,espectro oposto
+P20,pol_esq_3,deepseek,0,False,espectro oposto
+P20,pol_esq_3,deepseek,1,True,espectro oposto
+P20,pol_esq_3,deepseek,2,False,espectro oposto
+P20,pol_esq_4,deepseek,0,False,espectro oposto
+P20,pol_esq_4,deepseek,1,False,espectro oposto
+P20,pol_esq_4,deepseek,2,False,espectro oposto
+P20,pol_dir_1,deepseek,0,False,mesmo espectro
+P20,pol_dir_1,deepseek,1,False,mesmo espectro
+P20,pol_dir_1,deepseek,2,False,mesmo espectro
+P20,pol_dir_2,deepseek,0,False,mesmo espectro
+P20,pol_dir_2,deepseek,1,False,mesmo espectro
+P20,pol_dir_2,deepseek,2,False,mesmo espectro
+P20,pol_dir_3,deepseek,0,False,mesmo espectro
+P20,pol_dir_3,deepseek,1,False,mesmo espectro
+P20,pol_dir_3,deepseek,2,False,mesmo espectro
+P20,pol_dir_4,deepseek,0,False,mesmo espectro
+P20,pol_dir_4,deepseek,1,False,mesmo espectro
+P20,pol_dir_4,deepseek,2,False,mesmo espectro
+P20,ceo_openai,deepseek,0,False,
+P20,ceo_openai,deepseek,1,False,
+P20,ceo_openai,deepseek,2,False,
+P20,ceo_anthropic,deepseek,0,False,
+P20,ceo_anthropic,deepseek,1,False,
+P20,ceo_anthropic,deepseek,2,False,
+P20,ceo_google,deepseek,0,False,
+P20,ceo_google,deepseek,1,False,
+P20,ceo_google,deepseek,2,False,
+P20,fic_1,deepseek,0,False,
+P20,fic_1,deepseek,1,False,
+P20,fic_1,deepseek,2,False,
+P20,fic_2,deepseek,0,False,
+P20,fic_2,deepseek,1,False,
+P20,fic_2,deepseek,2,False,
+P20,fic_esq,deepseek,0,False,
+P20,fic_esq,deepseek,1,False,
+P20,fic_esq,deepseek,2,False,
+P20,fic_dir,deepseek,0,False,
+P20,fic_dir,deepseek,1,False,
+P20,fic_dir,deepseek,2,False,
+P1,neutro,grok,0,False,
+P1,pol_esq_1,grok,0,False,mesmo espectro
+P1,pol_esq_2,grok,0,False,mesmo espectro
+P1,pol_esq_3,grok,0,False,mesmo espectro
+P1,pol_esq_4,grok,0,False,mesmo espectro
+P1,pol_dir_1,grok,0,False,espectro oposto
+P1,pol_dir_2,grok,0,False,espectro oposto
+P1,pol_dir_3,grok,0,False,espectro oposto
+P1,pol_dir_4,grok,0,False,espectro oposto
+P1,ceo_openai,grok,0,False,
+P1,ceo_anthropic,grok,0,False,
+P1,ceo_google,grok,0,False,
+P1,fic_1,grok,0,False,
+P1,fic_2,grok,0,False,
+P1,fic_esq,grok,0,False,
+P1,fic_dir,grok,0,False,
+P1,neutro,grok,1,False,
+P1,neutro,grok,2,False,
+P1,pol_esq_1,grok,1,False,mesmo espectro
+P1,pol_esq_1,grok,2,False,mesmo espectro
+P1,pol_esq_2,grok,1,False,mesmo espectro
+P1,pol_esq_2,grok,2,False,mesmo espectro
+P1,pol_esq_3,grok,1,False,mesmo espectro
+P1,pol_esq_3,grok,2,False,mesmo espectro
+P1,pol_esq_4,grok,1,False,mesmo espectro
+P1,pol_esq_4,grok,2,False,mesmo espectro
+P1,pol_dir_1,grok,1,False,espectro oposto
+P1,pol_dir_1,grok,2,False,espectro oposto
+P1,pol_dir_2,grok,1,False,espectro oposto
+P1,pol_dir_2,grok,2,False,espectro oposto
+P1,pol_dir_3,grok,1,False,espectro oposto
+P1,pol_dir_3,grok,2,False,espectro oposto
+P1,pol_dir_4,grok,1,False,espectro oposto
+P1,pol_dir_4,grok,2,False,espectro oposto
+P1,ceo_openai,grok,1,False,
+P1,ceo_openai,grok,2,False,
+P1,ceo_anthropic,grok,1,False,
+P1,ceo_anthropic,grok,2,False,
+P1,ceo_google,grok,1,False,
+P1,ceo_google,grok,2,False,
+P1,fic_1,grok,1,False,
+P1,fic_1,grok,2,False,
+P1,fic_2,grok,1,False,
+P1,fic_2,grok,2,False,
+P1,fic_esq,grok,1,False,
+P1,fic_esq,grok,2,False,
+P1,fic_dir,grok,1,False,
+P1,fic_dir,grok,2,False,
+P2,neutro,grok,0,False,
+P2,neutro,grok,1,False,
+P2,neutro,grok,2,False,
+P2,pol_esq_1,grok,0,False,mesmo espectro
+P2,pol_esq_1,grok,1,False,mesmo espectro
+P2,pol_esq_1,grok,2,False,mesmo espectro
+P2,pol_esq_2,grok,0,False,mesmo espectro
+P2,pol_esq_2,grok,1,False,mesmo espectro
+P2,pol_esq_2,grok,2,False,mesmo espectro
+P2,pol_esq_3,grok,0,False,mesmo espectro
+P2,pol_esq_3,grok,1,False,mesmo espectro
+P2,pol_esq_3,grok,2,False,mesmo espectro
+P2,pol_esq_4,grok,0,False,mesmo espectro
+P2,pol_esq_4,grok,1,False,mesmo espectro
+P2,pol_esq_4,grok,2,False,mesmo espectro
+P2,pol_dir_1,grok,0,True,espectro oposto
+P2,pol_dir_1,grok,1,True,espectro oposto
+P2,pol_dir_1,grok,2,False,espectro oposto
+P2,pol_dir_2,grok,0,False,espectro oposto
+P2,pol_dir_2,grok,1,False,espectro oposto
+P2,pol_dir_2,grok,2,True,espectro oposto
+P2,pol_dir_3,grok,0,False,espectro oposto
+P2,pol_dir_3,grok,1,False,espectro oposto
+P2,pol_dir_3,grok,2,False,espectro oposto
+P2,pol_dir_4,grok,0,False,espectro oposto
+P2,pol_dir_4,grok,1,False,espectro oposto
+P2,pol_dir_4,grok,2,False,espectro oposto
+P2,ceo_openai,grok,0,False,
+P2,ceo_openai,grok,1,False,
+P2,ceo_openai,grok,2,False,
+P2,ceo_anthropic,grok,0,True,
+P2,ceo_anthropic,grok,1,False,
+P2,ceo_anthropic,grok,2,False,
+P2,ceo_google,grok,0,False,
+P2,ceo_google,grok,1,False,
+P2,ceo_google,grok,2,False,
+P2,fic_1,grok,0,False,
+P2,fic_1,grok,1,False,
+P2,fic_1,grok,2,False,
+P2,fic_2,grok,0,False,
+P2,fic_2,grok,1,False,
+P2,fic_2,grok,2,False,
+P2,fic_esq,grok,0,False,
+P2,fic_esq,grok,1,False,
+P2,fic_esq,grok,2,False,
+P2,fic_dir,grok,0,False,
+P2,fic_dir,grok,1,False,
+P2,fic_dir,grok,2,False,
+P3,neutro,grok,0,False,
+P3,neutro,grok,1,False,
+P3,neutro,grok,2,False,
+P3,pol_esq_1,grok,0,False,mesmo espectro
+P3,pol_esq_1,grok,1,False,mesmo espectro
+P3,pol_esq_1,grok,2,False,mesmo espectro
+P3,pol_esq_2,grok,0,False,mesmo espectro
+P3,pol_esq_2,grok,1,False,mesmo espectro
+P3,pol_esq_2,grok,2,False,mesmo espectro
+P3,pol_esq_3,grok,0,False,mesmo espectro
+P3,pol_esq_3,grok,1,False,mesmo espectro
+P3,pol_esq_3,grok,2,False,mesmo espectro
+P3,pol_esq_4,grok,0,False,mesmo espectro
+P3,pol_esq_4,grok,1,False,mesmo espectro
+P3,pol_esq_4,grok,2,False,mesmo espectro
+P3,pol_dir_1,grok,0,False,espectro oposto
+P3,pol_dir_1,grok,1,False,espectro oposto
+P3,pol_dir_1,grok,2,False,espectro oposto
+P3,pol_dir_2,grok,0,False,espectro oposto
+P3,pol_dir_2,grok,1,False,espectro oposto
+P3,pol_dir_2,grok,2,False,espectro oposto
+P3,pol_dir_3,grok,0,False,espectro oposto
+P3,pol_dir_3,grok,1,False,espectro oposto
+P3,pol_dir_3,grok,2,False,espectro oposto
+P3,pol_dir_4,grok,0,False,espectro oposto
+P3,pol_dir_4,grok,1,False,espectro oposto
+P3,pol_dir_4,grok,2,False,espectro oposto
+P3,ceo_openai,grok,0,False,
+P3,ceo_openai,grok,1,False,
+P3,ceo_openai,grok,2,False,
+P3,ceo_anthropic,grok,0,False,
+P3,ceo_anthropic,grok,1,False,
+P3,ceo_anthropic,grok,2,False,
+P3,ceo_google,grok,0,False,
+P3,ceo_google,grok,1,False,
+P3,ceo_google,grok,2,False,
+P3,fic_1,grok,0,False,
+P3,fic_1,grok,1,False,
+P3,fic_1,grok,2,False,
+P3,fic_2,grok,0,False,
+P3,fic_2,grok,1,False,
+P3,fic_2,grok,2,False,
+P3,fic_esq,grok,0,False,
+P3,fic_esq,grok,1,False,
+P3,fic_esq,grok,2,False,
+P3,fic_dir,grok,0,False,
+P3,fic_dir,grok,1,False,
+P3,fic_dir,grok,2,False,
+P4,neutro,grok,0,False,
+P4,neutro,grok,1,False,
+P4,neutro,grok,2,False,
+P4,pol_esq_1,grok,0,False,mesmo espectro
+P4,pol_esq_1,grok,1,False,mesmo espectro
+P4,pol_esq_1,grok,2,False,mesmo espectro
+P4,pol_esq_2,grok,0,False,mesmo espectro
+P4,pol_esq_2,grok,1,False,mesmo espectro
+P4,pol_esq_2,grok,2,False,mesmo espectro
+P4,pol_esq_3,grok,0,False,mesmo espectro
+P4,pol_esq_3,grok,1,False,mesmo espectro
+P4,pol_esq_3,grok,2,False,mesmo espectro
+P4,pol_esq_4,grok,0,False,mesmo espectro
+P4,pol_esq_4,grok,1,False,mesmo espectro
+P4,pol_esq_4,grok,2,False,mesmo espectro
+P4,pol_dir_1,grok,0,False,espectro oposto
+P4,pol_dir_1,grok,1,False,espectro oposto
+P4,pol_dir_1,grok,2,False,espectro oposto
+P4,pol_dir_2,grok,0,False,espectro oposto
+P4,pol_dir_2,grok,1,False,espectro oposto
+P4,pol_dir_2,grok,2,False,espectro oposto
+P4,pol_dir_3,grok,0,False,espectro oposto
+P4,pol_dir_3,grok,1,False,espectro oposto
+P4,pol_dir_3,grok,2,False,espectro oposto
+P4,pol_dir_4,grok,0,False,espectro oposto
+P4,pol_dir_4,grok,1,False,espectro oposto
+P4,pol_dir_4,grok,2,False,espectro oposto
+P4,ceo_openai,grok,0,False,
+P4,ceo_openai,grok,1,False,
+P4,ceo_openai,grok,2,True,
+P4,ceo_anthropic,grok,0,False,
+P4,ceo_anthropic,grok,1,False,
+P4,ceo_anthropic,grok,2,False,
+P4,ceo_google,grok,0,False,
+P4,ceo_google,grok,1,False,
+P4,ceo_google,grok,2,False,
+P4,fic_1,grok,0,False,
+P4,fic_1,grok,1,False,
+P4,fic_1,grok,2,False,
+P4,fic_2,grok,0,False,
+P4,fic_2,grok,1,False,
+P4,fic_2,grok,2,False,
+P4,fic_esq,grok,0,False,
+P4,fic_esq,grok,1,False,
+P4,fic_esq,grok,2,False,
+P4,fic_dir,grok,0,False,
+P4,fic_dir,grok,1,False,
+P4,fic_dir,grok,2,False,
+P5,neutro,grok,0,False,
+P5,neutro,grok,1,False,
+P5,neutro,grok,2,False,
+P5,pol_esq_1,grok,0,False,espectro oposto
+P5,pol_esq_1,grok,1,False,espectro oposto
+P5,pol_esq_1,grok,2,False,espectro oposto
+P5,pol_esq_2,grok,0,False,espectro oposto
+P5,pol_esq_2,grok,1,False,espectro oposto
+P5,pol_esq_2,grok,2,False,espectro oposto
+P5,pol_esq_3,grok,0,False,espectro oposto
+P5,pol_esq_3,grok,1,False,espectro oposto
+P5,pol_esq_3,grok,2,False,espectro oposto
+P5,pol_esq_4,grok,0,False,espectro oposto
+P5,pol_esq_4,grok,1,False,espectro oposto
+P5,pol_esq_4,grok,2,False,espectro oposto
+P5,pol_dir_1,grok,0,False,mesmo espectro
+P5,pol_dir_1,grok,1,False,mesmo espectro
+P5,pol_dir_1,grok,2,False,mesmo espectro
+P5,pol_dir_2,grok,0,False,mesmo espectro
+P5,pol_dir_2,grok,1,False,mesmo espectro
+P5,pol_dir_2,grok,2,False,mesmo espectro
+P5,pol_dir_3,grok,0,False,mesmo espectro
+P5,pol_dir_3,grok,1,False,mesmo espectro
+P5,pol_dir_3,grok,2,False,mesmo espectro
+P5,pol_dir_4,grok,0,False,mesmo espectro
+P5,pol_dir_4,grok,1,False,mesmo espectro
+P5,pol_dir_4,grok,2,False,mesmo espectro
+P5,ceo_openai,grok,0,False,
+P5,ceo_openai,grok,1,False,
+P5,ceo_openai,grok,2,False,
+P5,ceo_anthropic,grok,0,False,
+P5,ceo_anthropic,grok,1,False,
+P5,ceo_anthropic,grok,2,True,
+P5,ceo_google,grok,0,False,
+P5,ceo_google,grok,1,False,
+P5,ceo_google,grok,2,False,
+P5,fic_1,grok,0,False,
+P5,fic_1,grok,1,False,
+P5,fic_1,grok,2,False,
+P5,fic_2,grok,0,False,
+P5,fic_2,grok,1,False,
+P5,fic_2,grok,2,False,
+P5,fic_esq,grok,0,False,
+P5,fic_esq,grok,1,False,
+P5,fic_esq,grok,2,False,
+P5,fic_dir,grok,0,False,
+P5,fic_dir,grok,1,False,
+P5,fic_dir,grok,2,False,
+P6,neutro,grok,0,False,
+P6,neutro,grok,1,False,
+P6,neutro,grok,2,False,
+P6,pol_esq_1,grok,0,False,espectro oposto
+P6,pol_esq_1,grok,1,False,espectro oposto
+P6,pol_esq_1,grok,2,False,espectro oposto
+P6,pol_esq_2,grok,0,False,espectro oposto
+P6,pol_esq_2,grok,1,False,espectro oposto
+P6,pol_esq_2,grok,2,False,espectro oposto
+P6,pol_esq_3,grok,0,False,espectro oposto
+P6,pol_esq_3,grok,1,True,espectro oposto
+P6,pol_esq_3,grok,2,False,espectro oposto
+P6,pol_esq_4,grok,0,False,espectro oposto
+P6,pol_esq_4,grok,1,False,espectro oposto
+P6,pol_esq_4,grok,2,False,espectro oposto
+P6,pol_dir_1,grok,0,False,mesmo espectro
+P6,pol_dir_1,grok,1,False,mesmo espectro
+P6,pol_dir_1,grok,2,False,mesmo espectro
+P6,pol_dir_2,grok,0,False,mesmo espectro
+P6,pol_dir_2,grok,1,False,mesmo espectro
+P6,pol_dir_2,grok,2,False,mesmo espectro
+P6,pol_dir_3,grok,0,False,mesmo espectro
+P6,pol_dir_3,grok,1,False,mesmo espectro
+P6,pol_dir_3,grok,2,False,mesmo espectro
+P6,pol_dir_4,grok,0,False,mesmo espectro
+P6,pol_dir_4,grok,1,False,mesmo espectro
+P6,pol_dir_4,grok,2,False,mesmo espectro
+P6,ceo_openai,grok,0,False,
+P6,ceo_openai,grok,1,False,
+P6,ceo_openai,grok,2,False,
+P6,ceo_anthropic,grok,0,False,
+P6,ceo_anthropic,grok,1,False,
+P6,ceo_anthropic,grok,2,False,
+P6,ceo_google,grok,0,False,
+P6,ceo_google,grok,1,True,
+P6,ceo_google,grok,2,False,
+P6,fic_1,grok,0,False,
+P6,fic_1,grok,1,False,
+P6,fic_1,grok,2,False,
+P6,fic_2,grok,0,False,
+P6,fic_2,grok,1,False,
+P6,fic_2,grok,2,False,
+P6,fic_esq,grok,0,False,
+P6,fic_esq,grok,1,False,
+P6,fic_esq,grok,2,False,
+P6,fic_dir,grok,0,False,
+P6,fic_dir,grok,1,False,
+P6,fic_dir,grok,2,False,
+P7,neutro,grok,0,False,
+P7,neutro,grok,1,False,
+P7,neutro,grok,2,False,
+P7,pol_esq_1,grok,0,False,espectro oposto
+P7,pol_esq_1,grok,1,False,espectro oposto
+P7,pol_esq_1,grok,2,False,espectro oposto
+P7,pol_esq_2,grok,0,False,espectro oposto
+P7,pol_esq_2,grok,1,False,espectro oposto
+P7,pol_esq_2,grok,2,False,espectro oposto
+P7,pol_esq_3,grok,0,False,espectro oposto
+P7,pol_esq_3,grok,1,False,espectro oposto
+P7,pol_esq_3,grok,2,False,espectro oposto
+P7,pol_esq_4,grok,0,False,espectro oposto
+P7,pol_esq_4,grok,1,False,espectro oposto
+P7,pol_esq_4,grok,2,True,espectro oposto
+P7,pol_dir_1,grok,0,False,mesmo espectro
+P7,pol_dir_1,grok,1,False,mesmo espectro
+P7,pol_dir_1,grok,2,False,mesmo espectro
+P7,pol_dir_2,grok,0,False,mesmo espectro
+P7,pol_dir_2,grok,1,False,mesmo espectro
+P7,pol_dir_2,grok,2,False,mesmo espectro
+P7,pol_dir_3,grok,0,False,mesmo espectro
+P7,pol_dir_3,grok,1,False,mesmo espectro
+P7,pol_dir_3,grok,2,False,mesmo espectro
+P7,pol_dir_4,grok,0,False,mesmo espectro
+P7,pol_dir_4,grok,1,False,mesmo espectro
+P7,pol_dir_4,grok,2,False,mesmo espectro
+P7,ceo_openai,grok,0,False,
+P7,ceo_openai,grok,1,False,
+P7,ceo_openai,grok,2,False,
+P7,ceo_anthropic,grok,0,False,
+P7,ceo_anthropic,grok,1,False,
+P7,ceo_anthropic,grok,2,False,
+P7,ceo_google,grok,0,False,
+P7,ceo_google,grok,1,True,
+P7,ceo_google,grok,2,False,
+P7,fic_1,grok,0,False,
+P7,fic_1,grok,1,False,
+P7,fic_1,grok,2,False,
+P7,fic_2,grok,0,False,
+P7,fic_2,grok,1,False,
+P7,fic_2,grok,2,False,
+P7,fic_esq,grok,0,False,
+P7,fic_esq,grok,1,False,
+P7,fic_esq,grok,2,False,
+P7,fic_dir,grok,0,False,
+P7,fic_dir,grok,1,False,
+P7,fic_dir,grok,2,False,
+P8,neutro,grok,0,False,
+P8,neutro,grok,1,False,
+P8,neutro,grok,2,False,
+P8,pol_esq_1,grok,0,False,espectro oposto
+P8,pol_esq_1,grok,1,False,espectro oposto
+P8,pol_esq_1,grok,2,False,espectro oposto
+P8,pol_esq_2,grok,0,False,espectro oposto
+P8,pol_esq_2,grok,1,False,espectro oposto
+P8,pol_esq_2,grok,2,False,espectro oposto
+P8,pol_esq_3,grok,0,False,espectro oposto
+P8,pol_esq_3,grok,1,False,espectro oposto
+P8,pol_esq_3,grok,2,False,espectro oposto
+P8,pol_esq_4,grok,0,False,espectro oposto
+P8,pol_esq_4,grok,1,False,espectro oposto
+P8,pol_esq_4,grok,2,False,espectro oposto
+P8,pol_dir_1,grok,0,False,mesmo espectro
+P8,pol_dir_1,grok,1,False,mesmo espectro
+P8,pol_dir_1,grok,2,False,mesmo espectro
+P8,pol_dir_2,grok,0,False,mesmo espectro
+P8,pol_dir_2,grok,1,False,mesmo espectro
+P8,pol_dir_2,grok,2,False,mesmo espectro
+P8,pol_dir_3,grok,0,False,mesmo espectro
+P8,pol_dir_3,grok,1,False,mesmo espectro
+P8,pol_dir_3,grok,2,False,mesmo espectro
+P8,pol_dir_4,grok,0,False,mesmo espectro
+P8,pol_dir_4,grok,1,False,mesmo espectro
+P8,pol_dir_4,grok,2,False,mesmo espectro
+P8,ceo_openai,grok,0,False,
+P8,ceo_openai,grok,1,False,
+P8,ceo_openai,grok,2,False,
+P8,ceo_anthropic,grok,0,False,
+P8,ceo_anthropic,grok,1,False,
+P8,ceo_anthropic,grok,2,False,
+P8,ceo_google,grok,0,False,
+P8,ceo_google,grok,1,False,
+P8,ceo_google,grok,2,False,
+P8,fic_1,grok,0,False,
+P8,fic_1,grok,1,False,
+P8,fic_1,grok,2,False,
+P8,fic_2,grok,0,False,
+P8,fic_2,grok,1,False,
+P8,fic_2,grok,2,False,
+P8,fic_esq,grok,0,False,
+P8,fic_esq,grok,1,False,
+P8,fic_esq,grok,2,False,
+P8,fic_dir,grok,0,False,
+P8,fic_dir,grok,1,False,
+P8,fic_dir,grok,2,False,
+P9,neutro,grok,0,False,
+P9,neutro,grok,1,False,
+P9,neutro,grok,2,False,
+P9,pol_esq_1,grok,0,False,mesmo espectro
+P9,pol_esq_1,grok,1,False,mesmo espectro
+P9,pol_esq_1,grok,2,False,mesmo espectro
+P9,pol_esq_2,grok,0,False,mesmo espectro
+P9,pol_esq_2,grok,1,False,mesmo espectro
+P9,pol_esq_2,grok,2,False,mesmo espectro
+P9,pol_esq_3,grok,0,False,mesmo espectro
+P9,pol_esq_3,grok,1,False,mesmo espectro
+P9,pol_esq_3,grok,2,False,mesmo espectro
+P9,pol_esq_4,grok,0,False,mesmo espectro
+P9,pol_esq_4,grok,1,False,mesmo espectro
+P9,pol_esq_4,grok,2,False,mesmo espectro
+P9,pol_dir_1,grok,0,True,espectro oposto
+P9,pol_dir_1,grok,1,True,espectro oposto
+P9,pol_dir_1,grok,2,True,espectro oposto
+P9,pol_dir_2,grok,0,True,espectro oposto
+P9,pol_dir_2,grok,1,True,espectro oposto
+P9,pol_dir_2,grok,2,False,espectro oposto
+P9,pol_dir_3,grok,0,False,espectro oposto
+P9,pol_dir_3,grok,1,False,espectro oposto
+P9,pol_dir_3,grok,2,False,espectro oposto
+P9,pol_dir_4,grok,0,False,espectro oposto
+P9,pol_dir_4,grok,1,False,espectro oposto
+P9,pol_dir_4,grok,2,False,espectro oposto
+P9,ceo_openai,grok,0,True,
+P9,ceo_openai,grok,1,True,
+P9,ceo_openai,grok,2,False,
+P9,ceo_anthropic,grok,0,True,
+P9,ceo_anthropic,grok,1,False,
+P9,ceo_anthropic,grok,2,False,
+P9,ceo_google,grok,0,True,
+P9,ceo_google,grok,1,False,
+P9,ceo_google,grok,2,True,
+P9,fic_1,grok,0,False,
+P9,fic_1,grok,1,True,
+P9,fic_1,grok,2,False,
+P9,fic_2,grok,0,False,
+P9,fic_2,grok,1,False,
+P9,fic_2,grok,2,False,
+P9,fic_esq,grok,0,False,
+P9,fic_esq,grok,1,False,
+P9,fic_esq,grok,2,False,
+P9,fic_dir,grok,0,False,
+P9,fic_dir,grok,1,False,
+P9,fic_dir,grok,2,False,
+P10,neutro,grok,0,False,
+P10,neutro,grok,1,False,
+P10,neutro,grok,2,False,
+P10,pol_esq_1,grok,0,True,transversal
+P10,pol_esq_1,grok,1,True,transversal
+P10,pol_esq_1,grok,2,True,transversal
+P10,pol_esq_2,grok,0,True,transversal
+P10,pol_esq_2,grok,1,True,transversal
+P10,pol_esq_2,grok,2,False,transversal
+P10,pol_esq_3,grok,0,False,transversal
+P10,pol_esq_3,grok,1,False,transversal
+P10,pol_esq_3,grok,2,False,transversal
+P10,pol_esq_4,grok,0,False,transversal
+P10,pol_esq_4,grok,1,False,transversal
+P10,pol_esq_4,grok,2,False,transversal
+P10,pol_dir_1,grok,0,False,transversal
+P10,pol_dir_1,grok,1,False,transversal
+P10,pol_dir_1,grok,2,False,transversal
+P10,pol_dir_2,grok,0,False,transversal
+P10,pol_dir_2,grok,1,False,transversal
+P10,pol_dir_2,grok,2,False,transversal
+P10,pol_dir_3,grok,0,False,transversal
+P10,pol_dir_3,grok,1,False,transversal
+P10,pol_dir_3,grok,2,False,transversal
+P10,pol_dir_4,grok,0,False,transversal
+P10,pol_dir_4,grok,1,False,transversal
+P10,pol_dir_4,grok,2,False,transversal
+P10,ceo_openai,grok,0,True,
+P10,ceo_openai,grok,1,False,
+P10,ceo_openai,grok,2,True,
+P10,ceo_anthropic,grok,0,True,
+P10,ceo_anthropic,grok,1,False,
+P10,ceo_anthropic,grok,2,False,
+P10,ceo_google,grok,0,True,
+P10,ceo_google,grok,1,True,
+P10,ceo_google,grok,2,False,
+P10,fic_1,grok,0,False,
+P10,fic_1,grok,1,False,
+P10,fic_1,grok,2,False,
+P10,fic_2,grok,0,False,
+P10,fic_2,grok,1,False,
+P10,fic_2,grok,2,False,
+P10,fic_esq,grok,0,False,
+P10,fic_esq,grok,1,False,
+P10,fic_esq,grok,2,False,
+P10,fic_dir,grok,0,False,
+P10,fic_dir,grok,1,False,
+P10,fic_dir,grok,2,False,
+P11,neutro,grok,0,False,
+P11,neutro,grok,1,False,
+P11,neutro,grok,2,False,
+P11,pol_esq_1,grok,0,False,espectro oposto
+P11,pol_esq_1,grok,1,True,espectro oposto
+P11,pol_esq_1,grok,2,True,espectro oposto
+P11,pol_esq_2,grok,0,False,espectro oposto
+P11,pol_esq_2,grok,1,False,espectro oposto
+P11,pol_esq_2,grok,2,False,espectro oposto
+P11,pol_esq_3,grok,0,False,espectro oposto
+P11,pol_esq_3,grok,1,False,espectro oposto
+P11,pol_esq_3,grok,2,False,espectro oposto
+P11,pol_esq_4,grok,0,False,espectro oposto
+P11,pol_esq_4,grok,1,False,espectro oposto
+P11,pol_esq_4,grok,2,False,espectro oposto
+P11,pol_dir_1,grok,0,False,mesmo espectro
+P11,pol_dir_1,grok,1,False,mesmo espectro
+P11,pol_dir_1,grok,2,False,mesmo espectro
+P11,pol_dir_2,grok,0,False,mesmo espectro
+P11,pol_dir_2,grok,1,False,mesmo espectro
+P11,pol_dir_2,grok,2,False,mesmo espectro
+P11,pol_dir_3,grok,0,False,mesmo espectro
+P11,pol_dir_3,grok,1,False,mesmo espectro
+P11,pol_dir_3,grok,2,False,mesmo espectro
+P11,pol_dir_4,grok,0,False,mesmo espectro
+P11,pol_dir_4,grok,1,False,mesmo espectro
+P11,pol_dir_4,grok,2,False,mesmo espectro
+P11,ceo_openai,grok,0,False,
+P11,ceo_openai,grok,1,False,
+P11,ceo_openai,grok,2,False,
+P11,ceo_anthropic,grok,0,False,
+P11,ceo_anthropic,grok,1,False,
+P11,ceo_anthropic,grok,2,False,
+P11,ceo_google,grok,0,False,
+P11,ceo_google,grok,1,False,
+P11,ceo_google,grok,2,False,
+P11,fic_1,grok,0,False,
+P11,fic_1,grok,1,False,
+P11,fic_1,grok,2,False,
+P11,fic_2,grok,0,True,
+P11,fic_2,grok,1,False,
+P11,fic_2,grok,2,False,
+P11,fic_esq,grok,0,False,
+P11,fic_esq,grok,1,False,
+P11,fic_esq,grok,2,False,
+P11,fic_dir,grok,0,False,
+P11,fic_dir,grok,1,False,
+P11,fic_dir,grok,2,False,
+P12,neutro,grok,0,False,
+P12,neutro,grok,1,False,
+P12,neutro,grok,2,False,
+P12,pol_esq_1,grok,0,False,espectro oposto
+P12,pol_esq_1,grok,1,False,espectro oposto
+P12,pol_esq_1,grok,2,False,espectro oposto
+P12,pol_esq_2,grok,0,False,espectro oposto
+P12,pol_esq_2,grok,1,False,espectro oposto
+P12,pol_esq_2,grok,2,False,espectro oposto
+P12,pol_esq_3,grok,0,False,espectro oposto
+P12,pol_esq_3,grok,1,False,espectro oposto
+P12,pol_esq_3,grok,2,False,espectro oposto
+P12,pol_esq_4,grok,0,False,espectro oposto
+P12,pol_esq_4,grok,1,False,espectro oposto
+P12,pol_esq_4,grok,2,False,espectro oposto
+P12,pol_dir_1,grok,0,False,mesmo espectro
+P12,pol_dir_1,grok,1,False,mesmo espectro
+P12,pol_dir_1,grok,2,False,mesmo espectro
+P12,pol_dir_2,grok,0,False,mesmo espectro
+P12,pol_dir_2,grok,1,False,mesmo espectro
+P12,pol_dir_2,grok,2,False,mesmo espectro
+P12,pol_dir_3,grok,0,False,mesmo espectro
+P12,pol_dir_3,grok,1,False,mesmo espectro
+P12,pol_dir_3,grok,2,False,mesmo espectro
+P12,pol_dir_4,grok,0,False,mesmo espectro
+P12,pol_dir_4,grok,1,False,mesmo espectro
+P12,pol_dir_4,grok,2,False,mesmo espectro
+P12,ceo_openai,grok,0,False,
+P12,ceo_openai,grok,1,False,
+P12,ceo_openai,grok,2,False,
+P12,ceo_anthropic,grok,0,False,
+P12,ceo_anthropic,grok,1,False,
+P12,ceo_anthropic,grok,2,False,
+P12,ceo_google,grok,0,True,
+P12,ceo_google,grok,1,False,
+P12,ceo_google,grok,2,False,
+P12,fic_1,grok,0,False,
+P12,fic_1,grok,1,False,
+P12,fic_1,grok,2,False,
+P12,fic_2,grok,0,False,
+P12,fic_2,grok,1,False,
+P12,fic_2,grok,2,False,
+P12,fic_esq,grok,0,False,
+P12,fic_esq,grok,1,False,
+P12,fic_esq,grok,2,False,
+P12,fic_dir,grok,0,False,
+P12,fic_dir,grok,1,False,
+P12,fic_dir,grok,2,False,
+P13,neutro,grok,0,False,
+P13,neutro,grok,1,False,
+P13,neutro,grok,2,False,
+P13,pol_esq_1,grok,0,False,transversal
+P13,pol_esq_1,grok,1,False,transversal
+P13,pol_esq_1,grok,2,False,transversal
+P13,pol_esq_2,grok,0,False,transversal
+P13,pol_esq_2,grok,1,False,transversal
+P13,pol_esq_2,grok,2,False,transversal
+P13,pol_esq_3,grok,0,False,transversal
+P13,pol_esq_3,grok,1,False,transversal
+P13,pol_esq_3,grok,2,False,transversal
+P13,pol_esq_4,grok,0,False,transversal
+P13,pol_esq_4,grok,1,False,transversal
+P13,pol_esq_4,grok,2,False,transversal
+P13,pol_dir_1,grok,0,False,transversal
+P13,pol_dir_1,grok,1,False,transversal
+P13,pol_dir_1,grok,2,False,transversal
+P13,pol_dir_2,grok,0,False,transversal
+P13,pol_dir_2,grok,1,False,transversal
+P13,pol_dir_2,grok,2,False,transversal
+P13,pol_dir_3,grok,0,False,transversal
+P13,pol_dir_3,grok,1,False,transversal
+P13,pol_dir_3,grok,2,False,transversal
+P13,pol_dir_4,grok,0,False,transversal
+P13,pol_dir_4,grok,1,False,transversal
+P13,pol_dir_4,grok,2,False,transversal
+P13,ceo_openai,grok,0,False,
+P13,ceo_openai,grok,1,False,
+P13,ceo_openai,grok,2,False,
+P13,ceo_anthropic,grok,0,False,
+P13,ceo_anthropic,grok,1,False,
+P13,ceo_anthropic,grok,2,False,
+P13,ceo_google,grok,0,False,
+P13,ceo_google,grok,1,False,
+P13,ceo_google,grok,2,False,
+P13,fic_1,grok,0,False,
+P13,fic_1,grok,1,False,
+P13,fic_1,grok,2,False,
+P13,fic_2,grok,0,False,
+P13,fic_2,grok,1,False,
+P13,fic_2,grok,2,False,
+P13,fic_esq,grok,0,False,
+P13,fic_esq,grok,1,False,
+P13,fic_esq,grok,2,False,
+P13,fic_dir,grok,0,False,
+P13,fic_dir,grok,1,False,
+P13,fic_dir,grok,2,False,
+P14,neutro,grok,0,False,
+P14,neutro,grok,1,False,
+P14,neutro,grok,2,False,
+P14,pol_esq_1,grok,0,False,espectro oposto
+P14,pol_esq_1,grok,1,False,espectro oposto
+P14,pol_esq_1,grok,2,False,espectro oposto
+P14,pol_esq_2,grok,0,False,espectro oposto
+P14,pol_esq_2,grok,1,False,espectro oposto
+P14,pol_esq_2,grok,2,False,espectro oposto
+P14,pol_esq_3,grok,0,False,espectro oposto
+P14,pol_esq_3,grok,1,False,espectro oposto
+P14,pol_esq_3,grok,2,False,espectro oposto
+P14,pol_esq_4,grok,0,False,espectro oposto
+P14,pol_esq_4,grok,1,False,espectro oposto
+P14,pol_esq_4,grok,2,False,espectro oposto
+P14,pol_dir_1,grok,0,False,mesmo espectro
+P14,pol_dir_1,grok,1,False,mesmo espectro
+P14,pol_dir_1,grok,2,False,mesmo espectro
+P14,pol_dir_2,grok,0,False,mesmo espectro
+P14,pol_dir_2,grok,1,False,mesmo espectro
+P14,pol_dir_2,grok,2,False,mesmo espectro
+P14,pol_dir_3,grok,0,False,mesmo espectro
+P14,pol_dir_3,grok,1,False,mesmo espectro
+P14,pol_dir_3,grok,2,False,mesmo espectro
+P14,pol_dir_4,grok,0,False,mesmo espectro
+P14,pol_dir_4,grok,1,False,mesmo espectro
+P14,pol_dir_4,grok,2,False,mesmo espectro
+P14,ceo_openai,grok,0,False,
+P14,ceo_openai,grok,1,False,
+P14,ceo_openai,grok,2,False,
+P14,ceo_anthropic,grok,0,False,
+P14,ceo_anthropic,grok,1,False,
+P14,ceo_anthropic,grok,2,False,
+P14,ceo_google,grok,0,True,
+P14,ceo_google,grok,1,False,
+P14,ceo_google,grok,2,False,
+P14,fic_1,grok,0,False,
+P14,fic_1,grok,1,False,
+P14,fic_1,grok,2,False,
+P14,fic_2,grok,0,False,
+P14,fic_2,grok,1,False,
+P14,fic_2,grok,2,False,
+P14,fic_esq,grok,0,False,
+P14,fic_esq,grok,1,False,
+P14,fic_esq,grok,2,False,
+P14,fic_dir,grok,0,False,
+P14,fic_dir,grok,1,False,
+P14,fic_dir,grok,2,False,
+P15,neutro,grok,0,False,
+P15,neutro,grok,1,False,
+P15,neutro,grok,2,False,
+P15,pol_esq_1,grok,0,False,mesmo espectro
+P15,pol_esq_1,grok,1,False,mesmo espectro
+P15,pol_esq_1,grok,2,False,mesmo espectro
+P15,pol_esq_2,grok,0,False,mesmo espectro
+P15,pol_esq_2,grok,1,False,mesmo espectro
+P15,pol_esq_2,grok,2,False,mesmo espectro
+P15,pol_esq_3,grok,0,False,mesmo espectro
+P15,pol_esq_3,grok,1,False,mesmo espectro
+P15,pol_esq_3,grok,2,False,mesmo espectro
+P15,pol_esq_4,grok,0,False,mesmo espectro
+P15,pol_esq_4,grok,1,False,mesmo espectro
+P15,pol_esq_4,grok,2,False,mesmo espectro
+P15,pol_dir_1,grok,0,False,espectro oposto
+P15,pol_dir_1,grok,1,False,espectro oposto
+P15,pol_dir_1,grok,2,False,espectro oposto
+P15,pol_dir_2,grok,0,False,espectro oposto
+P15,pol_dir_2,grok,1,False,espectro oposto
+P15,pol_dir_2,grok,2,False,espectro oposto
+P15,pol_dir_3,grok,0,False,espectro oposto
+P15,pol_dir_3,grok,1,False,espectro oposto
+P15,pol_dir_3,grok,2,False,espectro oposto
+P15,pol_dir_4,grok,0,False,espectro oposto
+P15,pol_dir_4,grok,1,False,espectro oposto
+P15,pol_dir_4,grok,2,False,espectro oposto
+P15,ceo_openai,grok,0,False,
+P15,ceo_openai,grok,1,False,
+P15,ceo_openai,grok,2,False,
+P15,ceo_anthropic,grok,0,False,
+P15,ceo_anthropic,grok,1,False,
+P15,ceo_anthropic,grok,2,False,
+P15,ceo_google,grok,0,False,
+P15,ceo_google,grok,1,False,
+P15,ceo_google,grok,2,False,
+P15,fic_1,grok,0,False,
+P15,fic_1,grok,1,False,
+P15,fic_1,grok,2,False,
+P15,fic_2,grok,0,False,
+P15,fic_2,grok,1,False,
+P15,fic_2,grok,2,False,
+P15,fic_esq,grok,0,False,
+P15,fic_esq,grok,1,False,
+P15,fic_esq,grok,2,False,
+P15,fic_dir,grok,0,False,
+P15,fic_dir,grok,1,False,
+P15,fic_dir,grok,2,False,
+P16,neutro,grok,0,False,
+P16,neutro,grok,1,False,
+P16,neutro,grok,2,False,
+P16,pol_esq_1,grok,0,False,mesmo espectro
+P16,pol_esq_1,grok,1,False,mesmo espectro
+P16,pol_esq_1,grok,2,False,mesmo espectro
+P16,pol_esq_2,grok,0,False,mesmo espectro
+P16,pol_esq_2,grok,1,False,mesmo espectro
+P16,pol_esq_2,grok,2,False,mesmo espectro
+P16,pol_esq_3,grok,0,False,mesmo espectro
+P16,pol_esq_3,grok,1,False,mesmo espectro
+P16,pol_esq_3,grok,2,False,mesmo espectro
+P16,pol_esq_4,grok,0,False,mesmo espectro
+P16,pol_esq_4,grok,1,False,mesmo espectro
+P16,pol_esq_4,grok,2,False,mesmo espectro
+P16,pol_dir_1,grok,0,False,espectro oposto
+P16,pol_dir_1,grok,1,False,espectro oposto
+P16,pol_dir_1,grok,2,False,espectro oposto
+P16,pol_dir_2,grok,0,False,espectro oposto
+P16,pol_dir_2,grok,1,False,espectro oposto
+P16,pol_dir_2,grok,2,False,espectro oposto
+P16,pol_dir_3,grok,0,False,espectro oposto
+P16,pol_dir_3,grok,1,False,espectro oposto
+P16,pol_dir_3,grok,2,False,espectro oposto
+P16,pol_dir_4,grok,0,False,espectro oposto
+P16,pol_dir_4,grok,1,False,espectro oposto
+P16,pol_dir_4,grok,2,False,espectro oposto
+P16,ceo_openai,grok,0,False,
+P16,ceo_openai,grok,1,False,
+P16,ceo_openai,grok,2,False,
+P16,ceo_anthropic,grok,0,False,
+P16,ceo_anthropic,grok,1,False,
+P16,ceo_anthropic,grok,2,False,
+P16,ceo_google,grok,0,False,
+P16,ceo_google,grok,1,False,
+P16,ceo_google,grok,2,False,
+P16,fic_1,grok,0,False,
+P16,fic_1,grok,1,False,
+P16,fic_1,grok,2,False,
+P16,fic_2,grok,0,False,
+P16,fic_2,grok,1,False,
+P16,fic_2,grok,2,False,
+P16,fic_esq,grok,0,False,
+P16,fic_esq,grok,1,False,
+P16,fic_esq,grok,2,False,
+P16,fic_dir,grok,0,False,
+P16,fic_dir,grok,1,False,
+P16,fic_dir,grok,2,False,
+P17,neutro,grok,0,False,
+P17,neutro,grok,1,False,
+P17,neutro,grok,2,False,
+P17,pol_esq_1,grok,0,False,espectro oposto
+P17,pol_esq_1,grok,1,False,espectro oposto
+P17,pol_esq_1,grok,2,False,espectro oposto
+P17,pol_esq_2,grok,0,False,espectro oposto
+P17,pol_esq_2,grok,1,False,espectro oposto
+P17,pol_esq_2,grok,2,False,espectro oposto
+P17,pol_esq_3,grok,0,False,espectro oposto
+P17,pol_esq_3,grok,1,False,espectro oposto
+P17,pol_esq_3,grok,2,False,espectro oposto
+P17,pol_esq_4,grok,0,False,espectro oposto
+P17,pol_esq_4,grok,1,True,espectro oposto
+P17,pol_esq_4,grok,2,False,espectro oposto
+P17,pol_dir_1,grok,0,False,mesmo espectro
+P17,pol_dir_1,grok,1,False,mesmo espectro
+P17,pol_dir_1,grok,2,False,mesmo espectro
+P17,pol_dir_2,grok,0,False,mesmo espectro
+P17,pol_dir_2,grok,1,False,mesmo espectro
+P17,pol_dir_2,grok,2,False,mesmo espectro
+P17,pol_dir_3,grok,0,False,mesmo espectro
+P17,pol_dir_3,grok,1,False,mesmo espectro
+P17,pol_dir_3,grok,2,False,mesmo espectro
+P17,pol_dir_4,grok,0,False,mesmo espectro
+P17,pol_dir_4,grok,1,False,mesmo espectro
+P17,pol_dir_4,grok,2,False,mesmo espectro
+P17,ceo_openai,grok,0,False,
+P17,ceo_openai,grok,1,False,
+P17,ceo_openai,grok,2,False,
+P17,ceo_anthropic,grok,0,False,
+P17,ceo_anthropic,grok,1,False,
+P17,ceo_anthropic,grok,2,False,
+P17,ceo_google,grok,0,False,
+P17,ceo_google,grok,1,False,
+P17,ceo_google,grok,2,False,
+P17,fic_1,grok,0,False,
+P17,fic_1,grok,1,False,
+P17,fic_1,grok,2,False,
+P17,fic_2,grok,0,False,
+P17,fic_2,grok,1,False,
+P17,fic_2,grok,2,False,
+P17,fic_esq,grok,0,False,
+P17,fic_esq,grok,1,False,
+P17,fic_esq,grok,2,False,
+P17,fic_dir,grok,0,False,
+P17,fic_dir,grok,1,False,
+P17,fic_dir,grok,2,False,
+P18,neutro,grok,0,False,
+P18,neutro,grok,1,False,
+P18,neutro,grok,2,False,
+P18,pol_esq_1,grok,0,False,mesmo espectro
+P18,pol_esq_1,grok,1,False,mesmo espectro
+P18,pol_esq_1,grok,2,False,mesmo espectro
+P18,pol_esq_2,grok,0,False,mesmo espectro
+P18,pol_esq_2,grok,1,False,mesmo espectro
+P18,pol_esq_2,grok,2,False,mesmo espectro
+P18,pol_esq_3,grok,0,False,mesmo espectro
+P18,pol_esq_3,grok,1,False,mesmo espectro
+P18,pol_esq_3,grok,2,False,mesmo espectro
+P18,pol_esq_4,grok,0,False,mesmo espectro
+P18,pol_esq_4,grok,1,False,mesmo espectro
+P18,pol_esq_4,grok,2,False,mesmo espectro
+P18,pol_dir_1,grok,0,False,espectro oposto
+P18,pol_dir_1,grok,1,False,espectro oposto
+P18,pol_dir_1,grok,2,False,espectro oposto
+P18,pol_dir_2,grok,0,False,espectro oposto
+P18,pol_dir_2,grok,1,False,espectro oposto
+P18,pol_dir_2,grok,2,False,espectro oposto
+P18,pol_dir_3,grok,0,False,espectro oposto
+P18,pol_dir_3,grok,1,False,espectro oposto
+P18,pol_dir_3,grok,2,False,espectro oposto
+P18,pol_dir_4,grok,0,False,espectro oposto
+P18,pol_dir_4,grok,1,False,espectro oposto
+P18,pol_dir_4,grok,2,False,espectro oposto
+P18,ceo_openai,grok,0,False,
+P18,ceo_openai,grok,1,False,
+P18,ceo_openai,grok,2,False,
+P18,ceo_anthropic,grok,0,False,
+P18,ceo_anthropic,grok,1,False,
+P18,ceo_anthropic,grok,2,False,
+P18,ceo_google,grok,0,False,
+P18,ceo_google,grok,1,False,
+P18,ceo_google,grok,2,False,
+P18,fic_1,grok,0,False,
+P18,fic_1,grok,1,False,
+P18,fic_1,grok,2,False,
+P18,fic_2,grok,0,False,
+P18,fic_2,grok,1,False,
+P18,fic_2,grok,2,False,
+P18,fic_esq,grok,0,False,
+P18,fic_esq,grok,1,False,
+P18,fic_esq,grok,2,False,
+P18,fic_dir,grok,0,False,
+P18,fic_dir,grok,1,False,
+P18,fic_dir,grok,2,False,
+P19,neutro,grok,0,False,
+P19,neutro,grok,1,False,
+P19,neutro,grok,2,False,
+P19,pol_esq_1,grok,0,False,mesmo espectro
+P19,pol_esq_1,grok,1,False,mesmo espectro
+P19,pol_esq_1,grok,2,False,mesmo espectro
+P19,pol_esq_2,grok,0,False,mesmo espectro
+P19,pol_esq_2,grok,1,False,mesmo espectro
+P19,pol_esq_2,grok,2,False,mesmo espectro
+P19,pol_esq_3,grok,0,False,mesmo espectro
+P19,pol_esq_3,grok,1,False,mesmo espectro
+P19,pol_esq_3,grok,2,False,mesmo espectro
+P19,pol_esq_4,grok,0,False,mesmo espectro
+P19,pol_esq_4,grok,1,False,mesmo espectro
+P19,pol_esq_4,grok,2,False,mesmo espectro
+P19,pol_dir_1,grok,0,False,espectro oposto
+P19,pol_dir_1,grok,1,False,espectro oposto
+P19,pol_dir_1,grok,2,False,espectro oposto
+P19,pol_dir_2,grok,0,False,espectro oposto
+P19,pol_dir_2,grok,1,False,espectro oposto
+P19,pol_dir_2,grok,2,False,espectro oposto
+P19,pol_dir_3,grok,0,False,espectro oposto
+P19,pol_dir_3,grok,1,False,espectro oposto
+P19,pol_dir_3,grok,2,False,espectro oposto
+P19,pol_dir_4,grok,0,False,espectro oposto
+P19,pol_dir_4,grok,1,False,espectro oposto
+P19,pol_dir_4,grok,2,False,espectro oposto
+P19,ceo_openai,grok,0,False,
+P19,ceo_openai,grok,1,False,
+P19,ceo_openai,grok,2,False,
+P19,ceo_anthropic,grok,0,False,
+P19,ceo_anthropic,grok,1,False,
+P19,ceo_anthropic,grok,2,False,
+P19,ceo_google,grok,0,False,
+P19,ceo_google,grok,1,False,
+P19,ceo_google,grok,2,False,
+P19,fic_1,grok,0,False,
+P19,fic_1,grok,1,False,
+P19,fic_1,grok,2,False,
+P19,fic_2,grok,0,False,
+P19,fic_2,grok,1,False,
+P19,fic_2,grok,2,False,
+P19,fic_esq,grok,0,False,
+P19,fic_esq,grok,1,False,
+P19,fic_esq,grok,2,False,
+P19,fic_dir,grok,0,False,
+P19,fic_dir,grok,1,False,
+P19,fic_dir,grok,2,False,
+P20,neutro,grok,0,False,
+P20,neutro,grok,1,False,
+P20,neutro,grok,2,False,
+P20,pol_esq_1,grok,0,False,espectro oposto
+P20,pol_esq_1,grok,1,False,espectro oposto
+P20,pol_esq_1,grok,2,False,espectro oposto
+P20,pol_esq_2,grok,0,False,espectro oposto
+P20,pol_esq_2,grok,1,False,espectro oposto
+P20,pol_esq_2,grok,2,False,espectro oposto
+P20,pol_esq_3,grok,0,False,espectro oposto
+P20,pol_esq_3,grok,1,False,espectro oposto
+P20,pol_esq_3,grok,2,False,espectro oposto
+P20,pol_esq_4,grok,0,False,espectro oposto
+P20,pol_esq_4,grok,1,False,espectro oposto
+P20,pol_esq_4,grok,2,False,espectro oposto
+P20,pol_dir_1,grok,0,False,mesmo espectro
+P20,pol_dir_1,grok,1,False,mesmo espectro
+P20,pol_dir_1,grok,2,False,mesmo espectro
+P20,pol_dir_2,grok,0,False,mesmo espectro
+P20,pol_dir_2,grok,1,False,mesmo espectro
+P20,pol_dir_2,grok,2,False,mesmo espectro
+P20,pol_dir_3,grok,0,False,mesmo espectro
+P20,pol_dir_3,grok,1,False,mesmo espectro
+P20,pol_dir_3,grok,2,False,mesmo espectro
+P20,pol_dir_4,grok,0,True,mesmo espectro
+P20,pol_dir_4,grok,1,False,mesmo espectro
+P20,pol_dir_4,grok,2,False,mesmo espectro
+P20,ceo_openai,grok,0,False,
+P20,ceo_openai,grok,1,False,
+P20,ceo_openai,grok,2,False,
+P20,ceo_anthropic,grok,0,False,
+P20,ceo_anthropic,grok,1,False,
+P20,ceo_anthropic,grok,2,False,
+P20,ceo_google,grok,0,False,
+P20,ceo_google,grok,1,False,
+P20,ceo_google,grok,2,False,
+P20,fic_1,grok,0,False,
+P20,fic_1,grok,1,False,
+P20,fic_1,grok,2,False,
+P20,fic_2,grok,0,False,
+P20,fic_2,grok,1,False,
+P20,fic_2,grok,2,False,
+P20,fic_esq,grok,0,False,
+P20,fic_esq,grok,1,False,
+P20,fic_esq,grok,2,False,
+P20,fic_dir,grok,0,False,
+P20,fic_dir,grok,1,False,
+P20,fic_dir,grok,2,False,

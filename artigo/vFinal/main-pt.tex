@@ -27,23 +27,48 @@
 
 \raggedbottom % sem isto, a classe estica os espaços entre parágrafos
 
+% Ajustes de espaço para caber em 4 páginas (não mudam o conteúdo):
+% espaço entre os blocos de autores (6pt na classe) e entre as referências.
+\makeatletter
+\renewcommand{\affil}[1]{\par\noindent\affilfont#1\par\vskip2pt}
+\makeatother
+\AtBeginDocument{\setlength{\bibsep}{0pt}}
+
 % \jid precisa ter algum valor: vazio, a classe imprime "ISSN:" sem número
 \jid{WPOS}
 \jtitle{WPOS 2026 --- Departamento de Ciência da Computação, UnB}
 \jyear{2026}
+\copyrightstatement{This work is licensed under a Creative Commons Attribution 4.0 International License}
 
 \category{Artigo de Pesquisa/Research Paper}
 \title[Guardrail de neutralidade e autoria atribuída]{O \textit{guardrail} de neutralidade de LLMs é invariante à autoria atribuída?}
 \engtitle{\textcolor{engtitle}{Is the neutrality guardrail of LLMs invariant to attributed authorship?}}
 
+% Como no template: um autor por bloco, nome em cima e e-mail embaixo. A
+% instituição (com o ROR) aparece uma vez só, no fim, porque é a mesma para todos.
 \author[Albuquerque et al. 2026]{
-\affil{\textbf{Caio Albuquerque}~(\href{mailto:242034518@aluno.unb.br}{\textit{242034518@aluno.unb.br}}),
-\textbf{Davi Bragança}~(\href{mailto:242001473@aluno.unb.br}{\textit{242001473@aluno.unb.br}}),
-\textbf{Eric Harris}~(\href{mailto:242001482@aluno.unb.br}{\textit{242001482@aluno.unb.br}}),
-\\\textbf{Lucas Fonseca}~(\href{mailto:241020750@aluno.unb.br}{\textit{241020750@aluno.unb.br}}),
-\textbf{Patricia Araujo de Oliveira}~(\href{mailto:patricia.oliveira@unb.br}{\textit{patricia.oliveira@unb.br}})
-\\Departamento de Ciência da Computação, Universidade de Brasília (UnB)}
+
+\affil{\textbf{Caio Albuquerque}
+\\\href{mailto:242034518@aluno.unb.br}{\textit{242034518@aluno.unb.br}}}
+
+\affil{\textbf{Davi Bragança}
+\\\href{mailto:242001473@aluno.unb.br}{\textit{242001473@aluno.unb.br}}}
+
+\affil{\textbf{Eric Harris}
+\\\href{mailto:242001482@aluno.unb.br}{\textit{242001482@aluno.unb.br}}}
+
+\affil{\textbf{Lucas Fonseca}
+\\\href{mailto:241020750@aluno.unb.br}{\textit{241020750@aluno.unb.br}}}
+
+\affil{\textbf{Patricia Araujo de Oliveira}
+\\\href{mailto:patricia.oliveira@unb.br}{\textit{patricia.oliveira@unb.br}}}
+
+\affil{Departamento de Ciência da Computação, Universidade de Brasília~\ror{02xfp8v59}}
+
 }
+% Se passar de 4 páginas, versão compacta (nome e e-mail na mesma linha):
+% \affil{\textbf{Caio Albuquerque}~~\href{mailto:242034518@aluno.unb.br}{\textit{242034518@aluno.unb.br}}}
+% (idem para os demais autores; a linha da instituição continua igual)
 
 \begin{document}
 
@@ -102,6 +127,7 @@ Language models, guardrails, political neutrality, AI auditing
 % figuras de duas colunas só aparecem a partir da página seguinte à definição.
 \begin{figure*}[t]
 \centering
+\scalebox{0.9}{%
 \begin{tikzpicture}[font=\footnotesize, >={Stealth[length=2mm]},
   box/.style={draw, rounded corners, align=center, inner sep=4pt,
               minimum height=9mm}, node distance=7mm]
@@ -114,7 +140,7 @@ Language models, guardrails, political neutrality, AI auditing
  \draw[->] (aut) -- (prompt);
  \draw[->] (prompt) -- (llm);
  \draw[->] (llm) -- (med);
-\end{tikzpicture}
+\end{tikzpicture}}
 \caption{Desenho \textit{within-item}: para cada proposta $P_i$, apenas a autoria
 $A_j$ muda entre as condições, e a resposta é medida em três dimensões. Toda
 comparação é feita dentro da mesma proposta.}
@@ -300,7 +326,7 @@ Figura~\ref{fig:postura} mostra os deslocamentos de postura nos quatro modelos.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{figures/recusa_por_autor.png}
+\includegraphics[width=0.9\columnwidth]{figures/recusa_por_autor.png}
 \caption{Taxa de recusa por autor e modelo. ChatGPT e Claude não recusaram em
 nenhuma condição.}
 \label{fig:recusa}
@@ -308,7 +334,7 @@ nenhuma condição.}
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=\textwidth]{figures/forest_postura.png}
+\includegraphics[width=0.8\textwidth]{figures/forest_postura.png}
 \caption{P1 na postura: $\Delta$ de cada autor em relação ao controle sem autor,
 com intervalo de confiança de 95\%, por modelo.}
 \label{fig:postura}
